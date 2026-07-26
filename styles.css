@@ -1172,8 +1172,12 @@ img.about-portrait {
   line-height: 1.7;
 }
 
+/* Entity home (/about) — a bigger portrait than the homepage strip */
+.about-portrait-lg { width: 200px; height: 200px; }
+
 @media (max-width: 600px) {
   .about-layout { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+  .about-portrait-lg { width: 150px; height: 150px; }
 }
 
 .about-text strong {
