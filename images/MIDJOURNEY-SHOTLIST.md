@@ -151,3 +151,18 @@ serves more than one company, and the port runs fine without them.
 
 Conversion: `magick SRC -strip -colors 256 -dither None PNG8:DEST` (378KB, no
 visible banding). `pngquant` is not installed on this machine; ImageMagick is.
+
+## 10. `/ai-operations` — the unclaimed flank ✅ DONE (`ai-operations-hero.png`, 2026-07-27)
+
+**Idea to carry:** rules encoded into the infrastructure so most of the work routes
+itself, and a person only for the exception. Which is literally the DRVN story the
+page tells — what the agent may change on its own vs. what it flags.
+
+> a busy freight rail sorting yard seen from beside the tracks, dozens of wagons
+> routing themselves through automated track switches that throw on their own,
+> signal lights and lamps along the rails, one single wagon held on a short side
+> track beside a small lit signal cabin where a keeper watches from the window,
+> harbor cranes and a terraced town in the background, [style suffix] --ar 16:9
+
+Deliberately not a harbor-pilot or hillside-climbing composition — those are the
+fractional-COO guide and `/work-with-me`, and the set was starting to repeat itself.
