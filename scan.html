@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- Google Tag Manager: production host only, so local and preview work stays out of GA4 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];
+var h=w.location.hostname;if(h!=='shanegring.com'&&h!=='www.shanegring.com'&&w.location.search.indexOf('gtm_debug')<0)return;
+w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -417,6 +419,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     statusEl.textContent = msg;
   }
 
+  // Bare host of whatever they typed, for the scan events. Never the email.
+  function hostOf(url) {
+    try { return new URL(/^https?:\/\//i.test(url) ? url : 'https://' + url).hostname; }
+    catch (e) { return 'unparsed'; }
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var url = document.getElementById('sr-url').value.trim();
@@ -427,6 +435,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     form.classList.add('sr-form-busy');
     resultEl.hidden = true;
     startLoader(url);
+    if (window.sgTrack) window.sgTrack('scan_start', { scanned_host: hostOf(url) });
 
     // Hard client timeout: the server worst-case is ~85s with every retry
     // firing, so give up at 90s with an honest message and a live form.
@@ -446,15 +455,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       form.classList.remove('sr-form-busy');
       if (!r.ok || !r.body || r.body.error) {
         showError((r.body && r.body.error) || 'Something went wrong reading that site. Check the URL and try again.');
+        if (window.sgTrack) window.sgTrack('scan_error', { scanned_host: hostOf(url), reason: 'server' });
         return;
       }
       stopLoader();
       statusEl.hidden = true;
       render(r.body);
+      if (window.sgTrack) {
+        window.sgTrack('scan_complete', {
+          scanned_host: hostOf(url),
+          scan_score: parseInt(r.body.overall, 10) || 0
+        });
+      }
     }).catch(function (err) {
       clearTimeout(killTimer);
       submitBtn.disabled = false;
       form.classList.remove('sr-form-busy');
+      if (window.sgTrack) {
+        window.sgTrack('scan_error', {
+          scanned_host: hostOf(url),
+          reason: err && err.name === 'AbortError' ? 'timeout' : 'network'
+        });
+      }
       showError(err && err.name === 'AbortError'
         ? 'The scan is taking longer than it should. Give it a minute and try again — or email me and I’ll run it by hand.'
         : 'Couldn’t reach the scanner. Give it a moment and try again.');
@@ -464,5 +486,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
 <script src="/nav.js" defer></script>
+<script src="/track.js" defer></script>
 </body>
 </html>

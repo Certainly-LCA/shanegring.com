@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- Google Tag Manager: production host only, so local and preview work stays out of GA4 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];
+var h=w.location.hostname;if(h!=='shanegring.com'&&h!=='www.shanegring.com'&&w.location.search.indexOf('gtm_debug')<0)return;
+w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -41,6 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {"@type":"Article","headline":"Can AI read your website? How to find out in ten minutes","url":"https://shanegring.com/guides/can-ai-read-my-website"},
 {"@type":"Article","headline":"Why your website isn't bringing in clients (it's rarely the design)","url":"https://shanegring.com/guides/why-your-website-isnt-bringing-in-clients"},
 {"@type":"Article","headline":"Everything in your business still runs through you. Here's how that ends.","url":"https://shanegring.com/guides/everything-runs-through-you"},
+{"@type":"Article","headline":"What is a fractional COO? A plain answer, and how to tell if you need one.","url":"https://shanegring.com/guides/what-is-a-fractional-coo"},
 {"@type":"Article","headline":"Thinking about a website redesign? Read this first.","url":"https://shanegring.com/guides/redesign-wont-fix-it"},
 {"@type":"Article","headline":"Your website was true the day it launched. Then the business moved.","url":"https://shanegring.com/guides/your-website-was-true-at-launch"},
 {"@type":"Article","headline":"Your site needs a content layer, not more blog posts","url":"https://shanegring.com/guides/build-a-content-layer"},
@@ -242,6 +245,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           how the way out actually works.
         </div>
         </li>
+        <li class="guide-item">
+          <!-- Awaiting a hero image. Once /images/guides/what-is-a-fractional-coo.png
+               exists, uncomment the thumb below (and the og:image tags on the guide)
+               so the card matches the rest of the list.
+          <a class="guide-thumb" href="/guides/what-is-a-fractional-coo" tabindex="-1" aria-hidden="true"><img src="/images/guides/what-is-a-fractional-coo.png" alt="" width="1456" height="816" loading="lazy"></a>
+          -->
+          <div class="guide-item-text"><strong><a href="/guides/what-is-a-fractional-coo">What is a
+          fractional COO?</a></strong> The plain answer, the four roles
+          it gets confused with, how to tell if you're ready — and the
+          three cases where you shouldn't hire one.
+        </div>
+        </li>
       </ul>
     </div>
   </section>
@@ -277,5 +292,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script src="/nav.js" defer></script>
+<script src="/track.js" defer></script>
 </body>
 </html>
