@@ -1648,6 +1648,17 @@ img.om-hero-img {
   margin-bottom: 0;
 }
 
+/* .om-section p carries bottom margin only, so a paragraph that follows a
+   non-paragraph block sits flush against it. Restore the rhythm for the three
+   adjacencies where that actually happens: the card grid, the comparison
+   rows, and a trailing note under a CTA button. 1.7rem matches the space
+   above .om-cards, so those blocks sit evenly. */
+.om-section .om-cards + p,
+.om-section .om-compare + p,
+.om-section .btn-primary + p {
+  margin-top: 1.7rem;
+}
+
 .om-section strong {
   color: var(--fg);
   font-weight: 600;
