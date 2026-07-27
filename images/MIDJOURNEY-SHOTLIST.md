@@ -128,3 +128,26 @@ Objects (each echoes its page's hero scene):
 
 Tips: generate all five in one session; reroll drifters with `--seed` from the best
 job; `--stylize 50` keeps MJ literal instead of illustrative.
+
+---
+
+## 9. Guide heroes — `images/guides/*.png`
+
+Same style suffix, `--ar 16:9`, exported 1456x816 and quantized to PNG8 (~380–460KB)
+so they sit alongside the offer heroes. The first ten were generated in one pass on
+2026-07-14 and their prompts were never recorded — only the `og:image:alt` on each
+guide page survives as a description of the scene. Log new ones here.
+
+### `what-is-a-fractional-coo.png` ✅ DONE (2026-07-27)
+
+**Idea to carry:** a senior specialist who comes aboard for the hard passage and then
+leaves — the ship was never theirs, and there is another one waiting. Part-time,
+serves more than one company, and the port runs fine without them.
+
+> a harbor pilot cutter pulling away from a large cargo ship that continues under
+> its own power into a busy well-run port, cranes working and lamps lit along the
+> quay, the small cutter already turning toward a second ship waiting outside the
+> harbor mouth, terraced town rising behind, [style suffix] --ar 16:9
+
+Conversion: `magick SRC -strip -colors 256 -dither None PNG8:DEST` (378KB, no
+visible banding). `pngquant` is not installed on this machine; ImageMagick is.
