@@ -166,3 +166,17 @@ page tells — what the agent may change on its own vs. what it flags.
 
 Deliberately not a harbor-pilot or hillside-climbing composition — those are the
 fractional-COO guide and `/work-with-me`, and the set was starting to repeat itself.
+
+### `claude-in-chrome-stop-screenshots.png` ✅ DONE (2026-07-28)
+
+**Idea to carry:** driving by the map instead of by looking. The operator sets routes
+from the illuminated board alone and never looks out the window. The render's window
+came back split — daylight clouds on one pane, lamplit night on the other — kept on
+purpose: it's surreal, but the clouds are the house motif and the split reads as
+"the view doesn't matter." Wired into the guide page hero, the `/guides/` thumb, and
+og:image. 301KB PNG8 via the standard magick conversion.
+
+> a night railway signal box interior seen from behind the operator, a large
+> illuminated track diagram board showing every route and switch as glowing lines,
+> the operator setting a route by lever from the board alone while the window shows
+> only darkness and lamps outside, warm cabin light, [style suffix] --ar 16:9

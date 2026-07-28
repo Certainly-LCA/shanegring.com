@@ -51,6 +51,7 @@ Plain-language answers to the questions behind founder-dependent websites, writt
 - [What is a fractional COO?](https://shanegring.com/guides/what-is-a-fractional-coo) — the definition, how the role differs from interim COO, ops manager and outsourced ops, when you need one and when you don't.
 - [A redesign won't fix it](https://shanegring.com/guides/redesign-wont-fix-it) — redesign versus rebuild, and how to tell which you need.
 - [Your website was true at launch](https://shanegring.com/guides/your-website-was-true-at-launch) — keeping the site matched to the business as it moves.
+- [Stop Claude in Chrome from driving by screenshots](https://shanegring.com/guides/claude-in-chrome-stop-screenshots) — the standing CLAUDE.md rule that makes browser automation drive by accessibility refs instead of screenshot coordinates.
 
 ## Free tools
 
