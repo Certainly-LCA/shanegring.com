@@ -1,0 +1,27 @@
+# Cloudflare Pages redirects.
+#
+# The July 2026 offer restructure renamed every product to "The" plus one
+# noun and moved five URLs. These 301s keep the old URLs, their backlinks,
+# and their accumulated ranking signal pointed at the new ones. Do not
+# remove them: the old names are what search engines and language models
+# learned, and they will keep sending traffic here for a long time.
+#
+# Format is: <from> <to> <status>. First match wins, so order matters.
+# See also the alias block in llms.txt, which does the same job for AI
+# assistants that learned the old offer names.
+
+/operating-map        /map                    301
+/operating-site       /site                   301
+/operating-partner    /partner                301
+/fractional-coo       /seat                   301
+/working-sessions     /session                301
+
+# The Holding Pattern never shipped as its own page, but it was the
+# working name for what is now the Partner's entry tier, and it is the
+# destination for Scan-result traffic. The redirect exists so the name
+# resolves for anyone who saw it.
+/holding-pattern      /partner#site-you-have  301
+
+# AI Operations is absorbed: the front door is now the Install, and the
+# ongoing custom work is the Seat.
+/ai-operations        /install                301
