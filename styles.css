@@ -1251,7 +1251,7 @@ img.about-portrait {
 
 .ity-close strong { color: var(--fg); font-weight: 600; }
 
-/* Homepage: the Fractional COO option, sitting outside the numbered Path */
+/* Homepage: the Seat option, sitting outside the numbered Path */
 .shape-item-aside { border-top: 1px solid var(--border-strong); }
 .shape-aside-tag {
   display: inline-block;
@@ -2015,7 +2015,7 @@ img.om-hero-img {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   FROM THERE (engagement shapes that follow the Operating Map)
+   FROM THERE (engagement shapes that follow the Map)
    ══════════════════════════════════════════════════════════════ */
 .shapes-lede {
   font-size: 1.05rem;
@@ -2087,7 +2087,7 @@ img.shape-icon {
   border-bottom: 1px solid var(--border);
 }
 
-/* Featured item (Operating Map) — full-width card treatment that breaks
+/* Featured item (Map) — full-width card treatment that breaks
    the 2-column rhythm of the list. Visually anchors it as "start here". */
 .shape-item.shape-item-featured {
   display: block;
