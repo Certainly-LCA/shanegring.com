@@ -61,3 +61,35 @@
     rt = setTimeout(closeAll, 150);
   });
 })();
+
+/* Fragment-scroll fallback.
+   `scroll-behavior: smooth` on <html> makes Chrome drop the initial fragment
+   scroll on a fresh page load: /partner#site-you-have and /site#inquiry both
+   land at the top of the page instead of at the section. This predates the
+   offer restructure, but it started mattering with it — /holding-pattern
+   301s to /partner#site-you-have, and that is where Scan traffic lands.
+
+   Only corrects the case the browser got wrong (still parked at the top).
+   If the reader has already scrolled, leave them alone. */
+(function () {
+  var hash = window.location.hash;
+  if (!hash || hash.length < 2) return;
+
+  var id;
+  try { id = decodeURIComponent(hash.slice(1)); } catch (e) { id = hash.slice(1); }
+  if (!id) return;
+
+  var done = false;
+  function apply() {
+    if (done) return;
+    done = true;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var se = document.scrollingElement || document.documentElement;
+    if (se.scrollTop > 4) return; // browser (or reader) already moved us
+    el.scrollIntoView({ block: 'start', behavior: 'instant' });
+  }
+
+  if (document.readyState === 'complete') setTimeout(apply, 0);
+  else window.addEventListener('load', function () { setTimeout(apply, 0); });
+})();
