@@ -3626,3 +3626,55 @@ footer .container {
 
 /* Offer-page hero eyebrow takes the rung's deep tone */
 body[class*="offer-"] .om-hero .section-eyebrow { color: var(--offer-deep, var(--dim)); }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Comparison table. The Partner's two tiers and the eight-offer table on
+   /work-with-me both need a real matrix, which om-compare (a two-column
+   label/description list) can't carry. Same tokens, same border language;
+   scrolls inside itself on narrow screens so the page body never does.
+   ────────────────────────────────────────────────────────────────────────── */
+.om-table-wrap {
+  margin-top: 1.7rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.om-table {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.om-table th,
+.om-table td {
+  text-align: left;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--mid);
+}
+.om-table thead th {
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+.om-table tbody th {
+  font-weight: 500;
+  color: var(--fg);
+}
+.om-table tbody tr:last-child th,
+.om-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.om-table .om-table-price {
+  color: var(--fg);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.om-table-note {
+  margin-top: 1.1rem;
+  max-width: 720px;
+  line-height: 1.7;
+}
