@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56" role="img" aria-hidden="true">
-  <!-- PLACEHOLDER ART. Stand-in for the track 2 icon so the layout can be judged.
-       Replace with real pixel art in the house style before this ships. -->
-  <rect x="3" y="3" width="50" height="50" rx="8" fill="#fafafa" stroke="#d4d4d4" stroke-width="2" stroke-dasharray="5 4"/>
-  <text x="28" y="37" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Inter, Segoe UI, system-ui, sans-serif" font-size="24" font-weight="600" fill="#a3a3a3">2</text>
-</svg>

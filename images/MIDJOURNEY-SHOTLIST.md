@@ -277,3 +277,41 @@ transparent, and deliver as PNG alongside the existing `icons/*.png`.
 
 Full-res URL pattern: `https://cdn.midjourney.com/<job>/0_<index>.png`
 
+
+## 14. The three missing offer icons ⬜ TO GENERATE (`icons/seat|install|session.png`)
+
+The restructure left `/work-with-me` inconsistent: Scan, Read, Map, Site and
+Partner carry a `path-mark` icon and the Seat, Install and Session do not. Worst
+inside bucket two, where the Seat sits bare beside three offers that have one.
+
+Same recipe as section 6 (the v2 Path icons): flat, front-facing, one colour each,
+`--stylize 50`, downscaled to 112x112 with the white knocked out to transparent.
+The five-rung ramp ran cool diagnostics to warm build-and-run, so these continue
+it — the Seat deepest since it is the largest done-for-you commitment, and the two
+learn-it-yourself offers in a green that sits outside the ramp entirely.
+
+**Shared suffix (palette swapped per icon):**
+
+```
+simple pixel art icon, chunky 16x16-style pixel sprite, thick blocky pixels, flat
+[PALETTE] on a plain white background, single centered object, retro videogame
+inventory icon, no text, no border --ar 1:1 --stylize 50
+```
+
+1. **The Seat** — `a high-backed office chair seen from the front,`
+   palette: `deep burgundy palette (#7d2b3a, #9c3a4c, #b85266)`
+   Literal on purpose: the offer is named for the seat, and a chair reads at 22px
+   where anything more abstract will not.
+2. **The Install** — `a power plug going into a wall socket,`
+   palette: `forest green palette (#2f6b46, #3d8a5a, #52a872)`
+   "Installed and running" in one shape. A laptop or terminal window was the
+   obvious choice and was dropped — a screen at 22px is a grey rectangle, and
+   crossed tools already carry the do-it-yourself idea on the track icon.
+3. **The Session** — `a single speech bubble,`
+   palette: `sage green palette (#5a7d5a, #6f976f, #8bb08b)`
+   One call, one problem. Kept in the same green family as the Install so the two
+   learn-it-yourself offers read as siblings.
+
+Alternative if these are not worth generating: strip the `path-mark` images from
+the five offers that have them on `/work-with-me` so all eight match. Cheaper, but
+loses the colour coding the Path already established.
