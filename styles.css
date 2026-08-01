@@ -3678,3 +3678,25 @@ body[class*="offer-"] .om-hero .section-eyebrow { color: var(--offer-deep, var(-
   max-width: 720px;
   line-height: 1.7;
 }
+
+/* Homepage self-identification tracks — three across, CTA pinned to the
+   bottom so the cards line up regardless of how long each summary runs. */
+.ways-tracks .om-card {
+  display: flex;
+  flex-direction: column;
+}
+.ways-tracks .om-card h3 {
+  font-size: 1.12rem;
+  line-height: 1.35;
+  margin-bottom: 0.7rem;
+}
+.ways-tracks .om-card p {
+  flex: 1 1 auto;
+  margin: 0 0 1rem;
+}
+.ways-tracks .shape-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.9rem;
+}
+.ways-tracks .path-item-cta { margin-top: auto; }

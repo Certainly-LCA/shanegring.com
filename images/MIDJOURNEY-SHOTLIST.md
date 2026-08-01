@@ -12,8 +12,13 @@ style references instead):
 detailed 16-bit pixel art illustration, SNES-era videogame aesthetic, crisp pixel
 clusters, muted blue-gray and cream palette with warm orange and teal accents, soft
 daytime light, large cumulus clouds, clean composition, no text, no lettering
---ar 16:9 --sref https://shanegring.com/images/hero.png https://shanegring.com/images/operating-map-hero.png
+--ar 16:9 --sref https://shanegring.com/images/hero.png https://shanegring.com/images/map-hero.png
 ```
+
+> **Note (2026-07-31):** the second `--sref` used to be `operating-map-hero.png`. The
+> offer restructure renamed it to `map-hero.png`, so the old URL 404s once that ships.
+> `hero.png` is untouched. If you generate before the rename is live on production,
+> the old filename still resolves — but log new work against the new one.
 
 Export notes: placeholders are 16:9; export ~2464px wide for retina. The CSS renders
 these with `image-rendering: pixelated`, so downscale with nearest-neighbor if needed.
@@ -180,3 +185,45 @@ og:image. 301KB PNG8 via the standard magick conversion.
 > illuminated track diagram board showing every route and switch as glowing lines,
 > the operator setting a route by lever from the board alone while the window shows
 > only darkness and lamps outside, warm cabin light, [style suffix] --ar 16:9
+
+---
+
+## 11. `/install` — the Install hero (`install-hero.png`) ⬜ TO GENERATE
+
+Currently reusing the renamed `ai-operations-hero.png` (the sorting yard), which is a
+picture of automation running itself — the opposite of what this page sells. The
+Install is one day, your hands on the keyboard, and me leaving.
+
+**Idea to carry:** the fit-out is finished, the tools are mounted and in order, the
+owner is running the machine for the first time, and the installer is packing up to
+go. The whole product is that he leaves and it still works.
+
+> a small workshop at the end of a fit-out day, a newly installed workbench with
+> hand tools mounted in neat order on a pegboard wall, the owner standing at the
+> bench running the new machine for the first time with both hands on the controls
+> and a first finished piece in front of him, an installer by the open door
+> shouldering his toolbag about to leave, warm work-lamp light inside, a harbor town
+> and evening sky through the window, [style suffix] --ar 16:9
+
+Deliberately an interior and deliberately not transport infrastructure — the rail and
+harbor motifs are used up (sorting yard, signal box, pilot cutter, station, funicular)
+and the set had started to repeat itself.
+
+## 12. `/guides/install-requirements` (`install-requirements.png`) ⬜ TO GENERATE
+
+No image at all today, which is why the guide is not listed on `/guides/` — the index
+item requires a thumbnail. Generating this unblocks that listing.
+
+**Idea to carry:** the same workshop the morning *before*, everything staged and one
+thing missing. The guide's whole argument is that the day dies in the first two hours
+if a key nobody has is the thing you go looking for at 9:15.
+
+> the same small workshop at dawn before the fit-out begins, a wall-mounted key
+> cabinet standing open beside the door with rows of tagged keys on hooks rendered as
+> abstract color blocks and one hook conspicuously empty, crates and equipment staged
+> on the floor in three separate neat groups ready for the day, the machine still
+> under a dust sheet, cool blue dawn light through the window, [style suffix] --ar 16:9
+
+The three staged groups are the three tiers and the empty hook is the blocking item
+(registrar access). Pairs with #11 as before/after of one room — the guide is the prep
+for that day, so the continuity is the point.
