@@ -227,3 +227,53 @@ if a key nobody has is the thing you go looking for at 9:15.
 The three staged groups are the three tiers and the empty hook is the blocking item
 (registrar access). Pairs with #11 as before/after of one room — the guide is the prep
 for that day, so the continuity is the point.
+
+## 13. Track icons — the three ways in ⬜ TO GENERATE (`icons/track-*.png`)
+
+Replaces the numbered dashed placeholders (`icons/placeholder-{1,2,3}.svg`) now
+sitting on the homepage cards and in the nav dropdown.
+
+Different constraint from the five Path icons above: those each echo their page's
+hero scene, but these must **not** depict a product. The tracks are deliberately
+generic — the reader self-identifies first and meets the offers afterward — so the
+mark has to carry the intent, not the thing being sold.
+
+Colour: the five-rung ramp was cool diagnostics → warm build/run. These three are
+parallel choices rather than a progression, so they read as siblings — teal for
+diagnosis, warm orange for handing it over, cobalt for doing it yourself. Swap the
+palette line per icon rather than using the shared one.
+
+**Shared suffix (palette swapped per icon):**
+
+```
+simple pixel art icon, chunky 16x16-style pixel sprite, thick blocky pixels, flat
+[PALETTE] on a plain white background, single centered object, retro videogame
+inventory icon, no text, no border --ar 1:1 --stylize 50
+```
+
+1. **Find out what's wrong** — `a magnifying glass held over a small document,`
+   palette: `teal palette (#2b8a8a, #3fa9a9, #5fc4c4)`
+2. **Have it done for you** — `a construction hard hat,`
+   palette: `warm orange palette (#d97a2b, #e8933f, #f2ab5c)`
+3. **Learn to do it yourself** — `a wrench and a screwdriver crossed,`
+   palette: `cobalt blue palette (#4a90e2, #5ba3f5, #6bb6ff)`
+
+Legibility is the whole job here — these render at 22px in the nav dropdown and
+44px on the homepage cards, so silhouette beats detail. Hard hat and crossed tools
+both survive 22px; a keyboard was the first choice for #3 and was dropped because
+the key grid turns to mush at that size.
+
+Generate all three in one session so the set matches, and reroll drifters with
+`--seed` from the best job. Downscale nearest-neighbour, clean the background to
+transparent, and deliver as PNG alongside the existing `icons/*.png`.
+
+### Generated 2026-07-31 — picks
+
+| Icon | Job | Pick | Why |
+|---|---|---|---|
+| Find out what's wrong | `f4672a21-4c42-4a23-a940-e8eaff974ca7` | index 0 | Chunkiest pixels, and the only variant with a document actually inside the lens, which is what carries the meaning. |
+| Have it done for you | `df519e51-08a3-4e52-b7ba-3d08a8b78a2b` | index 2 | The only front-facing one. The other three are 3/4 angled, which breaks the flat-front rule the v2 Path icons settled on. |
+| Learn to do it yourself | `f5d682c6-8656-48a2-9ef1-3b4c89dd9d90` | index 0 | Boldest, thickest pixel clusters. Index 2 came back smooth and vector-like, off-brief for a 16-bit sprite. |
+
+Full-res URL pattern: `https://cdn.midjourney.com/<job>/0_<index>.png`
+
