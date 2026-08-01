@@ -110,6 +110,10 @@ site — real explanatory content). Fall back to --ar 16:9 + crop if 21:9 is mus
 Scan teal, Read sky blue, Map cobalt, Site warm orange, Partner brick red. The
 ramp runs cool diagnostics → warm build/run, matching the ladder.)
 
+> **Correction (2026-07-31):** sampled from the delivered PNGs, the actual hues
+> are Scan 178°, Read 214°, Map **292° — purple, not cobalt**, Site 27°, Partner
+> 9°. Worth knowing before picking any new icon colour, because purple is taken.
+
 Generate all five together so the set matches (the hand-coded `icons/map.svg` gets
 replaced too). MJ returns 1024px squares, not true 16px grids — Claude downscales
 nearest-neighbor to the 56px slots and cleans backgrounds on delivery.
@@ -298,20 +302,41 @@ simple pixel art icon, chunky 16x16-style pixel sprite, thick blocky pixels, fla
 inventory icon, no text, no border --ar 1:1 --stylize 50
 ```
 
+Colours are picked from the two gaps left on the wheel. Taken already: 9°, 23°,
+27°, 176°, 178°, 214°, 226°, 292°. That leaves greens (~90–150°) and gold
+(~45–70°) genuinely open — everything else would collide at 22px.
+
 1. **The Seat** — `a high-backed office chair seen from the front,`
-   palette: `deep burgundy palette (#7d2b3a, #9c3a4c, #b85266)`
+   palette: `warm gold palette (#c8891a, #e0a52f, #f0bd55)` — ~48°
    Literal on purpose: the offer is named for the seat, and a chair reads at 22px
-   where anything more abstract will not.
+   where anything more abstract will not. Gold rather than the burgundy first
+   planned, which sat at ~350° and would have been mush next to Partner's 9°
+   brick red at icon size.
 2. **The Install** — `a power plug going into a wall socket,`
-   palette: `forest green palette (#2f6b46, #3d8a5a, #52a872)`
+   palette: `forest green palette (#2f6b46, #3d8a5a, #52a872)` — ~150°
    "Installed and running" in one shape. A laptop or terminal window was the
    obvious choice and was dropped — a screen at 22px is a grey rectangle, and
    crossed tools already carry the do-it-yourself idea on the track icon.
 3. **The Session** — `a single speech bubble,`
-   palette: `sage green palette (#5a7d5a, #6f976f, #8bb08b)`
-   One call, one problem. Kept in the same green family as the Install so the two
-   learn-it-yourself offers read as siblings.
+   palette: `sage green palette (#6f8f4a, #87a75f, #a3c17e)` — ~95°
+   One call, one problem. Same green family as the Install so the two
+   learn-it-yourself offers read as siblings, but 55° apart and lighter, so they
+   are still told apart.
 
 Alternative if these are not worth generating: strip the `path-mark` images from
 the five offers that have them on `/work-with-me` so all eight match. Cheaper, but
 loses the colour coding the Path already established.
+
+### Generated 2026-07-31 — picks
+
+| Icon | Job | Pick | Why |
+|---|---|---|---|
+| The Seat | `659441e5-f187-44fa-8e7d-e50f7d2ef93c` | index 0 | Brightest gold of the four, which is what keeps it clear of Site's dark brown at 27°. Front-facing with arms and a full five-star base, so the silhouette survives 22px. |
+| The Install | `45752656-42af-49d3-8a1c-8631bb261802` | index 2 | The only variant whose plug reads as a plug at icon size, and the brightest green of the set. The two that included a wall plate lost the plug to it. |
+| The Session | `50cc08a5-dc89-44d3-a6c2-bce95c00d0d5` | index 2 | Most saturated sage of the four — the other three came back grey-green, which would have defeated the point of colour coding. Clean rounded bubble with a legible tail. |
+
+Full-res URL pattern: `https://cdn.midjourney.com/<job>/0_<index>.png`
+
+With these three the set is complete: all eight offers carry a colour, and the
+three tracks carry theirs. Hues in delivery order — Partner 9°, Session ~95°,
+Install ~150°, Scan 178°, Read 214°, Map 292°, Site 27°, Seat ~48°.
