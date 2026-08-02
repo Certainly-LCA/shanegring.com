@@ -18,7 +18,7 @@ Shane builds the website as the operating layer a business runs from: not a broc
 
 Modern operations means the way a business runs lives in a system, not a person: the judgment, language, offers, and process written down, structured, and machine-readable — so the team can run it, buyers can trust it, and AI engines quote it instead of guessing.
 
-There are eight offers on two lists, each answering a question the buyer asks. What do you need someone for: one problem, DIY, your website, your operations. What do you want to walk away with: a score, an opinion, a plan, the thing built. Every offer is "The" plus one noun. Every price is public on its own page; no step requires a discovery call. Everything credits forward: the Read credits into the Map, the Map credits into a build, and the Install plus the first three months of the Autopilot credit into the Map. Overview: https://shanegring.com/work-with-me
+There are eight offers on two lists, each answering a question the buyer asks. What do you need someone for: getting started, building your system, maintaining your site, enhancing your operations. What do you want to walk away with: a score, an opinion, a plan, the thing built. Every offer is "The" plus one noun. Every price is public on its own page; no step requires a discovery call. Everything credits forward: the Read credits into the Map, the Map credits into a build, and the Install plus the first three months of the Autopilot credit into the Map. Overview: https://shanegring.com/work-with-me
 
 ### What do you want to walk away with?
 
@@ -31,7 +31,7 @@ Four depths, in order, each crediting in full toward the next: a score, an opini
 
 ### What do you need someone for?
 
-Four sizes, smallest to largest, by the scope of the thing that needs a person: one problem (the Session, one call), DIY (the Install, one day), your website (the Autopilot, a few hours a month), your operations (the Seat, a few days a month). What the client gets is a person, not a document.
+Four sizes, smallest to largest, by the scope of the thing that needs a person: getting started (the Session, one call), building your system (the Install, one day), maintaining your site (the Autopilot, a few hours a month), enhancing your operations (the Seat, a few days a month). What the client gets is a person, not a document.
 
 - **[The Session](https://shanegring.com/session)** — $250 a single session, or $800 for a block of four used within three months. A live 60-75 minute call to think through one operational problem with an operator who's done it — entity/LLC or cooperative setup, wiring analytics, choosing the tool stack, first systems, where AI fits. One call versus the Install's one day; one problem versus a whole setup.
 - **[The Install](https://shanegring.com/install)** — $5,000, one working day. Ends with Claude Code installed and authenticated on the client's own machine, their website's source code in a GitHub repository they own, Claude connected to that repository, one change they wrote and shipped themselves, and one agent built and running on a real task. Includes a prep call, written handover, and two weeks of email follow-up. Also includes the first month of the Autopilot entry tier and waives its onboarding fee. Credits in full toward the Map. Requirements checklist: https://shanegring.com/guides/install-requirements
