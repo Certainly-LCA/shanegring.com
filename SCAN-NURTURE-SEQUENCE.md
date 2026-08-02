@@ -113,7 +113,7 @@ If you're pre-revenue, mid-rebuild, or you win all your work through relationshi
 
 But if the business has outgrown the site — if the real story lives in your head and the pages tell an older one — know that this gap doesn't hold still. The business keeps moving. The site keeps standing still. And the engines keep answering questions about you from whatever they can find.
 
-One more thing worth knowing: the Read's fee applies in full toward the Operating Map for 30 days after delivery. If this goes further, the diagnostic was free. If it doesn't, you own a memo built to work without me.
+One more thing worth knowing: the Read's fee applies in full toward the Map for 30 days after delivery. If this goes further, the diagnostic was free. If it doesn't, you own a memo built to work without me.
 
 Either way — run the scan again in six months and see which way {{site}} moved.
 

@@ -136,7 +136,7 @@ opps +
 '<td bgcolor="#111111" style="background-color:#111111;padding:28px 28px 30px;">' +
 '<p style="margin:0;font-family:' + FONT + ';font-size:18px;font-weight:700;color:#ffffff;">This is the machine version.</p>' +
 '<p style="margin:10px 0 0;font-family:' + FONT + ';font-size:15px;line-height:1.6;color:#d4d4d4;">' +
-'The Read is me doing it by hand: a 30&ndash;40 minute recorded walkthrough of your site, plus a memo that ranks every fix by effort against impact. Five business days. $450, and it credits in full toward the Operating Map.</p>' +
+'The Read is me doing it by hand: a 30&ndash;40 minute recorded walkthrough of your site, plus a memo that ranks every fix by effort against impact. Five business days. $1,500, and it credits in full toward the Map.</p>' +
 '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:18px 0 0;"><tr>' +
 '<td bgcolor="#ffffff" style="background-color:#ffffff;">' +
 '<a href="' + SITE_URL + '/read" style="display:inline-block;padding:12px 24px;font-family:' + FONT + ';font-size:15px;font-weight:700;color:#111111;text-decoration:none;">Book the Read &rarr;</a>' +
@@ -165,7 +165,7 @@ function visitorText_(d) {
   return 'Your Site Readiness Scan of ' + (d.url || d.site) + '\n\n' +
     'Overall readiness: ' + d.overall + '/100\n\n' +
     lensBlock + '\n\nWHERE TO START\n\n' + oppBlock + '\n\n' +
-    'This is the machine version. The Read is me doing it by hand: a recorded walkthrough of your site plus a ranked memo of fixes, in 5 business days. $450, credits in full toward the Operating Map. ' +
+    'This is the machine version. The Read is me doing it by hand: a recorded walkthrough of your site plus a ranked memo of fixes, in 5 business days. $1,500, credits in full toward the Map. ' +
     SITE_URL + '/read\n\nOr just reply to this email.\n\n' +
     FROM_NAME + '\n' + SITE_URL;
 }

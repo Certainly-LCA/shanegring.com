@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager: production host only, so local and preview work stays out of GA4 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];
+var h=w.location.hostname;if(h!=='shanegring.com'&&h!=='www.shanegring.com'&&w.location.search.indexOf('gtm_debug')<0)return;
+w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WHSTF58T');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch me read a website the way a machine does | The Read</title>
+<meta name="description" content="A short video on what your website tells buyers and AI engines about your business, and why the two rarely match. Then get the same done on your site. $450, five business days, no call required.">
+<meta name="author" content="Shane Gring">
+
+<!-- Paid-traffic landing page. noindex so it never competes with /read in
+     search: same offer, same money, and /read is the page that earns the
+     organic traffic. follow, so link equity still passes through. Deliberately
+     kept out of sitemap.xml. Do NOT add a Disallow to robots.txt — that would
+     stop crawlers reading this tag, and it would block the ad platforms'
+     landing-page checks. -->
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://shanegring.com/get-the-read">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Watch me read a website the way a machine does">
+<meta property="og:description" content="What your site tells buyers and AI engines about your business, and why the two rarely match. The Read: $450, five business days, no call required.">
+<meta property="og:url" content="https://shanegring.com/get-the-read">
+<meta property="og:site_name" content="Shane Gring">
+<meta property="og:image" content="https://shanegring.com/og-social.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Watch me read a website the way a machine does">
+<meta name="twitter:description" content="The Read: $450, five business days, no call required.">
+<meta name="twitter:image" content="https://shanegring.com/og-social.png">
+
+<!-- No JSON-LD on purpose. The page is noindex, so structured data has no
+     job to do here, and a second Service node for the Read would only muddy
+     the entity graph that /read and /about carry. -->
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="offer-read vsl-page">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHSTF58T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!--
+  ════════════════════════════════════════════════════════════════════════════
+  /get-the-read — the video sales letter for the Read, built for paid traffic.
+
+  PRICE — $450, matching the Stripe Payment Link below
+      (buy.stripe.com/6oU14m0z93ZS0R85Mffbq00, SOEN account
+      acct_14T074AE4jOSazQM, live mode), which has charged $450 all along.
+      The page and the checkout agree, so this is safe to run ads at.
+      If the price moves again, change Stripe FIRST and this page second —
+      on paid traffic a mismatch compounds at the speed of the ad budget.
+
+  TWO DELIBERATE DEPARTURES from the rest of the site:
+    1. No site nav and no announce bar. Every link out of a paid landing
+       page is a leak. The logo is the only way off this page that isn't
+       the buy button. A nav sweep across the other HTML files should skip
+       this one — that is the point of it.
+    2. No JSON-LD, noindex, absent from sitemap.xml. See the head.
+
+  THE VIDEO IS NOT WIRED YET. Set VSL_EMBED in the script at the bottom of
+  this file to the embed URL and the player appears. While it is empty the
+  video block stays hidden and the hero image shows instead, so the page is
+  safe to deploy today and reads as a straight long-form sales letter.
+  ════════════════════════════════════════════════════════════════════════════
+-->
+
+<header class="vsl-header">
+  <div class="container">
+    <a class="logo" href="/" aria-label="Shane Gring, home"><img class="logo-cloud" src="/images/cloud-1.svg" alt="Shane Gring" width="224" height="80"><img class="logo-bolt" src="/images/cloud-bolt.svg" alt="" width="32" height="48" aria-hidden="true"></a>
+    <span class="vsl-header-note">The Read &middot; $450</span>
+  </div>
+</header>
+
+<main>
+  <article>
+
+  <section class="om-hero vsl-hero">
+    <div class="container">
+      <img class="offer-mark" src="/images/icons/read.png" alt="" width="48" height="48" aria-hidden="true">
+      <span class="section-eyebrow">The Read</span>
+      <h1 class="cs-hook">Watch me read a website the way a machine does.</h1>
+
+      <p class="om-lede">
+        Your site is answering questions about your business right now &mdash;
+        to buyers who land on it, and to the AI engines they ask first.
+        <span class="hero-u">You have never seen those answers.</span>
+        The video below shows you what that reading looks like. If you want
+        it done on your site, the button is underneath it.
+      </p>
+
+      <!-- Facade player: poster first, iframe only after a click. Keeps the
+           embed's scripts off the critical path, which matters when the
+           traffic is paid and the first paint is the whole game. -->
+      <div class="vsl-video" id="vsl-video" hidden>
+        <button class="vsl-facade" id="vsl-facade" type="button" aria-label="Play the video">
+          <!-- Swap this poster for a frame from the actual video. A still of
+               the screen share reads far better than the hero art. -->
+          <img src="/images/read-hero.png" alt="" width="1456" height="816" fetchpriority="high">
+          <span class="vsl-play" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <img class="om-hero-img vsl-no-video" src="/images/read-hero.png" alt="A building inspector on a scaffold closely reading a storefront facade, clipboard in hand" width="1456" height="816" fetchpriority="high">
+
+      <div class="vsl-cta">
+        <a class="btn-primary" href="https://buy.stripe.com/6oU14m0z93ZS0R85Mffbq00" data-vsl-cta="hero">
+          Get your Read <span class="btn-arrow">&rarr;</span>
+        </a>
+        <p class="vsl-cta-note">
+          <strong>$450.</strong> Five business days. No call required.
+          Refunded in full if it doesn't show you something you didn't know.
+        </p>
+      </div>
+
+      <p class="vsl-skip">
+        <a href="#what-you-get">Rather read than watch? It's all written out below.</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
+      <div class="om-split">
+      <h2 class="cs-section-title">Your website describes a company that no longer exists.</h2>
+      <div class="om-split-body">
+
+      <p>
+        You've evolved. Your offers sharpened, your process matured, your
+        best clients changed. Your website is still telling the 2022 version
+        of the story.
+      </p>
+      <p>
+        That used to cost you slowly. Now it costs you twice. Prospects land
+        on the site and bounce off stale language &mdash; or they never land
+        at all. They ask an AI first, and it answers from your outdated
+        pages, or fills the gaps with a guess.
+      </p>
+      <p>
+        <strong>You can't fix what you haven't seen. The Read shows you what
+        both of them are working with.</strong>
+      </p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="om-section" id="what-you-get">
+    <div class="container">
+      <h2 class="cs-section-title">What you get</h2>
+
+      <div class="om-cards">
+        <div class="om-card om-card-featured">
+          <h3>A 30 to 40 minute recorded walkthrough</h3>
+          <p>Me, on video, going through your site page by page. Not a template, not a software score. I look at your business the way an operator does, your site the way a machine does, and show you where the two don't match.</p>
+        </div>
+        <div class="om-card">
+          <h3>A findings memo you can act on the same day</h3>
+          <p>Every issue ranked by effort against impact, three fixes you can make this week without me, and a conservative estimate of what the gaps cost you. Written to work whether or not we ever talk again.</p>
+        </div>
+        <div class="om-card">
+          <h3>Your AI visibility, on screen</h3>
+          <p>I ask the major AI engines the questions your prospects ask. You watch what comes back. It's the part your partners will want to see.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
+      <h2 class="cs-section-title">What I'm looking for</h2>
+
+      <p>
+        Most site audits check conversion mechanics. Button placement,
+        headline formulas, page speed. Useful, narrow, and not what this is.
+      </p>
+      <p>The Read looks at three things:</p>
+
+      <ul class="cs-bullets cs-bullets-rich">
+        <li>
+          <strong>Does the site carry your operating logic?</strong> How you
+          actually work, who you actually serve, what actually makes you
+          different. Most sites carry a summary written years ago by someone
+          who no longer works there.
+        </li>
+        <li>
+          <strong>Can machines read it?</strong> Structure, not just content.
+          Whether your pages let search and AI engines extract, understand,
+          and quote the real story. Most don't, and it's invisible until you
+          look.
+        </li>
+        <li>
+          <strong>Does the story hold together?</strong> One business, one
+          message, across every page. Or five eras of the company layered on
+          top of each other.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
+      <h2 class="cs-section-title">How it works</h2>
+
+      <div class="om-weeks">
+        <div class="om-week">
+          <span class="om-week-label">Step 1</span>
+          <h3>Order and answer five questions</h3>
+          <p>Your URL, who you serve, what you sell, what's changed recently, what prompted this. Ten minutes &mdash; the only time I'll ask for.</p>
+        </div>
+        <div class="om-week">
+          <span class="om-week-label">Step 2</span>
+          <h3>I do the work</h3>
+          <p>Your site, your structured data, your AI and search footprint, your closest competitors' footprint for contrast.</p>
+        </div>
+        <div class="om-week">
+          <span class="om-week-label">Step 3</span>
+          <h3>You get the Read</h3>
+          <p>Video and memo in your inbox within 5 business days. Watch on your own time; share with whoever needs it.</p>
+        </div>
+      </div>
+
+      <p class="om-note">
+        <strong>Optional: a 20-minute debrief.</strong> A booking link comes
+        in the delivery email, good for two weeks, included in the price.
+        Most people won't need it.
+      </p>
+    </div>
+  </section>
+
+  <section class="om-section vsl-midcta">
+    <div class="container">
+      <p class="om-price-line"><strong>The Read. $450.</strong> Five business days. No meetings required.</p>
+      <a class="btn-primary" href="https://buy.stripe.com/6oU14m0z93ZS0R85Mffbq00" data-vsl-cta="mid">
+        Get your Read <span class="btn-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
+      <h2 class="cs-section-title">Who this is for</h2>
+
+      <p>
+        Founder-led businesses doing roughly $1M to $10M, where the real
+        story of the company lives in the founder's head and the website
+        hasn't caught up. Services firms, consultancies, credentialing and
+        standards organizations, specialized B2B.
+      </p>
+      <p>
+        <strong>Who it's not for:</strong> pre-revenue startups, sites still
+        under construction, and businesses where the website genuinely
+        doesn't matter to how you win work. If I look at your situation and
+        conclude the Read won't be worth $450 to you, I'll refund you and
+        tell you why.
+      </p>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
+      <h2 class="cs-section-title">The guarantee</h2>
+
+      <p class="om-emphasis">
+        <strong>If the Read doesn't show you something material about your
+        business that you didn't already know, I'll refund the full
+        $450.</strong> No form, no friction. Reply to the delivery email
+        and say so.
+      </p>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
+      <h2 class="cs-section-title">Where this goes, if you want it to</h2>
+
+      <p>
+        The Read stands alone. Take the memo, fix things yourself, done. The
+        memo is written for exactly that.
+      </p>
+      <p>
+        If you want to go further, the next step is three working sessions
+        where we extract how your business actually runs and put it on
+        paper, including the structure your website should have carried all
+        along. Book that within 30 days of your Read and the full $450
+        applies to it.
+      </p>
+      <p>
+        <strong>So the Read is either a $450 diagnostic you act on
+        yourself, or a free look at how I work before a bigger
+        engagement.</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
+      <h2 class="cs-section-title">Questions</h2>
+
+      <ul class="cs-bullets cs-bullets-rich">
+        <li>
+          <strong>Is this automated?</strong> The research is tool-assisted.
+          The judgment isn't. Every Read is me looking at your specific
+          business and recording my honest take.
+        </li>
+        <li>
+          <strong>Will you just tell me to hire you?</strong> No. The memo is
+          written to be actionable without me. If you come back for more, it
+          should be because the Read was useful, not because it was a
+          trailer.
+        </li>
+        <li>
+          <strong>What if my site is on Squarespace / WordPress / Webflow /
+          something custom?</strong> Doesn't matter. I'm reading what's
+          rendered and what machines see, not grading your platform.
+        </li>
+        <li>
+          <strong>Why is there no call before I buy?</strong> You don't need
+          one to get the value, and I don't need one to deliver it. Five
+          questions and your URL tell me more than a discovery call would. If
+          you want to talk after, the debrief is there.
+        </li>
+        <li>
+          <strong>Who's doing the Read?</strong> Me. I'm a fractional COO who
+          has spent years inside founder-led businesses fixing the gap
+          between how they operate and how they present. I run this practice
+          on the thesis I'll be judging your site against: the website should
+          be the operating surface of the business, not a brochure for it.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="om-section om-investment" id="vsl-final">
+    <div class="container">
+      <h2 class="cs-section-title">Machines are already reading your site. Find out what they see.</h2>
+
+      <p class="om-price-line">
+        <strong>The Read. $450.</strong> Five business days. Credits in
+        full toward what comes next.
+      </p>
+
+      <a class="btn-primary" href="https://buy.stripe.com/6oU14m0z93ZS0R85Mffbq00" data-vsl-cta="final">
+        Get your Read <span class="btn-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  </article>
+</main>
+
+<!-- Rides along the bottom on mobile from the moment the hero scrolls off
+     until the final CTA comes into view, so the buy button is never more
+     than a thumb away. -->
+<div class="vsl-sticky" id="vsl-sticky" aria-hidden="true">
+  <div class="vsl-sticky-inner">
+    <span class="vsl-sticky-price">The Read &middot; $450</span>
+    <a class="btn-primary" href="https://buy.stripe.com/6oU14m0z93ZS0R85Mffbq00" data-vsl-cta="sticky" tabindex="-1">
+      Get your Read <span class="btn-arrow">&rarr;</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <img class="footer-city" src="/images/footer-city.png" alt="" width="2176" height="544" loading="lazy" aria-hidden="true">
+  <div class="container">
+    <p class="footer-tag">Operations that run beyond you.</p>
+    <div class="footer-content">
+      <span>&copy; 2026 Shane Gring</span>
+      <span><a href="/about" class="footer-link">About Shane Gring</a></span>
+      <span><a href="/contact" class="footer-link">Contact</a></span>
+      <span><a href="https://certainly.coop" class="footer-link" target="_blank" rel="noopener noreferrer">Part of Certainly</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/nav.js" defer></script>
+<script src="/track.js" defer></script>
+<script>
+/* ══════════════════════════════════════════════════════════════════════════
+   VSL page behaviour. Three jobs: the video, the sticky bar, and carrying
+   ad attribution across to Stripe. Everything degrades to a working page.
+   ══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  /* ── 1. THE VIDEO ────────────────────────────────────────────────────────
+     Put the embed URL here and the player appears. Use the *embed* form,
+     not the watch/share URL:
+       YouTube          https://www.youtube-nocookie.com/embed/VIDEO_ID
+       Vimeo            https://player.vimeo.com/video/VIDEO_ID
+       Cloudflare Stream https://customer-xxxx.cloudflarestream.com/UID/iframe
+     Leave it empty and the video block stays hidden — the hero image shows
+     instead and the page still sells. */
+  var VSL_EMBED = '';
+
+  var wrap = document.getElementById('vsl-video');
+  var facade = document.getElementById('vsl-facade');
+
+  if (VSL_EMBED && wrap && facade) {
+    wrap.hidden = false;
+    document.body.classList.add('vsl-has-video');
+
+    facade.addEventListener('click', function () {
+      var sep = VSL_EMBED.indexOf('?') > -1 ? '&' : '?';
+      var frame = document.createElement('iframe');
+      frame.src = VSL_EMBED + sep + 'autoplay=1';
+      frame.title = 'The Read — how it works';
+      frame.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      frame.allowFullscreen = true;
+      frame.setAttribute('frameborder', '0');
+      wrap.replaceChild(frame, facade);
+
+      /* The play click is the only signal that works on every host. Quartile
+         events need the host's own JS API (YouTube IFrame API, Vimeo Player
+         SDK, Stream SDK) — worth adding once the video exists and the host
+         is settled, since watch-depth is the number that tells you whether
+         the script or the traffic is at fault. */
+      if (window.sgTrack) window.sgTrack('video_play', { video_title: 'the_read_vsl' });
+    });
+  }
+
+  /* ── 2. SCROLL DEPTH ─────────────────────────────────────────────────────
+     On a long page bought with ad money, how far people get is the fastest
+     read on whether the traffic matches the offer. */
+  var marks = [25, 50, 75, 90];
+  var hit = {};
+  var ticking = false;
+
+  function depth() {
+    ticking = false;
+    var doc = document.documentElement;
+    var scrollable = doc.scrollHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    var pct = ((window.pageYOffset || doc.scrollTop) / scrollable) * 100;
+    for (var i = 0; i < marks.length; i++) {
+      var m = marks[i];
+      if (pct >= m && !hit[m]) {
+        hit[m] = true;
+        if (window.sgTrack) window.sgTrack('scroll_depth', { percent_scrolled: m });
+      }
+    }
+  }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(depth);
+  }, { passive: true });
+
+  /* ── 3. THE STICKY BAR ───────────────────────────────────────────────────
+     Visible between the end of the hero and the start of the final CTA.
+     Hidden from assistive tech and from tab order while off-screen, so it
+     never becomes a focus trap at the bottom of the page. */
+  var sticky = document.getElementById('vsl-sticky');
+  var hero = document.querySelector('.vsl-hero');
+  var final = document.getElementById('vsl-final');
+
+  if (sticky && hero && final && 'IntersectionObserver' in window) {
+    var heroGone = false;
+    var finalHere = false;
+
+    function paint() {
+      var show = heroGone && !finalHere;
+      sticky.classList.toggle('is-visible', show);
+      sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+      var link = sticky.querySelector('a');
+      if (link) link.setAttribute('tabindex', show ? '0' : '-1');
+    }
+
+    new IntersectionObserver(function (entries) {
+      heroGone = !entries[0].isIntersecting;
+      paint();
+    }, { rootMargin: '0px' }).observe(hero);
+
+    new IntersectionObserver(function (entries) {
+      finalHere = entries[0].isIntersecting;
+      paint();
+    }, { rootMargin: '0px 0px -20% 0px' }).observe(final);
+  }
+
+  /* ── 4. ATTRIBUTION THROUGH TO STRIPE ────────────────────────────────────
+     Stripe Payment Links accept client_reference_id, and it comes back on
+     the checkout.session.completed event. Without it a sale from an ad is
+     indistinguishable from a sale from a newsletter once the buyer leaves
+     the site. Stripe restricts the value to letters, numbers, hyphen and
+     underscore, max 200 characters, so everything gets scrubbed. */
+  function param(name) {
+    var m = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '';
+  }
+
+  function clean(s) {
+    return String(s).replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40);
+  }
+
+  var ref = [
+    clean(param('utm_source') || 'direct'),
+    clean(param('utm_campaign') || 'none'),
+    clean(param('utm_content') || param('gclid') || param('fbclid') || 'x')
+  ].join('__').slice(0, 200);
+
+  var links = document.querySelectorAll('a[href*="buy.stripe.com"], a[href*="checkout.shanegring.com"]');
+  for (var j = 0; j < links.length; j++) {
+    var a = links[j];
+    var href = a.getAttribute('href');
+    a.setAttribute('href', href + (href.indexOf('?') > -1 ? '&' : '?') + 'client_reference_id=' + encodeURIComponent(ref));
+    a.addEventListener('click', function (e) {
+      if (window.sgTrack) {
+        window.sgTrack('vsl_cta_click', {
+          cta_position: e.currentTarget.getAttribute('data-vsl-cta') || 'unknown'
+        });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

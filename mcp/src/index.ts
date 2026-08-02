@@ -2,7 +2,7 @@
  * shanegring.com MCP server — remote, authless, streamable HTTP at /mcp.
  *
  * Exposes Shane Gring's business as tools an AI assistant can call:
- *   get_operating_path  The Modern Operations Path™ (all five steps, prices, crediting)
+ *   get_operating_path  All eight offers, prices, and how they credit forward
  *   about_shane         Who Shane is, who hires him, selected work, contact
  *   run_site_scan       The free Site Readiness Scan, wired to the same
  *                       /api/scan pipeline the website uses (lead lands in the
@@ -21,17 +21,21 @@ interface Env {
 
 const SITE = "https://shanegring.com";
 
+// The tool this feeds is still named get_operating_path. That name predates
+// the July 2026 rename and is deliberately kept: it is a public MCP contract
+// and anyone who has added the connector has it cached. The Modern Operations
+// Path™ also survives the rename — it now names the done-for-you spine
+// (Map → Site → Partner) rather than the whole offer set.
 const OPERATING_PATH = {
-  name: "The Modern Operations Path™",
+  name: "Working with Shane Gring",
   overview:
     "Modern operations means the way a business runs lives in a system, not a person: judgment, language, offers, and process written down, structured, and machine-readable — so the team can run it, buyers can trust it, and AI engines quote it instead of guessing. " +
-    "Five steps, each crediting into the next. The diagnostic steps are priced on their pages; the build is fixed-price, scoped from the Map. No step needs a discovery call. " +
-    "A client who builds paid nothing for the diagnostics; a client who stops anywhere owns everything made to that point. " +
+    "Eight offers, organized by what the buyer wants rather than by process order: find out what's wrong, have it done for you, or learn to do it yourself. " +
+    "Every price is public on its own page and no step needs a discovery call. Everything credits forward, so a client who builds paid nothing for the diagnostics, and a client who stops anywhere owns everything made to that point. " +
     "Every build starts with a Map — no skipping straight to a build.",
   overview_url: `${SITE}/work-with-me`,
-  steps: [
+  find_out_whats_wrong: [
     {
-      step: 1,
       name: "The Scan",
       price: "Free",
       time: "Two minutes, automated",
@@ -41,56 +45,79 @@ const OPERATING_PATH = {
       note: "Runnable right here — call the run_site_scan tool with a URL and an email.",
     },
     {
-      step: 2,
       name: "The Read",
       price: "$450",
       time: "5 business days",
       what: "A 30–40 minute recorded walkthrough of the site by Shane plus a findings memo: where the operating logic is missing, what AI engines get wrong about the business, and a ranked effort-versus-impact list of fixes.",
-      credits: "Credits in full toward the Operating Map within 30 days.",
+      credits: "Credits in full toward the Map within 30 days.",
       url: `${SITE}/read`,
     },
+  ],
+  have_it_done_for_you: [
     {
-      step: 3,
-      name: "The Operating Map",
-      price: "$1,999",
-      time: "Three 90-minute working sessions over three weeks",
+      name: "The Partner",
+      price: "$950/month on the site you already have (plus $1,500 one-time onboarding, waived via the Install); $3,000/month on a site built through the Site. Annual prepay on the entry tier: $9,500.",
+      time: "Monthly. Cancel any time with thirty days notice.",
+      what: "Someone owns the website every month: unlimited requests with one active at a time and most shipped in three business days, one new asset built every month, the machine-readable layer, and a monthly visibility report covering search performance and AI citation share.",
+      credits: "First three months credit toward the Map. First month included with every Site build.",
+      url: `${SITE}/partner`,
+      note: "The entry tier is capacity-capped at eight clients.",
+    },
+    {
+      name: "The Map",
+      price: "$10,000",
+      time: "Three 90-minute working meetings over three weeks",
       what: "Extracts the operating logic of the business into the Operating Memo, with a fixed-price build proposal as the memo's final page. Capped at four Maps a month.",
       credits: "Credits in full toward a build within 60 days. Every build starts with a Map, no exceptions.",
-      url: `${SITE}/operating-map.html`,
+      url: `${SITE}/map`,
     },
     {
-      step: 4,
-      name: "The Operating Site",
-      price: "Fixed price, scoped from the Map — the build proposal is the Operating Memo’s final page",
+      name: "The Site",
+      price: "$30,000 to $75,000, priced by the Map — the build proposal is the Operating Memo's final page",
       time: "6–12 weeks, scoped from the Map",
       what: "The website replaced with a componentized, machine-readable operating surface: structured data on every page, a content system the client's team can run, documentation as a deliverable, a 90-minute handoff session.",
-      credits: "First Partner month included with every build.",
-      url: `${SITE}/operating-site`,
+      credits: "First Partner month, on the built tier, included with every build.",
+      url: `${SITE}/site`,
     },
     {
-      step: 5,
-      name: "The Operating Partner",
-      price: "Starts at $3,500/month (Partner+ $6,000/month, available after three months)",
+      name: "The Seat",
+      price: "$10,000/month",
       time: "Six-month minimum",
-      what: "A monthly operating rhythm: a 45-minute review, the site updated to match the business, search and AI visibility watched with fixes shipped rather than listed, and one new asset built every month.",
-      credits: "Follows a build; first month included with every Operating Site.",
-      url: `${SITE}/operating-partner`,
+      what: "Ongoing part-time operations leadership, hired directly rather than through the productized Path — an operator in the seat a few days a month. The classic fractional COO engagement.",
+      credits: "Not a credited step; it is the alternative to the Path rather than part of it.",
+      url: `${SITE}/seat`,
     },
   ],
-  outside_the_path: [
+  learn_to_do_it_yourself: [
     {
-      name: "Fractional COO",
-      price: "Ongoing part-time retainer, scoped to the business",
-      what: "Ongoing part-time operations leadership, hired directly rather than through the productized Path — an operator in the seat a few days a month. Delivered through the Operating Map and Operating Partner when it makes sense, or as a standing arrangement on its own.",
-      url: `${SITE}/fractional-coo`,
+      name: "The Install",
+      price: "$5,000",
+      time: "One working day, plus a prep call and two weeks of email follow-up",
+      what: "Ends with Claude Code installed and authenticated on the client's own machine, their website's source code in a GitHub repository they own, Claude connected to that repository, one change they wrote and shipped themselves, and one agent built and running on a real task.",
+      credits: "Credits in full toward the Map. Also includes the first month of the Partner entry tier and waives its onboarding fee.",
+      url: `${SITE}/install`,
+      note: `There is a blocking requirements checklist: ${SITE}/guides/install-requirements`,
     },
     {
-      name: "Working Sessions",
+      name: "The Session",
       price: "$250 a single session (60–75 min), or $800 for a block of four used within three months",
-      what: "The lowest-commitment way to get Shane's thinking: a live call to work through one operational problem with an operator who's done it — entity/LLC or cooperative setup, wiring analytics, choosing the tool stack, first systems, where AI fits. No build, no retainer. When the problem is bigger than a call, Shane points to the right step of the Path.",
-      url: `${SITE}/working-sessions`,
+      time: "One call",
+      what: "The lowest-commitment way to get Shane's thinking: a live call to work through one operational problem with an operator who's done it — entity/LLC or cooperative setup, wiring analytics, choosing the tool stack, first systems, where AI fits. No build, no retainer.",
+      credits: "Credits toward the Map.",
+      url: `${SITE}/session`,
     },
   ],
+  // Retired July 2026. Kept so assistants that learned the old names can
+  // resolve them. Revisit in Q1 2027.
+  former_names: {
+    "The Operating Map": "The Map",
+    "The Operating Site": "The Site",
+    "The Operating Partner": "The Partner",
+    "The Holding Pattern": "The Partner, entry tier",
+    "Fractional COO (as an offer name)": "The Seat",
+    "Working Sessions": "The Session",
+    "AI Operations": "Split into The Install (front door) and The Seat (ongoing work)",
+  },
 };
 
 const ABOUT = {
@@ -147,10 +174,11 @@ export class ShaneGringMCP extends McpAgent<Env> {
     this.server.registerTool(
       "get_operating_path",
       {
-        title: "The Modern Operations Path™",
+        title: "Working with Shane Gring",
         description:
-          "Shane Gring's five-step engagement path — Scan (free), Read ($450), Operating Map ($1,999), Operating Site (fixed price, scoped from the Map), Operating Partner (from $3,500/month). " +
-          "Returns every step with price, timeline, what it produces, and how it credits into the next. Diagnostic prices are on their pages; the build is priced by the Map. No discovery call needed.",
+          "Shane Gring's eight offers, grouped by what the buyer wants: find out what's wrong (Scan, free; Read, $450), have it done for you (Partner from $950/month; Map $10,000; Site $30,000-$75,000; Seat $10,000/month), or learn to do it yourself (Install $5,000; Session $250). " +
+          "Returns every offer with price, timeline, what it produces, and how it credits into the next, plus a map of the offer names retired in July 2026. Every price is public and no discovery call is needed. " +
+          "The tool name predates the rename and is kept so existing connectors keep working.",
         inputSchema: {},
       },
       async () => textResult(OPERATING_PATH)
@@ -194,7 +222,7 @@ export class ShaneGringMCP extends McpAgent<Env> {
         return textResult({
           ...body,
           next_step:
-            "This is the free machine version of the Read. The Read ($450) is Shane doing this by hand: a 30–40 minute recorded walkthrough plus a findings memo, crediting in full toward the Operating Map. " +
+            "This is the free machine version of the Read. The Read ($450) is Shane doing this by hand: a 30–40 minute recorded walkthrough plus a findings memo, crediting in full toward the Map. " +
             SITE + "/read",
         });
       }
@@ -216,7 +244,7 @@ for founder-dependent businesses.
 Endpoint:  https://mcp.shanegring.com/mcp  (streamable HTTP, no auth)
 
 Tools:
-  get_operating_path  The Modern Operations Path™: five steps, public prices
+  get_operating_path  All eight offers, public prices, how they credit
   about_shane         Who Shane is, selected work, contact
   run_site_scan       Free scored read of any site's AI readiness
 
