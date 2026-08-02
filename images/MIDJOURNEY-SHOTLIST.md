@@ -282,7 +282,7 @@ transparent, and deliver as PNG alongside the existing `icons/*.png`.
 Full-res URL pattern: `https://cdn.midjourney.com/<job>/0_<index>.png`
 
 
-## 14. The three missing offer icons ⬜ TO GENERATE (`icons/seat|install|session.png`)
+## 14. The three missing offer icons ✅ DONE (`icons/seat|install|session.png`, 2026-08-01)
 
 The restructure left `/work-with-me` inconsistent: Scan, Read, Map, Site and
 Partner carry a `path-mark` icon and the Seat, Install and Session do not. Worst
@@ -337,6 +337,154 @@ loses the colour coding the Path already established.
 
 Full-res URL pattern: `https://cdn.midjourney.com/<job>/0_<index>.png`
 
+### Delivered and installed 2026-08-01
+
+Two of the three came in on a different index than the table above picked. The
+files delivered win — the picks above were made from grid thumbnails, the choice
+below was made from the full-res image:
+
+| Icon | Job | Index picked | Index delivered |
+|---|---|---|---|
+| The Seat | `659441e5` | 0 | **3** — gold chair, arms, four-leg base rather than the five-star. Reads clean at 22px. |
+| The Install | `45752656` | 2 | **neither** — all four were unusable at icon size. Redrawn by hand; see below. |
+| The Session | `50cc08a5` | 2 | **2** — as picked. |
+
+**The Install was redrawn by hand — it is the one icon in the set Midjourney did
+not produce.** Every variant lost the plug at 22px: side-on, prongs merging into
+the body, a socket behind it that never resolved. The socket was the problem, not
+the execution — two objects cannot both survive at 22px, and the plug is the one
+carrying the meaning.
+
+The replacement is a 16×16 sprite in `icons/install-sprite.py`: prongs up and on
+the outer silhouette, a wide body, a narrowing strain relief at the foot. Three
+shapes that stay distinguishable at icon size. Palette is the assigned forest
+green lifted one value step — the shotlist hex read as near-black at 22px next to
+the Seat and the Session.
+
+Edit `GRID` in that file and re-run the two commands in its docstring to change
+it. Point-upscale to 1024 first, then downscale through the same pipeline as the
+other seven, so the edge softening matches rather than coming out harder.
+
+If you would rather have a generated one after all, the prompt to try is the plug
+**straight-on with no socket**, prongs clear of the body on the outer edge —
+that is what the hand-drawn one proves reads.
+
+The Seat is also the only icon in the set with no dark outline, so it sits a
+little flatter than its neighbours. Fine at 30px on `/work-with-me`, visible at
+48px in the hero.
+
+Processing recipe, same for all three (matches the five originals — trimmed to a
+104px long side, centred on a 112×112 transparent canvas):
+
+```
+magick SRC -alpha set -channel RGBA -fuzz 12% \
+  -fill none -floodfill +0+0 white -fill none -floodfill +1023+0 white \
+  -fill none -floodfill +0+1023 white -fill none -floodfill +1023+1023 white \
+  +channel -trim +repage \
+  -resize 104x104 -background none -gravity center -extent 112x112 OUT
+```
+
+Floodfill from the four corners rather than `-transparent white`, so a near-white
+highlight inside the sprite can never be punched into a hole.
+
+Wired in at the same time: `path-mark` on all three offers on `/work-with-me`
+(they were the only three of eight without one) and `offer-mark` in the heroes of
+`/seat`, `/install` and `/session`.
+
 With these three the set is complete: all eight offers carry a colour, and the
 three tracks carry theirs. Hues in delivery order — Partner 9°, Session ~95°,
 Install ~150°, Scan 178°, Read 214°, Map 292°, Site 27°, Seat ~48°.
+
+---
+
+## 15. The three way-in pages ✅ DONE (`find-out|done-for-you|do-it-yourself-hero.png`, 2026-08-01)
+
+`/find-out`, `/done-for-you` and `/do-it-yourself` (built 2026-08-01) are the only
+pages in the offer set with no hero. These are **full-bleed** bands rather than boxed
+images, so they run at `--ar 21:9`, not the 16:9 the rest of the list uses. Export
+~3000px wide.
+
+Each prompt is one scene and one action. The three-clause prompts earlier in this file
+reliably lose their third clause; these are cut to what Midjourney will actually hold.
+
+Scenes were picked to avoid everything already in use — the funicular (`/work-with-me`),
+the facade inspection (`/read`), the crane and modules (`/site`), the split-flap board
+(`/partner`), the pegboard workshop (`/install`) — while staying inside the same
+civic-infrastructure-by-the-water world.
+
+1. **`/find-out`** — what was under the surface all along
+   > a utility locator marking a quiet street with bright survey paint, the buried pipe
+   > and cable network faintly visible beneath the pavement,
+
+2. **`/done-for-you`** — a crew owns the work while the owner stands off it
+   > a ship in a dry dock with a full crew at work on its hull from scaffolding, the
+   > owner watching from the quayside with his hands in his pockets, harbor town rising
+   > behind,
+
+   **The first draft of this was a harbor pilot boarding a ship — dropped.** The pilot
+   cutter is already `what-is-a-fractional-coo.png` (section 9), and section 11 records
+   that the harbor and rail motifs were declared used up. A dry dock is neither: it is
+   the one waterside scene the set has not spent, and it says the thing this page says —
+   somebody else is doing the work, and you are not on the scaffold.
+
+3. **`/do-it-yourself`** — your hands on it, the expert standing back
+   > a boat owner turning the gate wheel of a canal lock themselves, the lock keeper
+   > standing back with hands behind his back, water rising in the chamber,
+
+**Composition note:** at 21:9 keep the subject about a third in from the left. The right
+side has to stay quiet — that is where the headline sits.
+
+**`--sref` trap (2026-08-01) — read this before generating anything.** The first run of
+these three came back with "Invalid image link" on the style reference, because
+`https://shanegring.com/images/map-hero.png` **does not exist on production**. The July
+rename lives on the `offers/rename-and-restructure` branch and has never been deployed.
+
+**Checking the status code is not enough.** Cloudflare Pages serves its 404 page with
+HTTP **200** and `content-type: text/html`, so `curl -o /dev/null -w '%{http_code}'`
+reports 200 for a missing image and the URL looks fine. Check the content type:
+
+```
+curl -sI https://shanegring.com/images/NAME.png | grep -i content-type
+# image/png  = real file
+# text/html  = missing, and --sref will fail silently on a 200
+```
+
+Live on production today: `hero.png`, `operating-map-hero.png`, `read-hero.png`,
+`scan-hero.png`, `work-with-me-hero.png`. **Not** live: `map-hero.png`, `partner-hero.png`,
+`site-hero.png` — all renames waiting on the merge.
+
+So until that branch ships, the working suffix ends:
+
+```
+--ar 21:9 --sref https://shanegring.com/images/hero.png https://shanegring.com/images/operating-map-hero.png
+```
+
+Swap back to `map-hero.png` the day the rename is deployed, and not before. The note in
+the header of this file has it the wrong way round for exactly this reason: it warned that
+the *old* name would break once the rename shipped, but the rename has not shipped, so it
+is the *new* name that breaks.
+
+**Delivered 2026-08-01.** All three ran at `--ar 21:9` (Midjourney shows it as 7:3).
+The first batch of three was discarded — broken sref.
+
+| Page | Job | Pick |
+|---|---|---|
+| `/find-out` | `71568f1a-bd07-461c-a613-76472f075bbe` | index 0 |
+| `/done-for-you` | `5276f8c1-5c5d-49d1-976e-940f47aed0a5` | index 0 |
+| `/do-it-yourself` | `1a6eec82-2f8f-4f4a-a4eb-33be9935ccac` | index 2 |
+
+Delivered at 1680x720, converted with the standard `magick SRC -strip -colors 256
+-dither None PNG8:DEST` (400–428KB each).
+
+**These are used as the hero background with the copy on top**, not as a band under it —
+`.track-hero` in styles.css. Two things that cost time and are worth knowing before the
+next one:
+
+- **`object-position`'s X does nothing here.** The hero band is wider than the art's 21:9,
+  so `object-fit: cover` scales to the width and crops top/bottom only. There is no
+  horizontal overflow to pan. Composition has to come from the prompt, not from CSS.
+- **The scrim has to clear early.** A gentle full-width wash makes the whole piece look
+  milky. The gradient runs 0.97 opaque to 42%, then falls to fully transparent by 84%, so
+  the headline sits on near-white and the right-hand third of the art is untouched. That
+  is also why the "subject a third in from the left" note above is wrong for this use —
+  for a background hero you want the subject on the **right**, clear of the copy.
