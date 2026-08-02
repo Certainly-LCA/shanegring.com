@@ -47,7 +47,7 @@ const OPERATING_PATH = {
     {
       name: "The Read",
       price: "$450",
-      time: "5 business days",
+      time: "2 business days",
       what: "A 30–40 minute recorded walkthrough of the site by Shane plus a findings memo: where the operating logic is missing, what AI engines get wrong about the business, and a ranked effort-versus-impact list of fixes.",
       credits: "Credits in full toward the Map within 30 days.",
       url: `${SITE}/read`,
@@ -73,7 +73,7 @@ const OPERATING_PATH = {
     },
     {
       name: "The Site",
-      price: "$30,000 to $75,000, priced by the Map — the build proposal is the Operating Memo's final page",
+      price: "Custom, scoped and priced by the Map. The build proposal is the Operating Memo's final page",
       time: "6–12 weeks, scoped from the Map",
       what: "The website replaced with a componentized, machine-readable operating surface: structured data on every page, a content system the client's team can run, documentation as a deliverable, a 90-minute handoff session.",
       credits: "First Partner month, on the built tier, included with every build.",
@@ -176,7 +176,7 @@ export class ShaneGringMCP extends McpAgent<Env> {
       {
         title: "Working with Shane Gring",
         description:
-          "Shane Gring's eight offers, grouped by what the buyer wants: find out what's wrong (Scan, free; Read, $450), have it done for you (Partner from $950/month; Map $1,999; Site $30,000-$75,000; Seat From $6,000/month), or learn to do it yourself (Install $5,000; Session $250). " +
+          "Shane Gring's eight offers, on two lists. What do you need someone for: one problem (Session, $250), the ability to do it yourself (Install, $5,000), your website (Partner, from $950/mo), your operations (Seat, from $6,000/mo). What do you want to walk away with: a score (Scan, free), an opinion (Read, $450), a plan (Map, $1,999), the thing built (Site, custom)." +
           "Returns every offer with price, timeline, what it produces, and how it credits into the next, plus a map of the offer names retired in July 2026. Every price is public and no discovery call is needed. " +
           "The tool name predates the rename and is kept so existing connectors keep working.",
         inputSchema: {},

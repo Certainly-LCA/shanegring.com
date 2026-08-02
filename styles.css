@@ -5262,8 +5262,8 @@ footer .footer-nav a {
 
 .axis-row {
   display: grid;
-  grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr) auto;
-  gap: 0.3rem 1.75rem;
+  grid-template-columns: 28px minmax(0, 9.5rem) minmax(0, 1fr) auto;
+  gap: 0.3rem 1.1rem;
   align-items: baseline;
   padding: 1.35rem 0.75rem 1.4rem;
   border-bottom: 1px solid var(--border);
@@ -5280,6 +5280,16 @@ footer .footer-nav a {
   letter-spacing: -0.015em;
   color: var(--fg);
   line-height: 1.25;
+}
+
+/* Pixel art, so it holds its edges at 28px rather than going soft. */
+.axis-glyph {
+  width: 28px;
+  height: 28px;
+  align-self: start;
+  margin-top: 0.1rem;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .axis-body {
@@ -5338,16 +5348,17 @@ footer .footer-nav a {
   background: linear-gradient(var(--border-strong), var(--offer-deep, var(--fg)));
 }
 
-.axis-seq .axis-row { padding-left: 1.5rem; }
+.axis-seq .axis-row { padding-left: 1.1rem; }
 
 @media (max-width: 760px) {
   .axis-row {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.35rem 1rem;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 0.35rem 0.85rem;
   }
-  .axis-when { grid-column: 1; }
-  .axis-price { grid-column: 2; grid-row: 1; }
-  .axis-body { grid-column: 1 / -1; }
+  .axis-glyph { grid-column: 1; grid-row: 1; }
+  .axis-when { grid-column: 2; }
+  .axis-price { grid-column: 3; grid-row: 1; }
+  .axis-body { grid-column: 2 / -1; }
 }
 
 /* Two-column mega panel. The nav mirrors the page: one column per axis,
@@ -5399,12 +5410,15 @@ footer .footer-nav ul,
 }
 
 .home-axes .axis-row {
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
   padding: 0.95rem 0.5rem 1rem;
   align-items: baseline;
+  gap: 0.15rem 0.85rem;
 }
 
-.home-axes .axis-body { grid-column: 1; }
+.home-axes .axis-when { grid-column: 2; }
+.home-axes .axis-body { grid-column: 2; }
+.home-axes .axis-price { grid-column: 3; grid-row: 1; }
 .home-axes .axis-when { font-size: 1.02rem; }
 .home-axes .axis-name { font-size: 0.78rem; }
 
