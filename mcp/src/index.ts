@@ -46,7 +46,7 @@ const OPERATING_PATH = {
     },
     {
       name: "The Read",
-      price: "$1,500",
+      price: "$450",
       time: "5 business days",
       what: "A 30–40 minute recorded walkthrough of the site by Shane plus a findings memo: where the operating logic is missing, what AI engines get wrong about the business, and a ranked effort-versus-impact list of fixes.",
       credits: "Credits in full toward the Map within 30 days.",
@@ -91,7 +91,7 @@ const OPERATING_PATH = {
   learn_to_do_it_yourself: [
     {
       name: "The Install",
-      price: "$2,500",
+      price: "$5,000",
       time: "One working day, plus a prep call and two weeks of email follow-up",
       what: "Ends with Claude Code installed and authenticated on the client's own machine, their website's source code in a GitHub repository they own, Claude connected to that repository, one change they wrote and shipped themselves, and one agent built and running on a real task.",
       credits: "Credits in full toward the Map. Also includes the first month of the Partner entry tier and waives its onboarding fee.",
@@ -176,7 +176,7 @@ export class ShaneGringMCP extends McpAgent<Env> {
       {
         title: "Working with Shane Gring",
         description:
-          "Shane Gring's eight offers, grouped by what the buyer wants: find out what's wrong (Scan, free; Read, $1,500), have it done for you (Partner from $950/month; Map $10,000; Site $30,000-$75,000; Seat $10,000/month), or learn to do it yourself (Install $2,500; Session $250). " +
+          "Shane Gring's eight offers, grouped by what the buyer wants: find out what's wrong (Scan, free; Read, $450), have it done for you (Partner from $950/month; Map $10,000; Site $30,000-$75,000; Seat $10,000/month), or learn to do it yourself (Install $5,000; Session $250). " +
           "Returns every offer with price, timeline, what it produces, and how it credits into the next, plus a map of the offer names retired in July 2026. Every price is public and no discovery call is needed. " +
           "The tool name predates the rename and is kept so existing connectors keep working.",
         inputSchema: {},
@@ -222,7 +222,7 @@ export class ShaneGringMCP extends McpAgent<Env> {
         return textResult({
           ...body,
           next_step:
-            "This is the free machine version of the Read. The Read ($1,500) is Shane doing this by hand: a 30–40 minute recorded walkthrough plus a findings memo, crediting in full toward the Map. " +
+            "This is the free machine version of the Read. The Read ($450) is Shane doing this by hand: a 30–40 minute recorded walkthrough plus a findings memo, crediting in full toward the Map. " +
             SITE + "/read",
         });
       }
