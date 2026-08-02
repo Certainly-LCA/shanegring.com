@@ -5131,9 +5131,8 @@ footer .footer-nav a {
    because a recommendation the reader disagrees with should not
    cost them the ability to see the alternative. */
 .axis-row.is-match {
-  background: var(--bg-soft);
-  box-shadow: inset 3px 0 0 var(--fg);
-  border-radius: 0 8px 8px 0;
+  border-color: var(--fg);
+  box-shadow: 0 0 0 1px var(--fg), 0 14px 32px -22px rgba(0, 0, 0, 0.35);
 }
 
 .axis-row.is-dim { opacity: 0.42; }
@@ -5753,22 +5752,45 @@ footer .footer-nav a {
   margin-bottom: 1.7rem;
 }
 
+/* Each option is its own card on a white ground. The list used to be
+   hairline-separated rows on the page background, which read as a table;
+   as cards they read as eight things you can pick between. */
 .axis {
-  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
 .axis-row {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   display: grid;
-  grid-template-columns: 28px minmax(0, 9.5rem) minmax(0, 1fr) auto;
+  /* 12.5rem holds the longest rung — "enhancing your operations" measures
+     195px — on one line. They are the scanning column; wrapping them to
+     two lines costs more than the width does. */
+  /* Fixed, not minmax(0, …): a 0-floor track shrinks below its content
+     and the nowrap rung then overflows into the product name. 15.5rem
+     clears the longest, "enhancing your operations", which measures
+     253px rendered — verified with scrollWidth, because a nowrap span
+     overflows its box without changing its bounding rect, so comparing
+     rects says it fits when it visibly does not. Each row
+     is its own grid, so a fixed width is also what keeps the columns
+     aligned from card to card. */
+  grid-template-columns: 28px 15.5rem minmax(0, 1fr) auto;
   gap: 0.3rem 1.1rem;
+  /* Rows on /work-with-me carry no price, so the trailing auto column
+     collapses to nothing and the description takes the space. */
   align-items: baseline;
-  padding: 1.35rem 0.75rem 1.4rem;
-  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 1.35rem 1.35rem;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
-.axis-row:hover { background: var(--bg-soft); }
+.axis-row:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 10px 26px -20px rgba(0, 0, 0, 0.28);
+}
 
 /* The dimension, not the product, is what the eye lands on. */
 .axis-when {
@@ -5777,6 +5799,7 @@ footer .footer-nav a {
   letter-spacing: -0.015em;
   color: var(--fg);
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 /* Pixel art, so it holds its edges at 28px rather than going soft. */
@@ -5838,14 +5861,13 @@ footer .footer-nav a {
 .axis-seq::before {
   content: "";
   position: absolute;
-  left: 0.1rem;
+  left: -0.9rem;
   top: 1.6rem;
   bottom: 1.6rem;
   width: 2px;
+  border-radius: 2px;
   background: linear-gradient(var(--border-strong), var(--offer-deep, var(--fg)));
 }
-
-.axis-seq .axis-row { padding-left: 1.1rem; }
 
 @media (max-width: 760px) {
   .axis-row {
@@ -5853,7 +5875,7 @@ footer .footer-nav a {
     gap: 0.35rem 0.85rem;
   }
   .axis-glyph { grid-column: 1; grid-row: 1; }
-  .axis-when { grid-column: 2; }
+  .axis-when { grid-column: 2; white-space: normal; }
   .axis-price { grid-column: 3; grid-row: 1; }
   .axis-body { grid-column: 2 / -1; }
 }
