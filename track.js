@@ -38,7 +38,11 @@
       return;
     }
 
-    var checkout = el.closest('a[href*="buy.stripe.com"]');
+    // Both hosts are Stripe: buy.stripe.com is the default Payment Link
+    // domain (the Read), checkout.shanegring.com is the custom one (the
+    // Session's block of four). Matching only the first meant every block
+    // sale went untracked.
+    var checkout = el.closest('a[href*="buy.stripe.com"], a[href*="checkout.shanegring.com"]');
     if (checkout) {
       push('begin_checkout', { link_url: checkout.getAttribute('href') || '' });
     }
