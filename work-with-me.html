@@ -50,9 +50,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {"@type":"Offer","name":"The Session","price":"250","priceCurrency":"USD","url":"https://shanegring.com/session","itemOffered":{"@id":"https://shanegring.com/session#service"}},
 {"@type":"Offer","name":"The Partner","price":"950","priceCurrency":"USD","url":"https://shanegring.com/partner","itemOffered":{"@id":"https://shanegring.com/partner#service"}},
 {"@type":"Offer","name":"The Install","price":"5000","priceCurrency":"USD","url":"https://shanegring.com/install","itemOffered":{"@id":"https://shanegring.com/install#service"}},
-{"@type":"Offer","name":"The Map","price":"10000","priceCurrency":"USD","url":"https://shanegring.com/map","itemOffered":{"@id":"https://shanegring.com/#map"}},
-{"@type":"Offer","name":"The Site","url":"https://shanegring.com/site","itemOffered":{"@id":"https://shanegring.com/site#service"}},
-{"@type":"Offer","name":"The Seat","price":"10000","priceCurrency":"USD","url":"https://shanegring.com/seat","itemOffered":{"@id":"https://shanegring.com/seat#service"}}]},
+{"@type":"Offer","name":"The Map","price":"1999","priceCurrency":"USD","url":"https://shanegring.com/map","itemOffered":{"@id":"https://shanegring.com/#map"}},
+{"@type":"Offer","name":"The Site","priceSpecification":{"@type":"PriceSpecification","minPrice":"30000","maxPrice":"75000","priceCurrency":"USD"},"url":"https://shanegring.com/site","itemOffered":{"@id":"https://shanegring.com/site#service"}},
+{"@type":"Offer","name":"The Seat","price":"6000","priceCurrency":"USD","url":"https://shanegring.com/seat","itemOffered":{"@id":"https://shanegring.com/seat#service"}}]},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shanegring.com/"},{"@type":"ListItem","position":2,"name":"Work with me","item":"https://shanegring.com/work-with-me"}]}]}
 </script>
 </head>
@@ -122,6 +122,148 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </nav>
 
       <img class="om-hero-img" src="/images/work-with-me-hero.png" alt="A funicular railway climbing a seaside cliff, station by station, from the harbor town to the top" width="1456" height="816" fetchpriority="high">
+    </div>
+  </section>
+
+  <section class="om-section wwm-quiz-section" id="router">
+    <div class="container">
+      <h2 class="cs-section-title">Answer three questions.</h2>
+      <p class="wwm-quiz-lede">
+        Eight is too many to choose from cold. These are the same
+        questions I would ask you on a call.
+      </p>
+
+      <div class="quiz" id="quiz" hidden>
+
+        <div class="quiz-step" data-step="q1">
+          <span class="quiz-count">Question 1 of 3</span>
+          <h3 class="quiz-q">How well can you name the problem?</h3>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-next="r-scan">
+              <span class="quiz-opt-t">I can&rsquo;t name it</span>
+              <span class="quiz-opt-d">Something is not working. I could not tell you what.</span>
+            </button>
+            <button type="button" class="quiz-opt" data-next="r-read">
+              <span class="quiz-opt-t">Roughly, and I want it in writing</span>
+              <span class="quiz-opt-d">I have a theory. I want someone to check it and rank the fixes.</span>
+            </button>
+            <button type="button" class="quiz-opt" data-next="q2">
+              <span class="quiz-opt-t">I know exactly what is wrong</span>
+              <span class="quiz-opt-d">The diagnosis is done. I want to get on with it.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="q2" hidden>
+          <span class="quiz-count">Question 2 of 3</span>
+          <h3 class="quiz-q">Who should be holding the keyboard in six months?</h3>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-next="q3a">
+              <span class="quiz-opt-t">You</span>
+              <span class="quiz-opt-d">I want it handled. I am not looking to learn this.</span>
+            </button>
+            <button type="button" class="quiz-opt" data-next="q3b">
+              <span class="quiz-opt-t">Us</span>
+              <span class="quiz-opt-d">I want the capability in-house, not a vendor on retainer.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="q3a" hidden>
+          <span class="quiz-count">Question 3 of 3</span>
+          <h3 class="quiz-q">Is the website neglected, or wrong?</h3>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-next="r-partner">
+              <span class="quiz-opt-t">Neglected</span>
+              <span class="quiz-opt-d">It is broadly right. Nobody tends it and it has gone stale.</span>
+            </button>
+            <button type="button" class="quiz-opt" data-next="r-map">
+              <span class="quiz-opt-t">Wrong</span>
+              <span class="quiz-opt-d">It describes a business we are not any more.</span>
+            </button>
+            <button type="button" class="quiz-opt" data-next="r-seat">
+              <span class="quiz-opt-t">Neither, honestly</span>
+              <span class="quiz-opt-d">The website is a symptom. The operation is the problem.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="q3b" hidden>
+          <span class="quiz-count">Question 3 of 3</span>
+          <h3 class="quiz-q">How much is in your way?</h3>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-next="r-session">
+              <span class="quiz-opt-t">One decision</span>
+              <span class="quiz-opt-d">There is a specific thing I am stuck on.</span>
+            </button>
+            <button type="button" class="quiz-opt" data-next="r-install">
+              <span class="quiz-opt-t">The whole setup</span>
+              <span class="quiz-opt-d">Get the tools running on my machine and show me on my own work.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-step quiz-result" data-step="r-scan" hidden>
+          <span class="quiz-count">What I would tell you</span>
+          <h3 class="quiz-r-name">The Scan</h3>
+          <span class="quiz-r-meta">Free &middot; 2 minutes</span>
+          <p class="quiz-r-body">Start by finding out whether there is a problem worth paying to look at. It is free, it takes two minutes, and the score usually names the thing you could not.</p>
+          <p class="quiz-r-foot">If the score confirms it, <a href="/read">the Read</a> is the next step.</p>
+          <a class="btn-primary" href="/scan">Run the free Scan <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="quiz-step quiz-result" data-step="r-read" hidden>
+          <span class="quiz-count">What I would tell you</span>
+          <h3 class="quiz-r-name">The Read</h3>
+          <span class="quiz-r-meta">$450 &middot; 5 days</span>
+          <p class="quiz-r-body">You have a theory and you want it checked. A recorded walkthrough of your site plus a memo ranking every fix by effort against impact, in five business days. No call needed either way.</p>
+          <p class="quiz-r-foot">It credits in full toward <a href="/map">the Map</a> if you go further.</p>
+          <a class="btn-primary" href="/read">Get your Read <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="quiz-step quiz-result" data-step="r-partner" hidden>
+          <span class="quiz-count">What I would tell you</span>
+          <h3 class="quiz-r-name">The Partner</h3>
+          <span class="quiz-r-meta">From $950/month</span>
+          <p class="quiz-r-body">The site is broadly right and nobody tends it. Someone owns it every month: requests shipped in three days, one new asset a month, and a report on how you are showing up.</p>
+          <p class="quiz-r-foot">Starts on the site you already have, so there is no build to sit through first.</p>
+          <a class="btn-primary" href="/partner">About the Partner <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="quiz-step quiz-result" data-step="r-map" hidden>
+          <span class="quiz-count">What I would tell you</span>
+          <h3 class="quiz-r-name">The Map</h3>
+          <span class="quiz-r-meta">$1,999 &middot; 3 weeks</span>
+          <p class="quiz-r-body">The site describes a business you are not any more, which is not a design problem. Three working sessions extract how the business actually runs and put it on paper, with a fixed-price build proposal as the last page.</p>
+          <p class="quiz-r-foot">Every build starts here. The fee credits in full toward one.</p>
+          <a class="btn-primary" href="/map">See the Map <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="quiz-step quiz-result" data-step="r-seat" hidden>
+          <span class="quiz-count">What I would tell you</span>
+          <h3 class="quiz-r-name">The Seat</h3>
+          <span class="quiz-r-meta">From $6,000/month</span>
+          <p class="quiz-r-body">If the website is a symptom, fixing the website is the wrong project. This is an operator in the seat a few days a month, running operations rather than pages.</p>
+          <p class="quiz-r-foot">Not a website engagement. <a href="/fractional-coo-rates">How the rate compares</a>.</p>
+          <a class="btn-primary" href="/seat">About the Seat <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="quiz-step quiz-result" data-step="r-session" hidden>
+          <span class="quiz-count">What I would tell you</span>
+          <h3 class="quiz-r-name">The Session</h3>
+          <span class="quiz-r-meta">$250 &middot; one call</span>
+          <p class="quiz-r-body">One specific thing, one call, no build and no retainer. You leave with the decision made and the next three moves clear.</p>
+          <p class="quiz-r-foot">Four for $800 if it turns out there is more than one.</p>
+          <a class="btn-primary" href="/session">Book a session <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="quiz-step quiz-result" data-step="r-install" hidden>
+          <span class="quiz-count">What I would tell you</span>
+          <h3 class="quiz-r-name">The Install</h3>
+          <span class="quiz-r-meta">$5,000 &middot; one day</span>
+          <p class="quiz-r-body">A full day in person, travel included. It ends with the tools running on your own machine, one change you shipped yourself, and one agent doing real work.</p>
+          <p class="quiz-r-foot">Credits toward <a href="/map">the Map</a>, so learning it yourself costs nothing if you later hand it over.</p>
+          <a class="btn-primary" href="/install">Book the day <span class="btn-arrow">&rarr;</span></a>
+        </div>
+
+        <p class="quiz-restart" hidden>
+          <button type="button" class="quiz-back" id="quiz-restart">Start again</button>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -195,7 +337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="path-item-head">
             <img class="path-mark" src="/images/icons/map.png" alt="" width="30" height="30" aria-hidden="true">
             <h3 class="path-item-title">The Map</h3>
-            <span class="path-item-meta">3 weeks</span>
+            <span class="path-item-meta">$1,999 &middot; 3 weeks</span>
           </div>
           <p>
             Your business extracted and put on paper. Three working
@@ -209,7 +351,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="path-item-head">
             <img class="path-mark" src="/images/icons/site.png" alt="" width="30" height="30" aria-hidden="true">
             <h3 class="path-item-title">The Site</h3>
-            <span class="path-item-meta">Priced by your Map &middot; 6 to 12 weeks</span>
+            <span class="path-item-meta">$30,000 to $75,000, priced by your Map &middot; 6 to 12 weeks</span>
           </div>
           <p>
             Your website rebuilt as a componentized, machine-readable
@@ -222,7 +364,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="path-item-head">
             <img class="path-mark" src="/images/icons/seat.png" alt="" width="30" height="30" aria-hidden="true">
             <h3 class="path-item-title">The Seat</h3>
-            <span class="path-item-meta">Monthly &middot; 6-month minimum</span>
+            <span class="path-item-meta">From $6,000/month &middot; 6-month minimum</span>
           </div>
           <p>
             Skip all of it and hire me directly. An operator in the seat a
@@ -275,6 +417,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section class="om-section">
     <div class="container">
+      <h2 class="cs-section-title">When none of these is the answer</h2>
+
+      <p>
+        Four situations where I would tell you to keep your money. They
+        come up often enough to be worth putting on the page.
+      </p>
+
+      <div class="fit-split fit-split-single">
+        <div class="fit-col fit-no">
+          <ul>
+            <li>What you actually want is a visual refresh of the site you have</li>
+            <li>The real problem is demand, not operations</li>
+            <li>Nobody inside the business thinks anything needs to change</li>
+            <li>You want the diagnosis, but you do not intend to act on it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="om-section">
+    <div class="container">
       <span class="section-eyebrow">Compare</span>
       <h2 class="cs-section-title">All eight, one table.</h2>
 
@@ -294,9 +458,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <tr><th scope="row"><a href="/session">The Session</a></th><td>One stuck thing, unstuck</td><td>One call</td><td class="om-table-price">$250</td></tr>
             <tr><th scope="row"><a href="/partner">The Partner</a></th><td>Someone who owns the site</td><td>Monthly</td><td class="om-table-price">From $950</td></tr>
             <tr><th scope="row"><a href="/install">The Install</a></th><td>The ability to do it yourself</td><td>One day</td><td class="om-table-price">$5,000</td></tr>
-            <tr><th scope="row"><a href="/map">The Map</a></th><td>Your business on paper, and a fixed build price</td><td>3 weeks</td><td class="om-table-price">On request</td></tr>
+            <tr><th scope="row"><a href="/map">The Map</a></th><td>Your business on paper, and a fixed build price</td><td>3 weeks</td><td class="om-table-price">$1,999</td></tr>
             <tr><th scope="row"><a href="/site">The Site</a></th><td>A site your business runs from</td><td>6 to 12 weeks</td><td class="om-table-price">Priced by your Map</td></tr>
-            <tr><th scope="row"><a href="/seat">The Seat</a></th><td>An operator in the seat</td><td>Ongoing</td><td class="om-table-price">On request</td></tr>
+            <tr><th scope="row"><a href="/seat">The Seat</a></th><td>An operator in the seat</td><td>Ongoing</td><td class="om-table-price">From $6,000/mo <a class="om-table-note" href="/fractional-coo-rates">how this compares</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -471,5 +635,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="/nav.js" defer></script>
 <script src="/track.js" defer></script>
+<script>
+/* The /work-with-me router. Progressive enhancement: the quiz markup is
+   hidden until this runs, so a reader without JS gets the page exactly as
+   it was — three buckets, the table, and the comparisons below. */
+(function () {
+  var quiz = document.getElementById('quiz');
+  if (!quiz) return;
+  quiz.hidden = false;
+
+  var steps = quiz.querySelectorAll('.quiz-step');
+  var restart = quiz.querySelector('.quiz-restart');
+
+  function show(id) {
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].hidden = steps[i].getAttribute('data-step') !== id;
+    }
+    var now = quiz.querySelector('[data-step="' + id + '"]');
+    if (!now) return;
+    restart.hidden = id === 'q1';
+
+    /* Move focus to the new question so the keyboard and a screen reader
+       follow the same path the mouse does. */
+    var h = now.querySelector('h3');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+
+    if (now.classList.contains('quiz-result') && window.sgTrack) {
+      window.sgTrack('router_result', { recommended: now.querySelector('.quiz-r-name').textContent });
+    }
+  }
+
+  quiz.addEventListener('click', function (e) {
+    var opt = e.target.closest ? e.target.closest('.quiz-opt') : null;
+    if (opt) { show(opt.getAttribute('data-next')); return; }
+    if (e.target.id === 'quiz-restart') show('q1');
+  });
+})();
+</script>
+
 </body>
 </html>

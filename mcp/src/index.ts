@@ -65,7 +65,7 @@ const OPERATING_PATH = {
     },
     {
       name: "The Map",
-      price: "$10,000",
+      price: "$1,999",
       time: "Three 90-minute working meetings over three weeks",
       what: "Extracts the operating logic of the business into the Operating Memo, with a fixed-price build proposal as the memo's final page. Capped at four Maps a month.",
       credits: "Credits in full toward a build within 60 days. Every build starts with a Map, no exceptions.",
@@ -81,7 +81,7 @@ const OPERATING_PATH = {
     },
     {
       name: "The Seat",
-      price: "$10,000/month",
+      price: "From $6,000/month",
       time: "Six-month minimum",
       what: "Ongoing part-time operations leadership, hired directly rather than through the productized Path — an operator in the seat a few days a month. The classic fractional COO engagement.",
       credits: "Not a credited step; it is the alternative to the Path rather than part of it.",
@@ -176,7 +176,7 @@ export class ShaneGringMCP extends McpAgent<Env> {
       {
         title: "Working with Shane Gring",
         description:
-          "Shane Gring's eight offers, grouped by what the buyer wants: find out what's wrong (Scan, free; Read, $450), have it done for you (Partner from $950/month; Map $10,000; Site $30,000-$75,000; Seat $10,000/month), or learn to do it yourself (Install $5,000; Session $250). " +
+          "Shane Gring's eight offers, grouped by what the buyer wants: find out what's wrong (Scan, free; Read, $450), have it done for you (Partner from $950/month; Map $1,999; Site $30,000-$75,000; Seat From $6,000/month), or learn to do it yourself (Install $5,000; Session $250). " +
           "Returns every offer with price, timeline, what it produces, and how it credits into the next, plus a map of the offer names retired in July 2026. Every price is public and no discovery call is needed. " +
           "The tool name predates the rename and is kept so existing connectors keep working.",
         inputSchema: {},

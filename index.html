@@ -262,12 +262,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     3. DONE — CTA link live and verified, and the Book-the-Map CTAs on
        /map now point at it:
        https://cal.com/shane-gring/operating-map
-    4. ⚠️ BLOCKER — PAYMENT AT BOOKING IS STILL SET TO $1,999. Cal.com's
-       Stripe app is connected to the SOEN account (acct_14T074AE4jOSazQM)
-       and the 'operating-map' event collects $1,999 USD on booking.
-       The Map is now priced at $10,000 across the site. Until the
-       Cal.com event amount is raised, every booking undercharges by
-       $8,001. DO NOT MERGE TO MAIN UNTIL THIS IS CHANGED IN CAL.COM.
+    4. ✅ RESOLVED 2026-08-01 — the Map is $1,999 sitewide, matching what
+       the Cal.com event has always collected. No Cal.com change needed.
   ════════════════════════════════════════════════════════════════════════════
 -->
 
@@ -304,10 +300,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="btn-primary" href="#book" data-cal-namespace="30min" data-cal-link="shane-gring/30min" data-cal-config='{"layout":"month_view"}'>
             Book a call <span class="btn-arrow">&rarr;</span>
           </a>
-          <a class="btn-secondary" href="#ways">
-            Find your step <span class="btn-arrow">&rarr;</span>
+          <a class="btn-secondary" href="/scan">
+            Run the free Scan <span class="btn-arrow">&rarr;</span>
           </a>
         </div>
+
+        <p class="not-a-redesign hero-not-redesign">
+          <strong>This is not a website redesign.</strong>
+          <a href="/guides/redesign-wont-fix-it">Why a prettier site solves none of it &rarr;</a>
+        </p>
       </div>
 
       <aside class="hero-cal" id="book" aria-label="Book a call with Shane">
@@ -459,7 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Start by finding out. An outside read on what your website
         actually says about the business, and what search and AI engines
         can make of it. Cheap, quick, and it commits you to nothing.</p>
-        <a class="path-item-cta" href="/work-with-me#find-out">Find out what's wrong <span class="btn-arrow">&rarr;</span></a>
+        <a class="path-item-cta" href="/find-out">Find out what's wrong <span class="btn-arrow">&rarr;</span></a>
       </article>
       <article class="om-card">
         <img class="shape-icon" src="/images/icons/track-2.png" alt="" width="56" height="56" aria-hidden="true">
@@ -467,7 +468,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Hand it over. Someone owns the work, ships the changes instead
         of listing them, and keeps what the business says matched to what
         the business is &mdash; every month, or all the way to a rebuild.</p>
-        <a class="path-item-cta" href="/work-with-me#done-for-you">Have it done for you <span class="btn-arrow">&rarr;</span></a>
+        <a class="path-item-cta" href="/done-for-you">Have it done for you <span class="btn-arrow">&rarr;</span></a>
       </article>
       <article class="om-card">
         <img class="shape-icon" src="/images/icons/track-3.png" alt="" width="56" height="56" aria-hidden="true">
@@ -475,7 +476,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Take the keyboard. You leave able to do the work without me in
         the loop &mdash; the tools running on your own machine, and
         somebody to think it through with when you get stuck.</p>
-        <a class="path-item-cta" href="/work-with-me#do-it-yourself">Learn to do it yourself <span class="btn-arrow">&rarr;</span></a>
+        <a class="path-item-cta" href="/do-it-yourself">Learn to do it yourself <span class="btn-arrow">&rarr;</span></a>
       </article>
     </div>
 
@@ -641,7 +642,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <figure class="quote-card">
         <blockquote>
           &ldquo;I've worked with a lot of consultants and a lot of
-          operators. Shane is the rare one who can do both. He'd sit in
+          operators. <mark>Shane is the rare one who can do both.</mark> He'd sit in
           a strategy session and see the org chart we'd need three years
           out, then walk into the next meeting and ship the thing we
           needed Friday. WELL became what it is because Shane built the
@@ -658,8 +659,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <figure class="quote-card">
         <blockquote>
           &ldquo;You can hire strategy. You can hire execution. Shane is
-          the rare person who holds both at the same time, and who stays
-          in the work long enough to see it through. A decade of WELL's
+          <mark>the rare person who holds both at the same time, and who
+          stays in the work long enough to see it through.</mark> A decade of WELL's
           growth has Shane's fingerprints on the infrastructure
           underneath.&rdquo;
         </blockquote>
@@ -676,8 +677,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           successfully. But when someone gets certified to represent
           DRVN, they're not just learning a methodology. They're building
           their business on our brand. We needed infrastructure that
-          protected both the coach and the golfer, and Shane is the
-          operator who built it.&rdquo;
+          protected both the coach and the golfer, and <mark>Shane is the
+          operator who built it.</mark>&rdquo;
         </blockquote>
         <figcaption>
           <span class="quote-name">Michael Dennington</span>
@@ -744,8 +745,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
-     CONTACT
+     CLOSE
+     The page ends on the same two actions it opened with: talk to
+     me, or find out for yourself. No third option — a page that
+     offers three things at the end is asking the reader to decide
+     twice.
      ════════════════════════════════════════════════════════════ -->
+<section id="close" class="home-close fade-in">
+  <div class="container">
+    <h2 class="section-title">Two ways to start.</h2>
+    <p class="home-close-lede">
+      One costs you half an hour. The other costs you two minutes and
+      you do not have to talk to anybody.
+    </p>
+
+    <div class="home-close-ctas">
+      <a class="btn-primary" href="#book" data-cal-namespace="30min" data-cal-link="shane-gring/30min" data-cal-config='{"layout":"month_view"}'>
+        Book a call <span class="btn-arrow">&rarr;</span>
+      </a>
+      <a class="btn-secondary" href="/scan">
+        Run the free Scan <span class="btn-arrow">&rarr;</span>
+      </a>
+    </div>
+
+    <p class="home-close-note">
+      Not sure which of the eight fits? <a href="/work-with-me#router">Answer three questions</a>.
+    </p>
+  </div>
+</section>
 
 </main>
 

@@ -4495,3 +4495,741 @@ footer .footer-nav a {
 @media (max-width: 768px) {
   .sitemap-list { grid-template-columns: 1fr; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   GOOD FIT / NOT THE RIGHT FIT
+   Two columns, and the "not" side is not softened. A page that
+   only says who it is for reads as a page that will take anyone.
+   ══════════════════════════════════════════════════════════════ */
+.fit-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin: 1.8rem 0 1.5rem;
+}
+
+.fit-col {
+  padding: 1.5rem 1.6rem 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.fit-yes { border-color: var(--border-strong); }
+.fit-no  { background: var(--bg-soft); }
+
+.fit-title {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.fit-yes .fit-title { color: var(--fg); }
+
+.fit-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.fit-col li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+.fit-col li::before {
+  position: absolute;
+  left: 0;
+  top: -0.05rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.fit-yes li::before { content: "+"; color: var(--fg); }
+.fit-no  li::before { content: "\2013"; color: var(--dim); }
+
+/* ── "This is not a website redesign." ──────────────────────────
+   Sits under the hero CTA. The essay it points at already existed;
+   this only surfaces it. */
+.not-a-redesign {
+  margin: 1.6rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--border-strong);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+.not-a-redesign strong { color: var(--fg); display: block; }
+
+.not-a-redesign a {
+  color: var(--mid);
+  text-underline-offset: 3px;
+}
+
+.not-a-redesign a:hover { color: var(--fg); }
+
+@media (max-width: 768px) {
+  .fit-split { grid-template-columns: 1fr; }
+}
+
+/* ── Quote highlight ────────────────────────────────────────────
+   One marked line per quote: the claim the reader should leave
+   with. A quote where everything is emphasised emphasises nothing,
+   so this is deliberately not a general-purpose <mark>. */
+.quote-card mark {
+  background: linear-gradient(transparent 58%, rgba(200, 137, 26, 0.28) 58%);
+  color: inherit;
+  padding: 0 0.1em;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .quote-card mark { transition: background 0.2s ease; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ENGAGEMENT CALENDAR (/map)
+   A real Mon-to-Fri grid, not a list of weeks. The claim "your
+   total time is three sessions" is only believable if you can see
+   the empty days, so the internal days are drawn as cells too and
+   are visibly the majority of the grid.
+   ══════════════════════════════════════════════════════════════ */
+.cal-cal {
+  margin: 1.9rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.cal-head,
+.cal-row {
+  display: grid;
+  grid-template-columns: 130px repeat(5, minmax(0, 1fr));
+}
+
+.cal-head {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-head span {
+  padding: 0.6rem 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-left: 1px solid var(--border);
+}
+
+.cal-corner { border-left: 0 !important; }
+
+.cal-row { border-top: 1px solid var(--border); }
+.cal-row:first-of-type { border-top: 0; }
+
+.cal-wk {
+  padding: 0.85rem 0.8rem;
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cal-wk-n {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.cal-wk-t {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.cal-cell {
+  padding: 0.75rem 0.75rem 0.85rem;
+  border-left: 1px solid var(--border);
+  min-height: 118px;
+}
+
+.cal-cell p {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+.cal-pip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* Live days carry the offer colour and read as the only appointments
+   in the grid. Everything else recedes. */
+.cal-live { background: rgba(199, 145, 206, 0.13); }
+.cal-live .cal-pip { background: var(--offer-deep, var(--fg)); color: #fff; }
+.cal-live p { color: var(--fg); }
+
+.cal-async .cal-pip {
+  border: 1px solid var(--border-strong);
+  color: var(--mid);
+}
+
+.cal-internal { background: repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(0,0,0,0.018) 7px, rgba(0,0,0,0.018) 14px); }
+.cal-internal .cal-pip { color: var(--dim); border: 1px solid var(--border); }
+.cal-internal p { color: var(--dim); }
+
+.cal-row-after .cal-wk,
+.cal-after { background: var(--bg-soft); }
+.cal-after { min-height: 0; display: flex; align-items: center; }
+.cal-after p { margin: 0; font-size: 0.86rem; color: var(--mid); }
+.cal-after strong { color: var(--fg); }
+
+.cal-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 0 0 1.4rem;
+  font-size: 0.82rem;
+  color: var(--dim);
+}
+
+.cal-keyitem { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+.cal-swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  border: 1px solid var(--border-strong);
+}
+
+.cal-swatch-live { background: rgba(199, 145, 206, 0.35); }
+.cal-swatch-async { background: var(--bg); }
+.cal-swatch-internal { background: repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.13) 3px, rgba(0,0,0,0.13) 6px); }
+
+/* Below tablet a five-column week is unreadable, so the grid
+   unrolls into stacked days and the weekday header goes away. */
+@media (max-width: 900px) {
+  .cal-head { display: none; }
+  .cal-row { grid-template-columns: 1fr; }
+  .cal-cell,
+  .cal-after { border-left: 0; border-top: 1px solid var(--border); min-height: 0; }
+  .cal-cell[style] { grid-column: auto !important; }
+  .cal-wk { flex-direction: row; align-items: baseline; gap: 0.6rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OPERATING MEMO SPREAD (/map)
+   Three pages of the deliverable, built as markup rather than
+   screenshots so nothing real gets published and the whole thing
+   stays legible at any width. The body copy is deliberately greeked
+   into bars: the point is the shape of the document, and fake
+   sentences would invite reading.
+   ══════════════════════════════════════════════════════════════ */
+.memo-spread {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.9rem 0 1.2rem;
+  align-items: stretch;
+}
+
+/* Pages equalise to the tallest rather than holding a fixed page
+   ratio. A locked aspect-ratio clipped the proposal's last line, and
+   a deliverable preview that visibly cuts off is worse than one that
+   is a little taller than paper. */
+.memo-page {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.memo-paper {
+  flex: 1;
+  min-height: 340px;
+  padding: 1.15rem 1.2rem;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 14px 28px -20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.memo-page figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: var(--dim);
+  text-align: center;
+}
+
+.memo-kicker {
+  display: block;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--offer, var(--dim));
+}
+
+.memo-h {
+  margin: 0.35rem 0 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.memo-toc {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.6rem;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+.memo-toc li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.24rem 0;
+  border-bottom: 1px dotted var(--border);
+}
+
+.memo-toc-last {
+  font-weight: 600;
+  color: var(--fg);
+  border-bottom: 0;
+}
+
+.memo-pg { color: var(--dim); flex-shrink: 0; }
+
+/* Greeked body copy. Bars, not lorem ipsum: a reader tries to read
+   words, and there is nothing here worth reading. */
+.memo-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+}
+
+.memo-line {
+  display: block;
+  height: 0.3rem;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.memo-line-short { width: 62%; }
+.memo-line-dark { background: var(--border-strong); }
+
+.memo-callout {
+  margin: 0.6rem 0;
+  padding: 0.5rem 0.6rem;
+  border-left: 2px solid var(--offer, var(--fg));
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.memo-callout-label {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.1rem;
+}
+
+.memo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.6rem;
+  font-size: 0.58rem;
+}
+
+.memo-table td {
+  padding: 0.28rem 0.2rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--mid);
+}
+
+.memo-table td:first-child { color: var(--fg); font-weight: 500; }
+
+.memo-flag {
+  color: #a8641a;
+  font-weight: 600;
+}
+
+.memo-table-quote td:last-child { text-align: right; }
+
+.memo-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.7rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid var(--fg);
+  font-size: 0.62rem;
+  color: var(--fg);
+}
+
+.memo-total strong { font-size: 0.95rem; }
+
+.memo-foot {
+  margin: 0.5rem 0 0;
+  font-size: 0.52rem;
+  color: var(--dim);
+}
+
+.memo-note {
+  font-size: 0.9rem;
+  color: var(--dim);
+  max-width: 44rem;
+}
+
+.memo-note strong { color: var(--fg); }
+
+@media (max-width: 768px) {
+  .memo-spread {
+    grid-template-columns: 1fr;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   THE DAY (/install)
+   Same idea as the Map's calendar, one scale down: hours instead of
+   days. The page's own FAQ asks "is one day really enough?", and a
+   grid you can count answers that better than a sentence. The blocks
+   marked "your hands" are the majority on purpose — that is the
+   product, and a day where the consultant drives is a demo.
+   ══════════════════════════════════════════════════════════════ */
+.day-cal {
+  margin: 1.8rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.day-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  border-top: 1px solid var(--border);
+}
+
+.day-row:first-child { border-top: 0; }
+
+.day-time {
+  padding: 0.85rem 0.9rem;
+  background: var(--bg-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fg);
+  border-right: 1px solid var(--border);
+}
+
+.day-block {
+  padding: 0.8rem 0.95rem 0.9rem;
+  background: var(--bg);
+}
+
+.day-block p {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.day-block .cal-pip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* The Install's colour is the green from its icon. */
+.day-block-hands { background: rgba(71, 154, 104, 0.1); }
+.day-block-hands .cal-pip { background: #2f6b46; color: #fff; }
+.day-block-hands p { color: var(--fg); }
+
+.day-block-prep .cal-pip,
+.day-block-hand .cal-pip {
+  border: 1px solid var(--border-strong);
+  color: var(--mid);
+}
+
+.day-row-break .day-time,
+.day-block-break {
+  background: var(--bg-soft);
+}
+
+.day-block-break p { margin: 0; color: var(--dim); }
+
+.day-row-after .day-time { background: var(--bg-soft); }
+.day-block-after { background: var(--bg-soft); }
+.day-block-after p { margin: 0; }
+
+.day-key {
+  font-size: 0.9rem;
+  color: var(--dim);
+  max-width: 44rem;
+}
+
+.day-key strong { color: var(--fg); }
+
+@media (max-width: 640px) {
+  .day-row { grid-template-columns: 1fr; }
+  .day-time {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0.9rem;
+  }
+}
+
+/* Two-page variant of the memo spread, for the Read's shorter memo. */
+.memo-spread-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 34rem;
+}
+
+.memo-table-rank th {
+  text-align: left;
+  padding: 0 0.2rem 0.3rem;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.memo-table-rank td:not(:first-child) { text-align: right; }
+
+@media (max-width: 768px) {
+  .memo-spread-two { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   THE ROUTER (/work-with-me)
+   Eight offers is too many to choose from cold. Three answers,
+   one recommendation. Progressive enhancement: the markup is
+   hidden until the script runs, so without JS the page is what it
+   always was — three buckets, a table, and the comparisons.
+   ══════════════════════════════════════════════════════════════ */
+.wwm-quiz-lede {
+  max-width: 44rem;
+  color: var(--mid);
+}
+
+.quiz {
+  margin-top: 1.9rem;
+  padding: 1.9rem 2rem 2rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: var(--bg);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 20px 44px -28px rgba(0, 0, 0, 0.22);
+}
+
+.quiz-count {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.quiz-q {
+  margin: 0.5rem 0 1.3rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+
+/* Focus is moved here by script so the keyboard follows the same path
+   the mouse does. Suppress the ring for that programmatic move, but keep
+   it for anyone who actually tabbed to it. */
+.quiz-q:focus,
+.quiz-r-name:focus { outline: none; }
+
+.quiz-q:focus-visible,
+.quiz-r-name:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.quiz-opts {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.quiz-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  cursor: pointer;
+  font: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.quiz-opt:hover {
+  border-color: var(--fg);
+  background: var(--bg-soft);
+}
+
+.quiz-opt:active { transform: translateY(1px); }
+
+.quiz-opt:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.quiz-opt-t {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.quiz-opt-d {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--dim);
+}
+
+/* ── The answer ─────────────────────────────────────────────── */
+.quiz-r-name {
+  margin: 0.5rem 0 0.4rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.quiz-r-meta {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--dim);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 0.18rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-r-body {
+  margin: 0 0 0.8rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--mid);
+  max-width: 42rem;
+}
+
+.quiz-r-foot {
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+  color: var(--dim);
+  max-width: 42rem;
+}
+
+.quiz-restart { margin: 1.5rem 0 0; }
+
+.quiz-back {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--dim);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.quiz-back:hover { color: var(--fg); }
+
+@media (max-width: 640px) {
+  .quiz { padding: 1.4rem 1.2rem 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-opt { transition: none; }
+  .quiz-opt:active { transform: none; }
+}
+
+/* ── Homepage close ─────────────────────────────────────────────
+   The page ends on the same two actions it opened with. The router
+   is offered as a quiet third line rather than a third button:
+   a page that presents three equal choices at the end asks the
+   reader to make the decision twice. */
+.home-close {
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.home-close-lede {
+  max-width: 34rem;
+  margin: 0.9rem auto 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--mid);
+}
+
+.home-close-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.home-close-note {
+  margin: 1.6rem 0 0;
+  font-size: 0.92rem;
+  color: var(--dim);
+}
+
+@media (max-width: 560px) {
+  .home-close-ctas { flex-direction: column; align-items: stretch; }
+}
+
+/* Single-column variant: /work-with-me carries only the disqualifiers,
+   because the whole page is already the "good fit" case. */
+.fit-split-single { grid-template-columns: 1fr; max-width: 40rem; }
+.fit-split-single .fit-col { background: var(--bg-soft); }
