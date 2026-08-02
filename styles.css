@@ -331,6 +331,104 @@ nav .nav-cta:hover { background: #000; color: var(--bg); }
   font-weight: 400;
 }
 
+/* ── The three-column mega panel ──────────────────────────────────
+   The dropdown lists the three ways in as columns. It is wider than a
+   normal dropdown, so at desktop width .nav-drop goes static and
+   .site-nav .container goes relative — the panel then resolves against
+   the container, edge to edge, and can never run off the right of the
+   viewport the way a trigger-anchored panel does on a narrow laptop. */
+@media (min-width: 769px) {
+  .site-nav .container { position: relative; }
+  .nav-drop { position: static; }
+
+  /* Hover bridge. The panel hangs off .container, not off the link, so
+     between the bottom of "Work with me" (y≈92) and the top of the panel
+     (y≈125) sits the container's 17px padding plus the 8px offset — 33px
+     of dead space that drops :hover on the way down. The panel's own
+     ::before bridge is only 12px and was sized back when the panel hung
+     off the link. This one is anchored to the trigger, so it covers the
+     gap without spanning the nav and swallowing the other links. */
+  .nav-drop > a { position: relative; }
+  .nav-drop > a::after {
+    content: "";
+    position: absolute;
+    left: -0.9rem;
+    right: -0.9rem;
+    top: 100%;
+    height: 2rem; /* meets the panel's own ::before bridge, which covers the last few px */
+  }
+
+  .nav-dropdown.nav-mega {
+    left: 0;
+    right: 0;
+    min-width: 0;
+    padding: 1.5rem 1.6rem 1.1rem;
+    display: none;
+    /* minmax(0,…) not 1fr: the rows are nowrap by default, so plain 1fr
+       resolves to min-content and the columns come out uneven. */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 1.5rem;
+  }
+
+  /* The base rules flip display to flex on hover; the panel is a grid. */
+  .nav-drop:hover .nav-dropdown.nav-mega,
+  .nav-drop:focus-within .nav-dropdown.nav-mega,
+  .nav-drop.open .nav-dropdown.nav-mega { display: grid; }
+
+  .nav-mega-col + .nav-mega-col {
+    border-left: 1px solid var(--border);
+    padding-left: 1.5rem;
+  }
+
+  .nav-mega-col > a {
+    align-items: flex-start;
+    padding: 0.7rem 0.7rem 0.8rem;
+  }
+
+  .nav-mega-col .nav-drop-name { font-weight: 600; }
+
+  /* Released from the single-row dropdown's nowrap: the blurb is two or
+     three lines in a column this narrow. */
+  .nav-mega-col .nav-drop-desc {
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  /* Footer row spans all three columns. */
+  .nav-mega-foot {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.9rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-mega-foot a {
+    width: auto;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.84rem;
+    color: var(--dim);
+  }
+
+  .nav-mega-foot a:hover { color: var(--fg); }
+}
+
+/* Mobile: the panel expands inline inside the full-screen overlay, so
+   the three columns become three stacked rows — which is what the menu
+   did before it became a grid. */
+@media (max-width: 768px) {
+  .nav-mega-col > a { align-items: flex-start; }
+  .nav-mega-foot {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+    padding-top: 0.6rem;
+    margin-top: 0.5rem;
+  }
+}
+
+
 
 /* ══════════════════════════════════════════════════════════════
    SECTION ATOMS
@@ -3865,4 +3963,535 @@ body[class*="offer-"] .om-hero .section-eyebrow { color: var(--offer-deep, var(-
     gap: 0.75rem;
     padding: 0.95rem 1.1rem;
   }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   THE VSL LANDING PAGE (/get-the-read)
+   Paid-traffic page for the Read. It borrows the whole offer-page
+   system — om-hero, om-section, om-cards, om-weeks, cs-bullets —
+   and adds only what a video sales letter needs that the site did
+   not already have: a stripped header, a facade video player, and
+   a sticky buy bar. Scoped to .vsl-page so nothing here can reach
+   the other 36 pages.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Stripped header ─────────────────────────────────────────────
+   Not .site-nav on purpose: no menu, no announce bar, no way off
+   the page except the logo. Every other link is a leak on traffic
+   you paid for. */
+.vsl-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.vsl-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.vsl-header .logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+  padding: 0.375rem 0;
+}
+
+.vsl-header .logo .logo-cloud {
+  width: auto;
+  height: 30px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: saturate(1.35) contrast(1.08);
+}
+
+.vsl-header .logo .logo-bolt {
+  position: absolute;
+  left: 50%;
+  top: 78%;
+  width: 13px;
+  height: auto;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.vsl-header .logo:hover .logo-bolt,
+.vsl-header .logo:focus-visible .logo-bolt {
+  animation: bolt-flash 0.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vsl-header .logo:hover .logo-bolt { animation: none; opacity: 1; }
+}
+
+.vsl-header-note {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--dim);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────
+   Tighter than a normal offer hero. On a VSL the headline's only
+   job is to earn the play button, so the player has to be close
+   enough to see without scrolling. */
+.vsl-hero {
+  padding: 3rem 0 3.5rem;
+  text-align: center;
+}
+
+.vsl-hero .offer-mark { margin-left: auto; margin-right: auto; }
+.vsl-hero .om-lede { margin-left: auto; margin-right: auto; }
+.vsl-hero .cs-hook { max-width: 20ch; margin-left: auto; margin-right: auto; }
+
+/* ── The player ──────────────────────────────────────────────────
+   Facade: poster image and a play button, with the iframe swapped
+   in on click. The embed's scripts never touch the first paint. */
+.vsl-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 2.5rem 0 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0b0b0b;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 22px 50px -24px rgba(0, 0, 0, 0.35);
+}
+
+.vsl-video iframe,
+.vsl-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.vsl-facade {
+  display: block;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.vsl-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Dimmed so the play button reads against any frame. */
+  filter: brightness(0.82);
+  transition: filter 0.2s ease, transform 0.4s ease;
+}
+
+.vsl-facade:hover img,
+.vsl-facade:focus-visible img {
+  filter: brightness(0.7);
+  transform: scale(1.02);
+}
+
+.vsl-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s ease;
+}
+
+/* The triangle, drawn rather than shipped as an asset. */
+.vsl-play::after {
+  content: "";
+  position: absolute;
+  left: 54%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 15px 0 15px 25px;
+  border-color: transparent transparent transparent var(--offer-deep, var(--fg));
+}
+
+.vsl-facade:hover .vsl-play,
+.vsl-facade:focus-visible .vsl-play { transform: translate(-50%, -50%) scale(1.07); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vsl-facade img,
+  .vsl-play { transition: none; }
+  .vsl-facade:hover img { transform: none; }
+}
+
+/* The hero image stands in for the player until a video exists. The
+   script adds .vsl-has-video to <body> once VSL_EMBED is set. */
+.vsl-has-video .vsl-no-video { display: none; }
+
+/* ── Calls to action ─────────────────────────────────────────────── */
+.vsl-cta {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.vsl-cta .btn-primary { font-size: 1.05rem; padding: 1rem 2rem; }
+
+.vsl-cta-note {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--dim);
+  max-width: 34rem;
+  margin: 0;
+}
+
+.vsl-cta-note strong { color: var(--fg); }
+
+.vsl-skip {
+  margin: 1.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.vsl-skip a { color: var(--dim); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.vsl-skip a:hover { color: var(--fg); }
+
+.vsl-midcta { text-align: center; }
+.vsl-midcta .om-price-line { margin-bottom: 1.5rem; }
+
+/* ── Sticky buy bar ──────────────────────────────────────────────
+   Mobile only. On desktop the mid-page and final CTAs are never far
+   enough away to need it, and a fixed bar there just eats the fold. */
+.vsl-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: none;
+  background: var(--bg);
+  border-top: 1px solid var(--border-strong);
+  box-shadow: 0 -10px 30px -22px rgba(0, 0, 0, 0.5);
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.vsl-sticky.is-visible { transform: translateY(0); }
+
+.vsl-sticky-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0.7rem 1.25rem;
+}
+
+/* nowrap on both halves: at 390px the label was breaking across two lines
+   and shoving the bar to double height. */
+.vsl-sticky-price {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg);
+  white-space: nowrap;
+}
+
+.vsl-sticky .btn-primary {
+  padding: 0.7rem 1rem;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .vsl-sticky { display: block; }
+
+  .vsl-hero { padding: 2rem 0 2.5rem; }
+  .vsl-hero .cs-hook { max-width: none; }
+
+  .vsl-video { margin-top: 1.75rem; border-radius: 10px; }
+  .vsl-play { width: 62px; height: 62px; }
+  .vsl-play::after { border-width: 11px 0 11px 18px; }
+
+  .vsl-cta .btn-primary { width: 100%; justify-content: center; }
+
+  /* Room for the sticky bar so it never covers the final CTA. */
+  .vsl-page footer { padding-bottom: 5rem; }
+
+  .vsl-header-note { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vsl-sticky { transition: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   THE THREE WAY-IN PAGES (/find-out, /done-for-you, /do-it-yourself)
+   ══════════════════════════════════════════════════════════════ */
+
+/* The art is the hero background, with the copy over it. The <img> is a
+   real element rather than a CSS background so it keeps its alt text and
+   can be given fetchpriority — the largest paint on these pages.
+
+   ::after is a left-to-right white scrim, not a flat wash: all three
+   pieces put their subject centre-right, so the left stays near-opaque
+   for the headline to sit on and the art comes through on the right at
+   close to full strength. Without it the lede is grey text on cloud. */
+.track-hero {
+  position: relative;
+  overflow: hidden;
+  /* Block flow, not flex. As a flex container the .container child was
+     shrink-to-fit rather than 880px, and its `margin: 0 auto` then centred
+     that narrow box — which read as a big indent against every other page.
+     Padding matches .om-hero exactly so the three sit in the same rhythm
+     as the offer pages. No border-bottom: the next .om-section already
+     has a border-top, and the two together drew a double rule. */
+  min-height: 460px;
+  padding: 4.5rem 0 2.5rem;
+}
+
+.track-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Only the Y matters: the band is wider than the art's 21:9, so cover
+     scales to width and crops top/bottom — there is no horizontal overflow
+     to pan. Panning X here does nothing, which cost a round of guessing. */
+  object-position: 50% 46%;
+  z-index: 0;
+}
+
+.track-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.96) 42%,
+    rgba(255, 255, 255, 0.72) 55%,
+    rgba(255, 255, 255, 0.18) 71%,
+    rgba(255, 255, 255, 0) 84%
+  );
+}
+
+.track-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* The grid/grain body background shows through the art otherwise. */
+.track-hero .om-lede { max-width: 30rem; }
+.track-hero .cs-hook { max-width: 16ch; }
+
+/* Offers as cards. .om-cards on its own is auto-fit/minmax(250px),
+   which gives the four-offer page a 3 + 1 orphan at this container
+   width. Two columns keeps every page's grid square. */
+.offer-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.offer-cards .path-item-head {
+  margin-bottom: 0.5rem;
+}
+
+.offer-cards .path-item-title {
+  font-size: 1.25rem;
+}
+
+/* In a row the pill sat beside the title; in a card it reads better
+   under it, on its own line, as the price line of the card. */
+.offer-cards .path-item-meta {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  white-space: normal;
+}
+
+.offer-cards p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--mid);
+}
+
+.offer-cards .path-item-cta {
+  margin-top: 1.1rem;
+  padding: 0.55rem 1.15rem;
+  border: 1px solid var(--fg);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.offer-cards .path-item-cta:hover {
+  background: var(--fg);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .offer-cards { grid-template-columns: 1fr; }
+
+  /* On a phone the copy covers nearly the whole band, so the sideways
+     scrim has nothing to reveal — go to a near-flat wash and let the art
+     read as texture behind the headline rather than as a picture. */
+  .track-hero {
+    min-height: 0;
+    padding: 2.75rem 0 3rem;
+  }
+  .track-hero-bg { object-position: 62% 45%; }
+  .track-hero::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.93) 0%,
+      rgba(255, 255, 255, 0.9) 60%,
+      rgba(255, 255, 255, 0.86) 100%
+    );
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER SITE INDEX
+   Every indexable page, grouped. /get-the-read is deliberately absent:
+   it is the noindex paid landing page, and linking it from 39 footers
+   would put it straight back into the crawl.
+   ══════════════════════════════════════════════════════════════ */
+/* styles.css has a bare `nav { background: var(--bg); border-bottom }` and
+   a `nav ul { display: flex; gap: 2rem }` from the site header. A <nav> in
+   the footer inherits both, which painted this block solid white over white
+   text. Reset them here rather than dropping the landmark — a site index is
+   exactly what <nav> is for. */
+footer .footer-nav {
+  background: none;
+  border-top: 0;
+  position: static;
+}
+
+footer .footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+footer .footer-nav a {
+  font-weight: 400;
+  transition: color 0.15s ease;
+}
+
+.footer-nav {
+  display: grid;
+  /* Four columns, not five: at 880px a fifth column is 140px and almost
+     every label wraps to two lines. Guides has sixteen items against four
+     or five in the others, so it takes the full row underneath instead of
+     making the whole footer as tall as its longest column. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem 1.75rem;
+  margin: 2.5rem 0 2.75rem;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footer-col-title {
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col a {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* The Guides column carries sixteen items against four or five in the
+   others, so it gets the full width of the row below rather than making
+   the whole footer as tall as its longest column. */
+@media (max-width: 768px) {
+  .footer-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1.25rem;
+    margin: 2rem 0 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-nav { grid-template-columns: 1fr; }
+}
+
+/* ── /sitemap — the human index ────────────────────────────────── */
+.sitemap-blurb {
+  margin: -0.4rem 0 1.6rem;
+  color: var(--dim);
+  font-size: 0.98rem;
+}
+
+.sitemap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 2rem;
+}
+
+.sitemap-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sitemap-list a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.sitemap-list a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.sitemap-desc {
+  font-size: 0.87rem;
+  line-height: 1.5;
+  color: var(--dim);
+}
+
+@media (max-width: 768px) {
+  .sitemap-list { grid-template-columns: 1fr; }
 }
