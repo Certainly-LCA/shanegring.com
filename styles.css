@@ -5192,3 +5192,44 @@ footer .footer-nav a {
   .quiz-opt { transition: none; }
   .quiz-opt:active { transform: none; }
 }
+
+/* ── Homepage close ─────────────────────────────────────────────
+   The page ends on the same two actions it opened with. The router
+   is offered as a quiet third line rather than a third button:
+   a page that presents three equal choices at the end asks the
+   reader to make the decision twice. */
+.home-close {
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.home-close-lede {
+  max-width: 34rem;
+  margin: 0.9rem auto 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--mid);
+}
+
+.home-close-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.home-close-note {
+  margin: 1.6rem 0 0;
+  font-size: 0.92rem;
+  color: var(--dim);
+}
+
+@media (max-width: 560px) {
+  .home-close-ctas { flex-direction: column; align-items: stretch; }
+}
+
+/* Single-column variant: /work-with-me carries only the disqualifiers,
+   because the whole page is already the "good fit" case. */
+.fit-split-single { grid-template-columns: 1fr; max-width: 40rem; }
+.fit-split-single .fit-col { background: var(--bg-soft); }
