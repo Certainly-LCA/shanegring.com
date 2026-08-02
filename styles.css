@@ -5047,159 +5047,655 @@ footer .footer-nav a {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   THE ROUTER (/work-with-me)
-   Eight offers is too many to choose from cold. Three answers,
-   one recommendation. Progressive enhancement: the markup is
-   hidden until the script runs, so without JS the page is what it
-   always was — three buckets, a table, and the comparisons.
+   THE PICKER (/work-with-me)
+   Three questions that answer INTO the lists below rather than
+   beside them. The old version produced its own answer card, which
+   meant the page had a router, two lists, a table and a set of
+   contrasts all doing the same job. One surface now.
    ══════════════════════════════════════════════════════════════ */
-.wwm-quiz-lede {
-  max-width: 44rem;
-  color: var(--mid);
-}
-
-.quiz {
-  margin-top: 1.9rem;
-  padding: 1.9rem 2rem 2rem;
+.picker {
+  margin-top: 1.7rem;
+  padding: 1.6rem 1.8rem 1.7rem;
   border: 1px solid var(--border-strong);
   border-radius: 14px;
   background: var(--bg);
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.03),
-    0 20px 44px -28px rgba(0, 0, 0, 0.22);
+    0 18px 40px -28px rgba(0, 0, 0, 0.2);
 }
 
-.quiz-count {
+.picker-count {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--dim);
 }
 
-.quiz-q {
-  margin: 0.5rem 0 1.3rem;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  line-height: 1.25;
+.picker-q {
+  margin: 0.4rem 0 1.1rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.3;
   letter-spacing: -0.015em;
   color: var(--fg);
 }
 
-/* Focus moves to each QUESTION so the keyboard follows the same path the
-   mouse does. The result is not focused at all — it is a heading, not a
-   control, and Chrome drew a focus-visible ring around it on tap. The
-   result is announced through aria-live instead, which is the right tool
-   for a region that appears rather than a thing you navigated to. */
-.quiz-q:focus { outline: none; }
+.picker-q:focus { outline: none; }
+.picker-q:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
 
-.quiz-q:focus-visible {
-  outline: 2px solid var(--fg);
-  outline-offset: 4px;
-  border-radius: 4px;
-}
+.picker-opts { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
-.quiz-opts {
-  display: grid;
-  gap: 0.7rem;
-}
-
-.quiz-opt {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  width: 100%;
-  text-align: left;
-  padding: 1rem 1.15rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--bg);
-  cursor: pointer;
+.picker-opt {
   font: inherit;
-  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-}
-
-.quiz-opt:hover {
-  border-color: var(--fg);
-  background: var(--bg-soft);
-}
-
-.quiz-opt:active { transform: translateY(1px); }
-
-.quiz-opt:focus-visible {
-  outline: 2px solid var(--fg);
-  outline-offset: 2px;
-}
-
-.quiz-opt-t {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--fg);
-}
-
-.quiz-opt-d {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--dim);
-}
-
-/* ── The answer ─────────────────────────────────────────────── */
-.quiz-r-name {
-  margin: 0.5rem 0 0.4rem;
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
-  letter-spacing: -0.02em;
-  color: var(--fg);
-}
-
-.quiz-r-meta {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--dim);
+  font-size: 0.94rem;
+  padding: 0.6rem 1.05rem;
   border: 1px solid var(--border-strong);
   border-radius: 999px;
-  padding: 0.18rem 0.75rem;
-  margin-bottom: 1rem;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.quiz-r-body {
-  margin: 0 0 0.8rem;
-  font-size: 1.02rem;
-  line-height: 1.65;
-  color: var(--mid);
-  max-width: 42rem;
+.picker-opt:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.picker-opt:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+.picker-done {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: var(--fg);
 }
 
-.quiz-r-foot {
-  margin: 0 0 1.5rem;
-  font-size: 0.92rem;
-  color: var(--dim);
-  max-width: 42rem;
-}
-
-.quiz-restart { margin: 1.5rem 0 0; }
-
-.quiz-back {
+.picker-reset {
+  font: inherit;
+  font-size: 0.88rem;
   border: 0;
   background: none;
   padding: 0;
-  font: inherit;
-  font-size: 0.88rem;
   color: var(--dim);
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.quiz-back:hover { color: var(--fg); }
+.picker-reset:hover { color: var(--fg); }
 
-@media (max-width: 640px) {
-  .quiz { padding: 1.4rem 1.2rem 1.6rem; }
+/* ── The answer, in place ───────────────────────────────────────
+   The matched row stays where it was in the list. Nothing is
+   hidden: dimmed rows are still readable and still clickable,
+   because a recommendation the reader disagrees with should not
+   cost them the ability to see the alternative. */
+.axis-row.is-match {
+  border-color: var(--fg);
+  box-shadow: 0 0 0 1px var(--fg), 0 14px 32px -22px rgba(0, 0, 0, 0.35);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .quiz-opt { transition: none; }
-  .quiz-opt:active { transform: none; }
+.axis-row.is-dim { opacity: 0.42; }
+.axis-row.is-dim:hover { opacity: 1; }
+
+.axis-why {
+  grid-column: 3;
+  margin-top: 0.45rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.axis-why:empty { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .axis-row { transition: opacity 0.25s ease, background 0.25s ease; }
+}
+
+@media (max-width: 760px) {
+  .axis-why { grid-column: 2 / -1; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GOOD FIT / NOT THE RIGHT FIT
+   Two columns, and the "not" side is not softened. A page that
+   only says who it is for reads as a page that will take anyone.
+   ══════════════════════════════════════════════════════════════ */
+.fit-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin: 1.8rem 0 1.5rem;
+}
+
+.fit-col {
+  padding: 1.5rem 1.6rem 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.fit-yes { border-color: var(--border-strong); }
+.fit-no  { background: var(--bg-soft); }
+
+.fit-title {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.fit-yes .fit-title { color: var(--fg); }
+
+.fit-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.fit-col li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+.fit-col li::before {
+  position: absolute;
+  left: 0;
+  top: -0.05rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.fit-yes li::before { content: "+"; color: var(--fg); }
+.fit-no  li::before { content: "\2013"; color: var(--dim); }
+
+/* ── "This is not a website redesign." ──────────────────────────
+   Sits under the hero CTA. The essay it points at already existed;
+   this only surfaces it. */
+.not-a-redesign {
+  margin: 1.6rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--border-strong);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+.not-a-redesign strong { color: var(--fg); display: block; }
+
+.not-a-redesign a {
+  color: var(--mid);
+  text-underline-offset: 3px;
+}
+
+.not-a-redesign a:hover { color: var(--fg); }
+
+@media (max-width: 768px) {
+  .fit-split { grid-template-columns: 1fr; }
+}
+
+/* ── Quote highlight ────────────────────────────────────────────
+   One marked line per quote: the claim the reader should leave
+   with. A quote where everything is emphasised emphasises nothing,
+   so this is deliberately not a general-purpose <mark>. */
+.quote-card mark {
+  background: linear-gradient(transparent 58%, rgba(200, 137, 26, 0.28) 58%);
+  color: inherit;
+  padding: 0 0.1em;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .quote-card mark { transition: background 0.2s ease; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ENGAGEMENT CALENDAR (/map)
+   A real Mon-to-Fri grid, not a list of weeks. The claim "your
+   total time is three sessions" is only believable if you can see
+   the empty days, so the internal days are drawn as cells too and
+   are visibly the majority of the grid.
+   ══════════════════════════════════════════════════════════════ */
+.cal-cal {
+  margin: 1.9rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.cal-head,
+.cal-row {
+  display: grid;
+  grid-template-columns: 130px repeat(5, minmax(0, 1fr));
+}
+
+.cal-head {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-head span {
+  padding: 0.6rem 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-left: 1px solid var(--border);
+}
+
+.cal-corner { border-left: 0 !important; }
+
+.cal-row { border-top: 1px solid var(--border); }
+.cal-row:first-of-type { border-top: 0; }
+
+.cal-wk {
+  padding: 0.85rem 0.8rem;
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cal-wk-n {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.cal-wk-t {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.cal-cell {
+  padding: 0.75rem 0.75rem 0.85rem;
+  border-left: 1px solid var(--border);
+  min-height: 118px;
+}
+
+.cal-cell p {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+.cal-pip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* Live days carry the offer colour and read as the only appointments
+   in the grid. Everything else recedes. */
+.cal-live { background: rgba(199, 145, 206, 0.13); }
+.cal-live .cal-pip { background: var(--offer-deep, var(--fg)); color: #fff; }
+.cal-live p { color: var(--fg); }
+
+.cal-async .cal-pip {
+  border: 1px solid var(--border-strong);
+  color: var(--mid);
+}
+
+.cal-internal { background: repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(0,0,0,0.018) 7px, rgba(0,0,0,0.018) 14px); }
+.cal-internal .cal-pip { color: var(--dim); border: 1px solid var(--border); }
+.cal-internal p { color: var(--dim); }
+
+.cal-row-after .cal-wk,
+.cal-after { background: var(--bg-soft); }
+.cal-after { min-height: 0; display: flex; align-items: center; }
+.cal-after p { margin: 0; font-size: 0.86rem; color: var(--mid); }
+.cal-after strong { color: var(--fg); }
+
+.cal-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 0 0 1.4rem;
+  font-size: 0.82rem;
+  color: var(--dim);
+}
+
+.cal-keyitem { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+.cal-swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  border: 1px solid var(--border-strong);
+}
+
+.cal-swatch-live { background: rgba(199, 145, 206, 0.35); }
+.cal-swatch-async { background: var(--bg); }
+.cal-swatch-internal { background: repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.13) 3px, rgba(0,0,0,0.13) 6px); }
+
+/* Below tablet a five-column week is unreadable, so the grid
+   unrolls into stacked days and the weekday header goes away. */
+@media (max-width: 900px) {
+  .cal-head { display: none; }
+  .cal-row { grid-template-columns: 1fr; }
+  .cal-cell,
+  .cal-after { border-left: 0; border-top: 1px solid var(--border); min-height: 0; }
+  .cal-cell[style] { grid-column: auto !important; }
+  .cal-wk { flex-direction: row; align-items: baseline; gap: 0.6rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OPERATING MEMO SPREAD (/map)
+   Three pages of the deliverable, built as markup rather than
+   screenshots so nothing real gets published and the whole thing
+   stays legible at any width. The body copy is deliberately greeked
+   into bars: the point is the shape of the document, and fake
+   sentences would invite reading.
+   ══════════════════════════════════════════════════════════════ */
+.memo-spread {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.9rem 0 1.2rem;
+  align-items: stretch;
+}
+
+/* Pages equalise to the tallest rather than holding a fixed page
+   ratio. A locked aspect-ratio clipped the proposal's last line, and
+   a deliverable preview that visibly cuts off is worse than one that
+   is a little taller than paper. */
+.memo-page {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.memo-paper {
+  flex: 1;
+  min-height: 340px;
+  padding: 1.15rem 1.2rem;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 14px 28px -20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.memo-page figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: var(--dim);
+  text-align: center;
+}
+
+.memo-kicker {
+  display: block;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--offer, var(--dim));
+}
+
+.memo-h {
+  margin: 0.35rem 0 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.memo-toc {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.6rem;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+.memo-toc li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.24rem 0;
+  border-bottom: 1px dotted var(--border);
+}
+
+.memo-toc-last {
+  font-weight: 600;
+  color: var(--fg);
+  border-bottom: 0;
+}
+
+.memo-pg { color: var(--dim); flex-shrink: 0; }
+
+/* Greeked body copy. Bars, not lorem ipsum: a reader tries to read
+   words, and there is nothing here worth reading. */
+.memo-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+}
+
+.memo-line {
+  display: block;
+  height: 0.3rem;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.memo-line-short { width: 62%; }
+.memo-line-dark { background: var(--border-strong); }
+
+.memo-callout {
+  margin: 0.6rem 0;
+  padding: 0.5rem 0.6rem;
+  border-left: 2px solid var(--offer, var(--fg));
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.memo-callout-label {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.1rem;
+}
+
+.memo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.6rem;
+  font-size: 0.58rem;
+}
+
+.memo-table td {
+  padding: 0.28rem 0.2rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--mid);
+}
+
+.memo-table td:first-child { color: var(--fg); font-weight: 500; }
+
+.memo-flag {
+  color: #a8641a;
+  font-weight: 600;
+}
+
+.memo-table-quote td:last-child { text-align: right; }
+
+.memo-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.7rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid var(--fg);
+  font-size: 0.62rem;
+  color: var(--fg);
+}
+
+.memo-total strong { font-size: 0.95rem; }
+
+.memo-foot {
+  margin: 0.5rem 0 0;
+  font-size: 0.52rem;
+  color: var(--dim);
+}
+
+.memo-note {
+  font-size: 0.9rem;
+  color: var(--dim);
+  max-width: 44rem;
+}
+
+.memo-note strong { color: var(--fg); }
+
+@media (max-width: 768px) {
+  .memo-spread {
+    grid-template-columns: 1fr;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   THE DAY (/install)
+   Same idea as the Map's calendar, one scale down: hours instead of
+   days. The page's own FAQ asks "is one day really enough?", and a
+   grid you can count answers that better than a sentence. The blocks
+   marked "your hands" are the majority on purpose — that is the
+   product, and a day where the consultant drives is a demo.
+   ══════════════════════════════════════════════════════════════ */
+.day-cal {
+  margin: 1.8rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.day-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  border-top: 1px solid var(--border);
+}
+
+.day-row:first-child { border-top: 0; }
+
+.day-time {
+  padding: 0.85rem 0.9rem;
+  background: var(--bg-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fg);
+  border-right: 1px solid var(--border);
+}
+
+.day-block {
+  padding: 0.8rem 0.95rem 0.9rem;
+  background: var(--bg);
+}
+
+.day-block p {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.day-block .cal-pip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* The Install's colour is the green from its icon. */
+.day-block-hands { background: rgba(71, 154, 104, 0.1); }
+.day-block-hands .cal-pip { background: #2f6b46; color: #fff; }
+.day-block-hands p { color: var(--fg); }
+
+.day-block-prep .cal-pip,
+.day-block-hand .cal-pip {
+  border: 1px solid var(--border-strong);
+  color: var(--mid);
+}
+
+.day-row-break .day-time,
+.day-block-break {
+  background: var(--bg-soft);
+}
+
+.day-block-break p { margin: 0; color: var(--dim); }
+
+.day-row-after .day-time { background: var(--bg-soft); }
+.day-block-after { background: var(--bg-soft); }
+.day-block-after p { margin: 0; }
+
+.day-key {
+  font-size: 0.9rem;
+  color: var(--dim);
+  max-width: 44rem;
+}
+
+.day-key strong { color: var(--fg); }
+
+@media (max-width: 640px) {
+  .day-row { grid-template-columns: 1fr; }
+  .day-time {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0.9rem;
+  }
+}
+
+/* Two-page variant of the memo spread, for the Read's shorter memo. */
+.memo-spread-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 34rem;
+}
+
+.memo-table-rank th {
+  text-align: left;
+  padding: 0 0.2rem 0.3rem;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.memo-table-rank td:not(:first-child) { text-align: right; }
+
+@media (max-width: 768px) {
+  .memo-spread-two { grid-template-columns: 1fr; }
 }
 
 /* ── Homepage close ─────────────────────────────────────────────
@@ -5242,3 +5738,209 @@ footer .footer-nav a {
    because the whole page is already the "good fit" case. */
 .fit-split-single { grid-template-columns: 1fr; max-width: 40rem; }
 .fit-split-single .fit-col { background: var(--bg-soft); }
+
+/* ══════════════════════════════════════════════════════════════
+   THE TWO AXES (/work-with-me, homepage, nav, footer)
+   The plain-English label is the scanning column and gets the
+   size; the product name drops to a label inside the row. That is
+   the whole hypothesis — a reader should be able to find their row
+   without having learned eight invented nouns first.
+   ══════════════════════════════════════════════════════════════ */
+.axis-lede {
+  max-width: 42rem;
+  color: var(--mid);
+  margin-bottom: 1.7rem;
+}
+
+/* Each option is its own card on a white ground. The list used to be
+   hairline-separated rows on the page background, which read as a table;
+   as cards they read as eight things you can pick between. */
+.axis {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.axis-row {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: grid;
+  /* 12.5rem holds the longest rung — "enhancing your operations" measures
+     195px — on one line. They are the scanning column; wrapping them to
+     two lines costs more than the width does. */
+  /* Fixed, not minmax(0, …): a 0-floor track shrinks below its content
+     and the nowrap rung then overflows into the product name. 15.5rem
+     clears the longest, "enhancing your operations", which measures
+     253px rendered — verified with scrollWidth, because a nowrap span
+     overflows its box without changing its bounding rect, so comparing
+     rects says it fits when it visibly does not. Each row
+     is its own grid, so a fixed width is also what keeps the columns
+     aligned from card to card. */
+  grid-template-columns: 28px 15.5rem minmax(0, 1fr) auto;
+  gap: 0.3rem 1.1rem;
+  /* Rows on /work-with-me carry no price, so the trailing auto column
+     collapses to nothing and the description takes the space. */
+  align-items: baseline;
+  padding: 1.25rem 1.35rem 1.35rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.axis-row:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 10px 26px -20px rgba(0, 0, 0, 0.28);
+}
+
+/* The dimension, not the product, is what the eye lands on. */
+.axis-when {
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+/* Pixel art, so it holds its edges at 28px rather than going soft. */
+.axis-glyph {
+  width: 28px;
+  height: 28px;
+  align-self: start;
+  margin-top: 0.1rem;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.axis-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.axis-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--dim);
+}
+
+.axis-gate {
+  display: inline-block;
+  margin-left: 0.45rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--offer-deep, var(--fg));
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.08rem 0.45rem;
+  vertical-align: 1px;
+}
+
+.axis-line {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.axis-price {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--fg);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* The programs are a sequence. A rule down the left says so without
+   spending a paragraph on it. */
+.axis-seq { position: relative; }
+
+.axis-seq::before {
+  content: "";
+  position: absolute;
+  left: -0.9rem;
+  top: 1.6rem;
+  bottom: 1.6rem;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(var(--border-strong), var(--offer-deep, var(--fg)));
+}
+
+@media (max-width: 760px) {
+  .axis-row {
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 0.35rem 0.85rem;
+  }
+  .axis-glyph { grid-column: 1; grid-row: 1; }
+  .axis-when { grid-column: 2; white-space: normal; }
+  .axis-price { grid-column: 3; grid-row: 1; }
+  .axis-body { grid-column: 2 / -1; }
+}
+
+/* Two-column mega panel. The nav mirrors the page: one column per axis,
+   the plain-English rung as the link label and the product name under it,
+   which is the same inversion the /work-with-me rows use. */
+@media (min-width: 769px) {
+  .nav-dropdown.nav-mega-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-mega-two .nav-mega-head { min-height: 0; padding-bottom: 0.6rem; }
+  .nav-mega-two .nav-mega-list { margin-top: 0.15rem; }
+  .nav-mega-two .nav-mega-list .nav-drop-name { font-weight: 500; }
+  .nav-mega-two .nav-mega-list .nav-drop-desc {
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* styles.css carries a bare `nav ul { display: flex; gap: 2rem }` from the
+   site header. Re-introducing sub-lists in the mega panel meant they
+   inherited it and laid out as rows again. This has to sit outside the
+   media queries or the mobile overlay gets the row back. */
+footer .footer-nav ul,
+.nav-mega-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.nav-mega a { white-space: normal; }
+
+/* Homepage: the two axes side by side, rows trimmed to label, name and
+   price. The one-line descriptions live on /work-with-me — the homepage's
+   job is conviction, not the full spec. */
+.home-axes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.home-axis-t {
+  margin: 0 0 0.9rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.home-axes .axis-row {
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  padding: 0.95rem 0.5rem 1rem;
+  align-items: baseline;
+  gap: 0.15rem 0.85rem;
+}
+
+.home-axes .axis-when { grid-column: 2; }
+.home-axes .axis-body { grid-column: 2; }
+.home-axes .axis-price { grid-column: 3; grid-row: 1; }
+.home-axes .axis-when { font-size: 1.02rem; }
+.home-axes .axis-name { font-size: 0.78rem; }
+
+@media (max-width: 860px) {
+  .home-axes { grid-template-columns: 1fr; gap: 2rem; }
+}
