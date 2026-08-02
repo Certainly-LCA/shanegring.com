@@ -4920,3 +4920,119 @@ footer .footer-nav a {
     margin-right: auto;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   THE DAY (/install)
+   Same idea as the Map's calendar, one scale down: hours instead of
+   days. The page's own FAQ asks "is one day really enough?", and a
+   grid you can count answers that better than a sentence. The blocks
+   marked "your hands" are the majority on purpose — that is the
+   product, and a day where the consultant drives is a demo.
+   ══════════════════════════════════════════════════════════════ */
+.day-cal {
+  margin: 1.8rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.day-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  border-top: 1px solid var(--border);
+}
+
+.day-row:first-child { border-top: 0; }
+
+.day-time {
+  padding: 0.85rem 0.9rem;
+  background: var(--bg-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fg);
+  border-right: 1px solid var(--border);
+}
+
+.day-block {
+  padding: 0.8rem 0.95rem 0.9rem;
+  background: var(--bg);
+}
+
+.day-block p {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.day-block .cal-pip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* The Install's colour is the green from its icon. */
+.day-block-hands { background: rgba(71, 154, 104, 0.1); }
+.day-block-hands .cal-pip { background: #2f6b46; color: #fff; }
+.day-block-hands p { color: var(--fg); }
+
+.day-block-prep .cal-pip,
+.day-block-hand .cal-pip {
+  border: 1px solid var(--border-strong);
+  color: var(--mid);
+}
+
+.day-row-break .day-time,
+.day-block-break {
+  background: var(--bg-soft);
+}
+
+.day-block-break p { margin: 0; color: var(--dim); }
+
+.day-row-after .day-time { background: var(--bg-soft); }
+.day-block-after { background: var(--bg-soft); }
+.day-block-after p { margin: 0; }
+
+.day-key {
+  font-size: 0.9rem;
+  color: var(--dim);
+  max-width: 44rem;
+}
+
+.day-key strong { color: var(--fg); }
+
+@media (max-width: 640px) {
+  .day-row { grid-template-columns: 1fr; }
+  .day-time {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0.9rem;
+  }
+}
+
+/* Two-page variant of the memo spread, for the Read's shorter memo. */
+.memo-spread-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 34rem;
+}
+
+.memo-table-rank th {
+  text-align: left;
+  padding: 0 0.2rem 0.3rem;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.memo-table-rank td:not(:first-child) { text-align: right; }
+
+@media (max-width: 768px) {
+  .memo-spread-two { grid-template-columns: 1fr; }
+}
