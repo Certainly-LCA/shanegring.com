@@ -5244,24 +5244,12 @@ footer .footer-nav a {
 .fit-split-single .fit-col { background: var(--bg-soft); }
 
 /* ══════════════════════════════════════════════════════════════
-   TWO-AXIS MOCKUP (/work-with-me-v2)
+   THE TWO AXES (/work-with-me, homepage, nav, footer)
    The plain-English label is the scanning column and gets the
    size; the product name drops to a label inside the row. That is
    the whole hypothesis — a reader should be able to find their row
    without having learned eight invented nouns first.
    ══════════════════════════════════════════════════════════════ */
-.mock-flag {
-  margin: 0;
-  padding: 0.5rem 1.75rem;
-  background: #1f1f1f;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-align: center;
-}
-
-.mock-flag a { color: #fff; text-underline-offset: 3px; }
-
 .axis-lede {
   max-width: 42rem;
   color: var(--mid);
@@ -5360,4 +5348,66 @@ footer .footer-nav a {
   .axis-when { grid-column: 1; }
   .axis-price { grid-column: 2; grid-row: 1; }
   .axis-body { grid-column: 1 / -1; }
+}
+
+/* Two-column mega panel. The nav mirrors the page: one column per axis,
+   the plain-English rung as the link label and the product name under it,
+   which is the same inversion the /work-with-me rows use. */
+@media (min-width: 769px) {
+  .nav-dropdown.nav-mega-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-mega-two .nav-mega-head { min-height: 0; padding-bottom: 0.6rem; }
+  .nav-mega-two .nav-mega-list { margin-top: 0.15rem; }
+  .nav-mega-two .nav-mega-list .nav-drop-name { font-weight: 500; }
+  .nav-mega-two .nav-mega-list .nav-drop-desc {
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* styles.css carries a bare `nav ul { display: flex; gap: 2rem }` from the
+   site header. Re-introducing sub-lists in the mega panel meant they
+   inherited it and laid out as rows again. This has to sit outside the
+   media queries or the mobile overlay gets the row back. */
+footer .footer-nav ul,
+.nav-mega-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.nav-mega a { white-space: normal; }
+
+/* Homepage: the two axes side by side, rows trimmed to label, name and
+   price. The one-line descriptions live on /work-with-me — the homepage's
+   job is conviction, not the full spec. */
+.home-axes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.home-axis-t {
+  margin: 0 0 0.9rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.home-axes .axis-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 0.95rem 0.5rem 1rem;
+  align-items: baseline;
+}
+
+.home-axes .axis-body { grid-column: 1; }
+.home-axes .axis-when { font-size: 1.02rem; }
+.home-axes .axis-name { font-size: 0.78rem; }
+
+@media (max-width: 860px) {
+  .home-axes { grid-template-columns: 1fr; gap: 2rem; }
 }

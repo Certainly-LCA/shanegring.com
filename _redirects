@@ -25,3 +25,12 @@
 # AI Operations is absorbed: the front door is now the Install, and the
 # ongoing custom work is the Seat.
 /ai-operations        /install                301
+
+# The three "ways in" pages were the intent-bucket IA (find out / done for
+# you / do it yourself). That structure was replaced on 2026-08-02 by two
+# axes on /work-with-me: services by how much time, programs by what you
+# leave with. Three buckets do not map onto two axes, so the pages go
+# rather than sit alongside a structure that contradicts them.
+/find-out             /work-with-me#programs  301
+/done-for-you         /work-with-me#help      301
+/do-it-yourself       /work-with-me#help      301
