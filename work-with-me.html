@@ -133,7 +133,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         questions I would ask you on a call.
       </p>
 
-      <div class="quiz" id="quiz" hidden>
+      <div class="quiz" id="quiz" aria-live="polite" hidden>
 
         <div class="quiz-step" data-step="q1">
           <span class="quiz-count">Question 1 of 3</span>
@@ -657,8 +657,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     /* Move focus to the new question so the keyboard and a screen reader
        follow the same path the mouse does. */
-    var h = now.querySelector('h3');
-    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    /* Questions take focus so the keyboard follows the mouse. Results do
+       not: a heading is not a control, and focusing it drew a ring on tap.
+       The container is aria-live, so the answer is announced instead. */
+    if (!now.classList.contains('quiz-result')) {
+      var h = now.querySelector('h3');
+      if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    }
 
     if (now.classList.contains('quiz-result') && window.sgTrack) {
       window.sgTrack('router_result', { recommended: now.querySelector('.quiz-r-name').textContent });

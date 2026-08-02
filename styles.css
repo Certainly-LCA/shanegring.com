@@ -2560,6 +2560,15 @@ footer {
   border-radius: 999px;
   padding: 0.16rem 0.7rem;
   white-space: nowrap;
+  /* nowrap keeps "$450 · 5 days" on one line, but the Site's pill reads
+     "$30,000 to $75,000, priced by your Map · 6 to 12 weeks" and at 390px
+     that ran 21px past the viewport and gave the whole page a sideways
+     scroll. Wrapping is allowed; the pill just has to stay inside. */
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .path-item-meta { white-space: normal; }
 }
 
 .path-item-fit {
@@ -5077,14 +5086,14 @@ footer .footer-nav a {
   color: var(--fg);
 }
 
-/* Focus is moved here by script so the keyboard follows the same path
-   the mouse does. Suppress the ring for that programmatic move, but keep
-   it for anyone who actually tabbed to it. */
-.quiz-q:focus,
-.quiz-r-name:focus { outline: none; }
+/* Focus moves to each QUESTION so the keyboard follows the same path the
+   mouse does. The result is not focused at all — it is a heading, not a
+   control, and Chrome drew a focus-visible ring around it on tap. The
+   result is announced through aria-live instead, which is the right tool
+   for a region that appears rather than a thing you navigated to. */
+.quiz-q:focus { outline: none; }
 
-.quiz-q:focus-visible,
-.quiz-r-name:focus-visible {
+.quiz-q:focus-visible {
   outline: 2px solid var(--fg);
   outline-offset: 4px;
   border-radius: 4px;
