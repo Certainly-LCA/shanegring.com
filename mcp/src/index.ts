@@ -55,8 +55,8 @@ const OPERATING_PATH = {
   ],
   have_it_done_for_you: [
     {
-      name: "The Partner",
-      price: "$950/month on the site you already have (plus $1,500 one-time onboarding, waived via the Install); $3,000/month on a site built through the Site. Annual prepay on the entry tier: $9,500.",
+      name: "The Autopilot",
+      price: "From $899/month, plus $1,500 one-time onboarding (waived via the Install)",
       time: "Monthly. Cancel any time with thirty days notice.",
       what: "Someone owns the website every month: unlimited requests with one active at a time and most shipped in three business days, one new asset built every month, the machine-readable layer, and a monthly visibility report covering search performance and AI citation share.",
       credits: "First three months credit toward the Map. First month included with every Site build.",
@@ -94,7 +94,7 @@ const OPERATING_PATH = {
       price: "$5,000",
       time: "One working day, plus a prep call and two weeks of email follow-up",
       what: "Ends with Claude Code installed and authenticated on the client's own machine, their website's source code in a GitHub repository they own, Claude connected to that repository, one change they wrote and shipped themselves, and one agent built and running on a real task.",
-      credits: "Credits in full toward the Map. Also includes the first month of the Partner entry tier and waives its onboarding fee.",
+      credits: "Credits in full toward the Map. Also includes the first month of the Autopilot entry tier and waives its onboarding fee.",
       url: `${SITE}/install`,
       note: `There is a blocking requirements checklist: ${SITE}/guides/install-requirements`,
     },
@@ -112,8 +112,8 @@ const OPERATING_PATH = {
   former_names: {
     "The Operating Map": "The Map",
     "The Operating Site": "The Site",
-    "The Operating Partner": "The Partner",
-    "The Holding Pattern": "The Partner, entry tier",
+    "The Operating Partner": "The Autopilot",
+    "The Holding Pattern": "The Autopilot, entry tier",
     "Fractional COO (as an offer name)": "The Seat",
     "Working Sessions": "The Session",
     "AI Operations": "Split into The Install (front door) and The Seat (ongoing work)",
@@ -176,7 +176,7 @@ export class ShaneGringMCP extends McpAgent<Env> {
       {
         title: "Working with Shane Gring",
         description:
-          "Shane Gring's eight offers, on two lists. What do you need someone for: one problem (Session, $250), the ability to do it yourself (Install, $5,000), your website (Partner, from $950/mo), your operations (Seat, from $6,000/mo). What do you want to walk away with: a score (Scan, free), an opinion (Read, $450), a plan (Map, $1,999), the thing built (Site, custom)." +
+          "Shane Gring's eight offers, on two lists. What do you need someone for: one problem (Session, $250), the ability to do it yourself (Install, $5,000), your website (Partner, from $899/mo), your operations (Seat, from $6,000/mo). What do you want to walk away with: a score (Scan, free), an opinion (Read, $450), a plan (Map, $1,999), the thing built (Site, custom)." +
           "Returns every offer with price, timeline, what it produces, and how it credits into the next, plus a map of the offer names retired in July 2026. Every price is public and no discovery call is needed. " +
           "The tool name predates the rename and is kept so existing connectors keep working.",
         inputSchema: {},

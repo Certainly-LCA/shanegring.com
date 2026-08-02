@@ -12,7 +12,6 @@
 
 /operating-map        /map                    301
 /operating-site       /site                   301
-/operating-partner    /partner                301
 /fractional-coo       /seat                   301
 /working-sessions     /session                301
 
@@ -20,7 +19,7 @@
 # working name for what is now the Partner's entry tier, and it is the
 # destination for Scan-result traffic. The redirect exists so the name
 # resolves for anyone who saw it.
-/holding-pattern      /partner#site-you-have  301
+/holding-pattern      /autopilot              301
 
 # AI Operations is absorbed: the front door is now the Install, and the
 # ongoing custom work is the Seat.
@@ -34,3 +33,10 @@
 /find-out             /work-with-me#programs  301
 /done-for-you         /work-with-me#help      301
 /do-it-yourself       /work-with-me#help      301
+
+# The Partner became the Autopilot on 2026-08-02, and its two tiers
+# collapsed into one plan. The old URL keeps working: it carries whatever
+# links and cached answers the previous name earned.
+/partner              /autopilot              301
+/partner#site-you-have /autopilot             301
+/operating-partner    /autopilot              301
