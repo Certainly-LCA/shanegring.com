@@ -4596,3 +4596,327 @@ footer .footer-nav a {
 @media (prefers-reduced-motion: no-preference) {
   .quote-card mark { transition: background 0.2s ease; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   ENGAGEMENT CALENDAR (/map)
+   A real Mon-to-Fri grid, not a list of weeks. The claim "your
+   total time is three sessions" is only believable if you can see
+   the empty days, so the internal days are drawn as cells too and
+   are visibly the majority of the grid.
+   ══════════════════════════════════════════════════════════════ */
+.cal-cal {
+  margin: 1.9rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.cal-head,
+.cal-row {
+  display: grid;
+  grid-template-columns: 130px repeat(5, minmax(0, 1fr));
+}
+
+.cal-head {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-head span {
+  padding: 0.6rem 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-left: 1px solid var(--border);
+}
+
+.cal-corner { border-left: 0 !important; }
+
+.cal-row { border-top: 1px solid var(--border); }
+.cal-row:first-of-type { border-top: 0; }
+
+.cal-wk {
+  padding: 0.85rem 0.8rem;
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cal-wk-n {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.cal-wk-t {
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.cal-cell {
+  padding: 0.75rem 0.75rem 0.85rem;
+  border-left: 1px solid var(--border);
+  min-height: 118px;
+}
+
+.cal-cell p {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+.cal-pip {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* Live days carry the offer colour and read as the only appointments
+   in the grid. Everything else recedes. */
+.cal-live { background: rgba(199, 145, 206, 0.13); }
+.cal-live .cal-pip { background: var(--offer-deep, var(--fg)); color: #fff; }
+.cal-live p { color: var(--fg); }
+
+.cal-async .cal-pip {
+  border: 1px solid var(--border-strong);
+  color: var(--mid);
+}
+
+.cal-internal { background: repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(0,0,0,0.018) 7px, rgba(0,0,0,0.018) 14px); }
+.cal-internal .cal-pip { color: var(--dim); border: 1px solid var(--border); }
+.cal-internal p { color: var(--dim); }
+
+.cal-row-after .cal-wk,
+.cal-after { background: var(--bg-soft); }
+.cal-after { min-height: 0; display: flex; align-items: center; }
+.cal-after p { margin: 0; font-size: 0.86rem; color: var(--mid); }
+.cal-after strong { color: var(--fg); }
+
+.cal-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 0 0 1.4rem;
+  font-size: 0.82rem;
+  color: var(--dim);
+}
+
+.cal-keyitem { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+.cal-swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  border: 1px solid var(--border-strong);
+}
+
+.cal-swatch-live { background: rgba(199, 145, 206, 0.35); }
+.cal-swatch-async { background: var(--bg); }
+.cal-swatch-internal { background: repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0,0,0,0.13) 3px, rgba(0,0,0,0.13) 6px); }
+
+/* Below tablet a five-column week is unreadable, so the grid
+   unrolls into stacked days and the weekday header goes away. */
+@media (max-width: 900px) {
+  .cal-head { display: none; }
+  .cal-row { grid-template-columns: 1fr; }
+  .cal-cell,
+  .cal-after { border-left: 0; border-top: 1px solid var(--border); min-height: 0; }
+  .cal-cell[style] { grid-column: auto !important; }
+  .cal-wk { flex-direction: row; align-items: baseline; gap: 0.6rem; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OPERATING MEMO SPREAD (/map)
+   Three pages of the deliverable, built as markup rather than
+   screenshots so nothing real gets published and the whole thing
+   stays legible at any width. The body copy is deliberately greeked
+   into bars: the point is the shape of the document, and fake
+   sentences would invite reading.
+   ══════════════════════════════════════════════════════════════ */
+.memo-spread {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.9rem 0 1.2rem;
+  align-items: stretch;
+}
+
+/* Pages equalise to the tallest rather than holding a fixed page
+   ratio. A locked aspect-ratio clipped the proposal's last line, and
+   a deliverable preview that visibly cuts off is worse than one that
+   is a little taller than paper. */
+.memo-page {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.memo-paper {
+  flex: 1;
+  min-height: 340px;
+  padding: 1.15rem 1.2rem;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 14px 28px -20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.memo-page figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: var(--dim);
+  text-align: center;
+}
+
+.memo-kicker {
+  display: block;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--offer, var(--dim));
+}
+
+.memo-h {
+  margin: 0.35rem 0 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.memo-toc {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.6rem;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+.memo-toc li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.24rem 0;
+  border-bottom: 1px dotted var(--border);
+}
+
+.memo-toc-last {
+  font-weight: 600;
+  color: var(--fg);
+  border-bottom: 0;
+}
+
+.memo-pg { color: var(--dim); flex-shrink: 0; }
+
+/* Greeked body copy. Bars, not lorem ipsum: a reader tries to read
+   words, and there is nothing here worth reading. */
+.memo-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+}
+
+.memo-line {
+  display: block;
+  height: 0.3rem;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.memo-line-short { width: 62%; }
+.memo-line-dark { background: var(--border-strong); }
+
+.memo-callout {
+  margin: 0.6rem 0;
+  padding: 0.5rem 0.6rem;
+  border-left: 2px solid var(--offer, var(--fg));
+  background: var(--bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.memo-callout-label {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.1rem;
+}
+
+.memo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.6rem;
+  font-size: 0.58rem;
+}
+
+.memo-table td {
+  padding: 0.28rem 0.2rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--mid);
+}
+
+.memo-table td:first-child { color: var(--fg); font-weight: 500; }
+
+.memo-flag {
+  color: #a8641a;
+  font-weight: 600;
+}
+
+.memo-table-quote td:last-child { text-align: right; }
+
+.memo-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.7rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid var(--fg);
+  font-size: 0.62rem;
+  color: var(--fg);
+}
+
+.memo-total strong { font-size: 0.95rem; }
+
+.memo-foot {
+  margin: 0.5rem 0 0;
+  font-size: 0.52rem;
+  color: var(--dim);
+}
+
+.memo-note {
+  font-size: 0.9rem;
+  color: var(--dim);
+  max-width: 44rem;
+}
+
+.memo-note strong { color: var(--fg); }
+
+@media (max-width: 768px) {
+  .memo-spread {
+    grid-template-columns: 1fr;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
