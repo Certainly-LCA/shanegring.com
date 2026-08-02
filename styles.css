@@ -4495,3 +4495,104 @@ footer .footer-nav a {
 @media (max-width: 768px) {
   .sitemap-list { grid-template-columns: 1fr; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   GOOD FIT / NOT THE RIGHT FIT
+   Two columns, and the "not" side is not softened. A page that
+   only says who it is for reads as a page that will take anyone.
+   ══════════════════════════════════════════════════════════════ */
+.fit-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin: 1.8rem 0 1.5rem;
+}
+
+.fit-col {
+  padding: 1.5rem 1.6rem 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.fit-yes { border-color: var(--border-strong); }
+.fit-no  { background: var(--bg-soft); }
+
+.fit-title {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.fit-yes .fit-title { color: var(--fg); }
+
+.fit-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.fit-col li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+.fit-col li::before {
+  position: absolute;
+  left: 0;
+  top: -0.05rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.fit-yes li::before { content: "+"; color: var(--fg); }
+.fit-no  li::before { content: "\2013"; color: var(--dim); }
+
+/* ── "This is not a website redesign." ──────────────────────────
+   Sits under the hero CTA. The essay it points at already existed;
+   this only surfaces it. */
+.not-a-redesign {
+  margin: 1.6rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--border-strong);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+.not-a-redesign strong { color: var(--fg); display: block; }
+
+.not-a-redesign a {
+  color: var(--mid);
+  text-underline-offset: 3px;
+}
+
+.not-a-redesign a:hover { color: var(--fg); }
+
+@media (max-width: 768px) {
+  .fit-split { grid-template-columns: 1fr; }
+}
+
+/* ── Quote highlight ────────────────────────────────────────────
+   One marked line per quote: the claim the reader should leave
+   with. A quote where everything is emphasised emphasises nothing,
+   so this is deliberately not a general-purpose <mark>. */
+.quote-card mark {
+  background: linear-gradient(transparent 58%, rgba(200, 137, 26, 0.28) 58%);
+  color: inherit;
+  padding: 0 0.1em;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .quote-card mark { transition: background 0.2s ease; }
+}
