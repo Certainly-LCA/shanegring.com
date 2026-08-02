@@ -5036,3 +5036,159 @@ footer .footer-nav a {
 @media (max-width: 768px) {
   .memo-spread-two { grid-template-columns: 1fr; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   THE ROUTER (/work-with-me)
+   Eight offers is too many to choose from cold. Three answers,
+   one recommendation. Progressive enhancement: the markup is
+   hidden until the script runs, so without JS the page is what it
+   always was — three buckets, a table, and the comparisons.
+   ══════════════════════════════════════════════════════════════ */
+.wwm-quiz-lede {
+  max-width: 44rem;
+  color: var(--mid);
+}
+
+.quiz {
+  margin-top: 1.9rem;
+  padding: 1.9rem 2rem 2rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: var(--bg);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 20px 44px -28px rgba(0, 0, 0, 0.22);
+}
+
+.quiz-count {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.quiz-q {
+  margin: 0.5rem 0 1.3rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+
+/* Focus is moved here by script so the keyboard follows the same path
+   the mouse does. Suppress the ring for that programmatic move, but keep
+   it for anyone who actually tabbed to it. */
+.quiz-q:focus,
+.quiz-r-name:focus { outline: none; }
+
+.quiz-q:focus-visible,
+.quiz-r-name:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.quiz-opts {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.quiz-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  cursor: pointer;
+  font: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.quiz-opt:hover {
+  border-color: var(--fg);
+  background: var(--bg-soft);
+}
+
+.quiz-opt:active { transform: translateY(1px); }
+
+.quiz-opt:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.quiz-opt-t {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.quiz-opt-d {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--dim);
+}
+
+/* ── The answer ─────────────────────────────────────────────── */
+.quiz-r-name {
+  margin: 0.5rem 0 0.4rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.quiz-r-meta {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--dim);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 0.18rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-r-body {
+  margin: 0 0 0.8rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--mid);
+  max-width: 42rem;
+}
+
+.quiz-r-foot {
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+  color: var(--dim);
+  max-width: 42rem;
+}
+
+.quiz-restart { margin: 1.5rem 0 0; }
+
+.quiz-back {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--dim);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.quiz-back:hover { color: var(--fg); }
+
+@media (max-width: 640px) {
+  .quiz { padding: 1.4rem 1.2rem 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-opt { transition: none; }
+  .quiz-opt:active { transform: none; }
+}
