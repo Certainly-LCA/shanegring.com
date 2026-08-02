@@ -5242,3 +5242,122 @@ footer .footer-nav a {
    because the whole page is already the "good fit" case. */
 .fit-split-single { grid-template-columns: 1fr; max-width: 40rem; }
 .fit-split-single .fit-col { background: var(--bg-soft); }
+
+/* ══════════════════════════════════════════════════════════════
+   TWO-AXIS MOCKUP (/work-with-me-v2)
+   The plain-English label is the scanning column and gets the
+   size; the product name drops to a label inside the row. That is
+   the whole hypothesis — a reader should be able to find their row
+   without having learned eight invented nouns first.
+   ══════════════════════════════════════════════════════════════ */
+.mock-flag {
+  margin: 0;
+  padding: 0.5rem 1.75rem;
+  background: #1f1f1f;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.mock-flag a { color: #fff; text-underline-offset: 3px; }
+
+.axis-lede {
+  max-width: 42rem;
+  color: var(--mid);
+  margin-bottom: 1.7rem;
+}
+
+.axis {
+  border-top: 1px solid var(--border);
+}
+
+.axis-row {
+  display: grid;
+  grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr) auto;
+  gap: 0.3rem 1.75rem;
+  align-items: baseline;
+  padding: 1.35rem 0.75rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.axis-row:hover { background: var(--bg-soft); }
+
+/* The dimension, not the product, is what the eye lands on. */
+.axis-when {
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  line-height: 1.25;
+}
+
+.axis-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.axis-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--dim);
+}
+
+.axis-gate {
+  display: inline-block;
+  margin-left: 0.45rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--offer-deep, var(--fg));
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.08rem 0.45rem;
+  vertical-align: 1px;
+}
+
+.axis-line {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.axis-price {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--fg);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* The programs are a sequence. A rule down the left says so without
+   spending a paragraph on it. */
+.axis-seq { position: relative; }
+
+.axis-seq::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 1.6rem;
+  bottom: 1.6rem;
+  width: 2px;
+  background: linear-gradient(var(--border-strong), var(--offer-deep, var(--fg)));
+}
+
+.axis-seq .axis-row { padding-left: 1.5rem; }
+
+@media (max-width: 760px) {
+  .axis-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem 1rem;
+  }
+  .axis-when { grid-column: 1; }
+  .axis-price { grid-column: 2; grid-row: 1; }
+  .axis-body { grid-column: 1 / -1; }
+}
