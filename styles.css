@@ -1928,6 +1928,40 @@ img.om-hero-img {
   .cs-quote { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
 }
 
+/* Framing note on a republished newsletter issue. The archive is written
+   for certification leaders; this tells a reader who isn't one why the
+   piece is on this site and which part carries over. Written into the page
+   by tools/build-blog.mjs from blog/_data/notes.json. */
+.blog-note {
+  margin: 0 0 2rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.blog-note-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.5rem;
+}
+
+.blog-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--mid);
+  max-width: 640px;
+}
+
+@media (max-width: 600px) {
+  .blog-note { padding: 1rem; }
+}
+
 /* Subline under the work-card hook on the homepage */
 .work-card-subline {
   font-size: 0.9rem;

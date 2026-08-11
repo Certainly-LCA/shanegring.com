@@ -78,6 +78,23 @@ Plain-language answers to the questions behind founder-dependent websites, writt
 - [Stop Claude in Chrome from driving by screenshots](https://shanegring.com/guides/claude-in-chrome-stop-screenshots) — the standing CLAUDE.md rule that makes browser automation drive by accessibility refs instead of screenshot coordinates.
 - [The Install: requirements checklist](https://shanegring.com/guides/install-requirements) — everything that has to be true before an Install day starts, in three tiers, and what happens when registrar access can't be recovered in time.
 
+## Newsletter
+
+Seeking Certainty: every other week on building certifications that hold up, and the digital systems that carry them. Full archive: https://shanegring.com/blog/
+
+- [Early recognition is often borrowed (and that's okay)](https://shanegring.com/blog/early-recognition-is-borrowed) — practical ways to borrow trust for your certification early.
+- [The Certification Readiness Test: 10 Questions to Know If Your IP Can Carry a Credential](https://shanegring.com/blog/certification-readiness-test) — before you build anything, answer these 10 questions.
+- [From Course to Credential: What We're Learning About Go-to-Market Strategy](https://shanegring.com/blog/from-course-to-credential) — the work didn't change. the positioning did.
+- [What Taylor Swift taught me about certifications](https://shanegring.com/blog/what-taylor-swift-taught-me-about-certifications) — my wife's a swiftie. the loyalty structure isn't that different from what we're building.
+- [Your website is a product, not a poster](https://shanegring.com/blog/your-website-is-a-product-not-a-poster) — certification websites need to think about what they do, not how they look.
+- [You're Not Starting From Zero: The 70% Rule for Certification](https://shanegring.com/blog/the-70-percent-rule-for-certification) — your existing ip is worth more than you realize. here's how to make it certification-ready.
+- [Want to build a certification that actually matters?](https://shanegring.com/blog/certification-that-actually-matters) — anyone can slap a badge on a site. but trust? that takes more.
+- [When "good enough" websites cost you more than you think](https://shanegring.com/blog/good-enough-websites-cost-more) — when your site isn't built to grow with you, it's quietly holding you back.
+- [The four customers you didn't know your certification has](https://shanegring.com/blog/the-four-customers-your-certification-has) — if you're speaking to everyone, you're probably missing the ones who matter most.
+- [Why "more content" isn't the answer](https://shanegring.com/blog/why-more-content-isnt-the-answer) — if your cert org is publishing but still not converting, it's probably not a volume problem.
+- [Is your website pulling its weight?](https://shanegring.com/blog/is-your-website-pulling-its-weight) — if your certification site isn't helping people take action, it's not doing enough.
+- [The one thing I tell every certification leader](https://shanegring.com/blog/the-one-thing-i-tell-every-certification-leader) — if you're managing a program and it feels like no one "gets it," this one's for you.
+
 ## Free tools
 
 - **[Site Readiness Scan](https://shanegring.com/scan)**: Enter a URL and get a scored, sectioned read of how ready a site is for AI: whether AI can read it, whether it can drive its own SEO and content, and whether it could become a surface you build on rather than a brochure you maintain. The free machine version of the Read.
