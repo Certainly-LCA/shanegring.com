@@ -55,10 +55,15 @@ async function fetchAllPosts(key) {
   let page = 1;
 
   for (;;) {
+    // RSS content, not web content. free_web_content returns a complete
+    // themed HTML document — fonts, beehiiv's CSS variables, a byline block,
+    // share icons, scripts, inline styles on every element, ~21KB a post.
+    // free_rss_content is the same words in semantic tags at a fifth the
+    // size, and is what tools/build-blog.mjs normalizes.
     const url =
       `${API}/publications/${PUBLICATION_ID}/posts` +
       `?status=confirmed&limit=100&page=${page}` +
-      `&expand[]=free_web_content`;
+      `&expand[]=free_rss_content`;
 
     const res = await fetch(url, {
       headers: { Authorization: `Bearer ${key}`, Accept: 'application/json' },
@@ -91,7 +96,7 @@ async function fetchAllPosts(key) {
  */
 function extractContent(post) {
   const c = post.content;
-  let html = typeof c === 'string' ? c : c ? c.free?.web || c.free?.email || c.free?.rss || c.web || '' : '';
+  let html = typeof c === 'string' ? c : c ? c.free?.rss || c.free?.web || c.free?.email || c.web || '' : '';
   if (!html) return '';
 
   // A full document: keep what is inside <body>.
@@ -135,14 +140,29 @@ const key = loadKey();
 
 console.log('Fetching published posts from beehiiv...');
 const raw = await fetchAllPosts(key);
-const fresh = raw
-  .map(normalize)
+const now = Date.now();
+
+const normalized = raw.map(normalize);
+
+// `status=confirmed` is not the same as "sent". It covers scheduled posts
+// too, whose publish_date is in the future and whose beehiiv page still
+// 404s. Publishing one here would put an issue on the site before it
+// reaches the people who subscribed to receive it.
+const scheduled = normalized.filter((p) => new Date(p.published_at).getTime() > now);
+const sent = normalized.filter((p) => new Date(p.published_at).getTime() <= now);
+
+const fresh = sent
   .filter((p) => p.content) // a post with no body would blank an existing page
   .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
 
-if (raw.length !== fresh.length) {
+for (const p of scheduled) {
+  console.log(`  holding "${p.title}" — scheduled for ${p.published_at}, not sent yet`);
+}
+
+const missingContent = sent.length - fresh.length;
+if (missingContent > 0) {
   console.warn(
-    `  warning: ${raw.length - fresh.length} post(s) returned no content and were skipped.\n` +
+    `  warning: ${missingContent} sent post(s) returned no content and were skipped.\n` +
       '  Check that the API key has content permissions.'
   );
 }

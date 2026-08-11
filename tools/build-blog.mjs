@@ -14,7 +14,7 @@
  * anything in blog/ except _data/posts.json — your edits will be erased.
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -51,8 +51,68 @@ function stripNoise(html) {
   return out;
 }
 
+/**
+ * The API and the editor hand back different markup for the same post.
+ *
+ * tools/sync-beehiiv.mjs asks for free_rss_content, which arrives as a
+ * `div.beehiiv` wrapper around semantic tags with beehiiv's own classes on
+ * them. (free_web_content is the other option and is far worse: a complete
+ * themed HTML document, scripts and byline and all, five times the size.)
+ * The editor's own HTML, which seeded this file originally, uses different
+ * conventions again.
+ *
+ * This reduces the RSS shape to the same plain tags the editor produces, so
+ * everything downstream sees one input. It is a no-op on editor markup.
+ */
+function normalizeRss(html) {
+  let h = html;
+
+  // beehiiv ships a stylesheet for its table blocks inside the content.
+  h = h.replace(/<style>[\s\S]*?<\/style>/g, '');
+
+  // The publication logo, linked to certainly.coop, opens every issue.
+  h = h.replace(/<div class=['"]image['"]>[\s\S]*?<\/div>/g, '');
+
+  // "Powered by beehiiv", their footer link, and the spacer break that
+  // closes every issue. beehiiv mixes single and double quotes in the same
+  // document, so every attribute match here has to accept both.
+  h = h.replace(/<[^>]*class=['"]beehiiv__footer_link['"][^>]*>[\s\S]*?<\/a>/g, '');
+  h = h.replace(/<p[^>]*>\s*Powered by beehiiv\s*<\/p>/gi, '');
+  h = h.replace(/<br[^>]*beehiiv__[^>]*>/g, '');
+
+  // The two wrapper divs, plus any left over once their contents are gone.
+  h = h.replace(/<\/?div[^>]*>/g, '');
+
+  // beehiiv uses <b> where the editor uses <strong>. They render the same
+  // but only one of them means anything.
+  h = h.replace(/<(\/?)b>/g, '<$1strong>');
+
+  h = h.replace(/<hr[^>]*class="content_break"[^>]*>/g, '<hr />');
+
+  // Every link is rewritten with campaign tracking pointed back at the
+  // beehiiv domain, which is not where these links now live.
+  h = h.replace(/href="([^"]+)"/g, (_m, url) => {
+    const clean = url
+      .replace(/([?&])utm_[a-z_]+=[^&"]*/gi, '$1')
+      .replace(/[?&]+$/, '')
+      .replace(/\?&+/, '?')
+      .replace(/&{2,}/g, '&');
+    return `href="${clean}"`;
+  });
+
+  // Presentational leftovers: class hooks for beehiiv's stylesheet, inline
+  // text-align, and heading ids generated for their own anchor links.
+  h = h.replace(/\s+class=['"](?:paragraph|heading|image__\w+|link|content_break)['"]/g, '');
+  h = h.replace(/\s+class=['"][^'"]*beehiiv[^'"]*['"]/g, '');
+  h = h.replace(/\s+style=['"]\s*text-align:\s*(?:left|center|right)\s*;?\s*['"]/gi, '');
+  h = h.replace(/\s+style=['"]['"]/g, '');
+  h = h.replace(/<(h[1-6]|p)([^>]*)\s+id=['"][^'"]*['"]/g, '<$1$2');
+
+  return h;
+}
+
 function convert(rawHtml) {
-  let h = rawHtml;
+  let h = normalizeRss(rawHtml);
 
   // The publication logo is stamped at the top of every issue as an image
   // block. It is masthead furniture for the email, not part of the piece,
@@ -444,9 +504,9 @@ ${toSections(convert(post.content))}
       <h2 class="cs-section-title">Get the next one</h2>
 
       <p class="guide-cta-line">
-        <strong>${esc(PUB_NAME)} goes out every other week</strong> — what
-        I'm learning about building certifications, and about the digital
-        systems that carry them.
+        <strong>${esc(PUB_NAME)} goes out when there's something worth
+        sending</strong> — what I'm working on, what broke, and how I
+        fixed it.
       </p>
 
       <a class="btn-primary" href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">
@@ -506,7 +566,7 @@ ${GTM_HEAD}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(PUB_NAME)}: the newsletter archive | Shane Gring</title>
-<meta name="description" content="Every issue of Seeking Certainty, the every-other-week newsletter on building certifications that hold up and the digital systems that carry them.">
+<meta name="description" content="Every issue of Seeking Certainty: what Shane Gring is working on, what broke, and how he fixed it. Certification work, and the digital systems around it.">
 <meta name="author" content="Shane Gring">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="${SITE}/blog/">
@@ -518,20 +578,20 @@ ${GTM_HEAD}
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(PUB_NAME)}: the newsletter archive">
-<meta property="og:description" content="Every issue of Seeking Certainty — on building certifications that hold up, and the digital systems that carry them.">
+<meta property="og:description" content="Every issue of Seeking Certainty — what I'm working on, what broke, and how I fixed it.">
 <meta property="og:url" content="${SITE}/blog/">
 <meta property="og:site_name" content="Shane Gring">
 <meta property="og:image" content="${SITE}/og-social.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(PUB_NAME)} | Shane Gring">
-<meta name="twitter:description" content="Every issue of Seeking Certainty — on building certifications that hold up, and the digital systems that carry them.">
+<meta name="twitter:description" content="Every issue of Seeking Certainty — what I'm working on, what broke, and how I fixed it.">
 <meta name="twitter:image" content="${SITE}/og-social.png">
 
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Blog","@id":"${SITE}/blog/#blog","name":${JSON.stringify(PUB_NAME)},"description":"Every other week on building certifications that hold up, and the digital systems that carry them.","url":"${SITE}/blog/","author":{"@id":"${SITE}/#person"},"publisher":{"@id":"${SITE}/#person"},"blogPost":[
+{"@type":"Blog","@id":"${SITE}/blog/#blog","name":${JSON.stringify(PUB_NAME)},"description":"What I'm working on, what broke, and how I fixed it. Certification work, and the digital systems around it.","url":"${SITE}/blog/","author":{"@id":"${SITE}/#person"},"publisher":{"@id":"${SITE}/#person"},"blogPost":[
 ${graph}]},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${SITE}/"},{"@type":"ListItem","position":2,"name":"Newsletter","item":"${SITE}/blog/"}]}]}
 </script>
@@ -556,13 +616,11 @@ ${NAV}
       <h1 class="cs-hook">${esc(PUB_NAME)}</h1>
 
       <p class="om-lede">
-        Every other week I write about what it actually takes to build a
-        certification that holds up — the standard, the market, and the
-        systems underneath it. <strong>Every issue is archived here</strong>,
-        in full. And if you don't run a certification, it still reads
-        across: a credential is a promise a business has to keep in public,
-        in front of several audiences at once, with
-        <strong>the website doing most of the work</strong>.
+        What I pick up running a few companies and helping run a few more —
+        <strong>what I'm working on, what broke, and how I fixed it</strong>.
+        Certification work is still most of what I do, so it keeps showing
+        up here; there's just more around it now. Sent when there's
+        something worth sending. Every issue is archived below, in full.
       </p>
 
       <a class="btn-primary" href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">
@@ -621,11 +679,142 @@ posts.forEach((post, i) => {
 
 writeFileSync(resolve(OUT, 'index.html'), indexPage(posts));
 console.log(`  /blog/`);
+
+// Writing pages does not remove them. A post that gets unpublished, or one
+// that was built before a slug changed -- or a scheduled issue that a
+// previous run should not have written at all -- would otherwise stay on
+// disk and go on being deployed and indexed.
+const expected = new Set(posts.map((p) => `${siteSlug(p)}.html`).concat('index.html'));
+for (const file of readdirSync(OUT)) {
+  if (!file.endsWith('.html') || expected.has(file)) continue;
+  unlinkSync(resolve(OUT, file));
+  console.log(`  removed /blog/${file.replace(/\.html$/, '')} (no longer published)`);
+}
+
 console.log(`\n${posts.length} issues built.`);
 
-// Emitted so sitemap.xml can be regenerated without re-deriving slugs.
 const urls = posts.map((p) => ({
   loc: `${SITE}/blog/${siteSlug(p)}`,
   lastmod: isoDate(p.published_at),
 }));
 writeFileSync(resolve(OUT, '_data/urls.json'), JSON.stringify(urls, null, 2));
+
+/* ------------------------------------------------------------------ *
+ * Site-wide indexes
+ *
+ * sitemap.xml, sitemap.html and llms.txt each carry a list of the issues.
+ * Rewriting them here rather than by hand means an unpublished post cannot
+ * linger in one of them after its page has been pruned -- which is exactly
+ * what happened the first time a scheduled issue got built by mistake.
+ * Each rewrite replaces only its own block and leaves the rest alone.
+ * ------------------------------------------------------------------ */
+
+const ent = (s = '') =>
+  esc(s)
+    .replace(/’/g, '&rsquo;')
+    .replace(/‘/g, '&lsquo;')
+    .replace(/“/g, '&ldquo;')
+    .replace(/”/g, '&rdquo;')
+    .replace(/—/g, '&mdash;')
+    .replace(/–/g, '&ndash;');
+
+const BLURB =
+  "Seeking Certainty. What I'm working on, what broke, and how I fixed it.";
+
+function rewrite(file, pattern, replacement, label) {
+  const path = resolve(ROOT, file);
+  const before = readFileSync(path, 'utf8');
+  const [after, count] = (() => {
+    let n = 0;
+    const out = before.replace(pattern, () => {
+      n += 1;
+      return replacement;
+    });
+    return [out, n];
+  })();
+  if (count !== 1) {
+    console.warn(`  ! ${file}: expected 1 ${label} block, found ${count} — left unchanged`);
+    return;
+  }
+  writeFileSync(path, after);
+  console.log(`  ${file} updated`);
+}
+
+// sitemap.xml
+{
+  const newest = urls.reduce((a, u) => (u.lastmod > a ? u.lastmod : a), urls[0].lastmod);
+  const block =
+    [
+      '  <url>',
+      `    <loc>${SITE}/blog/</loc>`,
+      `    <lastmod>${newest}</lastmod>`,
+      '    <changefreq>weekly</changefreq>',
+      '    <priority>0.8</priority>',
+      '  </url>',
+    ]
+      .concat(
+        urls.flatMap((u) => [
+          '  <url>',
+          `    <loc>${u.loc}</loc>`,
+          `    <lastmod>${u.lastmod}</lastmod>`,
+          '    <changefreq>monthly</changefreq>',
+          '    <priority>0.7</priority>',
+          '  </url>',
+        ])
+      )
+      .join('\n') + '\n';
+
+  const path = resolve(ROOT, 'sitemap.xml');
+  let xml = readFileSync(path, 'utf8');
+  xml = xml.replace(
+    new RegExp(`  <url>\\s*<loc>${SITE}/blog/[^<]*</loc>[\\s\\S]*?</url>\\n`, 'g'),
+    ''
+  );
+  xml = xml.replace('</urlset>', block + '</urlset>');
+  writeFileSync(path, xml);
+  console.log(`  sitemap.xml updated (${urls.length + 1} /blog/ urls)`);
+}
+
+// sitemap.html
+rewrite(
+  'sitemap.html',
+  /  <section class="om-section">\s*<div class="container">\s*<h2 class="cs-section-title">Newsletter<\/h2>[\s\S]*?<\/section>\n\n/,
+  '  <section class="om-section">\n    <div class="container">\n' +
+    '      <h2 class="cs-section-title">Newsletter</h2>\n' +
+    `      <p class="sitemap-blurb">${ent(BLURB)}</p>\n\n` +
+    '      <ul class="sitemap-list">\n' +
+    [
+      '          <li>\n            <a href="/blog/">All issues</a>\n            <span class="sitemap-desc">The full archive</span>\n          </li>',
+    ]
+      .concat(
+        posts.map(
+          (p) =>
+            `          <li>\n            <a href="/blog/${siteSlug(p)}">${ent(p.title)}</a>\n` +
+            `            <span class="sitemap-desc">${ent(p.subtitle.trim())}</span>\n          </li>`
+        )
+      )
+      .join('\n') +
+    '\n      </ul>\n    </div>\n  </section>\n\n',
+  'Newsletter'
+);
+
+// llms.txt
+rewrite(
+  'llms.txt',
+  /## Newsletter\n[\s\S]*?(?=## Free tools)/,
+  [
+    '## Newsletter',
+    '',
+    `Seeking Certainty: what Shane is working on, what broke, and how he fixed it. Certification work is still most of it, with more around it now. Sent when there is something worth sending. Full archive: ${SITE}/blog/`,
+    '',
+  ]
+    .concat(
+      posts.map(
+        (p) =>
+          `- [${plain(p.title)}](${SITE}/blog/${siteSlug(p)}) — ${plain(p.subtitle).replace(/\.$/, '').toLowerCase()}.`
+      )
+    )
+    .concat(['', ''])
+    .join('\n'),
+  'Newsletter'
+);
