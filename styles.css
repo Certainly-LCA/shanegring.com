@@ -1962,6 +1962,73 @@ img.om-hero-img {
   .blog-note { padding: 1rem; }
 }
 
+/* Newsletter signup. Posts to /api/subscribe, which talks to beehiiv from
+   the server, so the reader never leaves the site. */
+.sub-form { margin: 1.5rem 0 0; max-width: 520px; }
+
+.sub-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: stretch;
+}
+
+.sub-form-input {
+  flex: 1 1 15rem;
+  min-width: 0;
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+  font-size: 0.98rem;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.sub-form-input::placeholder { color: var(--dim); }
+
+.sub-form-input:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 1px;
+  border-color: var(--fg);
+}
+
+.sub-form .btn-primary { flex: 0 0 auto; }
+.sub-form .btn-primary[disabled] { opacity: 0.6; cursor: default; }
+
+/* The honeypot has to be reachable by anything reading the DOM and invisible
+   to anyone reading the page, so it is moved off-screen rather than hidden —
+   display:none is the one thing a bot can cheaply detect. */
+.sub-form-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.sub-form-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  margin-bottom: 0.4rem;
+}
+
+.sub-form-msg {
+  margin: 0.7rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--mid);
+  min-height: 1.35em;
+}
+
+.sub-form-msg-error { color: #b3261e; }
+.sub-form-msg-ok { color: var(--fg); font-weight: 600; }
+
+.sub-form-done .sub-form-row { display: none; }
+
 /* Subline under the work-card hook on the homepage */
 .work-card-subline {
   font-size: 0.9rem;
