@@ -1,0 +1,29 @@
+{
+  "_comment": [
+    "Framing notes for republished newsletter issues, keyed by beehiiv post id.",
+    "The archive is written for certification leaders. These notes tell a reader",
+    "who is not one why the piece sits on this site and what carries over.",
+    "",
+    "This file is hand-written and tools/sync-beehiiv.mjs never touches it, so a",
+    "sync from beehiiv cannot overwrite the notes. An issue with no entry here",
+    "simply renders without a note. The label is shared; only the body changes."
+  ],
+
+  "_label": "If you're not building a certification",
+
+  "post_7dc3ad62-168d-40ea-9286-7f6a5ae337f4": "Written for people deciding whether to turn their method into a credential. The move underneath it works anywhere: before you build the thing, write down what has to be true for it to pay off, then answer honestly. That is the same test I run on a site before an <a href=\"/install\">Install</a>.",
+
+  "post_093e26ac-1c01-4c72-9df2-7f822d6b2a18": "Written about credentials. What carries over is the 70% itself: most of what you need is already written down somewhere, in a book, a deck, a course, or the way you walk a client through the work. The job is finding it and shaping it, not starting again. That is also what <a href=\"/guides/build-a-content-layer\">a content layer</a> is.",
+
+  "post_e82f82b3-d1c6-4f86-bf98-31390188c59f": "Written about credentials, but the four levers hold for any claim a business makes: a standard people can read, requirements that are not a secret, review that keeps happening, and a market that asks for it. Your website decides whether the first two are true. That is most of what <a href=\"/read\">the Read</a> looks at.",
+
+  "post_b46dd82c-fffe-49f2-96cb-40d68627e490": "Written about credential loyalty. The part that travels: people stay with something they can call themselves part of and keep taking part in. That is a question about what your systems let someone do, join, and come back to, not about what your copy says. See <a href=\"/install\">the Install</a>.",
+
+  "post_1cb2c692-9242-4601-b561-605b71dc9f67": "Written about selling certifications. The lesson is wider than that. People were not asking for a website, they were asking what to do next. Leading with what someone walks away with, rather than what gets built, changed the conversation. It is why the offers on this site are named the way they are: <a href=\"/work-with-me\">a score, an opinion, a plan, the build</a>.",
+
+  "post_a8fd6668-30a5-449f-920c-3ac86b581b46": "Written for certification programs, and true for any business with more than one kind of buyer. Four audiences, one homepage, and no page that speaks to any of them properly. The fix is <a href=\"/guides/one-page-per-service\">one page per service</a>.",
+
+  "post_a8649e6c-ff34-4e0b-9442-6576abd2b79a": "Written about new credentials. It holds for any new offer: trust reaches your buyer through people and organizations they already trust, long before it reaches them on its own.",
+
+  "post_a58f536f-fe97-4951-afe0-5297da10520b": "Written for certification leaders. Take the credential out and the five reframes still stand: structure, teaching, something to say, being held to it, and a result. That is what any expert-led business is actually selling."
+}

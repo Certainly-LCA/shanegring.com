@@ -6,6 +6,11 @@
 node_modules/
 
 
+# Secrets. tools/sync-beehiiv.mjs reads BEEHIIV_API_KEY from here. The
+# deploy is `wrangler pages deploy .` from this directory, so a committed
+# key would be served publicly.
+.env
+
 # Editor cruft
 .vscode/
 .idea/
