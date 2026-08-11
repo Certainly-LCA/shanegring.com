@@ -1998,7 +1998,11 @@ img.om-hero-img {
 
 /* The honeypot has to be reachable by anything reading the DOM and invisible
    to anyone reading the page, so it is moved off-screen rather than hidden —
-   display:none is the one thing a bot can cheaply detect. */
+   display:none is the one thing a bot can cheaply detect.
+   The same declarations are also inline on the element. That is deliberate:
+   the stylesheet is cached separately from the HTML, so a visitor can hold a
+   new page and an old stylesheet, and a trap that depends on this rule shows
+   up as an unlabelled empty box in the middle of the form. */
 .sub-form-trap {
   position: absolute;
   left: -9999px;
@@ -2022,6 +2026,37 @@ img.om-hero-img {
   line-height: 1.5;
   color: var(--mid);
   min-height: 1.35em;
+}
+
+/* The same form in the footer, on every page. */
+.footer-sub {
+  margin: 0 0 2.25rem;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--border);
+  max-width: 560px;
+}
+
+.footer-sub-line {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-sub .sub-form { margin-top: 1rem; }
+
+/* The footer sits on #2b5d64 and colours its text in white alpha, so the
+   form's own greys — chosen against the page background — have to be
+   restated here. The input keeps its white field: that reads as somewhere
+   to type against the dark, and needs no change. */
+.footer-sub { border-bottom-color: rgba(255, 255, 255, 0.18); }
+.footer-sub .sub-form-label { color: rgba(255, 255, 255, 0.55); }
+.footer-sub .sub-form-msg { color: rgba(255, 255, 255, 0.8); }
+.footer-sub .sub-form-msg-ok { color: #ffffff; }
+.footer-sub .sub-form-msg-error { color: #ffb4ab; }
+.footer-sub .sub-form-input:focus-visible {
+  outline-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .sub-form-msg-error { color: #b3261e; }

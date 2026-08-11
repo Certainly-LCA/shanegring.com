@@ -325,10 +325,19 @@ const NAV = `<nav class="site-nav" aria-label="Site">
   </div>
 </nav>`;
 
-const FOOTER = `<footer>
+// A function rather than a constant so it can call subscribeForm(), which is
+// defined below it and depends on SUBSCRIBE_URL.
+function footerHtml() {
+  return `<footer>
   <img class="footer-city" src="/images/footer-city.png" alt="" width="2176" height="544" loading="lazy" aria-hidden="true">
   <div class="container">
     <p class="footer-tag">Operations that run beyond you.</p>
+
+    <div class="footer-sub">
+      <h2 class="footer-col-title">Seeking Certainty</h2>
+      <p class="footer-sub-line">What I'm working on, what broke, and how I fixed it. Sent when there's something worth sending.</p>
+      ${subscribeForm('footer', 'sub-email-footer')}
+    </div>
 
     <nav class="footer-nav" aria-label="All pages">
       <div class="footer-col">
@@ -388,6 +397,7 @@ const FOOTER = `<footer>
 <script src="/subscribe.js" defer></script>
 </body>
 </html>`;
+}
 
 const SUBSCRIBE_URL = 'https://seeking-certainty.beehiiv.com/subscribe';
 
@@ -409,7 +419,8 @@ function subscribeForm(source, id) {
                  placeholder="you@yourcompany.com">
           <button class="btn-primary" type="submit">Subscribe <span class="btn-arrow">&rarr;</span></button>
         </div>
-        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <p class="sub-form-msg" role="status" aria-live="polite"></p>
         <noscript>
           <p class="sub-form-msg"><a href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">Subscribe on beehiiv</a> — this form needs JavaScript.</p>
@@ -557,7 +568,7 @@ ${
 }  </article>
 </main>
 
-${FOOTER}
+${footerHtml()}
 `;
 }
 
@@ -677,7 +688,7 @@ ${items}
   </section>
 </main>
 
-${FOOTER}
+${footerHtml()}
 `;
 }
 
