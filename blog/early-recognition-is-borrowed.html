@@ -225,9 +225,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         fixed it.
       </p>
 
-      <a class="btn-primary" href="https://seeking-certainty.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">
-        Subscribe <span class="btn-arrow">&rarr;</span>
-      </a>
+      <form class="sub-form" data-source="issue:early-recognition-is-borrowed" novalidate>
+        <label class="sub-form-label" for="sub-email-issue">Your email</label>
+        <div class="sub-form-row">
+          <input class="sub-form-input" id="sub-email-issue" type="email" name="email"
+                 autocomplete="email" inputmode="email" required
+                 placeholder="you@yourcompany.com">
+          <button class="btn-primary" type="submit">Subscribe <span class="btn-arrow">&rarr;</span></button>
+        </div>
+        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="sub-form-msg" role="status" aria-live="polite"></p>
+        <noscript>
+          <p class="sub-form-msg"><a href="https://seeking-certainty.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on beehiiv</a> — this form needs JavaScript.</p>
+        </noscript>
+      </form>
 
       <p>
         Want the same eye on your own site? Start with the
@@ -304,5 +315,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="/nav.js" defer></script>
 <script src="/track.js" defer></script>
+<script src="/subscribe.js" defer></script>
 </body>
 </html>

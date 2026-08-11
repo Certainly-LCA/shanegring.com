@@ -385,10 +385,37 @@ const FOOTER = `<footer>
 
 <script src="/nav.js" defer></script>
 <script src="/track.js" defer></script>
+<script src="/subscribe.js" defer></script>
 </body>
 </html>`;
 
 const SUBSCRIBE_URL = 'https://seeking-certainty.beehiiv.com/subscribe';
+
+/**
+ * Signup happens on the page. The form posts to /api/subscribe, a Pages
+ * Function that calls beehiiv server-side, so the reader never leaves the
+ * site and the API key never reaches the browser.
+ *
+ * `source` is passed through to beehiiv as the campaign, so it is possible
+ * to tell later whether signups come off the archive index or off the end
+ * of a particular issue.
+ */
+function subscribeForm(source, id) {
+  return `<form class="sub-form" data-source="${esc(source)}" novalidate>
+        <label class="sub-form-label" for="${id}">Your email</label>
+        <div class="sub-form-row">
+          <input class="sub-form-input" id="${id}" type="email" name="email"
+                 autocomplete="email" inputmode="email" required
+                 placeholder="you@yourcompany.com">
+          <button class="btn-primary" type="submit">Subscribe <span class="btn-arrow">&rarr;</span></button>
+        </div>
+        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="sub-form-msg" role="status" aria-live="polite"></p>
+        <noscript>
+          <p class="sub-form-msg"><a href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">Subscribe on beehiiv</a> — this form needs JavaScript.</p>
+        </noscript>
+      </form>`;
+}
 
 /* ------------------------------------------------------------------ *
  * Framing notes
@@ -509,9 +536,7 @@ ${toSections(convert(post.content))}
         fixed it.
       </p>
 
-      <a class="btn-primary" href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">
-        Subscribe <span class="btn-arrow">&rarr;</span>
-      </a>
+      ${subscribeForm(`issue:${slug}`, 'sub-email-issue')}
 
       <p>
         Want the same eye on your own site? Start with the
@@ -623,9 +648,7 @@ ${NAV}
         something worth sending. Every issue is archived below, in full.
       </p>
 
-      <a class="btn-primary" href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">
-        Subscribe <span class="btn-arrow">&rarr;</span>
-      </a>
+      ${subscribeForm('blog-index', 'sub-email-index')}
     </div>
   </section>
 

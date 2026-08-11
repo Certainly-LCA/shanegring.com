@@ -27,3 +27,6 @@ scripts/
 # (robots.txt allows all). pricing-model.md contains income targets, tax rates,
 # subcontractor cost, and per-line margins. It must never reach the CDN.
 docs/
+
+# Wrangler local dev secrets (same contents as .env)
+.dev.vars
