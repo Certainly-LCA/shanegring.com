@@ -14,3 +14,22 @@ https://shanegring-com.pages.dev/*
 
 https://:version.shanegring-com.pages.dev/*
   X-Robots-Tag: noindex
+
+# Pages serves static assets with a four-hour cache by default, and the
+# stylesheet and scripts are referenced without a version in the URL. Pages
+# themselves revalidate every request, so a returning visitor could hold new
+# HTML against a stylesheet up to four hours old. That desync is not
+# theoretical: it put an off-screen honeypot field on screen as an empty box
+# in the middle of the signup form. Short cache plus revalidation closes the
+# window; these files are small enough that the cost is a conditional request.
+/styles.css
+  Cache-Control: public, max-age=60, must-revalidate
+
+/nav.js
+  Cache-Control: public, max-age=60, must-revalidate
+
+/track.js
+  Cache-Control: public, max-age=60, must-revalidate
+
+/subscribe.js
+  Cache-Control: public, max-age=60, must-revalidate

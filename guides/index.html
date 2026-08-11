@@ -314,6 +314,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <p class="footer-tag">Operations that run beyond you.</p>
 
+    <div class="footer-sub">
+      <h2 class="footer-col-title">Seeking Certainty</h2>
+      <p class="footer-sub-line">What I'm working on, what broke, and how I fixed it. Sent when there's something worth sending.</p>
+      <form class="sub-form" data-source="footer" novalidate>
+        <label class="sub-form-label" for="sub-email-footer">Your email</label>
+        <div class="sub-form-row">
+          <input class="sub-form-input" id="sub-email-footer" type="email" name="email"
+                 autocomplete="email" inputmode="email" required
+                 placeholder="you@yourcompany.com">
+          <button class="btn-primary" type="submit">Subscribe <span class="btn-arrow">&rarr;</span></button>
+        </div>
+        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <p class="sub-form-msg" role="status" aria-live="polite"></p>
+        <noscript>
+          <p class="sub-form-msg"><a href="https://seeking-certainty.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on beehiiv</a> — this form needs JavaScript.</p>
+        </noscript>
+      </form>
+    </div>
+
     <nav class="footer-nav" aria-label="All pages">
       <div class="footer-col">
         <h2 class="footer-col-title">What do you need someone for?</h2>
@@ -369,5 +389,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="/nav.js" defer></script>
 <script src="/track.js" defer></script>
+<script src="/subscribe.js" defer></script>
 </body>
 </html>
