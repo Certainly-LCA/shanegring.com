@@ -463,6 +463,12 @@ function note(post) {
 function postPage(post, prev, next) {
   const slug = siteSlug(post);
   const url = `${SITE}/blog/${slug}`;
+  // The issue's own object, when it exists, doubles as the social preview.
+  // A card image beats the site-wide og-social.png in a feed: it is specific
+  // to the piece and it is what the reader already saw on the index.
+  const artPath = `images/blog/${slug}.png`;
+  const hasArt = existsSync(resolve(ROOT, artPath));
+  const shareImage = hasArt ? `${SITE}/${artPath}` : `${SITE}/og-social.png`;
   const title = plain(post.title);
   const desc = plain(post.subtitle) || title;
   const published = isoDate(post.published_at);
@@ -494,19 +500,19 @@ ${GTM_HEAD}
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="Shane Gring">
-<meta property="og:image" content="${SITE}/og-social.png">
+<meta property="og:image" content="${shareImage}">
 <meta property="article:published_time" content="${published}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
-<meta name="twitter:image" content="${SITE}/og-social.png">
+<meta name="twitter:image" content="${shareImage}">
 
 <link rel="alternate" type="application/rss+xml" title="Seeking Certainty" href="/blog/feed.xml">
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"NewsArticle","@id":"${url}#article","headline":${JSON.stringify(title)},"description":${JSON.stringify(desc)},"author":{"@id":"${SITE}/#person"},"publisher":{"@id":"${SITE}/#person"},"datePublished":"${published}","dateModified":"${published}","mainEntityOfPage":"${url}","image":"${SITE}/og-social.png","isPartOf":{"@type":"Blog","@id":"${SITE}/blog/#blog","name":${JSON.stringify(PUB_NAME)}}},
+{"@type":"NewsArticle","@id":"${url}#article","headline":${JSON.stringify(title)},"description":${JSON.stringify(desc)},"author":{"@id":"${SITE}/#person"},"publisher":{"@id":"${SITE}/#person"},"datePublished":"${published}","dateModified":"${published}","mainEntityOfPage":"${url}","image":"${shareImage}","isPartOf":{"@type":"Blog","@id":"${SITE}/blog/#blog","name":${JSON.stringify(PUB_NAME)}}},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${SITE}/"},{"@type":"ListItem","position":2,"name":"Newsletter","item":"${SITE}/blog/"},{"@type":"ListItem","position":3,"name":${JSON.stringify(title)},"item":"${url}"}]}]}
 </script>
 </head>
@@ -532,7 +538,11 @@ ${NAV}
 
       <span class="section-eyebrow">${esc(PUB_NAME)} &middot; ${longDate(post.published_at)}</span>
       <h1 class="cs-hook">${esc(post.title)}</h1>
-${post.subtitle ? `\n      <p class="om-lede">${esc(post.subtitle.trim())}</p>\n` : ''}    </div>
+${post.subtitle ? `\n      <p class="om-lede">${esc(post.subtitle.trim())}</p>\n` : ''}${
+  hasArt
+    ? `\n      <img class="blog-hero-art" src="/${artPath}" alt="" width="168" height="168" loading="lazy">\n`
+    : ''
+}    </div>
   </section>
 ${note(post)}
 
