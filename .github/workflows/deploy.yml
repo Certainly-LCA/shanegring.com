@@ -18,6 +18,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Two commits, not the default one: the IndexNow step below diffs
+          # HEAD against its parent to find what changed, and a shallow clone
+          # has no parent to diff against.
+          fetch-depth: 2
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -40,3 +45,14 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy . --project-name=shanegring-com --branch=main --commit-dirty=true
+
+      # Tell Bing which pages just changed, rather than waiting for it to come
+      # round again — it last crawled the sitemap three weeks late. Bing feeds
+      # ChatGPT's search results, so this is the shortest path from publishing
+      # to being quotable. Runs after the deploy so the URLs are live before
+      # anything is invited to fetch them, and only submits what the commit
+      # actually touched. Never fails the job: IndexNow is a hint, and the
+      # sitemap still lists everything for the next ordinary crawl.
+      - name: Tell IndexNow what changed
+        continue-on-error: true
+        run: node tools/indexnow.mjs --from-git
