@@ -502,6 +502,7 @@ ${GTM_HEAD}
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${SITE}/og-social.png">
 
+<link rel="alternate" type="application/rss+xml" title="Seeking Certainty" href="/blog/feed.xml">
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -633,6 +634,7 @@ ${GTM_HEAD}
 <meta name="twitter:description" content="Every issue of Seeking Certainty — what I'm working on, what broke, and how I fixed it.">
 <meta name="twitter:image" content="${SITE}/og-social.png">
 
+<link rel="alternate" type="application/rss+xml" title="Seeking Certainty" href="/blog/feed.xml">
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -741,6 +743,48 @@ const urls = posts.map((p) => ({
   lastmod: isoDate(p.published_at),
 }));
 writeFileSync(resolve(OUT, '_data/urls.json'), JSON.stringify(urls, null, 2));
+
+/* ------------------------------------------------------------------ *
+ * Feed
+ *
+ * An archive with no feed is a dead end for anyone who would rather not
+ * hand over an email address to follow along. beehiiv's own feed sits
+ * behind a Cloudflare bot challenge, so this is the only machine-readable
+ * copy of the newsletter that a reader or an aggregator can actually get.
+ * ------------------------------------------------------------------ */
+
+{
+  const rfc822 = (d) => new Date(d).toUTCString();
+  const items = posts
+    .map((p) => {
+      const url = `${SITE}/blog/${siteSlug(p)}`;
+      return `    <item>
+      <title>${esc(plain(p.title))}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <pubDate>${rfc822(p.published_at)}</pubDate>
+      <description>${esc(plain(p.subtitle) || plain(p.title))}</description>
+      <content:encoded><![CDATA[${convert(p.content)}]]></content:encoded>
+    </item>`;
+    })
+    .join('\n');
+
+  const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${esc(PUB_NAME)}</title>
+    <link>${SITE}/blog/</link>
+    <atom:link href="${SITE}/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <description>What I'm working on, what broke, and how I fixed it.</description>
+    <language>en</language>
+    <lastBuildDate>${rfc822(posts[0].published_at)}</lastBuildDate>
+${items}
+  </channel>
+</rss>
+`;
+  writeFileSync(resolve(OUT, 'feed.xml'), feed);
+  console.log('  /blog/feed.xml');
+}
 
 /* ------------------------------------------------------------------ *
  * Site-wide indexes
