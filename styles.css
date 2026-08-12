@@ -2028,6 +2028,27 @@ img.om-hero-img {
   min-height: 1.35em;
 }
 
+/* The issue's object, on the issue's own page. Square and modest rather than
+   the full-width 16:9 a guide opens with — it is a mark for the piece, not a
+   scene to walk into, and the same object the card carries. */
+img.blog-hero-art {
+  display: block;
+  width: 168px;
+  height: 168px;
+  margin-top: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 14px 30px -20px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 560px) {
+  img.blog-hero-art { width: 120px; height: 120px; margin-top: 1.75rem; }
+}
+
 /* Blog cards.
    /guides lists rows with a wide 16:9 scene thumbnail. The newsletter uses
    the same pixel-art vernacular but a different register: a square, tightly
