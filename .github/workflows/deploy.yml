@@ -19,6 +19,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Pages serves HTML fresh but static assets with a four-hour cache, and
+      # ignores Cache-Control set in _headers for them. Stamping a content
+      # hash onto the asset URLs means fresh HTML can never request a stale
+      # stylesheet. Runs here rather than by hand so a CSS edit cannot ship
+      # without it. `continue-on-error` keeps a bad stamp from blocking a
+      # deploy — the site is still correct without it, just cacheable.
+      - name: Version asset URLs
+        continue-on-error: true
+        run: node tools/version-assets.mjs
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
