@@ -488,3 +488,55 @@ next one:
   the headline sits on near-white and the right-hand third of the art is untouched. That
   is also why the "subject a third in from the left" note above is wrong for this use —
   for a background hero you want the subject on the **right**, clear of the copy.
+
+---
+
+## 16. Blog cards — `images/blog/*.png`
+
+The newsletter archive at `/blog` uses a different register from the guides on
+purpose. Guides get a **wide establishing scene** (16:9) — a funicular, an
+inspector on scaffolding, a whole place. Blog cards get **one object, close**
+(1:1) — the same pixel art, the same palette, but a still life rather than a
+landscape. Read side by side, the two sections look related and not
+interchangeable, which is the point.
+
+These are *not* the flat cobalt icons from section 8. Those are 16x16 sprites on
+white for the nav. These carry the full scene palette and soft daylight, just
+framed tight on a single thing.
+
+**Shared style suffix for every blog card:**
+
+```
+detailed 16-bit pixel art illustration, SNES-era videogame aesthetic, crisp pixel
+clusters, muted blue-gray and cream palette with warm orange and teal accents,
+a single object seen close, tabletop still life, soft daylight, plain uncluttered
+background, no text, no lettering
+--ar 1:1 --sref https://shanegring.com/images/hero.png https://shanegring.com/images/map-hero.png
+```
+
+Export 736x736 (the card renders at 92px, so this is 8x for retina and future
+sizes), quantized to PNG8 like the guide heroes. The CSS renders them with
+`image-rendering: pixelated`, so downscale nearest-neighbor.
+
+Filename must match the issue's site slug exactly — `tools/build-blog.mjs` looks
+for `images/blog/<slug>.png` and falls back to a text-only card when it is
+missing, so these can land one at a time without breaking anything.
+
+| # | File (slug) | Object |
+|---|---|---|
+| 1 | `early-recognition-is-borrowed.png` | a small new brass nameplate freshly screwed to a door just beneath a larger, older, tarnished one |
+| 2 | `certification-readiness-test.png` | a clipboard holding a checklist of ten empty boxes, a pencil laid across it |
+| 3 | `from-course-to-credential.png` | a stack of thin course booklets with one embossed certificate lying across the top |
+| 4 | `what-taylor-swift-taught-me-about-certifications.png` | a beaded friendship bracelet coiled beside a laminated pass on a lanyard |
+| 5 | `your-website-is-a-product-not-a-poster.png` | a rolled paper poster lying beside an open control panel with dials and one lit indicator |
+| 6 | `the-70-percent-rule-for-certification.png` | a hardback book left open, sticky tabs down the fore edge, a rubber stamp resting beside it |
+| 7 | `certification-that-actually-matters.png` | four tall brass signal levers in a row on a frame, one pulled forward |
+| 8 | `good-enough-websites-cost-more.png` | one cracked floor tile lifted away, dark rot in the cavity underneath |
+| 9 | `the-four-customers-your-certification-has.png` | four differently shaped keys hanging together on a single ring |
+| 10 | `why-more-content-isnt-the-answer.png` | a tall untidy stack of loose paper beside one index card with a single arrow drawn on it |
+| 11 | `is-your-website-pulling-its-weight.png` | a folded tourist brochure beside a small industrial control panel with one lit button |
+| 12 | `the-one-thing-i-tell-every-certification-leader.png` | a heavy embossing seal press alone on a desk, jaws open |
+
+Tips: generate in one session so the set holds together; reroll drifters with
+`--seed` from the best job. If a prompt comes back as a wide scene rather than a
+close object, add `macro, tightly cropped, object fills the frame`.

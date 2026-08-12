@@ -14,7 +14,7 @@
  * anything in blog/ except _data/posts.json — your edits will be erased.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -573,16 +573,25 @@ ${footerHtml()}
 }
 
 function indexPage(posts) {
-  // Same list shape as /guides, minus the thumbnail: newsletter issues have
-  // no hero art, and .guide-item already suppresses the bullet.
+  // Cards, not the row list /guides uses. Art is optional: an issue with no
+  // image at images/blog/<slug>.png renders as a text-only card rather than
+  // a broken one, so a new issue is never blocked on having a picture.
   const items = posts
     .map((p) => {
-      const sub = p.subtitle ? ` ${esc(p.subtitle.trim())}` : '';
-      return `        <li class="guide-item">
-          <div class="guide-item-text">
-            <strong><a href="/blog/${siteSlug(p)}">${esc(p.title)}</a></strong>${sub}
-            <span class="cs-quote-status">${longDate(p.published_at)}</span>
-          </div>
+      const slug = siteSlug(p);
+      const art = `images/blog/${slug}.png`;
+      const hasArt = existsSync(resolve(ROOT, art));
+      const thumb = hasArt
+        ? `\n            <img class="blog-card-thumb" src="/${art}" alt="" width="92" height="92" loading="lazy">`
+        : '';
+      return `        <li class="blog-card${hasArt ? '' : ' blog-card-noart'}">
+          <a href="/blog/${slug}">${thumb}
+            <span class="blog-card-text">
+              <span class="blog-card-date">${longDate(p.published_at)}</span>
+              <span class="blog-card-title">${esc(p.title)}</span>
+              ${p.subtitle ? `<span class="blog-card-sub">${esc(p.subtitle.trim())}</span>` : ''}
+            </span>
+          </a>
         </li>`;
     })
     .join('\n');
@@ -665,7 +674,7 @@ ${NAV}
 
   <section class="om-section">
     <div class="container">
-      <ul class="cs-bullets cs-bullets-rich">
+      <ul class="blog-cards">
 ${items}
       </ul>
     </div>
