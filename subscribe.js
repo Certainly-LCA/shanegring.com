@@ -72,11 +72,25 @@
           );
           if (input) input.value = "";
 
-          if (window.dataLayer) {
-            window.dataLayer.push({
-              event: "newsletter_subscribe",
-              form_source: form.getAttribute("data-source") || "blog"
-            });
+          // sgTrack is defined by track.js, which loads first, and adds
+          // page_path the way every other event on the site carries it —
+          // without it there is no way to tell where a signup came from.
+          // The already-subscribed case is deliberately not reported: it is
+          // not a new subscriber and counting it would inflate the number.
+          var params = {
+            form_source: form.getAttribute("data-source") || "blog",
+            already_subscribed: already ? "true" : "false"
+          };
+          if (!already) {
+            if (typeof window.sgTrack === "function") {
+              window.sgTrack("newsletter_subscribe", params);
+            } else if (window.dataLayer) {
+              window.dataLayer.push({
+                event: "newsletter_subscribe",
+                page_path: window.location.pathname,
+                form_source: params.form_source
+              });
+            }
           }
         })
         .catch(function () {
