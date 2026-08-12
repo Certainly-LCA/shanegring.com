@@ -2028,6 +2028,88 @@ img.om-hero-img {
   min-height: 1.35em;
 }
 
+/* Blog cards.
+   /guides lists rows with a wide 16:9 scene thumbnail. The newsletter uses
+   the same pixel-art vernacular but a different register: a square, tightly
+   framed object rather than an establishing shot, on a card rather than a
+   row. That reads as a different kind of content before a word is read,
+   without leaving the family. Cards render fine with no image at all, which
+   is what happens until the art for an issue exists. */
+.blog-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+  gap: 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-cards li::before { content: none; }
+
+.blog-card a {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 1rem;
+  align-items: start;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.blog-card a:hover,
+.blog-card a:focus-visible {
+  border-color: var(--fg);
+  transform: translateY(-1px);
+}
+
+.blog-card-noart a { grid-template-columns: 1fr; }
+
+.blog-card-thumb {
+  display: block;
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.blog-card-date {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.35rem;
+}
+
+.blog-card-title {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--fg);
+  margin: 0 0 0.3rem;
+}
+
+.blog-card-sub {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+@media (max-width: 560px) {
+  .blog-card a { grid-template-columns: 68px 1fr; gap: 0.85rem; }
+  .blog-card-thumb { width: 68px; height: 68px; }
+}
+
 /* The same form in the footer, on every page. */
 .footer-sub {
   margin: 0 0 2.25rem;
