@@ -491,7 +491,7 @@ next one:
 
 ---
 
-## 16. Blog cards — `images/blog/*.png`
+## 16. Blog cards — `images/blog/*.png` ✅ DONE (all twelve, 2026-08-11)
 
 The newsletter archive at `/blog` uses a different register from the guides on
 purpose. Guides get a **wide establishing scene** (16:9) — a funicular, an
@@ -514,9 +514,13 @@ background, no text, no lettering
 --ar 1:1 --sref https://shanegring.com/images/hero.png https://shanegring.com/images/map-hero.png
 ```
 
-Export 736x736 (the card renders at 92px, so this is 8x for retina and future
-sizes), quantized to PNG8 like the guide heroes. The CSS renders them with
-`image-rendering: pixelated`, so downscale nearest-neighbor.
+**Export 512x512, not 736.** Midjourney returns 1024px squares, and 1024->512
+is a clean 2:1 so nearest-neighbour lands every source pixel on an exact 2x2
+block and the pixel edges stay hard. A non-integer target like 736 smears
+them. 512 is still 5.5x the 92px the card renders at, which covers any retina
+density. Quantize to PNG8; the set came out 61-121KB each.
+
+`magick <in> -filter point -resize 512x512 -colors 256 PNG8:<out>`
 
 Filename must match the issue's site slug exactly — `tools/build-blog.mjs` looks
 for `images/blog/<slug>.png` and falls back to a text-only card when it is
