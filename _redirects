@@ -37,6 +37,10 @@
 # The Partner became the Autopilot on 2026-08-02, and its two tiers
 # collapsed into one plan. The old URL keeps working: it carries whatever
 # links and cached answers the previous name earned.
+#
+# There is no rule here for /partner#site-you-have, and there cannot be: a
+# fragment is never sent to the server, so the request arriving is just
+# /partner and the rule below already covers it. Wrangler flagged the old
+# entry as a duplicate and ignored it.
 /partner              /autopilot              301
-/partner#site-you-have /autopilot             301
 /operating-partner    /autopilot              301
