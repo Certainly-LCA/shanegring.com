@@ -82,6 +82,7 @@ Plain-language answers to the questions behind founder-dependent websites, writt
 
 Seeking Certainty: what Shane is working on, what broke, and how he fixed it. Certification work is still most of it, with more around it now. Sent when there is something worth sending. Full archive: https://shanegring.com/blog/
 
+- [Seeking Certainty is changing](https://shanegring.com/blog/seeking-certainty-is-changing) — quick housekeeping note, then back to your day.
 - [Early recognition is often borrowed (and that's okay)](https://shanegring.com/blog/early-recognition-is-borrowed) — practical ways to borrow trust for your certification early.
 - [The Certification Readiness Test: 10 Questions to Know If Your IP Can Carry a Credential](https://shanegring.com/blog/certification-readiness-test) — before you build anything, answer these 10 questions.
 - [From Course to Credential: What We're Learning About Go-to-Market Strategy](https://shanegring.com/blog/from-course-to-credential) — the work didn't change. the positioning did.

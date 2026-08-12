@@ -218,9 +218,15 @@
   </url>
   <url>
     <loc>https://shanegring.com/blog/</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shanegring.com/blog/seeking-certainty-is-changing</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shanegring.com/blog/early-recognition-is-borrowed</loc>
