@@ -42,7 +42,7 @@ const NAV = `<nav class="site-nav" aria-label="Site">
     <a class="logo" href="/" aria-label="Shane Gring, home"><img class="logo-cloud" src="/images/cloud-1.svg" alt="Shane Gring" width="224" height="80"><img class="logo-bolt" src="/images/cloud-bolt.svg" alt="" width="32" height="48" aria-hidden="true"></a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('nav-menu');this.setAttribute('aria-expanded',m.classList.toggle('open'))">&#9776;</button>
     <ul id="nav-menu">
-      <li class="nav-drop">
+      <li class="nav-drop nav-drop-mega">
         <a href="/work-with-me">Work with me <span class="nav-caret">&#9662;</span></a>
         <ul class="nav-dropdown nav-mega nav-mega-two">
           <li class="nav-mega-col"><a class="nav-mega-head" href="/work-with-me#help"><span class="nav-drop-text"><span class="nav-drop-name">What do you need someone for?</span><span class="nav-drop-desc">Getting started, through to your whole operation</span></span></a>
@@ -69,9 +69,14 @@ const NAV = `<nav class="site-nav" aria-label="Site">
       </li>
       <li class="nav-mobile-only"><a href="/approach">Approach</a></li>
       <li><a href="/work/">Recent work</a></li>
-      <li><a href="/guides/">Guides</a></li>
-      <li><a href="/notes/">Notes</a></li>
-      <li><a href="/blog/">Newsletter</a></li>
+      <li class="nav-drop">
+        <a href="/guides/">Content <span class="nav-caret">&#9662;</span></a>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/"><span class="nav-drop-text"><span class="nav-drop-name">Guides</span><span class="nav-drop-desc">Worked answers, step by step</span></span></a></li>
+          <li><a href="/notes/"><span class="nav-drop-text"><span class="nav-drop-name">Notes</span><span class="nav-drop-desc">Short posts, most weekdays</span></span></a></li>
+          <li><a href="/blog/"><span class="nav-drop-text"><span class="nav-drop-name">Newsletter</span><span class="nav-drop-desc">Seeking Certainty, every issue</span></span></a></li>
+        </ul>
+      </li>
       <li><a class="nav-cta" href="/scan">Run the free Scan</a></li>
     </ul>
   </div>

@@ -79,9 +79,13 @@ a { color: inherit; }
    LAYOUT
    ══════════════════════════════════════════════════════════════ */
 .container {
+  /* The gutter is a variable so anything that wants to bleed past it can
+     cancel exactly the padding in force, rather than hard-coding a value
+     that a narrower breakpoint later changes underneath it. */
+  --gutter: 1.75rem;
   max-width: 880px;
   margin: 0 auto;
-  padding: 0 1.75rem;
+  padding: 0 var(--gutter);
 }
 
 section {
@@ -266,6 +270,16 @@ nav .nav-cta:hover { background: #000; color: var(--bg); }
   height: 0.7rem;
 }
 
+/* The Content panel hangs from the right of its trigger, not the left.
+   Content is the last link before the CTA, so a left-anchored 232px panel
+   starts near the right edge of the nav and grows outward — on a narrow
+   laptop it would run past the viewport. Anchored right it grows back
+   under the links instead, and the CTA to its right guarantees the room
+   at every width. This is why the mega panel's `position: static` trick
+   is scoped to .nav-drop-mega: it solves the same problem a different way,
+   and applying it here would stretch this panel across the whole nav. */
+.nav-drop:not(.nav-drop-mega) .nav-dropdown { left: auto; right: -0.9rem; }
+
 .nav-drop:hover .nav-dropdown,
 .nav-drop:focus-within .nav-dropdown,
 .nav-drop.open .nav-dropdown { display: flex; }
@@ -332,14 +346,19 @@ nav .nav-cta:hover { background: #000; color: var(--bg); }
 }
 
 /* ── The three-column mega panel ──────────────────────────────────
-   The dropdown lists the three ways in as columns. It is wider than a
-   normal dropdown, so at desktop width .nav-drop goes static and
+   The Work-with-me dropdown lists the ways in as columns. It is wider than
+   a normal dropdown, so at desktop width it goes static and
    .site-nav .container goes relative — the panel then resolves against
    the container, edge to edge, and can never run off the right of the
-   viewport the way a trigger-anchored panel does on a narrow laptop. */
+   viewport the way a trigger-anchored panel does on a narrow laptop.
+
+   Everything in here is scoped to .nav-drop-mega, not .nav-drop. The
+   Content dropdown is an ordinary trigger-anchored panel and must keep
+   .nav-drop's own `position: relative`, or it would stretch the width of
+   the nav the way the mega panel does. */
 @media (min-width: 769px) {
   .site-nav .container { position: relative; }
-  .nav-drop { position: static; }
+  .nav-drop-mega { position: static; }
 
   /* Hover bridge. The panel hangs off .container, not off the link, so
      between the bottom of "Work with me" (y≈92) and the top of the panel
@@ -348,8 +367,8 @@ nav .nav-cta:hover { background: #000; color: var(--bg); }
      ::before bridge is only 12px and was sized back when the panel hung
      off the link. This one is anchored to the trigger, so it covers the
      gap without spanning the nav and swallowing the other links. */
-  .nav-drop > a { position: relative; }
-  .nav-drop > a::after {
+  .nav-drop-mega > a { position: relative; }
+  .nav-drop-mega > a::after {
     content: "";
     position: absolute;
     left: -0.9rem;
@@ -2160,44 +2179,180 @@ img.note-art + img.note-art { margin-top: 0; }
   .note-foot { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; }
 }
 
-/* The "Lately" strip on the homepage. */
+/* The "Lately" rail on the homepage.
+   The same post card as /notes, cut down and laid out as a horizontal
+   scroller. Every card is a fixed size so the rail has one clean bottom
+   edge, and the copy is truncated by clipping rather than by cutting the
+   string — the full text stays in the markup. "…see more" is a link to the
+   post on /notes, not an in-place expander: growing one card in a rail
+   shifts every other card under the reader's cursor. */
 .home-notes { padding: 3rem 0; }
 
-.home-note-list {
-  list-style: none;
-  margin: 1.5rem 0 1.75rem;
-  padding: 0;
-  max-width: 620px;
-}
-
-.home-note-list li { border-top: 1px solid var(--border); }
-.home-note-list li:last-child { border-bottom: 1px solid var(--border); }
-
-.home-note-list a {
+.home-note-rail {
   display: flex;
   gap: 1rem;
-  align-items: baseline;
-  padding: 0.85rem 0;
-  text-decoration: none;
-  color: var(--fg);
+  list-style: none;
+  margin: 1.5rem 0 1.5rem;
+  padding: 0.25rem 0 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
-.home-note-list a:hover .home-note-title { text-decoration: underline; }
+.home-note-rail > li {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
 
-.home-note-date {
-  flex: 0 0 4.5rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.home-note-rail::-webkit-scrollbar { height: 8px; }
+.home-note-rail::-webkit-scrollbar-track { background: transparent; }
+.home-note-rail::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 100px;
+}
+
+.home-note {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 420px;
+  overflow: hidden;
+  padding: 1rem 1.1rem 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-note:hover {
+  border-color: var(--mid);
+  box-shadow: 0 12px 24px -18px rgba(0, 0, 0, 0.35);
+}
+
+.home-note-head {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-bottom: 0.7rem;
+}
+
+img.home-note-avatar {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg-soft);
+}
+
+.home-note-who {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.home-note-name { font-weight: 600; font-size: 0.88rem; line-height: 1.25; }
+
+.home-note-role,
+.home-note-when {
+  font-size: 0.7rem;
+  color: var(--dim);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The copy takes whatever height is left after the fixed parts, and the
+   overflow is faded rather than cut, so it reads as continuing instead of
+   as having ended mid-word. */
+.home-note-copy {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.home-note-copy p {
+  margin: 0 0 0.6rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  max-width: none;
+}
+
+.home-note-copy::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3.2rem;
+  background: linear-gradient(to bottom, transparent, var(--bg) 70%);
+}
+
+.home-note-more {
+  flex: 0 0 auto;
+  padding: 0.35rem 0 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--mid);
+}
+
+.home-note:hover .home-note-more { text-decoration: underline; }
+
+/* A card with no image and no counts ends on "see more", so it has to
+   carry the bottom padding the foot would otherwise have provided. */
+.home-note-more:last-child { padding-bottom: 1rem; }
+
+/* Full-bleed band at the foot of the card, cropped to a fixed height so
+   a portrait photo and a landscape one give the same card shape. */
+img.home-note-art {
+  flex: 0 0 132px;
+  width: calc(100% + 2.2rem);
+  height: 132px;
+  margin: 0 -1.1rem;
+  object-fit: cover;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+}
+
+.home-note-foot {
+  flex: 0 0 auto;
+  margin: 0 -1.1rem;
+  padding: 0.6rem 1.1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
   color: var(--dim);
 }
 
-.home-note-title { font-size: 1rem; line-height: 1.4; }
+/* A card with an image already has a rule above the picture; a second one
+   under it would box the photo in. */
+img.home-note-art + .home-note-foot { border-top: 0; }
 
-@media (max-width: 560px) {
-  .home-note-list a { flex-direction: column; gap: 0.2rem; }
-  .home-note-date { flex: none; }
+/* Run the rail to the edge of the screen on small viewports, so the cut-off
+   card that signals "there is more" is not hidden by the page gutter.
+   Cancels --gutter rather than a literal, and uses no vw units: vw counts
+   the scrollbar, and a hard-coded 1.75rem overshot the 1.25rem gutter that
+   .container switches to under 420px, which gave the whole page 8px of
+   horizontal scroll. */
+@media (max-width: 768px) {
+  .home-note-rail {
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+}
+
+@media (max-width: 400px) {
+  .home-note { width: 280px; }
 }
 
 /* Blog cards.
@@ -3360,7 +3515,7 @@ footer .container {
 }
 
 @media (max-width: 420px) {
-  .container { padding: 0 1.25rem; }
+  .container { --gutter: 1.25rem; }
   section { padding: 2.75rem 0; }
 }
 
