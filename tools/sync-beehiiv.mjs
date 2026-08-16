@@ -110,6 +110,16 @@ function extractContent(post) {
   );
   if (region) html = region[1];
 
+  // Drop beehiiv's own "Powered by beehiiv" footer before storing.
+  //
+  // It carries a cache-busting ?v=<unix timestamp> on the logo URL, and that
+  // timestamp changes daily. Kept verbatim it made every post look edited
+  // every morning, so the sync committed thirteen unchanged posts and
+  // triggered a deploy, every day, forever. The rendered pages never differed
+  // because the converter discards this block anyway — which is exactly what
+  // made it easy to miss.
+  html = html.replace(/<div class=['"]beehiiv__footer['"][\s\S]*?<\/a>\s*<\/div>/g, '');
+
   return html.trim();
 }
 
