@@ -10,31 +10,40 @@
 
   var menu = nav.querySelector('#nav-menu');
   var toggle = nav.querySelector('.nav-toggle');
-  var drop = nav.querySelector('.nav-drop');
-  var dropLink = drop ? drop.querySelector('a') : null;
 
-  if (dropLink) {
-    dropLink.setAttribute('aria-haspopup', 'true');
-    dropLink.setAttribute('aria-expanded', 'false');
-  }
+  // There is more than one dropdown — "Work with me" and "Content" — so
+  // every one of these is a list, not a single element. A querySelector here
+  // would silently wire up the first and leave the rest hover-only, which on
+  // a touch device means unreachable.
+  var drops = Array.prototype.slice.call(nav.querySelectorAll('.nav-drop'));
+  var noHover = window.matchMedia('(hover: none)');
 
   function closeMobile() {
     if (menu) menu.classList.remove('open');
     if (toggle) toggle.setAttribute('aria-expanded', 'false');
   }
   function closeDrop() {
-    if (drop) drop.classList.remove('open');
-    if (dropLink) dropLink.setAttribute('aria-expanded', 'false');
+    drops.forEach(function (d) {
+      d.classList.remove('open');
+      var a = d.querySelector('a');
+      if (a) a.setAttribute('aria-expanded', 'false');
+    });
   }
   function closeAll() { closeMobile(); closeDrop(); }
 
-  // Touch / no-hover devices at desktop width: hover can't open the submenu,
-  // so the first tap on "Work with me" opens it; a second tap follows the link.
-  if (drop && dropLink) {
-    var noHover = window.matchMedia('(hover: none)');
+  drops.forEach(function (drop) {
+    var dropLink = drop.querySelector('a');
+    if (!dropLink) return;
+
+    dropLink.setAttribute('aria-haspopup', 'true');
+    dropLink.setAttribute('aria-expanded', 'false');
+
+    // Touch / no-hover devices at desktop width: hover can't open the panel,
+    // so the first tap on the trigger opens it; a second tap follows the link.
     dropLink.addEventListener('click', function (e) {
       if (window.innerWidth > 768 && noHover.matches && !drop.classList.contains('open')) {
         e.preventDefault();
+        closeDrop(); // only one panel open at a time
         drop.classList.add('open');
         dropLink.setAttribute('aria-expanded', 'true');
       }
@@ -42,7 +51,7 @@
     // Keep aria in sync when hover/focus opens it via CSS.
     drop.addEventListener('mouseenter', function () { if (window.innerWidth > 768) dropLink.setAttribute('aria-expanded', 'true'); });
     drop.addEventListener('mouseleave', function () { if (!drop.classList.contains('open')) dropLink.setAttribute('aria-expanded', 'false'); });
-  }
+  });
 
   // Escape closes everything.
   document.addEventListener('keydown', function (e) {

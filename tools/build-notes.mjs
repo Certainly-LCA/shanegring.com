@@ -79,6 +79,21 @@ function toParagraphs(copy) {
 }
 
 /**
+ * The homepage rail runs the same copy through a plainer converter: no
+ * links. The whole card is an anchor to /notes, and an anchor inside an
+ * anchor is invalid markup that browsers resolve by silently closing the
+ * outer one — half the card would stop being clickable.
+ */
+function toPlainParagraphs(copy, indent) {
+  return copy
+    .split(/\n\s*\n/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block) => `${indent}<p>${esc(block).replace(/\n/g, '<br>')}</p>`)
+    .join('\n');
+}
+
+/**
  * Each note is presented the way it was published: a post, with the byline
  * and the counts it actually earned.
  *
@@ -244,13 +259,27 @@ writeFileSync(resolve(OUT, 'index.html'), page);
 console.log(`  /notes/  (${posts.length} notes)`);
 
 /* ------------------------------------------------------------------ *
- * Homepage strip
+ * Homepage rail
  *
  * Replaces whatever sits between the two marker comments on the homepage,
  * so the strip is regenerated rather than maintained by hand. If the
  * markers are missing the homepage is left alone and this says so, rather
  * than guessing where the block belongs.
+ *
+ * The rail is the same post card as /notes, cut down: a shorter byline, the
+ * opening of the copy, and "see more". Truncation is done in CSS rather than
+ * by cutting the string here, so the card never breaks a sentence in a place
+ * that changes its meaning, and the full text is in the page for anything
+ * reading the markup rather than the render.
+ *
+ * "See more" goes to the post on /notes rather than expanding the card in
+ * place. Expanding one card in a horizontal rail pushes every other card's
+ * height and shifts the page under the reader's cursor; the link keeps the
+ * rail a fixed size and sends the interested reader to the archive, which is
+ * what a homepage strip is for.
  * ------------------------------------------------------------------ */
+
+const RAIL_COUNT = 8;
 
 const HOME = resolve(ROOT, 'index.html');
 const START = '<!-- notes:start -->';
@@ -262,15 +291,39 @@ if (existsSync(HOME)) {
     console.log('  index.html: no notes markers found, homepage left alone');
   } else {
     const strip = posts
-      .slice(0, 3)
-      .map(
-        (p) => `        <li>
-          <a href="/notes/#${p.id.slice(0, 8)}">
-            <span class="home-note-date">${shortDate(p.date)}</span>
-            <span class="home-note-title">${esc(p.title)}</span>
+      .slice(0, RAIL_COUNT)
+      .map((p) => {
+        const li = meta[p.id];
+
+        const counts = [];
+        if (li?.likes) counts.push(`${li.likes} ${li.likes === 1 ? 'reaction' : 'reactions'}`);
+        if (li?.comments) counts.push(`${li.comments} ${li.comments === 1 ? 'comment' : 'comments'}`);
+
+        const art = p.images.length
+          ? `\n            <img class="home-note-art" src="/images/notes/${p.images[0].asset}.jpg" alt="" width="${p.images[0].w}" height="${p.images[0].h}" loading="lazy">`
+          : '';
+
+        const foot = counts.length
+          ? `\n            <span class="home-note-foot">${counts.join(' &middot; ')}</span>`
+          : '';
+
+        return `        <li>
+          <a class="home-note" href="/notes/#${p.id.slice(0, 8)}">
+            <span class="home-note-head">
+              <img class="home-note-avatar" src="/images/notes/avatar.jpg" alt="" width="40" height="40" loading="lazy">
+              <span class="home-note-who">
+                <span class="home-note-name">Shane Gring</span>
+                <span class="home-note-role">Fractional COO &middot; operations for expert-led businesses</span>
+                <span class="home-note-when"><time datetime="${p.date}">${shortDate(p.date)}</time></span>
+              </span>
+            </span>
+            <div class="home-note-copy">
+${toPlainParagraphs(p.copy, '              ')}
+            </div>
+            <span class="home-note-more">&hellip;see more</span>${art}${foot}
           </a>
-        </li>`
-      )
+        </li>`;
+      })
       .join('\n');
 
     // The homepage has its own section conventions (section-title, fade-in)
@@ -280,10 +333,10 @@ if (existsSync(HOME)) {
   <div class="container">
     <span class="section-eyebrow">Lately</span>
     <h2 class="section-title">Notes from the work.</h2>
-    <ul class="home-note-list">
+    <ul class="home-note-rail">
 ${strip}
     </ul>
-    <a class="cs-back" href="/notes/">All notes <span class="btn-arrow">&rarr;</span></a>
+    <a class="cs-back" href="/notes/">All ${posts.length} notes <span class="btn-arrow">&rarr;</span></a>
   </div>
 </section>
 ${END}`;
