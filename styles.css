@@ -2049,6 +2049,107 @@ img.blog-hero-art {
   img.blog-hero-art { width: 120px; height: 120px; margin-top: 1.75rem; }
 }
 
+/* Notes — the LinkedIn feed at /notes.
+   Deliberately quieter than a guide: no hero art, no cards, just dated
+   entries separated by a rule. It should read like a stack of short pieces,
+   because that is what it is. */
+.notes-list { max-width: 720px; }
+
+.note {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.note:first-child { border-top: none; padding-top: 0; }
+
+.note-date {
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.note-title {
+  margin: 0 0 0.9rem;
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+.note p { max-width: 66ch; }
+
+img.note-art {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  margin: 1.4rem 0 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.note-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.2rem 0 0;
+}
+
+.note-labels span {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.2rem 0.6rem;
+}
+
+/* The "Lately" strip on the homepage. */
+.home-notes { padding: 3rem 0; }
+
+.home-note-list {
+  list-style: none;
+  margin: 1.5rem 0 1.75rem;
+  padding: 0;
+  max-width: 620px;
+}
+
+.home-note-list li { border-top: 1px solid var(--border); }
+.home-note-list li:last-child { border-bottom: 1px solid var(--border); }
+
+.home-note-list a {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  text-decoration: none;
+  color: var(--fg);
+}
+
+.home-note-list a:hover .home-note-title { text-decoration: underline; }
+
+.home-note-date {
+  flex: 0 0 4.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.home-note-title { font-size: 1rem; line-height: 1.4; }
+
+@media (max-width: 560px) {
+  .home-note-list a { flex-direction: column; gap: 0.2rem; }
+  .home-note-date { flex: none; }
+}
+
 /* Blog cards.
    /guides lists rows with a wide 16:9 scene thumbnail. The newsletter uses
    the same pixel-art vernacular but a different register: a square, tightly

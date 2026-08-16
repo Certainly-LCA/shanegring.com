@@ -1,7 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- Google Tag Manager: production host only, so local and preview work stays out of GA4 -->
+/**
+ * The page chrome every generated section shares: the GTM snippets, the
+ * announcement bar, the nav, the footer, and the signup form.
+ *
+ * This lives in one file because /blog and /notes are both generated. Two
+ * copies of a nav is how a site ends up with a link that exists in one
+ * section and not the other -- exactly the drift this site argues against.
+ * Hand-written pages still carry their own copy; when the nav changes, they
+ * need the same sweep.
+ */
+
+const esc = (s = '') =>
+  String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+const GTM_HEAD = `<!-- Google Tag Manager: production host only, so local and preview work stays out of GA4 -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];
 var h=w.location.hostname;if(h!=='shanegring.com'&&h!=='www.shanegring.com'&&w.location.search.indexOf('gtm_debug')<0)return;
 w[l].push({'gtm.start':
@@ -9,31 +24,20 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WHSTF58T');</script>
-<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager -->`;
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Read: five questions to start | Shane Gring</title>
-<meta name="description" content="Answer five questions so Shane can start your Read. Video and memo within 2 business days.">
-<meta name="author" content="Shane Gring">
-<meta name="robots" content="noindex, nofollow">
-
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="alternate icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#ffffff">
-
-<link rel="stylesheet" href="/styles.css?v=1c84d519">
-</head>
-
-<body>
-<!-- Google Tag Manager (noscript) -->
+const GTM_BODY = `<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHSTF58T"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- End Google Tag Manager (noscript) -->`;
 
+const ANNOUNCE = `<a class="announce-bar" href="/work-with-me">
+  <span class="announce-tag">New</span>
+  <span class="announce-text">Nobody owns the digital side of your business.</span>
+  <span class="announce-arrow btn-arrow">&rarr;</span>
+</a>`;
 
-<nav class="site-nav" aria-label="Site">
+const NAV = `<nav class="site-nav" aria-label="Site">
   <div class="container">
     <a class="logo" href="/" aria-label="Shane Gring, home"><img class="logo-cloud" src="/images/cloud-1.svg" alt="Shane Gring" width="224" height="80"><img class="logo-bolt" src="/images/cloud-bolt.svg" alt="" width="32" height="48" aria-hidden="true"></a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('nav-menu');this.setAttribute('aria-expanded',m.classList.toggle('open'))">&#9776;</button>
@@ -71,79 +75,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a class="nav-cta" href="/scan">Run the free Scan</a></li>
     </ul>
   </div>
-</nav>
+</nav>`;
 
-<main>
-  <section class="om-hero">
-    <div class="container">
-      <img class="offer-mark" src="/images/icons/read.png" alt="" width="48" height="48" aria-hidden="true">
-      <span class="section-eyebrow">The Read</span>
-      <h1 class="cs-hook">Order received. Ten minutes of your time, then I take it from here.</h1>
-
-      <p class="om-lede">
-        Answer the five questions below and you're done. Your answers
-        are what the Read is built from, so the more plainly you write,
-        the sharper it gets. Watch for the video and memo in your inbox
-        within 2 business days of sending this.
-      </p>
-    </div>
-  </section>
-
-  <section class="om-section">
-    <div class="container">
-
-      <div class="contact-sent" id="intake-sent" role="status">
-        <strong>Got it.</strong> Your answers just landed in my inbox,
-        and your Read is officially underway. Video and memo within
-        2 business days. Nothing else is needed from you.
-      </div>
-
-      <form class="contact-form" action="https://formsubmit.co/shane.gring@certainly.coop" method="POST" aria-label="Read intake questions">
-        <input type="hidden" name="_subject" value="New Read intake">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://shanegring.com/read-intake#intake-sent">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-        <label class="contact-field full">
-          <span class="contact-flabel">The email you used at checkout</span>
-          <input type="email" name="Checkout email" required autocomplete="email">
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">1. Your URL — and any other sites or pages that represent the business (LinkedIn, subsidiary brands, old domains still live).</span>
-          <textarea name="1. URL and other sites" rows="3" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">2. In one or two sentences: what does the business actually do today, and for whom?</span>
-          <textarea name="2. What the business does today" rows="3" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">3. Your two or three closest competitors — or businesses you lose deals to.</span>
-          <textarea name="3. Closest competitors" rows="3" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">4. What has changed about the business in the last two years that matters most? (Offers, positioning, team, model.)</span>
-          <textarea name="4. What changed in two years" rows="4" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">5. What prompted you to buy this now?</span>
-          <textarea name="5. Why now" rows="3" required></textarea>
-        </label>
-
-        <button type="submit" class="contact-submit">Send it &mdash; start my Read <span class="btn-arrow">&rarr;</span></button>
-      </form>
-
-      <p class="contact-or">Questions? Reply to your receipt email; it reaches me directly.</p>
-    </div>
-  </section>
-</main>
-
-<footer>
+// A function rather than a constant so it can call subscribeForm(), which is
+// defined below it and depends on SUBSCRIBE_URL.
+function footerHtml() {
+  return `<footer>
   <img class="footer-city" src="/images/footer-city.png" alt="" width="2176" height="544" loading="lazy" aria-hidden="true">
   <div class="container">
     <p class="footer-tag">Operations that run beyond you.</p>
@@ -151,21 +88,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-sub">
       <h2 class="footer-col-title">Seeking Certainty</h2>
       <p class="footer-sub-line">What I'm working on, what broke, and how I fixed it. Sent when there's something worth sending.</p>
-      <form class="sub-form" data-source="footer" novalidate>
-        <label class="sub-form-label" for="sub-email-footer">Your email</label>
-        <div class="sub-form-row">
-          <input class="sub-form-input" id="sub-email-footer" type="email" name="email"
-                 autocomplete="email" inputmode="email" required
-                 placeholder="you@yourcompany.com">
-          <button class="btn-primary" type="submit">Subscribe <span class="btn-arrow">&rarr;</span></button>
-        </div>
-        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
-               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <p class="sub-form-msg" role="status" aria-live="polite"></p>
-        <noscript>
-          <p class="sub-form-msg"><a href="https://seeking-certainty.beehiiv.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe on beehiiv</a> — this form needs JavaScript.</p>
-        </noscript>
-      </form>
+      ${subscribeForm('footer', 'sub-email-footer')}
     </div>
 
     <nav class="footer-nav" aria-label="All pages">
@@ -222,8 +145,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script src="/nav.js?v=57c93602" defer></script>
-<script src="/track.js?v=e6beb16e" defer></script>
-<script src="/subscribe.js?v=4971fc05" defer></script>
+<script src="/nav.js" defer></script>
+<script src="/track.js" defer></script>
+<script src="/subscribe.js" defer></script>
 </body>
-</html>
+</html>`;
+}
+
+
+const SUBSCRIBE_URL = 'https://seeking-certainty.beehiiv.com/subscribe';
+
+/**
+ * Signup happens on the page. The form posts to /api/subscribe, a Pages
+ * Function that calls beehiiv server-side, so the reader never leaves the
+ * site and the API key never reaches the browser.
+ *
+ * `source` is passed through to beehiiv as the campaign, so it is possible
+ * to tell later whether signups come off the archive index or off the end
+ * of a particular issue.
+ */
+function subscribeForm(source, id) {
+  return `<form class="sub-form" data-source="${esc(source)}" novalidate>
+        <label class="sub-form-label" for="${id}">Your email</label>
+        <div class="sub-form-row">
+          <input class="sub-form-input" id="${id}" type="email" name="email"
+                 autocomplete="email" inputmode="email" required
+                 placeholder="you@yourcompany.com">
+          <button class="btn-primary" type="submit">Subscribe <span class="btn-arrow">&rarr;</span></button>
+        </div>
+        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <p class="sub-form-msg" role="status" aria-live="polite"></p>
+        <noscript>
+          <p class="sub-form-msg"><a href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">Subscribe on beehiiv</a> — this form needs JavaScript.</p>
+        </noscript>
+      </form>`;
+}
+
+
+export { GTM_HEAD, GTM_BODY, ANNOUNCE, NAV, footerHtml, SUBSCRIBE_URL, subscribeForm, esc };

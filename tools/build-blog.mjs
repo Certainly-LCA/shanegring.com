@@ -17,6 +17,9 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  GTM_HEAD, GTM_BODY, ANNOUNCE, NAV, footerHtml, SUBSCRIBE_URL, subscribeForm, esc,
+} from './chrome.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'blog/_data/posts.json');
@@ -206,13 +209,6 @@ function indent(html) {
  * Text helpers
  * ------------------------------------------------------------------ */
 
-const esc = (s = '') =>
-  String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-
 const stripTags = (s = '') => String(s).replace(/<[^>]*>/g, '');
 
 // Smart quotes and dashes are fine in rendered copy but break JSON-LD and
@@ -264,169 +260,6 @@ function siteSlug(post) {
  * Shared chrome, lifted from the hand-written pages so the blog cannot
  * drift away from the rest of the site.
  * ------------------------------------------------------------------ */
-
-const GTM_HEAD = `<!-- Google Tag Manager: production host only, so local and preview work stays out of GA4 -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];
-var h=w.location.hostname;if(h!=='shanegring.com'&&h!=='www.shanegring.com'&&w.location.search.indexOf('gtm_debug')<0)return;
-w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WHSTF58T');</script>
-<!-- End Google Tag Manager -->`;
-
-const GTM_BODY = `<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHSTF58T"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->`;
-
-const ANNOUNCE = `<a class="announce-bar" href="/work-with-me">
-  <span class="announce-tag">New</span>
-  <span class="announce-text">Nobody owns the digital side of your business.</span>
-  <span class="announce-arrow btn-arrow">&rarr;</span>
-</a>`;
-
-const NAV = `<nav class="site-nav" aria-label="Site">
-  <div class="container">
-    <a class="logo" href="/" aria-label="Shane Gring, home"><img class="logo-cloud" src="/images/cloud-1.svg" alt="Shane Gring" width="224" height="80"><img class="logo-bolt" src="/images/cloud-bolt.svg" alt="" width="32" height="48" aria-hidden="true"></a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('nav-menu');this.setAttribute('aria-expanded',m.classList.toggle('open'))">&#9776;</button>
-    <ul id="nav-menu">
-      <li class="nav-drop">
-        <a href="/work-with-me">Work with me <span class="nav-caret">&#9662;</span></a>
-        <ul class="nav-dropdown nav-mega nav-mega-two">
-          <li class="nav-mega-col"><a class="nav-mega-head" href="/work-with-me#help"><span class="nav-drop-text"><span class="nav-drop-name">What do you need someone for?</span><span class="nav-drop-desc">Getting started, through to your whole operation</span></span></a>
-            <ul class="nav-mega-list">
-              <li><a href="/session"><img class="nav-drop-icon" src="/images/icons/session.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">getting started</span><span class="nav-drop-desc">The Session</span></span></a></li>
-              <li><a href="/install"><img class="nav-drop-icon" src="/images/icons/install.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">building your system</span><span class="nav-drop-desc">The Install</span></span></a></li>
-              <li><a href="/autopilot"><img class="nav-drop-icon" src="/images/icons/autopilot.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">maintaining your site</span><span class="nav-drop-desc">The Autopilot</span></span></a></li>
-              <li><a href="/seat"><img class="nav-drop-icon" src="/images/icons/seat.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">enhancing your operations</span><span class="nav-drop-desc">The Seat</span></span></a></li>
-            </ul>
-          </li>
-          <li class="nav-mega-col"><a class="nav-mega-head" href="/work-with-me#programs"><span class="nav-drop-text"><span class="nav-drop-name">What do you want to walk away with?</span><span class="nav-drop-desc">A score, an opinion, a plan, the build</span></span></a>
-            <ul class="nav-mega-list">
-              <li><a href="/scan"><img class="nav-drop-icon" src="/images/icons/scan.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">a score</span><span class="nav-drop-desc">The Scan</span></span></a></li>
-              <li><a href="/read"><img class="nav-drop-icon" src="/images/icons/read.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">an opinion</span><span class="nav-drop-desc">The Read</span></span></a></li>
-              <li><a href="/map"><img class="nav-drop-icon" src="/images/icons/map.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">a plan</span><span class="nav-drop-desc">The Map</span></span></a></li>
-              <li><a href="/site"><img class="nav-drop-icon" src="/images/icons/site.png" alt="" width="22" height="22"><span class="nav-drop-text"><span class="nav-drop-name">the thing built</span><span class="nav-drop-desc">The Site</span></span></a></li>
-            </ul>
-          </li>
-          <li class="nav-mega-foot">
-            <a href="/work-with-me">All eight, side by side</a>
-            <a href="/approach">Why this works</a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-mobile-only"><a href="/approach">Approach</a></li>
-      <li><a href="/work/">Recent work</a></li>
-      <li><a href="/guides/">Guides</a></li>
-      <li><a href="/blog/">Newsletter</a></li>
-      <li><a class="nav-cta" href="/scan">Run the free Scan</a></li>
-    </ul>
-  </div>
-</nav>`;
-
-// A function rather than a constant so it can call subscribeForm(), which is
-// defined below it and depends on SUBSCRIBE_URL.
-function footerHtml() {
-  return `<footer>
-  <img class="footer-city" src="/images/footer-city.png" alt="" width="2176" height="544" loading="lazy" aria-hidden="true">
-  <div class="container">
-    <p class="footer-tag">Operations that run beyond you.</p>
-
-    <div class="footer-sub">
-      <h2 class="footer-col-title">Seeking Certainty</h2>
-      <p class="footer-sub-line">What I'm working on, what broke, and how I fixed it. Sent when there's something worth sending.</p>
-      ${subscribeForm('footer', 'sub-email-footer')}
-    </div>
-
-    <nav class="footer-nav" aria-label="All pages">
-      <div class="footer-col">
-        <h2 class="footer-col-title">What do you need someone for?</h2>
-        <ul>
-          <li><a href="/session">getting started</a></li>
-          <li><a href="/install">building your system</a></li>
-          <li><a href="/autopilot">maintaining your site</a></li>
-          <li><a href="/seat">enhancing your operations</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2 class="footer-col-title">What do you want to walk away with?</h2>
-        <ul>
-          <li><a href="/scan">a score</a></li>
-          <li><a href="/read">an opinion</a></li>
-          <li><a href="/map">a plan</a></li>
-          <li><a href="/site">the thing built</a></li>
-          <li><a href="/work-with-me">All eight, side by side</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2 class="footer-col-title">Recent work</h2>
-        <ul>
-          <li><a href="/work/">All recent work</a></li>
-          <li><a href="/work/iwbi">IWBI</a></li>
-          <li><a href="/work/teambuildr">TeamBuildr</a></li>
-          <li><a href="/work/seam">SEAM</a></li>
-          <li><a href="/work/drvn-golf">DRVN Golf</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2 class="footer-col-title">About</h2>
-        <ul>
-          <li><a href="/about">About Shane Gring</a></li>
-          <li><a href="/approach">The approach</a></li>
-          <li><a href="/fractional-coo-rates">Fractional COO rates</a></li>
-          <li><a href="/guides/">Guides</a></li>
-          <li><a href="/blog/">Newsletter</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/sitemap">Sitemap</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="footer-content">
-      <span>&copy; 2026 Shane Gring</span>
-      <span><a href="/about" class="footer-link">About Shane Gring</a></span>
-      <span><a href="/contact" class="footer-link">Contact</a></span>
-      <span><a href="https://certainly.coop" class="footer-link" target="_blank" rel="noopener noreferrer">Part of Certainly</a></span>
-    </div>
-  </div>
-</footer>
-
-<script src="/nav.js" defer></script>
-<script src="/track.js" defer></script>
-<script src="/subscribe.js" defer></script>
-</body>
-</html>`;
-}
-
-const SUBSCRIBE_URL = 'https://seeking-certainty.beehiiv.com/subscribe';
-
-/**
- * Signup happens on the page. The form posts to /api/subscribe, a Pages
- * Function that calls beehiiv server-side, so the reader never leaves the
- * site and the API key never reaches the browser.
- *
- * `source` is passed through to beehiiv as the campaign, so it is possible
- * to tell later whether signups come off the archive index or off the end
- * of a particular issue.
- */
-function subscribeForm(source, id) {
-  return `<form class="sub-form" data-source="${esc(source)}" novalidate>
-        <label class="sub-form-label" for="${id}">Your email</label>
-        <div class="sub-form-row">
-          <input class="sub-form-input" id="${id}" type="email" name="email"
-                 autocomplete="email" inputmode="email" required
-                 placeholder="you@yourcompany.com">
-          <button class="btn-primary" type="submit">Subscribe <span class="btn-arrow">&rarr;</span></button>
-        </div>
-        <input class="sub-form-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
-               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <p class="sub-form-msg" role="status" aria-live="polite"></p>
-        <noscript>
-          <p class="sub-form-msg"><a href="${SUBSCRIBE_URL}" target="_blank" rel="noopener noreferrer">Subscribe on beehiiv</a> — this form needs JavaScript.</p>
-        </noscript>
-      </form>`;
-}
 
 /* ------------------------------------------------------------------ *
  * Framing notes
