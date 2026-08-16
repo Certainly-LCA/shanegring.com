@@ -33,6 +33,11 @@ const OUT = resolve(ROOT, 'notes');
 const SITE = 'https://shanegring.com';
 const LINKEDIN = 'https://www.linkedin.com/in/shanegring/';
 
+// Permalinks and engagement come from Ordinal's analytics endpoint, kept in
+// their own file so refreshing them does not mean rewriting every post body.
+const LINKEDIN_DATA = resolve(ROOT, 'notes/_data/linkedin.json');
+const meta = JSON.parse(readFileSync(LINKEDIN_DATA, 'utf8'));
+
 const posts = JSON.parse(readFileSync(DATA, 'utf8')).sort((a, b) =>
   b.date === a.date ? 0 : b.date < a.date ? -1 : 1
 );
@@ -73,23 +78,58 @@ function toParagraphs(copy) {
     .join('\n');
 }
 
+/**
+ * Each note is presented the way it was published: a post, with the byline
+ * and the counts it actually earned.
+ *
+ * The counts are real, read from Ordinal's analytics, and a post with none
+ * shows none rather than a row of zeroes. Nothing here is invented, because
+ * a fabricated like count is a fabricated fact however small it looks.
+ *
+ * This deliberately stops short of reproducing LinkedIn's own interface.
+ * There are no working reaction buttons and no LinkedIn logo: the reader is
+ * on shanegring.com, with its nav and its footer, reading a post that links
+ * out to the original. Looking like a post is the point; looking like you
+ * are on LinkedIn is not.
+ */
 function noteArticle(p) {
+  const li = meta[p.id];
+  const url = li ? `https://www.linkedin.com/feed/update/urn:li:${li.urn}` : null;
+
   const art = p.images
     .map(
       (i) =>
-        `        <img class="note-art" src="/images/notes/${i.asset}.jpg" alt="" width="${i.w}" height="${i.h}" loading="lazy">`
+        `          <img class="note-art" src="/images/notes/${i.asset}.jpg" alt="" width="${i.w}" height="${i.h}" loading="lazy">`
     )
     .join('\n');
+
+  const counts = [];
+  if (li?.likes) counts.push(`${li.likes} ${li.likes === 1 ? 'reaction' : 'reactions'}`);
+  if (li?.comments) counts.push(`${li.comments} ${li.comments === 1 ? 'comment' : 'comments'}`);
+
+  const footer = url
+    ? `\n        <p class="note-foot">${
+        counts.length ? `<span class="note-counts">${counts.join(' &middot; ')}</span>` : ''
+      }<a href="${url}" target="_blank" rel="noopener noreferrer">View on LinkedIn</a></p>`
+    : '';
 
   const labels = p.labels.length
     ? `\n        <p class="note-labels">${p.labels.map((l) => `<span>${esc(l)}</span>`).join('')}</p>`
     : '';
 
   return `      <article class="note" id="${p.id.slice(0, 8)}">
-        <p class="note-date"><time datetime="${p.date}">${longDate(p.date)}</time></p>
-        <h2 class="note-title">${esc(p.title)}</h2>
+        <header class="note-head">
+          <img class="note-avatar" src="/images/notes/avatar.jpg" alt="" width="48" height="48" loading="lazy">
+          <span class="note-who">
+            <span class="note-name">Shane Gring</span>
+            <span class="note-role">Fractional COO &middot; operations for expert-led businesses</span>
+            <span class="note-when"><time datetime="${p.date}">${longDate(p.date)}</time></span>
+          </span>
+        </header>
+        <div class="note-body">
 ${toParagraphs(p.copy)}
-${art}${labels}
+${art}
+        </div>${footer}${labels}
       </article>`;
 }
 
