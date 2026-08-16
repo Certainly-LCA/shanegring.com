@@ -96,10 +96,6 @@ Seeking Certainty: what Shane is working on, what broke, and how he fixed it. Ce
 - [Is your website pulling its weight?](https://shanegring.com/blog/is-your-website-pulling-its-weight) — if your certification site isn't helping people take action, it's not doing enough.
 - [The one thing I tell every certification leader](https://shanegring.com/blog/the-one-thing-i-tell-every-certification-leader) — if you're managing a program and it feels like no one "gets it," this one's for you.
 
-## Notes
-
-Short posts written most weekdays, mirrored from LinkedIn: what Shane is seeing inside expert-led businesses, what broke, and what he would do differently. One page, newest first: https://shanegring.com/notes/ (32 notes, most recent 2026-08-14)
-
 ## Free tools
 
 - **[Site Readiness Scan](https://shanegring.com/scan)**: Enter a URL and get a scored, sectioned read of how ready a site is for AI: whether AI can read it, whether it can drive its own SEO and content, and whether it could become a surface you build on rather than a brochure you maintain. The free machine version of the Read.
