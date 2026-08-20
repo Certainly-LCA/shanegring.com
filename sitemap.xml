@@ -224,9 +224,15 @@
   </url>
   <url>
     <loc>https://shanegring.com/blog/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shanegring.com/blog/why-does-the-biz-only-work-when-you-re-in-the-room</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://shanegring.com/blog/seeking-certainty-is-changing</loc>
