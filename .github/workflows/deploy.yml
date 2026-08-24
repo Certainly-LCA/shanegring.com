@@ -39,6 +39,22 @@ jobs:
         continue-on-error: true
         run: node tools/version-assets.mjs
 
+      # Regenerate the Markdown page siblings and the route manifest that the
+      # edge middleware (functions/_middleware.js) reads, so a new or renamed
+      # page can never ship without its .md variant or a manifest entry — which
+      # would soft-404 it or hide it from Accept: text/markdown. Unlike asset
+      # versioning, these are load-bearing, so a failure here must stop the
+      # deploy rather than ship a stale 404 layer.
+      - name: Build Markdown variants
+        run: node tools/build-markdown.mjs
+
+      - name: Build route manifest
+        run: node tools/build-routes.mjs
+
+      # Gate the deploy on the middleware and converter unit tests.
+      - name: Test
+        run: node --test tests/*.test.mjs
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:

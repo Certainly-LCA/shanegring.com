@@ -1,0 +1,730 @@
+Notes · 32 of them
+
+# What I'm working through, most weekdays.
+
+Short notes on running and rebuilding businesses — websites as operations, getting the founder's judgment out of their head, and what I keep seeing inside expert-led companies. Posted most weekdays.
+
+Short pieces I post as I go — what I'm seeing inside expert-led
+businesses, what broke, what I'd do differently.
+**The guides are the worked answers; these are the thinking
+on the way there.** Also on
+[LinkedIn](https://www.linkedin.com/in/shanegring/),
+which is where they start.
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 14, 2026
+
+A while back, I started working with an organization whose smallest offer was also their biggest ask.
+
+They'd built something real: a respected standard, a certification pathway, a growing base that believed in the mission. But if you were a curious prospect, the only door in was the full certification. A big commitment / a long process / a serious price.
+
+So plenty of interested people would show up, look at the one door, and leave.
+
+One fix we proposed was to build smaller ways to say yes -- a lighter review, a workshop, a first step that cost less and taught them something either way. Each one designed to naturally lead to the next.
+
+People finally had a way to start small and build trust before the big commitment.
+
+If your pipeline feels quiet, take a look at your front door. If the first step is also the biggest one, a lot of good-fit people will stall right there.
+
+Sometimes the move is a smaller offer sitting in front of the big one. Happy to think it through with you if that's useful.
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7494055239222870016)
+
+Case StudyTips
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 13, 2026
+
+Traveling halfway around the world with a two-year-old and a baby is as hard as it sounds.
+
+Especially, if one is potty training.
+
+Dylan was terrified of the fancy Japanese bidets, so early on the trip -- my wife, Skyler had to crisscross thru Tokyo's amazing subway system to locate her a less automated kid-sized seat.
+
+But it's something I've / we've always wanted for them. They probably won't remember most of it, but the experience counts as much as the memory sometimes. For me, it does.
+
+Here's what I mostly want to say, though. None of these trips happen without Skyler. She's the one who books it, plans it, packs it, and holds it together when it wobbles.
+
+Been meaning to say it out loud instead of just thinking it: she's the reason our kids get to see the world. I get to carry Dyl, take photos, eat sushi, etc. But she's the real one who made these days exist.
+
+19 reactions · 5 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7493687831890907136)
+
+Personal Story
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 13, 2026
+
+There are plenty of software out there that promise to run your website for you now.
+
+Pages that write themselves, SEO and AI search retuned every week, conversion handled, the whole stack in one tab.
+
+But I'd start somewhere else first -- and it isn't the tool.
+
+A website does all of that well for one reason: the business's operating logic is clearly captured.
+
+What you offer, who it's for, how the work gets done, what's true right now. Get that onto the page and the rankings and the answers AI gives about you mostly sort themselves out, because there's something real to point at.
+
+Skip it, and you've automated a brochure. Faster, prettier, and still describing a company that already moved on.
+
+So I start from how your business runs. Build the site as the place it runs from, and let the tools do their jobs on top of that.
+
+They're great once there's something true underneath for them to work with. That part still has to come first.
+
+3 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7493676500022628352)
+
+Tips
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 12, 2026
+
+You hand something off, it comes back 80% right, you fix the last 20%, and the fixing takes about as long as doing it yourself would have.
+
+After a few rounds of that, you take the work back.
+
+I've watched a lot of founders run this loop, and I've run it myself. Here's what I think is actually happening:
+
+What you handed off wasn't a task. It was a task plus a hundred small judgment calls -- which client gets the exception, when good enough is good enough, what you never do even when the client asks.
+
+Your hire got the task, but the judgment stayed in your head. So they bring the judgment calls back to your desk, because your desk is the only place the answers live.
+
+So how do you fix it?
+
+The judgment has to come out of your head and into something other people can run from.
+
+I wrote up how that extraction actually works -- why documentation fails, and what to capture instead of steps: [shanegring.com/guides/everything-runs-through-you](https://shanegring.com/guides/everything-runs-through-you)
+
+1 reaction[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7493326708020875265)
+
+TipsWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 11, 2026
+
+The tricky thing about the signals that decide how machines read your site is that you can't always see them.
+
+You look at your page and it looks right. But the browser can hide the things that matter.
+
+Whether you've got one clear headline or three. Whether the sitemap still lists what you published last month. That's why these things fail on expensive, well-designed sites. The people checking are checking in the one place the problem is invisible.
+
+So don't grade by eye. A few free checks take about five minutes. Right-click, View Source, and count the headline tags on your two most important pages. Load yoursite.com/sitemap.xml and confirm your newest page is in it.
+
+Been meaning to make this stuff less mysterious, so I wrote up the checks anyone can run without a tool or a budget. Here if it's useful: [shanegring.com/guides/seo-basics-that-cost-nothing](https://shanegring.com/guides/seo-basics-that-cost-nothing)
+
+1 reaction[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7493004576191602690)
+
+TipsUse CaseWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 11, 2026
+
+Every so often, you meet someone you just end up building with for years. Jennifer Easton is one of those people for me.
+
+I've had the good fortune of working alongside her across a lot of rooms and a lot of projects, and she's the real deal.
+
+Her resume only tells part of it: she was marketing hire number one at the International WELL Building Institute (IWBI), where she built the team from the ground up and grew a user list that included Uber, LinkedIn, and Mercedes-Benz.
+
+Before that, seven-plus years marketing at the U.S. Green Building Council, the folks behind LEED, plus agency work on brands like TD Bank and McDonald's.
+
+In 2020, she took the leap and launched her own practice, pairing sharp, data-driven marketing with brands actually making people's lives better -- wellness / joy / a healthier planet.
+
+And because one company isn't enough, she also runs Sway, her own sustainability start-up curating home goods made from healthy materials.
+
+I'll say what the resume can't: Jennifer is generous, sharp, and genuinely fun to build things with. She's the kind of collaborator you keep finding reasons to work with again.
+
+If your brand's doing something good in the world, she's someone worth knowing.
+
+36 reactions · 3 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7492975668541108226)
+
+Personal StoryShoutout
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 10, 2026
+
+There's a stage of growth where the skills that got a company there stop being the skills it needs next. Nobody did anything wrong. The business just changed underneath everyone.
+
+I see it most around the jump to enterprise. The team was built organically -- practitioners and true believers who grew into their roles, and it genuinely worked. Then the company crosses a threshold, and the job quietly becomes a different job. More technical, more systems, more proving it with data.
+
+The instinct is usually to hire more people. From what I've seen lately, the better first move is a smaller dose of senior experience for the transition itself. Capture what's been working, document it, get the systems standing, and then decide what the team underneath should look like.
+
+That order matters. Skip it, and every new hire inherits the same fog the last group was working in.
+
+If your company's approaching one of those jumps, a question worth sitting with: has the job changed faster than the team's been given a chance to?
+
+3 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7492589327634505729)
+
+Tips
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 7, 2026
+
+Most consulting ends with a deck. A smart one, usually -- good analysis, clear recommendations, a roadmap with phases.
+
+Then everyone goes back to their day jobs, and the deck goes where decks go.
+
+I've sat on both sides of that, and it's shaped how I work now. When I come into a business, my goal is to leave behind working things. The site rebuilt and live. The offer launched. The system wired up and running. If a recommendation matters, the fastest way to prove it is to build the first version of it.
+
+Part of that is temperament. I'd rather do the thing than present the plan for it. But mostly it's practical: a live first version answers questions a deck can only guess at. You learn what customers actually do, what breaks, what the team can carry. Then the next decision is based on something real.
+
+Good advisors are worth their weight, to be clear. Plenty of problems genuinely need thinking before building. But if you've got a shelf of smart plans and a business that looks about the same as last year, the gap is probably in the shipping.
+
+That's a solvable one. Could be a hire, could be a working session, could be someone like me for a stretch.
+
+3 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7491512238030176257)
+
+Use Case
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 6, 2026
+
+Here's a test worth running on your own site in the next ten seconds.
+
+Open it. Right-click, View Page Source, and search for a sentence from the middle of your page.
+
+If it's there, your content ships where machines can read it. If the source is a short stub full of script tags and your words aren't in it, machines are getting an empty version of your site.
+
+You'd be surprised. This happens more than you think.
+
+A lot of modern builds hand the visitor's browser a nearly empty shell plus a pile of JavaScript, and the browser paints in the real page after. A person sees a finished site. A machine reading the document as delivered sees scaffolding.
+
+It mattered less when Google was the only machine reading. Now, a lot of your buyers ask an AI tool first, and most of them just read the raw file and move on.
+
+No painting-in.
+
+Wrote up what's happening and the fixes ranked by effort. Link's here: [shanegring.com/guides/move-content-into-html](https://shanegring.com/guides/move-content-into-html)
+
+3 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7491180051653177344)
+
+TipsUse CaseWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 6, 2026
+
+Gym selfie. Sorry. 😬
+
+I've been going a lot lately. Nothing crazy, just showing up and putting in the work most days.
+
+Some of it's for my family, wanting to be around and able to keep up with them for a long time. Some of it's for me. But mostly it's the one hour where I can be alone with my thoughts and the only thing on the list is picking up something heavy and putting it down.
+
+Funny thing I keep noticing, though. Somehow, over the past 6 months -- half the people I work with live in this world too.
+
+The founders building sports training software. Coaches who spent a decade getting good at a thing and then had to figure out how to run a business around it. Fitness people, wellness people, athletics people.
+
+Somehow that's where a lot of my work has landed, and I don't think it's an accident.
+
+It's the same crowd, more or less. People who believe in showing up even when the work might feel boring. It's folks who trust that the reps add up even when the day-to-day doesn't feel like progress. That's a gym thing, but you'd be hard pressed to find a better description of building a business.
+
+So I've got two communities, and they turn out to be one. The guys nodding at each other by the dumbbell rack at 6am, and the folks I'm on calls with who've built whole companies around helping people do exactly that.
+
+Anyway -- back tomorrow. Might even hit legs.
+
+17 reactions · 2 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7491151131964891136)
+
+Personal Story
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 5, 2026
+
+One of the first things I look at inside a business is a simple comparison: where the time goes versus where the revenue actually comes from.
+
+Almost every team can tell me what they're busy with. Fewer can tell me which of those busy things pay for the place. And when we lay the two side by side, there's almost always a gap -- hours pouring into work that's loosely tied to any dollar, while the offer funding everything gets whatever attention is left over.
+
+Nobody plans it that way. Work accumulates. Commitments stack up.
+
+The exercise is worth doing even roughly. List where the hours went last month, list where the money came from, and look at the mismatch. That gap is usually a better roadmap than any strategy doc, because it shows you what to protect, what to fix, and what to let go of.
+
+It takes about an hour of honest accounting. In my experience, it changes the next quarter more than most planning sessions do.
+
+4 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7490791243291992064)
+
+Tips
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 4, 2026
+
+When a website goes stale, everyone reaches for the same fixes. New design. Fresh copy. A rebuild. Usually that's not where the problem is.
+
+A site goes stale because the way the business runs never made it out of people's heads and onto the page. The site caught one moment, the moment passed, and the real picture stayed with the handful of people who've always held it.
+
+So you keep it current by hand. Which puts you right back at the bottleneck -- every update routed through the same few people who know how things work.
+
+They're busy, so it slips, and the site drifts again.
+
+The sites that stay current sit on top of a business that can run without those few people in the room. The knowledge is out where the team can reach it, so the site stays true without everything funneling through one head.
+
+Which is why I've come to think of this as operations work as much as web work.
+
+Fix the website and you've fixed a symptom. Get the operating logic out of people's heads, and the website becomes something much more than a static page.
+
+8 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7490393632244494336)
+
+TipsWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 3, 2026
+
+Dylan doesn't know it yet, but we might've already committed her to Miami University.
+
+I graduated from Miami in '09 with an architecture degree, and honestly, the degree might be the least important thing I left with.
+
+I left Miami with a brother in Bill James, who I met studying there and who introduced me to a life of service -- still my best friend. (Our families are gathering for pizza on Friday!)
+
+I left with experience at the Oxford-area Habitat for Humanity chapter that pointed me toward AmeriCorps, and a few years building green affordable homes in Colorado.
+
+...and even when I turned that into my first company, the school kept showing up. A few years into my career, Miami's Center for Entrepreneurship opened doors I couldn't have found on my own. (Despite never taking a business class!)
+
+They brought me back to campus to discuss my work, and I was just a kid with a B Corp and a big idea, and they treated it like it was real before it was.
+
+Then there's the rest of it: living in the Rounding Third house, season after season of broomball, more trips to Bagel and Deli than I'd ever admit to.
+
+So when people ask if I really think it's the best college out there, I tell them that fall in Oxford is the closest we get to heaven.
+
+That's my evidence, along with every moment I spent there.
+
+26 reactions · 4 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:ugcPost:7490099224429375488)
+
+Personal Story
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+August 3, 2026
+
+A certification organization I worked with launched a new offering this year.
+
+The usual playbook says polish the framework, build the marketing, then go find customers.
+
+Instead, they ran it the other way. The credential is being piloted on two live client engagements right now, while it's still warm. Real deadlines, real stakeholders, real friction.
+
+And the pilots are doing what planning rarely could.
+
+Every place the framework gets awkward in practice, we find it now, while it's easy to fix. Language that confuses a client gets reworded. The evidence requirements that turn out to be unrealistic get reworked.
+
+This means that the version that launches widely will have already survived contact with the real world.
+
+There's a cost, sure. Piloting in the open is slower / messier than perfecting in private. But the version you perfect in private is usually perfect for a customer that doesn't exist.
+
+I've found that if you're building something new, find one or two people who it'll immediately help and see if they will build it with you.
+
+Discount it, support it heavily, whatever it takes. Their feedback is your roadmap to a better experience.
+
+3 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7490052632254783488)
+
+Case StudyTips
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 31, 2026
+
+A lot of small businesses I know have people doing jobs they never trained for.
+
+You started with an idea and something you're generally good at. Then the thing grows, and you (or your small team) have to also be the marketer, the designer, the person answering support emails, the sales team.
+
+Here's what I've been telling folks: a lot of that load can come off you, and the key is your website (or more specifically, your Github), of all things.
+
+When it's built to hold everything true about your business -- what you sell, how you talk, who it's for, what makes you you -- it stops being a page people look at and becomes something you work from. Your logic / your voice / your brand, in one place instead of scattered across your head and a dozen files.
+
+Once that's there, AI tools have something real to work from. It can draft on-brand, because the brand is captured. It can answer a customer, because the real answers are on the surface.
+
+Good data in, good data out.
+
+Aim AI at an empty brochure and you get fast nonsense back. Give it a site that holds the real business, and it starts to feel like help.
+
+And because people hear AI and brace for the worst: this has nothing to do with replacing anyone.
+
+The move is to take what's in your head, your team's heads, and get it into one place, so everyone can do more with it than before.
+
+The hub has to be built right. But once it's done, the thing runs with you instead of on top of you. And that's the whole idea.
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7488942816451190784)
+
+Website Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 30, 2026
+
+One of the stranger advantages I have as an outside operator: I don't know your company politics.
+
+I don't know which project is somebody's baby. I don't know which decision got argued about for a year before I showed up. I walk in, see a thing that needs deciding, and help decide it.
+
+Inside a company, a stalled project is rarely stalled on the work. It's stalled on history / on who'd have to admit what in order to move it. Those little decisions have weight for the people who've been living with them, and none for me.
+
+I used to feel a bit sheepish about that.
+
+Now I think of it as a point of value for some.
+
+If something's been stuck for a year, ask an outsider to look at it. It doesn't have to be me. Sometimes it just takes a person who wasn't there for the argument.
+
+1 reaction[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7488596775101001728)
+
+Use CaseTips
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 28, 2026
+
+Some of the cheapest wins in a business go undone because they're nobody's job.
+
+There's a layer of a website that costs nothing but attention. One clear headline per page. Titles that say what the page is. Link text that describes where it goes instead of "click here." Alt text on the images that carry meaning. A sitemap that actually lists your newest pages.
+
+None of it is advanced, and all of it decides how machines read everything you publish.
+
+Here's why it rots. The site looked perfect the day it launched, and then the headings multiplied when someone edited a template, the sitemap froze when the person who set it up rolled off, and the alt text was "phase two." No error message ever fired. It quietly stopped being true.
+
+The fix is an afternoon, page by page. What holds it up is ownership. This kind of work gets done when it's somebody's explicit job on a rhythm, and it slips when everyone assumes it got handled.
+
+Wrote up the whole pass, the seven signals and how to check each one yourself. Link's here if a free afternoon sounds like a good trade: [shanegring.com/guides/seo-basics-that-cost-nothing](https://shanegring.com/guides/seo-basics-that-cost-nothing)
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7487922353100906496)
+
+Use CaseWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 28, 2026
+
+No rental cars left.
+
+My brother Kyle and I flew out for a wedding in Colorado, went to grab our car, and there was nothing. Sold out.
+
+We got on Turo and took the only thing available, which turned out to be this.
+
+A Slingshot.
+
+Then we drove it about four hours into the mountains.
+
+No roof, no windshield, no real plan. Just the two of us, a borrowed go-kart of a vehicle, and a lot of wind. It was stupid and kind of uncomfortable and one of the better drives I've had in a while.
+
+It goes to show that the things that go sideways might end up being the part you actually remember.
+
+62 reactions · 15 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7487889627094261760)
+
+Personal Story
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 27, 2026
+
+Here's a use for a website that most people haven't tried... making things with it.
+
+Once a site is built (in a format AI can read), it stops being a place you send people and becomes a place you build from.
+
+Landing pages for a campaign. Audience-focused variations to test. Social graphics / microsite / an interactive calculator/ branded sales decks.
+
+They can all be built pulling from the same look, voice, and feel using your website as the singular source.
+
+A website set up right can work differently. It's the raw material, and you shape the rest out of it in minutes.
+
+That "could you build on it?" question is one of the things I check when I read a site. I made a tool to help do this.
+
+Drop in your URL and it tells you where you stand across the three things that matter: [shanegring.com/scan](https://shanegring.com/scan)
+
+1 reaction[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7487509635093053444)
+
+TipsWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 24, 2026
+
+I keep getting asked what the site scan tool I built tells you. So here's what comes back.
+
+You drop in a URL and get a score out of 100, then a read on three things: whether AI can find and read your site, whether it can drive its own SEO and content, and whether it's something you could build on or just a brochure you keep patching. Each one scored, each one explained in plain English. Then the one or two moves that would matter most for you.
+
+Ran it on a site the other day that came back a 52. "Getting there." And the way the score split out is the whole reason I built it this way.
+
+The technical side was sharp -- clean structure, schema done right, even a couple things most small sites haven't gotten to yet. Looked great under the hood. Then the content score came back low, and that was the story. Great bones, but almost nothing built on them. A handful of thin pages standing in for a real content layer. The read said it straight: the site was selling expertise it wasn't showing anywhere.
+
+That's the part I find useful. Most tools hand you a grade and move on. This one shows you where the gap is, which is usually between what looks fine and what's working. And it's specific to your site, not a checklist anyone could run.
+
+Curious where yours lands? Takes about half a minute here: [shanegring.com/scan](https://shanegring.com/scan)
+
+5 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7486431268146950146)
+
+Website Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 23, 2026
+
+After a couple years of building with AI for clients, here's where I've landed:
+
+it's only okay at making things from scratch.
+
+It's terrific at reworking what you've already built.
+
+One client had a decade's worth of materials available. Hundreds of workouts, 600+ videos, years of teaching. All that IP was real, but we needed to repackage it into solutions that appealed to broader audiences. So we did.
+
+That's the situation AI is built for, because it can ingest a ton of assets and help you remix them into courses / programs / standards, at a scale and speed that wasn't available to a small team before.
+
+But the prerequisite is you. It's your ideas and your IP.
+
+So when people ask me if AI can build their content, my honest answer is: it can rebuild it beautifully. The first draft of your expertise still has to be you.
+
+If you've been at this a while, you probably have everything conceived -- it's just scattered, and that's fixable.
+
+6 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7486087778993356802)
+
+EducationTips
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 22, 2026
+
+Just a couple of big dogs hanging out.
+
+This was from a retreat up in the mountains in Canada. The guy next to me is Hewitt Tomlin, someone whose company I'd admired for years and known professionally for a while. We'd traded plenty of messages, been in the same groups, circled each other online. All good hangs as they were.
+
+It wasn't until we spent a few days together, talking work and marriage and kids and the stuff that's really going on, that I felt like I knew him.
+
+By the end of that trip, we decided to do some work together.
+
+I keep coming back to the idea that social media is great for reaching new people. You can meet a lot of folks / stay loosely in touch / keep your name out there. But the real stuff like understanding what someone's actually wrestling with, whether you're compatible working together, how you can help -- almost always happens offline, one on one, when you get in the same room.
+
+Face time is expensive when you're running a business, because it's the first thing to get squeezed; but it's still what turns someone you sort of know into somebody you actually trust.
+
+So yeah, I'm saying this on LinkedIn -- but if there's a lesson for me maybe it's get offline for a bit.
+
+Go have the coffee, take a hike, hang with the big dogs.
+
+11 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7485725369388539904)
+
+Personal StoryShoutout
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 21, 2026
+
+A growing share of your website's visitors aren't people anymore. They're AI agents -- someone's assistant, sent out to compare options, check pricing, or figure out what you actually do.
+
+Many sites are nearly unreadable for them. The information a buyer's agent needs is buried in images, tangled in old page builders, or just missing. The agent shows up, shrugs, and reports back on your competitor instead.
+
+Making a site agent-readable isn't exotic work. Clean structure, real text where it matters, the key facts stated plainly. A lot of seemingly unsexy fixes, but they compound.
+
+I built a scanner that checks how your site reads to an agent -- [shanegring.com/scan](https://shanegring.com/scan) if you're curious.
+
+It'll hit you with a few findings and 2 actionable ideas to make the most of your site.
+
+2 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7485357943878541312)
+
+TipsWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 20, 2026
+
+I struggle to talk about what I do.
+
+Not because it's complicated. Because the problem a client brings me is almost never the problem I end up solving.
+
+They come in saying "we need a new website" or "we made some bad hires" or "our marketing isn't working." Real concerns, sincerely held. But a few weeks in, the actual problem is usually sitting one layer down, somewhere nobody was looking.
+
+Which makes the marketing weird. I can't put the deliverable on a services page, because the deliverable is finding out what the deliverable should be.
+
+What I've landed on, at least for now: the first thing I sell isn't a solution. It's problem definition. An outside set of eyes with no attachment to the story the team has been telling itself.
+
+That early phase turns out to be where most of the value lives. Everything after it is execution.
+
+Still working out how to say that in a headline. If you've figured out how to market work that starts with "I don't know yet," I'd genuinely like to hear it.
+
+2 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7484972899070570496)
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 17, 2026
+
+A client of mine runs a software company doing about $10M a year. One of their most promising lead generators is a spreadsheet.
+
+Their product helps coaches manage training programs. It's a really great tool with thousands of customers, but a lot of coaches out there still live in Excel.
+
+And no amount of marketing was going to talk them out of it.
+
+So instead of fighting the habit, they bought a small brand that makes Excel templates for that exact crowd. Now the templates sit at the top of the funnel.
+
+A coach grabs a free spreadsheet, likes it, and soon enough they're ready to hear about the software version.
+
+I love this move because it starts from where the customer actually is. Not where the roadmap says they should be.
+
+Most businesses have a version of this: some "outdated" thing your customers keep doing that you've been treating as a problem. It might be a door.
+
+Worth a look at what your customers refuse to quit using, because there might be an opportunity there.
+
+4 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7483899572314906624)
+
+Use Case
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 16, 2026
+
+We'll rebuild your Squarespace website for free.
+
+The full, actual thing: you drop your URL and email at [shanegring.com/scan](https://shanegring.com/scan), and within about 48 hours you get back a working rebuild of your site -- faster, cleaner, and readable by the AI agents that are starting to do a lot of the browsing out there.
+
+Why free? Honestly, because it's the fastest way to show you what I do instead of describing it.
+
+If the rebuild's useful, great, take it or inspo from it. If you want help taking it further, that's a conversation we should have.
+
+If not, you got a better website out of a two-minute form.
+
+Check out [shanegring.com/scan](https://shanegring.com/scan) if you want a look at yours.
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7483540979975708673)
+
+Website Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 15, 2026
+
+A founder I work with sends me a sketch or maybe a half-formed idea most weeks.
+
+He's the visionary, the face of the thing, and he's chock full of ideas. It's my job to help him realize those ideas.
+
+He brings me a concept, and I think through what it does to the rest of the system: the tech it'll take, what it does to the model, where it fits with everything else already running.
+
+I free him up to keep dreaming the next thing, because he's not worried about tracking what it will do to the business and how it'll get done.
+
+For a lot of founders, it's hard to find an operator to keep things organized. The ideas are usually there.
+
+What's missing is someone you can rely on to catch them and turn them into something the business can carry.
+
+1 reaction[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7483178573692858368)
+
+Case StudyUse Case
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 14, 2026
+
+Most websites get built to be looked at. I'd rather build one you can run the business from.
+
+Here's the difference. A brochure site points at your business from the outside. You build it once, hand it to marketing, and move on. Then the business keeps moving and the site doesn't. Give it a year and it's describing a company that doesn't quite exist anymore.
+
+It didn't break. It just stopped, because everything that runs the business went on living somewhere else. In a few people's heads. In a doc nobody opens.
+
+A site you run the business from holds the real thing -- what you offer, how you decide who it's for, how the work gets done, what's true right now. Once it does, sales points to it instead of re-explaining. New hires learn off it instead of asking around. Everyone works from one version instead of seven.
+
+That's the whole idea. One source of what's true, out where the team can see it, instead of scattered across the people who happen to hold it.
+
+Here's what I'm thinking: [shanegring.com/approach](https://shanegring.com/approach)
+
+4 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:ugcPost:7482846430378782720)
+
+TipsWebsite Offer
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 13, 2026
+
+The best sales advice I ever got was to stop selling.
+
+A mentor of mine, Ken, runs his whole business this way. He gets on a call and doesn't pitch. He doesn't talk price. He digs into your problem until he understands it and starts helping.
+
+His line is that he wants to be sure he can add real value before he asks for anything. So he does. He gets in, figures out what's going on, and lets that be the proof.
+
+By the time cost comes up, the trust is already there.
+
+I've been trying to run more like that. Get in, look around, be useful first. Tell you the truth about what I see, even when the truth is "you don't need me for this."
+
+It's slower than a hard pitch. But the relationships it builds tend to outlast the deal, and they send other people your way.
+
+The most convincing thing you can do is to be useful first.
+
+6 reactions · 2 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7482444986509078528)
+
+Personal Story
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 10, 2026
+
+This is me three years ago (to the date!), hauling myself to breakfast on a freshly rolled ankle.
+
+Funny story: We were at a pit-stop in the middle of an eight-hour road trip to the Outer Banks. We got out for dinner, and we were just playing at a playground with two of our girls.
+
+Next thing I know, I'm at the hospital with a sprained ankle and have to spend the trip at the beach with a brace and crutches.
+
+...and poor Skyler (my wife), having to lug chairs/coolers/umbrellas, a 3 year old, a 8 month old, and ME back and forth everyday from the sand.
+
+Being laid up got me thinking about something I see all the time.
+
+A lot of the groups I've been working with only run well when one person's in the room. Usually the founder. They're the one who knows how it all fits together, so the day they're out -- traveling / sick / getting treated for rolled ankles -- the whole thing freezes till they're back.
+
+Things may work despite those pauses, but it's a fragile way to run, and most founders can feel it's just a matter of time before it costs them.
+
+It's a fixable problem. One thing I've seen help is getting the stuff that lives only in their head down on paper. Find the specific spots where everything waits on you, and start there.
+
+If you couldn't show up for two weeks, what would stop moving? That's where I usually start with folks, and it can be liberating to get those blockers out of the way.
+
+9 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7481370441845039105)
+
+EducationPersonal Story
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 9, 2026
+
+The people I work with are sitting on more than they realize.
+
+If you've built a real method over the years -- a way of doing things, a content library, the stuff that makes you you -- AI can take all that and help you repackage it in more shapes than you'd think.
+
+A client I've been working with, a golf fitness brand, built over about a decade, had a considerable amount of resources.
+
+600+ videos, hundreds of workouts, a big engaged audience, real revenue. The method was all there. It just lived mostly in the founder's head and scattered across the library.
+
+So we got it out. Indexed everything they had, then set up a weekly call where I'd ask him questions and let him talk, getting the method down on paper, tagged, organized into a knowledge base. Once it hit a critical mass, we could shape it into a certification with course modules, all pulling from the same source.
+
+That's where AI shines, in my experience. It's great at ingesting what you've already built and helping you reorganize and remix it at scale.
+
+If you've been at something a while, there's a decent chance it's more sellable, in more forms, than it feels right now.
+
+Happy to walk through how we did it if that's useful.
+
+7 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7480977821545259009)
+
+Case Study
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+July 8, 2026
+
+My friend, a CEO was stuck. He had rode the wave of his product's success, and rocked with the team that got him there -- but when they hit the next plateau of growth, his young team just didn't have the experience needed to help them to the next level.
+
+Folks had been promoted into positions that didn't align with their strengths; they'd hired a few roles that hadn't worked out; it felt like things weren't gelling.
+
+When I got in there, the people were sharp, but the setup underneath them wasn't.
+
+Marketing and sales were running in separate silos with no real handoff. Data wasn't being tracked, so nobody could say what was working or why something stopped when it did.
+
+So they felt a symptom, named it "wrong hires," and felt stuck. The thing actually costing them was one step underneath, where nobody was looking.
+
+That's almost always how it goes. The problem a business can name out loud isn't always the whole story.
+
+Before you hire, or fire, or buy the new tool, get someone to look at how the work actually moves between people. What's slowing you down is usually in the handoffs / the missing data / the stuff nobody owns.
+
+Tips
+
+## These usually start as something I ran into
+
+If one of them sounds like your week, **the Scan is the fastest
+way to get a read on where you stand** — free, about half a
+minute.
+
+[Run the free Scan →](https://shanegring.com/scan)
+
+---
+
+[View this page on shanegring.com](https://shanegring.com/notes/)

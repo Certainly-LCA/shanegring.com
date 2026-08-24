@@ -1,0 +1,212 @@
+[← All work](https://shanegring.com/work/)
+
+Case study · DRVN · ongoing
+
+Certification & Methodology
+
+# Took a coaching method out of one founder's head.
+
+DRVN had a proven methodology and a PGA Professional founder. Built the certification, curriculum, partner network, and platform that turned it into a business other coaches could run. 20 founding Pros, 15 partner facilities, 86 modules.
+
+DRVN works. Hundreds of thousands of golfers have used the app
+to improve their performance through progressive strength
+training. Michael Dennington, the founder, is a PGA Professional
+whose methodology has credibility other golf-fitness products
+don't get near.
+
+**The problem wasn't proof. It was scale.** A working methodology
+in one founder's head, delivered through an app that golfers
+self-direct, isn't the same thing as a business other coaches
+can build their practice on. To grow beyond what Michael could
+personally touch, DRVN needed to externalize the methodology
+into something coaches could be certified in, golfers could
+trust, and the market could recognize.
+
+**That's the work.**
+
+## The bottleneck
+
+In golf fitness, “certification” means almost
+nothing. Weekend workshops, video courses, multi-year programs
+all carry the same word. Trainers can't tell what's worth
+pursuing. Golfers can't tell what a certified coach actually
+knows. The whole category runs on credibility built personally,
+one relationship at a time.
+
+DRVN's edge was a real methodology with a real founder behind
+it. But that edge **couldn't scale through Michael's calendar**.
+Every prospective Pro had to learn from him directly, or from
+the app, with no infrastructure to verify they could deliver
+the method as designed. Coaches were asking for a way to
+operate in public under the DRVN name with real authority, not
+just access. Without that, growth meant either more of
+Michael's time or diluted brand.
+
+The job was to turn a personality-driven methodology into a
+business other coaches could license, deliver, and build
+sustainable practices around, without losing what made
+the original work.
+
+## What got built
+
+The work was two simultaneous builds: **the program coaches go
+through, and the platform that runs it**.
+
+### The program
+
+**The methodology, made teachable.** Took DRVN's
+coaching framework out of the founder's head and into a
+structured curriculum: 12 sections, 86 modules, 40+ applied
+videos. Body-first, progressive, designed as a decision
+system rather than a content library. A coach who completes
+the program can apply the method, not just recite it.
+
+**The certification.** DRVN Certified Pro.
+Competency-based progression with verification that coaches
+can actually apply the method to real golfers. Renewal cycles
+to keep the credential current as the methodology evolves. A
+clear definition in market of what “DRVN
+Certified” means.
+
+**The business infrastructure for coaches.**
+Certified Pros don't just get a credential. They get the
+assessment protocols, the programming tools, the
+scope-of-practice language, and the operating model to run a
+golf-fitness practice professionally. The certification is
+the entry point. The infrastructure is the value.
+
+**The partner facility network.** Built the
+operating model that brings DRVN methodology into facilities,
+not just to individual coaches. 15 founding partner facilities
+live at launch. The structure to grow the network without
+growing the founder's calendar.
+
+**Governance and standards.** Defined what DRVN
+Certified Pro means to coaches, golfers, and the market.
+Built the systems to maintain that meaning as the network
+expands. Without this, “certified” means whatever
+the local market decides and the brand erodes.
+
+### The platform
+
+**The web presence.** DRVN Pro as a public-facing
+product with its own positioning, pricing, and pathway.
+Distinct from the consumer app, designed to convert PGA Pros
+and golf-fitness coaches into certified professionals.
+
+**The onboarding system.** From “interested
+coach” to “active in the curriculum” without
+a human in the loop. Application, payment, verification,
+course access: all automated.
+
+**The course delivery.** 86 modules and 40+
+applied videos hosted, sequenced, tracked. Coaches move
+through the program at their own pace, with progress visible
+to them and to DRVN.
+
+**The knowledgebase.** The reference layer
+Certified Pros use when they're with clients. Searchable,
+governed, the single source of truth for what DRVN says about
+the methodology. Updated centrally so when the standard
+evolves, every Pro sees the change.
+
+**Performance reporting.** Dashboards for Pros to
+see their own client outcomes, dashboards for DRVN to see
+network health: completion rates, certification velocity,
+retention, partner facility activity.
+
+**Automations.** The connective tissue.
+Application triggers onboarding. Onboarding triggers course
+access. Certification triggers credential issuance. Renewal
+triggers reminders. The system runs the operational work that
+would otherwise route through the founder or a hire.
+
+Without the platform, every part of the program depends on
+people: someone to onboard, someone to deliver, someone to
+chase renewals, someone to compile reports. With it, the program
+scales without proportional headcount. That's what makes the
+founding cohort of 20 into a network of 200 a structural
+question, not a hiring problem.
+
+I built the whole platform myself, with AI as a collaborator. A
+developer for the application. A designer for the flow. A
+systems integrator to wire it together. A content engineer to
+manage the course delivery. Four hires, minimum, for what one
+operator with AI now ships. The point isn't the tooling. The
+point is that **one operator who understands the
+methodology, the business model, and the operational shape of
+the program can also build the systems that deliver it.**
+That collapse, fewer hands, faster cycles, no translation
+loss between what the business needs and what gets shipped,
+is the same shift I help other founder-dependent
+businesses make.
+
+## Where it is now
+
+- 20 founding DRVN Certified Pros launched in the inaugural cohort
+
+- 15 founding partner facilities live
+
+- Full certification platform live: onboarding, course, knowledgebase, reporting, renewals
+
+- 12-section curriculum delivered through 86 structured modules and 40+ applied videos
+
+- A working business model for coaches to build sustainable practices on the DRVN foundation
+
+- A defined credential category in a market that didn't have one
+
+- Built to scale from 20 to 7,000 Pros without proportional founder time
+
+## The transfer move
+
+A founder's coaching judgment. The progressions he'd refined
+over a career as a PGA Professional. The eye for what works
+that comes from thousands of hours with golfers. None of it
+scales if it lives only in Michael's head and the app.
+
+The work was to externalize all of it: the methodology into
+curriculum, the curriculum into certification, the certification
+into business infrastructure, the business infrastructure into a
+partner network, and all of it onto a platform that runs without
+the founder in the loop. Every layer is a transfer move. Every
+layer takes something that was in one founder's head and gives
+it a place to live somewhere other coaches can pick it up and
+run.
+
+**That's how a personality-driven product becomes a
+business other businesses can build on.**
+
+The cooperative I built to keep doing this work for other
+founders is called
+[Certainly](https://certainly.coop).
+
+“We had hundreds of thousands of people using our app
+successfully. But when someone gets certified to represent
+DRVN, they're not just learning a methodology. They're
+building their business on our brand. We needed infrastructure
+that protected both the coach and the golfer, and Shane is
+the operator who built it.”
+
+Michael Dennington, Founder, DRVN, PGA Professional
+(pending approval)
+
+[Visit drvngolf.com →](https://drvngolf.com)
+
+Recognize the shape
+
+If your product is hitting the ceiling of what the founders can
+hold on their own, that's the work.
+
+The Map gets how your business actually runs down on
+paper: three working meetings over three weeks, then the
+Operating Memo and a fixed-price build proposal, credited in
+full toward a build. Four slots a month.
+
+[See the Map →](https://shanegring.com/map)
+
+Next case study
+[TeamBuildr →](https://shanegring.com/work/teambuildr)
+
+---
+
+[View this page on shanegring.com](https://shanegring.com/work/drvn-golf)
