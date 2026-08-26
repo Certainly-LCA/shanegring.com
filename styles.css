@@ -3442,6 +3442,52 @@ footer .container {
 
 .footer-link:hover { color: #ffffff; }
 
+/* "Add to Google Preferred Sources" — a site-wide footer CTA. Links to
+   Google's documented deeplink; no third-party script, so it stays off every
+   page's critical path. */
+.footer-preferred {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin: 0 0 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-preferred-lead {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.btn-preferred {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-preferred:hover {
+  background: #ffffff;
+  color: #111111;
+  border-color: #ffffff;
+}
+
+.btn-preferred .btn-arrow {
+  transition: transform 0.15s ease;
+}
+
+.btn-preferred:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
 /* ══════════════════════════════════════════════════════════════
    ANIMATIONS (minimal — fade on enter only)
    ══════════════════════════════════════════════════════════════ */
