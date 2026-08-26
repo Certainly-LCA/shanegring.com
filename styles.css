@@ -3463,29 +3463,30 @@ footer .container {
 .btn-preferred {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  gap: 0.6rem;
+  padding: 0.55rem 1.15rem 0.55rem 0.95rem;
+  border: 1px solid #dadce0;
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
+  color: #1f1f1f;
   text-decoration: none;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  letter-spacing: 0.15px;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3);
+  transition: background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-preferred:hover {
-  background: #ffffff;
-  color: #111111;
-  border-color: #ffffff;
+  background: #f8faff;
+  border-color: #d2e3fc;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.35), 0 2px 6px rgba(60, 64, 67, 0.15);
 }
 
-.btn-preferred .btn-arrow {
-  transition: transform 0.15s ease;
-}
-
-.btn-preferred:hover .btn-arrow {
-  transform: translateX(3px);
+.btn-preferred-g {
+  flex: 0 0 auto;
+  display: block;
 }
 
 /* ══════════════════════════════════════════════════════════════
