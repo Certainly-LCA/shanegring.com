@@ -464,6 +464,14 @@ the header of this file has it the wrong way round for exactly this reason: it w
 the *old* name would break once the rename shipped, but the rename has not shipped, so it
 is the *new* name that breaks.
 
+> **Correction (2026-08-27): the rename HAS now shipped — the state above is
+> resolved.** Verified by content-type check on production: `map-hero.png` serves
+> `image/png` (live), `operating-map-hero.png` serves `text/markdown` (dead as an
+> sref). The working sref pair for everything is now
+> `https://shanegring.com/images/hero.png https://shanegring.com/images/map-hero.png`
+> — the header suffix at the top of this file is correct as written. This paragraph
+> and the one above it are kept as history of the trap, not live guidance.
+
 **Delivered 2026-08-01.** All three ran at `--ar 21:9` (Midjourney shows it as 7:3).
 The first batch of three was discarded — broken sref.
 

@@ -197,6 +197,12 @@ Email, LinkedIn, or book a call
 [Privacy](https://shanegring.com/privacy)
 What the site collects, and how to reach me about it
 
+[Terms](https://shanegring.com/terms)
+The terms for using this site
+
+[Cookies](https://shanegring.com/cookies)
+Which cookies the site sets, and how to turn them off
+
 ---
 
 [View this page on shanegring.com](https://shanegring.com/sitemap)
