@@ -44,6 +44,8 @@ If the cookies the site uses change, the date above changes with it. Questions a
 This is a plain-language summary of real practice, not legal advice. If it changes, the
 date at the top changes with it.
 
+Policies: [Privacy](https://shanegring.com/privacy) · [Terms](https://shanegring.com/terms) · **Cookies**
+
 ---
 
 [View this page on shanegring.com](https://shanegring.com/cookies)

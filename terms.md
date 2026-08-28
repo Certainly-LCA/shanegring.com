@@ -57,6 +57,8 @@ version. They are governed by the laws of the Commonwealth of Pennsylvania, Unit
 This is a plain-language summary, not legal advice. If it changes, the date at the top
 changes with it.
 
+Policies: [Privacy](https://shanegring.com/privacy) · **Terms** · [Cookies](https://shanegring.com/cookies)
+
 ---
 
 [View this page on shanegring.com](https://shanegring.com/terms)

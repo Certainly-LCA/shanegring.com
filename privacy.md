@@ -53,6 +53,8 @@ handled directly.
 This is a plain-language summary of real practice, not legal advice. If it changes,
 the date at the top changes with it.
 
+Policies: **Privacy** · [Terms](https://shanegring.com/terms) · [Cookies](https://shanegring.com/cookies)
+
 ---
 
 [View this page on shanegring.com](https://shanegring.com/privacy)
