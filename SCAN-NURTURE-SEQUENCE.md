@@ -126,7 +126,7 @@ https://shanegring.com
 
 ## Implementation notes
 
-- **Sender:** same as the scan report — Apps Script `MailApp` from the coop account, plain text, replyTo shane.gring@certainly.coop. Any reply exits the sequence.
+- **Sender:** same as the scan report — Apps Script `MailApp` from the coop account, plain text, replyTo shane@shanegring.com. Any reply exits the sequence.
 - **Scheduling:** add a daily time-driven trigger to the same bound Apps Script. The Sheet already has `at` (timestamp) and `email`; add a `stage` column (0–5). Each day: for each row, compute days-since-scan, send the next unsent email that's due, bump `stage`. Exit check: a `stopped` flag set when someone replies "stop" or buys (match Stripe receipt email, manual for now).
 - **Compliance:** every email needs an out. Add to the footer of each: "If you'd rather not hear about this, reply 'no more' and that's the end of it." Honor it by setting `stopped`.
 - **The price never appears in email** — pricing lives only on the offer page (site-wide rule, 2026-07-09).

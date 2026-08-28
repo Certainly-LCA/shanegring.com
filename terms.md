@@ -52,7 +52,7 @@ the free tools on it.
 
 These terms can change; the date above moves when they do, and continued use means you accept the current
 version. They are governed by the laws of the Commonwealth of Pennsylvania, United States. Questions go to
-[shane.gring@certainly.coop](mailto:shane.gring@certainly.coop).
+[shane@shanegring.com](mailto:shane@shanegring.com).
 
 This is a plain-language summary, not legal advice. If it changes, the date at the top
 changes with it.

@@ -2,7 +2,7 @@
 
 **Goal:** make `/scan` (1) log each lead to a Google Sheet, (2) email Shane a
 notification, and (3) email the visitor their results copy — all sending **from
-shane.gring@certainly.coop**.
+shane@shanegring.com**.
 
 ## How it's wired (already done in code)
 - The Cloudflare Pages Function `functions/api/scan.js` runs the scan, then
@@ -20,7 +20,7 @@ shane.gring@certainly.coop**.
 
 ## CRITICAL prerequisite: account ownership
 Apps Script sends email **from the Google account that owns the script.** So the
-Sheet + script **must be owned by the `shane.gring@certainly.coop` Google
+Sheet + script **must be owned by the `shane@shanegring.com` Google
 Workspace account** — not the personal gmail account.
 
 - If the lead Sheet currently lives under gmail: either transfer ownership to
@@ -31,7 +31,7 @@ Workspace account** — not the personal gmail account.
 
 ## Steps
 
-1. **Sign in to Google as `shane.gring@certainly.coop`.**
+1. **Sign in to Google as `shane@shanegring.com`.**
 
 2. **Open (or create) the lead Sheet under that account.** A simple one-tab
    sheet is fine; the script adds a header row on first run.
@@ -39,12 +39,12 @@ Workspace account** — not the personal gmail account.
 3. **Extensions → Apps Script.**
 
 4. **Paste the code.** Replace any existing `doPost` with the full contents of
-   `scan-lead-appsscript.gs`. Confirm `NOTIFY_TO = 'shane.gring@certainly.coop'`.
+   `scan-lead-appsscript.gs`. Confirm `NOTIFY_TO = 'shane@shanegring.com'`.
    Save.
 
 5. **Deploy as a Web app.**
    - Deploy → **New deployment** → type: **Web app**.
-   - **Execute as:** Me (shane.gring@certainly.coop)
+   - **Execute as:** Me (shane@shanegring.com)
    - **Who has access:** **Anyone** (required — the Worker calls it with no
      Google login; this must be "Anyone", not "Anyone with a Google account").
    - Deploy. **Authorize** when prompted: approve the Gmail-send + Sheets
@@ -73,7 +73,7 @@ Workspace account** — not the personal gmail account.
    The `debug:true` response includes `lead_sheet_result` — confirm
    `"status": 200, "ok": true`. Then verify:
    - a new row in the Sheet,
-   - the notification email arrives at shane.gring@certainly.coop,
+   - the notification email arrives at shane@shanegring.com,
    - the visitor copy arrives at the test address (check spam the first time).
 
 ## Gotchas

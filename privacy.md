@@ -20,7 +20,7 @@ signal.
 ## The contact form
 
 If you fill in the contact form, the name, email, company, and message you enter are sent through a form
-handler (FormSubmit) and delivered to Shane's inbox at shane.gring@certainly.coop. That information is used
+handler (FormSubmit) and delivered to Shane's inbox at shane@shanegring.com. That information is used
 only to read and reply to what you sent. It is not added to a marketing list unless you separately ask to
 subscribe.
 
@@ -47,7 +47,7 @@ own terms. No other party receives your information, and none of it is sold.
 
 You can ask what data is held about you, ask for it to be corrected, or ask for it to be deleted. You can
 unsubscribe from the newsletter at any time. To make any of these requests, or to ask a question about this
-page, email [shane.gring@certainly.coop](mailto:shane.gring@certainly.coop) and it will be
+page, email [shane@shanegring.com](mailto:shane@shanegring.com) and it will be
 handled directly.
 
 This is a plain-language summary of real practice, not legal advice. If it changes,

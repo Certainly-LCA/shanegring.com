@@ -43,7 +43,7 @@ what lands in your inbox:
 Your Site Readiness Scan: yoursite.com — 72/100
 
 SG
-**Shane Gring** <shane.gring@certainly.coop>
+**Shane Gring** <shane@shanegring.com>
 to you
 just now
 

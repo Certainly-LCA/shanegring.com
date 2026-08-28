@@ -21,7 +21,7 @@
  *   needs no change.
  */
 
-var NOTIFY_TO = 'shane.gring@certainly.coop';
+var NOTIFY_TO = 'shane@shanegring.com';
 var FROM_NAME = 'Shane Gring';
 var SITE_URL = 'https://shanegring.com';
 

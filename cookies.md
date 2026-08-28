@@ -39,7 +39,7 @@ does not break the site — every page still works the same.
 ## Changes and contact
 
 If the cookies the site uses change, the date above changes with it. Questions about this page go to
-[shane.gring@certainly.coop](mailto:shane.gring@certainly.coop).
+[shane@shanegring.com](mailto:shane@shanegring.com).
 
 This is a plain-language summary of real practice, not legal advice. If it changes, the
 date at the top changes with it.
