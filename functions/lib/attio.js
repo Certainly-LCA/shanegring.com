@@ -48,6 +48,13 @@ async function api(env, method, path, body) {
  *                   `ifIn`. Used by call bookings: a booked call advances New/
  *                   Contacted/Replied/Nurture leads, but never touches Won/Lost/
  *                   Proposal sent. New entries are unaffected by this option.
+ *   touch           optional { ifIn: [stages], nextAction: "YYYY-MM-DD" } —
+ *                   when the person ALREADY has a list entry whose stage is in
+ *                   `ifIn`, pull next_action forward to `nextAction` WITHOUT
+ *                   changing the stage — and only if that makes it sooner (a
+ *                   next_action already due today must not get pushed back).
+ *                   Used by RB2B return visits: an active lead back on the site
+ *                   deserves attention now, but the stage stays Shane's call.
  * }
  */
 export async function attioCapture(env, opts) {
@@ -67,16 +74,25 @@ export async function attioCapture(env, opts) {
     filter: { parent_record: { target_object: "people", target_record_id: recordId } },
     limit: 1,
   });
-  if (existing.data && existing.data.length > 0 && opts.advance) {
+  if (existing.data && existing.data.length > 0 && (opts.advance || opts.touch)) {
     const entry = existing.data[0];
     const cur = entry.entry_values && entry.entry_values.stage;
     const curTitle = Array.isArray(cur) && cur[0] ? (cur[0].status && cur[0].status.title) || cur[0].value || "" : "";
-    if (opts.advance.ifIn.includes(curTitle)) {
+    if (opts.advance && opts.advance.ifIn.includes(curTitle)) {
       const values = { stage: opts.advance.stage };
       if (opts.advance.nextAction) values.next_action = opts.advance.nextAction;
       await api(env, "PATCH", "/lists/leads/entries/" + entry.id.entry_id, {
         data: { entry_values: values },
       });
+    }
+    if (opts.touch && opts.touch.ifIn.includes(curTitle)) {
+      const curNext = entry.entry_values && entry.entry_values.next_action;
+      const curDate = Array.isArray(curNext) && curNext[0] ? curNext[0].value || "" : "";
+      if (!curDate || opts.touch.nextAction < curDate) {
+        await api(env, "PATCH", "/lists/leads/entries/" + entry.id.entry_id, {
+          data: { entry_values: { next_action: opts.touch.nextAction } },
+        });
+      }
     }
   }
   if (!existing.data || existing.data.length === 0) {

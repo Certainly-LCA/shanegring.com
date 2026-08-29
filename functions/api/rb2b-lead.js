@@ -70,6 +70,12 @@ export async function onRequestPost(context) {
   const note = "Identified " + (p["Seen At"] || "") + " by RB2B visitor identification.\n\n" +
     detail.join("\n\n");
 
+  // A return visit from an active lead pulls their next_action to tomorrow
+  // (never pushing an already-sooner date back, never touching stage) — being
+  // back on the site is the strongest signal RB2B produces. Won/Lost/Proposal
+  // sent are Shane's to manage and stay untouched.
+  const tomorrow = new Date(Date.now() + 24 * 3600 * 1000).toISOString().slice(0, 10);
+
   const task = attioCapture(env, {
     email: email,
     name: name || undefined,
@@ -78,6 +84,7 @@ export async function onRequestPost(context) {
     nextActionDays: 1,
     noteTitle: "Site visitor identified — RB2B",
     noteContent: note,
+    touch: { ifIn: ["New", "Contacted", "Replied", "Nurture"], nextAction: tomorrow },
   }).catch(function (e) { console.log("rb2b-lead attio error: " + e); });
 
   if (context.waitUntil) context.waitUntil(task); else await task;
