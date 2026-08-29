@@ -2,11 +2,12 @@ Privacy
 
 # What this site collects, and why.
 
-What shanegring.com collects, why, and how to reach Shane about your data. Plain language: analytics, the contact form, the newsletter, and the free Scan.
+What shanegring.com collects, why, and how to reach Shane about your data. Plain language: analytics, visitor identification, the contact form, the newsletter, and the free Scan.
 
 Short version: shanegring.com is a personal site, not an ad business. It collects the minimum needed to
-run analytics, answer the messages you send, and deliver the things you ask for. It does not sell your
-data to anyone. This page explains what happens with each part. Last updated 24 August 2026.
+run analytics, recognise the businesses that visit, answer the messages you send, and deliver the things
+you ask for. It does not sell your data to anyone. This page explains what happens with each part. Last
+updated 29 August 2026.
 
 ## Analytics
 
@@ -16,6 +17,16 @@ approximate region you visit from, and the kind of device and browser you use. I
 understand what is working, not to identify you by name. Preview and local versions of the site do not send
 analytics at all. You can block this with a browser setting, an ad blocker, or a Global Privacy Control
 signal.
+
+## Visitor identification
+
+The live site also runs RB2B, a service that tries to match business visitors from the United States to a
+public professional profile — typically a name, company, and LinkedIn page — using cookies, device
+identifiers, and IP addresses. When it finds a match, it is sent to Shane so he can follow up with people
+already reading about his work. That is the whole use: no ads, no resale, no profile built beyond the
+match itself. It runs only on shanegring.com, never on preview or local versions, and it is switched off
+for browsers that send a Global Privacy Control signal. An ad blocker or privacy extension stops it too,
+and you can opt out with RB2B directly at [app.retention.com/optout](https://app.retention.com/optout).
 
 ## The contact form
 
@@ -40,8 +51,8 @@ on-screen result.
 ## Who else is involved
 
 The site is hosted on Cloudflare Pages, which sees standard request logs. The services named above (Google,
-FormSubmit, beehiiv, and, for the Scan, Google Workspace) each handle their own slice of data under their
-own terms. No other party receives your information, and none of it is sold.
+RB2B, FormSubmit, beehiiv, and, for the Scan, Google Workspace) each handle their own slice of data under
+their own terms. No other party receives your information, and none of it is sold.
 
 ## Your choices
 
