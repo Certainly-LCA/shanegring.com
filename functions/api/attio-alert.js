@@ -17,7 +17,12 @@
  */
 
 const WORKER_NOTIFY = "https://buzz-alerts.shane-gring.workers.dev/notify";
-const LEADS_CHANNEL = "C0BTJ84CS9L"; // Slack #leads (public; bot posts via chat:write.public)
+// Shane's user id in the Shane Gring workspace — the alert bot DMs him
+// directly (im:write). A C… channel id works here too if a #leads channel is
+// ever created in THAT workspace; the first attempt used a #leads created by
+// the claude.ai connector, which lives in the certainly.coop workspace the
+// bot can't see (channel_not_found).
+const LEADS_CHANNEL = "U0BQKMHDE67";
 const LEADS_LIST_ID = "cfba0d31-4e69-47fa-91a1-239f9eba806a";
 
 function json(body, status) {

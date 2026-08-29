@@ -42,6 +42,12 @@ async function api(env, method, path, body) {
  *   offer           optional offer select for a NEW entry (set only when certain)
  *   nextActionDays  days from now for a NEW entry's next_action (default 1)
  *   noteTitle, noteContent   optional note (markdown)
+ *   advance         optional { stage, ifIn: [stages], nextAction: "YYYY-MM-DD" } —
+ *                   when the person ALREADY has a list entry, move it to `stage`
+ *                   (and set next_action) but only if its current stage is in
+ *                   `ifIn`. Used by call bookings: a booked call advances New/
+ *                   Contacted/Replied/Nurture leads, but never touches Won/Lost/
+ *                   Proposal sent. New entries are unaffected by this option.
  * }
  */
 export async function attioCapture(env, opts) {
@@ -61,9 +67,22 @@ export async function attioCapture(env, opts) {
     filter: { parent_record: { target_object: "people", target_record_id: recordId } },
     limit: 1,
   });
+  if (existing.data && existing.data.length > 0 && opts.advance) {
+    const entry = existing.data[0];
+    const cur = entry.entry_values && entry.entry_values.stage;
+    const curTitle = Array.isArray(cur) && cur[0] ? (cur[0].status && cur[0].status.title) || cur[0].value || "" : "";
+    if (opts.advance.ifIn.includes(curTitle)) {
+      const values = { stage: opts.advance.stage };
+      if (opts.advance.nextAction) values.next_action = opts.advance.nextAction;
+      await api(env, "PATCH", "/lists/leads/entries/" + entry.id.entry_id, {
+        data: { entry_values: values },
+      });
+    }
+  }
   if (!existing.data || existing.data.length === 0) {
     const days = opts.nextActionDays == null ? 1 : opts.nextActionDays;
-    const nextAction = new Date(Date.now() + days * 24 * 3600 * 1000).toISOString().slice(0, 10);
+    const nextAction = opts.nextActionDate ||
+      new Date(Date.now() + days * 24 * 3600 * 1000).toISOString().slice(0, 10);
     const entryValues = {
       stage: opts.stage || "New",
       source: opts.source || "Website",
