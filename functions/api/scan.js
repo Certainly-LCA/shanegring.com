@@ -23,6 +23,8 @@
  * "scan-health:" prefix for Cloudflare observability.
  */
 
+import { attioCapture } from "../lib/attio.js";
+
 const DEFAULT_MODEL = "claude-sonnet-4-6";
 const DEFAULT_FALLBACK_MODEL = "claude-haiku-4-5-20251001";
 const DEFAULT_MONTHLY_CAP = 400;
@@ -581,69 +583,25 @@ async function captureLead(env, ctx, payload) {
   if (ctx && ctx.waitUntil) ctx.waitUntil(all); else await all;
 }
 
-// Attio CRM upsert. Person is matched by email; a Leads-list entry is created
-// only if the person isn't already in the list (an existing entry's stage and
-// next_action are Shane's to manage — a repeat scan must not reset them). A
-// note with the scan result is always attached so the relationship history
-// accumulates. List slug "leads"; entry attributes stage/source/next_action.
+// Attio CRM upsert — shared logic lives in ../lib/attio.js. New scanners land
+// in the Leads list as New/Website; repeat scans never reset an existing
+// entry, and every scan attaches its result as a note.
 async function pushLeadToAttio(env, payload) {
-  const base = "https://api.attio.com/v2";
-  const headers = {
-    "Authorization": "Bearer " + env.ATTIO_API_KEY,
-    "Content-Type": "application/json",
-  };
-  async function api(method, path, body) {
-    const r = await fetch(base + path, {
-      method: method,
-      headers: headers,
-      body: body ? JSON.stringify(body) : undefined,
-    });
-    if (!r.ok) {
-      const b = await r.text().catch(function () { return ""; });
-      throw new Error("attio " + method + " " + path + " -> " + r.status + " " + b.slice(0, 200));
-    }
-    return r.json();
-  }
-
-  // 1. Upsert the person by email.
-  const person = await api("PUT", "/objects/people/records?matching_attribute=email_addresses", {
-    data: { values: { email_addresses: [payload.email] } },
-  });
-  const recordId = person.data.id.record_id;
-
-  // 2. Add to the Leads list unless already present.
-  const existing = await api("POST", "/lists/leads/entries/query", {
-    filter: { parent_record: { target_object: "people", target_record_id: recordId } },
-    limit: 1,
-  });
-  if (!existing.data || existing.data.length === 0) {
-    const tomorrow = new Date(Date.now() + 24 * 3600 * 1000).toISOString().slice(0, 10);
-    await api("POST", "/lists/leads/entries", {
-      data: {
-        parent_object: "people",
-        parent_record_id: recordId,
-        entry_values: { stage: "New", source: "Website", next_action: tomorrow },
-      },
-    });
-  }
-
-  // 3. Attach the scan result as a note.
   const lenses = payload.lenses
     ? Object.keys(payload.lenses).map(function (k) {
         const l = payload.lenses[k];
         return "- " + k + ": " + (l && l.score != null ? l.score : JSON.stringify(l));
       }).join("\n")
     : "";
-  await api("POST", "/notes", {
-    data: {
-      parent_object: "people",
-      parent_record_id: recordId,
-      title: "Site Readiness Scan — " + payload.site,
-      format: "markdown",
-      content: "Ran the Site Readiness Scan on **" + payload.url + "** (" + payload.at + ").\n\n" +
-        "Overall: **" + payload.overall + "**\n" + lenses +
-        "\n\nSource: shanegring.com /api/scan lead magnet.",
-    },
+  await attioCapture(env, {
+    email: payload.email,
+    stage: "New",
+    source: "Website",
+    nextActionDays: 1,
+    noteTitle: "Site Readiness Scan — " + payload.site,
+    noteContent: "Ran the Site Readiness Scan on **" + payload.url + "** (" + payload.at + ").\n\n" +
+      "Overall: **" + payload.overall + "**\n" + lenses +
+      "\n\nSource: shanegring.com /api/scan lead magnet.",
   });
 }
 

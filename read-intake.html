@@ -103,45 +103,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         2 business days. Nothing else is needed from you.
       </div>
 
-      <form class="contact-form" action="https://formsubmit.co/shane@shanegring.com" method="POST" aria-label="Read intake questions">
-        <input type="hidden" name="_subject" value="New Read intake">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://shanegring.com/read-intake#intake-sent">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-        <label class="contact-field full">
-          <span class="contact-flabel">The email you used at checkout</span>
-          <input type="email" name="Checkout email" required autocomplete="email">
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">1. Your URL — and any other sites or pages that represent the business (LinkedIn, subsidiary brands, old domains still live).</span>
-          <textarea name="1. URL and other sites" rows="3" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">2. In one or two sentences: what does the business actually do today, and for whom?</span>
-          <textarea name="2. What the business does today" rows="3" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">3. Your two or three closest competitors — or businesses you lose deals to.</span>
-          <textarea name="3. Closest competitors" rows="3" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">4. What has changed about the business in the last two years that matters most? (Offers, positioning, team, model.)</span>
-          <textarea name="4. What changed in two years" rows="4" required></textarea>
-        </label>
-
-        <label class="contact-field full">
-          <span class="contact-flabel">5. What prompted you to buy this now?</span>
-          <textarea name="5. Why now" rows="3" required></textarea>
-        </label>
-
-        <button type="submit" class="contact-submit">Send it &mdash; start my Read <span class="btn-arrow">&rarr;</span></button>
-      </form>
+      <!-- Tally form "Read intake" (XxPXPO); submissions flow to Attio via
+           the /api/tally-lead webhook. -->
+      <iframe data-tally-src="https://tally.so/embed/XxPXPO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&page=read-intake"
+        loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+        title="Read intake questions"></iframe>
+      <script async src="https://tally.so/widgets/embed.js"></script>
 
       <p class="contact-or">Questions? Reply to your receipt email; it reaches me directly.</p>
     </div>

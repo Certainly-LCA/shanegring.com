@@ -10,11 +10,14 @@
  *   BEEHIIV_API_KEY       secret   beehiiv API key (server-side only)
  * Optional:
  *   BEEHIIV_PUBLICATION   var      publication id (defaults to Seeking Certainty)
+ *   ATTIO_API_KEY         secret   drops subscribers into Attio (Nurture/Newsletter)
  *   SCAN_KV               KV       reused for rate limiting; absent = no limit
  *   SUBSCRIBE_IP_HOURLY   var      max signups per IP per hour (default 5)
  *
  * Health: GET /api/subscribe?health=1 → { ok, key_present, kv }.
  */
+
+import { attioCapture } from "../lib/attio.js";
 
 const DEFAULT_PUBLICATION = "pub_032815a3-09de-4fe3-8ddd-29887c80a61d";
 const DEFAULT_IP_HOURLY = 5;
@@ -149,6 +152,21 @@ export async function onRequestPost(context) {
   }
 
   await countSignup(env, gate);
+
+  // Newsletter readers enter Attio as Nurture — they asked to hear from
+  // Shane, not to talk to him. Best-effort in the background; a subscriber
+  // already on the Leads list keeps whatever stage they're in.
+  const attioTask = attioCapture(env, {
+    email: email,
+    stage: "Nurture",
+    source: "Newsletter",
+    nextActionDays: 45,
+    noteTitle: "Newsletter signup — Seeking Certainty",
+    noteContent: "Subscribed to the Seeking Certainty newsletter via shanegring.com" +
+      (source ? " (form: " + source + ")" : "") + " on " + new Date().toISOString().slice(0, 10) + ".",
+  }).catch(function (e) { console.log("subscribe attio capture error: " + e); });
+  if (context.waitUntil) context.waitUntil(attioTask);
+  else await attioTask;
 
   // beehiiv reports "validating" for a fresh address and "active" for one it
   // already knows. Both mean the reader is done; only the wording changes.
