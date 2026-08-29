@@ -47,14 +47,20 @@ export async function onRequestPost(context) {
   }
 
   const raw = await request.text();
+
+  let event;
+  try { event = JSON.parse(raw); } catch (e) { return json({ error: "bad json" }, 400); }
+
+  // Cal's UI ping test must succeed before a webhook can be created, and the
+  // ping may not carry a valid signature yet. A ping has no side effects here,
+  // so it's safe to acknowledge unsigned; everything else must verify.
+  if (event.triggerEvent === "PING") return json({ ok: true, pong: true });
+
   const ok = await validSignature(env.CAL_WEBHOOK_SECRET, raw, request.headers.get("x-cal-signature-256"));
   if (!ok) {
     console.log("cal-lead: bad signature");
     return json({ error: "bad signature" }, 401);
   }
-
-  let event;
-  try { event = JSON.parse(raw); } catch (e) { return json({ error: "bad json" }, 400); }
   if (event.triggerEvent !== "BOOKING_CREATED" || !event.payload) {
     return json({ ok: true, ignored: event.triggerEvent || "no trigger" });
   }
