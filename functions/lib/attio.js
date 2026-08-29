@@ -39,6 +39,7 @@ async function api(env, method, path, body) {
  *   name            optional display name for a newly created person
  *   stage           list stage for a NEW entry (default "New")
  *   source          list source for a NEW entry (default "Website")
+ *   offer           optional offer select for a NEW entry (set only when certain)
  *   nextActionDays  days from now for a NEW entry's next_action (default 1)
  *   noteTitle, noteContent   optional note (markdown)
  * }
@@ -63,15 +64,17 @@ export async function attioCapture(env, opts) {
   if (!existing.data || existing.data.length === 0) {
     const days = opts.nextActionDays == null ? 1 : opts.nextActionDays;
     const nextAction = new Date(Date.now() + days * 24 * 3600 * 1000).toISOString().slice(0, 10);
+    const entryValues = {
+      stage: opts.stage || "New",
+      source: opts.source || "Website",
+      next_action: nextAction,
+    };
+    if (opts.offer) entryValues.offer = opts.offer;
     await api(env, "POST", "/lists/leads/entries", {
       data: {
         parent_object: "people",
         parent_record_id: recordId,
-        entry_values: {
-          stage: opts.stage || "New",
-          source: opts.source || "Website",
-          next_action: nextAction,
-        },
+        entry_values: entryValues,
       },
     });
   }

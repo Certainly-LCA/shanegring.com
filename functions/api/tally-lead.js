@@ -25,8 +25,13 @@ import { attioCapture } from "../lib/attio.js";
 const FORM_RULES = {
   MepBpY: { title: "Contact form — shanegring.com", stage: "New", nextActionDays: 1 },
   yP5L50: { title: "Work inquiry — shanegring.com", stage: "New", nextActionDays: 1 },
-  XxPXPO: { title: "Read intake — shanegring.com", stage: "Won", nextActionDays: 1 },
+  XxPXPO: { title: "Read intake — shanegring.com", stage: "Won", nextActionDays: 1, offer: "Read" },
 };
+
+// The hidden `page` field says which page hosted the Work inquiry form; two of
+// those pages are offer-specific. Only map when it's unambiguous — the generic
+// pages leave offer for Shane to set.
+const PAGE_OFFER = { autopilot: "Autopilot", site: "Site" };
 
 function json(body, status) {
   return new Response(JSON.stringify(body), {
@@ -99,11 +104,14 @@ export async function onRequestPost(context) {
   const note = "Submitted " + (d.createdAt || event.createdAt || "") + " via Tally (" + (d.formName || d.formId) + ").\n\n" +
     lines.join("\n\n");
 
+  const offer = rule.offer || PAGE_OFFER[(byLabel["page"] || "").trim()] || undefined;
+
   const task = attioCapture(env, {
     email: email,
     name: name || undefined,
     stage: rule.stage,
     source: "Website",
+    offer: offer,
     nextActionDays: rule.nextActionDays,
     noteTitle: rule.title,
     noteContent: note,
