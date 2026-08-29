@@ -41,20 +41,21 @@ async function validSignature(secret, rawBody, signatureHeader) {
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  if (!env.CAL_WEBHOOK_SECRET) {
-    console.log("cal-lead: CAL_WEBHOOK_SECRET missing — rejecting so Cal retries later");
-    return json({ error: "not configured" }, 503);
-  }
-
   const raw = await request.text();
 
   let event;
   try { event = JSON.parse(raw); } catch (e) { return json({ error: "bad json" }, 400); }
 
   // Cal's UI ping test must succeed before a webhook can be created, and the
-  // ping may not carry a valid signature yet. A ping has no side effects here,
-  // so it's safe to acknowledge unsigned; everything else must verify.
+  // ping fires before the signing secret exists on either side. A ping has no
+  // side effects here, so it's acknowledged unsigned and unconfigured;
+  // everything else requires the secret and a valid signature.
   if (event.triggerEvent === "PING") return json({ ok: true, pong: true });
+
+  if (!env.CAL_WEBHOOK_SECRET) {
+    console.log("cal-lead: CAL_WEBHOOK_SECRET missing — rejecting so Cal retries later");
+    return json({ error: "not configured" }, 503);
+  }
 
   const ok = await validSignature(env.CAL_WEBHOOK_SECRET, raw, request.headers.get("x-cal-signature-256"));
   if (!ok) {
