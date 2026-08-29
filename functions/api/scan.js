@@ -12,6 +12,7 @@
  *   SCAN_KV             KV        rate limiting + monthly cap counter
  * Optional:
  *   LEAD_SHEET_URL      var       Apps Script web-app URL (logs row + sends emails)
+ *   ATTIO_API_KEY       secret    Attio CRM key — upserts the lead into the Leads list
  *   SCAN_MODEL          var       model id (default claude-sonnet-4-6)
  *   SCAN_MODEL_FALLBACK var       model tried when the primary fails twice (default claude-haiku-4-5)
  *   SCAN_MONTHLY_CAP    var       max scans/month (default 400)
@@ -551,23 +552,99 @@ async function runModel(env, site, signals) {
 // emailing Shane the result, and emailing the visitor their copy. Best-effort;
 // runs in the background and never blocks the user's result.
 async function captureLead(env, ctx, payload) {
-  if (!env.LEAD_SHEET_URL) {
+  const tasks = [];
+
+  if (env.LEAD_SHEET_URL) {
+    tasks.push(fetch(env.LEAD_SHEET_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).then(async function (r) {
+      if (!r.ok) {
+        const b = await r.text().catch(function () { return ""; });
+        console.log("scan lead capture failed: " + r.status + " " + b.slice(0, 200));
+      }
+    }).catch(function (e) { console.log("scan lead capture error: " + e); }));
+  } else {
     console.log("scan: LEAD_SHEET_URL not configured; lead not captured");
-    return;
   }
 
-  const task = fetch(env.LEAD_SHEET_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  }).then(async function (r) {
+  if (env.ATTIO_API_KEY) {
+    tasks.push(pushLeadToAttio(env, payload)
+      .catch(function (e) { console.log("scan attio capture error: " + e); }));
+  } else {
+    console.log("scan: ATTIO_API_KEY not configured; lead not sent to Attio");
+  }
+
+  if (tasks.length === 0) return;
+  const all = Promise.allSettled(tasks);
+  if (ctx && ctx.waitUntil) ctx.waitUntil(all); else await all;
+}
+
+// Attio CRM upsert. Person is matched by email; a Leads-list entry is created
+// only if the person isn't already in the list (an existing entry's stage and
+// next_action are Shane's to manage — a repeat scan must not reset them). A
+// note with the scan result is always attached so the relationship history
+// accumulates. List slug "leads"; entry attributes stage/source/next_action.
+async function pushLeadToAttio(env, payload) {
+  const base = "https://api.attio.com/v2";
+  const headers = {
+    "Authorization": "Bearer " + env.ATTIO_API_KEY,
+    "Content-Type": "application/json",
+  };
+  async function api(method, path, body) {
+    const r = await fetch(base + path, {
+      method: method,
+      headers: headers,
+      body: body ? JSON.stringify(body) : undefined,
+    });
     if (!r.ok) {
       const b = await r.text().catch(function () { return ""; });
-      console.log("scan lead capture failed: " + r.status + " " + b.slice(0, 200));
+      throw new Error("attio " + method + " " + path + " -> " + r.status + " " + b.slice(0, 200));
     }
-  }).catch(function (e) { console.log("scan lead capture error: " + e); });
+    return r.json();
+  }
 
-  if (ctx && ctx.waitUntil) ctx.waitUntil(task); else await task;
+  // 1. Upsert the person by email.
+  const person = await api("PUT", "/objects/people/records?matching_attribute=email_addresses", {
+    data: { values: { email_addresses: [payload.email] } },
+  });
+  const recordId = person.data.id.record_id;
+
+  // 2. Add to the Leads list unless already present.
+  const existing = await api("POST", "/lists/leads/entries/query", {
+    filter: { parent_record: { target_object: "people", target_record_id: recordId } },
+    limit: 1,
+  });
+  if (!existing.data || existing.data.length === 0) {
+    const tomorrow = new Date(Date.now() + 24 * 3600 * 1000).toISOString().slice(0, 10);
+    await api("POST", "/lists/leads/entries", {
+      data: {
+        parent_object: "people",
+        parent_record_id: recordId,
+        entry_values: { stage: "New", source: "Website", next_action: tomorrow },
+      },
+    });
+  }
+
+  // 3. Attach the scan result as a note.
+  const lenses = payload.lenses
+    ? Object.keys(payload.lenses).map(function (k) {
+        const l = payload.lenses[k];
+        return "- " + k + ": " + (l && l.score != null ? l.score : JSON.stringify(l));
+      }).join("\n")
+    : "";
+  await api("POST", "/notes", {
+    data: {
+      parent_object: "people",
+      parent_record_id: recordId,
+      title: "Site Readiness Scan — " + payload.site,
+      format: "markdown",
+      content: "Ran the Site Readiness Scan on **" + payload.url + "** (" + payload.at + ").\n\n" +
+        "Overall: **" + payload.overall + "**\n" + lenses +
+        "\n\nSource: shanegring.com /api/scan lead magnet.",
+    },
+  });
 }
 
 // Rate check only — counting moved to recordScan so failed scans don't spend
