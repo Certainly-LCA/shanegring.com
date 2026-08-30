@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="/styles.css?v=3e6b8b99">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Service","@id":"https://shanegring.com/handled#service","name":"Handled","serviceType":"Website build and ongoing management","provider":{"@id":"https://shanegring.com/#person"},"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"BusinessAudience","name":"Founders and independent professionals"},"description":"A clean, single-page website built to the client's specs, then watched, reported on, and improved every week after. Changes are made by email, with no dashboard, tickets, or portal. Includes Google Analytics and Search Console set up, and the client owns the code. $300 to build and $200 per month to keep it handled, with a six-month minimum.","offers":[{"@type":"Offer","name":"Site build","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Monthly handling","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled"}]},
+{"@type":"Service","@id":"https://shanegring.com/handled#service","name":"Handled","serviceType":"Website build and ongoing management","provider":{"@id":"https://shanegring.com/#person"},"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"BusinessAudience","name":"Founders and independent professionals"},"description":"A clean, single-page website built to the client's specs, then watched, reported on, and improved every week after. Changes are made by email, with no dashboard, tickets, or portal. Includes Google Analytics and Search Console set up, and the client owns the code. $300 to build and $200 per month to keep it handled, with a six-month minimum.","offers":[{"@type":"Offer","name":"Site build","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Monthly handling","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Lean CMS (optional upgrade)","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 2 hours (optional upgrade)","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 5 hours (optional upgrade)","price":"500","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"}]},
 {"@type":"FAQPage","@id":"https://shanegring.com/handled#faq","mainEntity":[
 {"@type":"Question","name":"Is this really just for a one-page site?","acceptedAnswer":{"@type":"Answer","text":"Yes, and on purpose. Most people don't need more; they need one page that's sharp, credible, and actually maintained. Want more later? We scale the budget and do more. Start simple, grow when there's a reason to."}},
 {"@type":"Question","name":"Who's actually behind this?","acceptedAnswer":{"@type":"Answer","text":"Me. Shane Gring, a fractional operator who's spent 15 years running websites, analytics, and digital operations for founders and companies. This is the same machinery I run for clients, pointed at your personal site. When you email, you're emailing me."}},
@@ -66,12 +66,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     2. Inner Assembly's example card is deliberately NOT linked: the site is
        password-gated, and we don't send visitors into a password wall. Link
        it once the gate comes down.
-    3. UPGRADE PRICING IS TBD (2026-08-30). Shane is setting the numbers
-       himself — do NOT put proposed prices on the page or in the schema.
-       Each #upgrades card carries a "Pricing at launch" marker: search for
-       that phrase, swap in the real numbers when Shane supplies them, and
-       add the matching Offer entries to the schema (with prices) then.
-       Update handled.md in the same pass.
+    3. UPGRADE PRICING IS PARTIAL (2026-08-30). Shane set the numbers for
+       two upgrades: the lean CMS ($200) and the hour blocks ($300 for 2h,
+       $500 for 5h). Those are on the cards and in the schema. "Another page"
+       and "A newsletter, wired in" still carry the "Pricing at launch"
+       marker — do NOT invent numbers for them; swap in Shane's when he
+       supplies them and add the matching schema Offers then. Whether the
+       CMS $200 is one-time or monthly is UNCONFIRMED, so the card says a
+       bare "$200" — add the period once Shane confirms it. Update
+       handled.md in the same pass.
   ════════════════════════════════════════════════════════════════════════════
 -->
 
@@ -304,14 +307,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>For work bigger than an email: a new section, a landing page
           for a launch, a rework of what's there. You buy the block, you
           say what it goes toward.</p>
-          <p><strong>Pricing at launch</strong></p>
+          <p><strong>$300 for 2 hours &middot; $500 for 5 hours</strong></p>
         </div>
         <div class="om-card">
           <h3>A lean CMS</h3>
           <p>Want to publish yourself &mdash; posts, listings, updates &mdash;
           without touching code? I attach a small, simple editor to your site
           and show you how to use it. Write, hit save, it's live.</p>
-          <p><strong>Pricing at launch</strong></p>
+          <p><strong>$200</strong></p>
         </div>
         <div class="om-card">
           <h3>A newsletter, wired in</h3>
@@ -322,7 +325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <p>
-        <strong>Checkout opens soon, and upgrade pricing lands with it.</strong>
+        <strong>Checkout opens soon.</strong>
         If one of these is already calling your name, mention it when you get
         in line and I'll fold it into your build.
       </p>

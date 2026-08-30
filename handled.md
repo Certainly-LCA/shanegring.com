@@ -133,7 +133,7 @@ watch. An about page, a services page, a page for the thing you launch next.
 For work bigger than an email: a new section, a landing page for a launch,
 a rework of what's there. You buy the block, you say what it goes toward.
 
-**Pricing at launch**
+**$300 for 2 hours · $500 for 5 hours**
 
 ### A lean CMS
 
@@ -141,7 +141,7 @@ Want to publish yourself — posts, listings, updates — without touching code?
 I attach a small, simple editor to your site and show you how to use it.
 Write, hit save, it's live.
 
-**Pricing at launch**
+**$200**
 
 ### A newsletter, wired in
 
@@ -150,7 +150,7 @@ yours, same as your code.
 
 **Pricing at launch**
 
-**Checkout opens soon, and upgrade pricing lands with it.** If one of these
+**Checkout opens soon.** If one of these
 is already calling your name, mention it when you get in line and I'll fold
 it into your build.
 
