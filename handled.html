@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="/styles.css?v=3e6b8b99">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Service","@id":"https://shanegring.com/handled#service","name":"Handled","serviceType":"Website build and ongoing management","provider":{"@id":"https://shanegring.com/#person"},"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"BusinessAudience","name":"Founders and independent professionals"},"description":"A clean, single-page website built to the client's specs, then watched, reported on, and improved every week after. Changes are made by email, with no dashboard, tickets, or portal. Includes Google Analytics and Search Console set up, and the client owns the code. $300 to build and $200 per month to keep it handled, with a six-month minimum.","offers":[{"@type":"Offer","name":"Site build","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Monthly handling","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Lean CMS (optional upgrade)","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 2 hours (optional upgrade)","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 5 hours (optional upgrade)","price":"500","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"}]},
+{"@type":"Service","@id":"https://shanegring.com/handled#service","name":"Handled","serviceType":"Website build and ongoing management","provider":{"@id":"https://shanegring.com/#person"},"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"BusinessAudience","name":"Founders and independent professionals"},"description":"A clean, single-page website built to the client's specs, then watched, reported on, and improved every week after. Changes are made by email, with no dashboard, tickets, or portal. Includes Google Analytics and Search Console set up, and the client owns the code. $300 to build and $200 per month to keep it handled, with a six-month minimum.","offers":[{"@type":"Offer","name":"Site build","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Monthly handling","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled","priceSpecification":{"@type":"UnitPriceSpecification","price":"200","priceCurrency":"USD","billingDuration":1,"billingIncrement":1,"unitText":"MONTH"}},{"@type":"Offer","name":"Lean CMS (optional upgrade)","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades","priceSpecification":{"@type":"UnitPriceSpecification","price":"200","priceCurrency":"USD","billingDuration":1,"billingIncrement":1,"unitText":"MONTH"}},{"@type":"Offer","name":"Block of hours \u2014 2 hours (optional upgrade)","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 5 hours (optional upgrade)","price":"500","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"}]},
 {"@type":"FAQPage","@id":"https://shanegring.com/handled#faq","mainEntity":[
 {"@type":"Question","name":"Is this really just for a one-page site?","acceptedAnswer":{"@type":"Answer","text":"Yes, and on purpose. Most people don't need more; they need one page that's sharp, credible, and actually maintained. Want more later? We scale the budget and do more. Start simple, grow when there's a reason to."}},
 {"@type":"Question","name":"Who's actually behind this?","acceptedAnswer":{"@type":"Answer","text":"Me. Shane Gring, a fractional operator who's spent 15 years running websites, analytics, and digital operations for founders and companies. This is the same machinery I run for clients, pointed at your personal site. When you email, you're emailing me."}},
@@ -67,14 +67,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        password-gated, and we don't send visitors into a password wall. Link
        it once the gate comes down.
     3. UPGRADE PRICING IS PARTIAL (2026-08-30). Shane set the numbers for
-       two upgrades: the lean CMS ($200) and the hour blocks ($300 for 2h,
-       $500 for 5h). Those are on the cards and in the schema. "Another page"
-       and "A newsletter, wired in" still carry the "Pricing at launch"
-       marker — do NOT invent numbers for them; swap in Shane's when he
-       supplies them and add the matching schema Offers then. Whether the
-       CMS $200 is one-time or monthly is UNCONFIRMED, so the card says a
-       bare "$200" — add the period once Shane confirms it. Update
-       handled.md in the same pass.
+       two upgrades: the lean CMS ($200/mo, confirmed recurring) and the hour
+       blocks ($300 for 2h, $500 for 5h). Those are on the cards and in the
+       schema. "Another page" and "A newsletter, wired in" still carry the
+       "Pricing at launch" marker — do NOT invent numbers for them; swap in
+       Shane's when he supplies them and add the matching schema Offers then.
+       Update handled.md in the same pass.
+    4. THE LEAN CMS "what you get" LIST (2026-08-30) sits in its own full-width
+       card under the upgrade grid, because four bullets inside a 250px grid
+       column leave the three sibling cards half-empty. The bullets were
+       drafted from what this page already promises (weekly watch, email
+       changes, code you own) — Shane's own wording, if he supplies it,
+       replaces them wholesale. The closing "without it" line (.om-contrast)
+       is the selling point Shane asked for: it must stay consistent with the
+       base plan above, which DOES include email changes — the contrast is
+       self-publishing and hour blocks, not email support.
   ════════════════════════════════════════════════════════════════════════════
 -->
 
@@ -310,18 +317,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p><strong>$300 for 2 hours &middot; $500 for 5 hours</strong></p>
         </div>
         <div class="om-card">
-          <h3>A lean CMS</h3>
-          <p>Want to publish yourself &mdash; posts, listings, updates &mdash;
-          without touching code? I attach a small, simple editor to your site
-          and show you how to use it. Write, hit save, it's live.</p>
-          <p><strong>$200</strong></p>
-        </div>
-        <div class="om-card">
           <h3>A newsletter, wired in</h3>
           <p>A signup form on your site and a clean place to send from.
           Your list is yours, same as your code.</p>
           <p><strong>Pricing at launch</strong></p>
         </div>
+      </div>
+
+      <div class="om-card om-card-featured om-upgrade-detail">
+        <h3>A lean CMS</h3>
+        <p>For when you want to publish yourself &mdash; posts, listings,
+        updates &mdash; without touching code or waiting on me. Here's exactly
+        what the $200/month buys:</p>
+        <ul class="cs-bullets">
+          <li><strong>An editor wired into your live site.</strong> Write, hit
+          save, it's live. No code, no deploy step, no plugin sprawl to
+          maintain.</li>
+          <li><strong>The layout it feeds, built to match.</strong> The index
+          and the entry page, styled like the rest of your site, so what you
+          publish looks like it belongs there.</li>
+          <li><strong>A walkthrough, so you actually use it.</strong> I set it
+          up and show you how it works, end to end. Forget a step six months
+          later? Email me.</li>
+          <li><strong>Watched like the rest of the site.</strong> Everything
+          you publish falls under the same weekly check, the same fixes, and
+          the same reporting as the page itself.</li>
+        </ul>
+        <p class="om-contrast"><strong>Without it, every change goes through
+        me.</strong> A headline or a photo is an email and it's handled &mdash;
+        that's the base plan. But a run of posts or listings isn't email-sized
+        work, so it comes out of an hour block, and it goes live when I get to
+        it. The CMS is what lets you skip the ask.</p>
+        <p><strong>$200/mo</strong></p>
       </div>
 
       <p>

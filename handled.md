@@ -71,31 +71,21 @@ Real sites, built and handled the same way yours will be.
 
 ### [Ted Gonder](https://tedgonder.co)
 
-![Homepage of tedgonder.co](/images/handled/tedgonder.webp)
-
 Private strategic advisory. tedgonder.co
 
 ### [Skyler Gring](https://skylergring.com)
-
-![Homepage of skylergring.com](/images/handled/skylergring.webp)
 
 Travel agent, Dreamers Do Travels. skylergring.com
 
 ### [Earthlight](https://earthlight.app)
 
-![Homepage of earthlight.app](/images/handled/earthlight.webp)
-
 Circadian lighting ROI. earthlight.app
 
 ### Inner Assembly
 
-![Homepage of Inner Assembly](/images/handled/inner-assembly.webp)
-
 In a private preview while the client finishes their launch.
 
 ### [GreenStar Homes](https://greenstarhomes.org)
-
-![Homepage of greenstarhomes.org](/images/handled/greenstar.webp)
 
 Green home certification. greenstarhomes.org
 
@@ -118,41 +108,64 @@ Compared to the alternatives you already know:
 ## Optional upgrades
 
 The base covers most people. When you want more, add it when there's a
-reason — and whatever we add gets watched and handled the same as the
-rest of your site. The $200/month already covers that.
+reason — and whatever we add gets watched and handled the same
+as the rest of your site. The $200/month already covers that.
 
 ### Another page
 
-A second page, built to the same standard and folded into the same weekly
-watch. An about page, a services page, a page for the thing you launch next.
+A second page, built to the same standard and folded into the
+same weekly watch. An about page, a services page, a page for the
+thing you launch next.
 
 **Pricing at launch**
 
 ### A block of hours
 
-For work bigger than an email: a new section, a landing page for a launch,
-a rework of what's there. You buy the block, you say what it goes toward.
+For work bigger than an email: a new section, a landing page
+for a launch, a rework of what's there. You buy the block, you
+say what it goes toward.
 
 **$300 for 2 hours · $500 for 5 hours**
 
-### A lean CMS
-
-Want to publish yourself — posts, listings, updates — without touching code?
-I attach a small, simple editor to your site and show you how to use it.
-Write, hit save, it's live.
-
-**$200**
-
 ### A newsletter, wired in
 
-A signup form on your site and a clean place to send from. Your list is
-yours, same as your code.
+A signup form on your site and a clean place to send from.
+Your list is yours, same as your code.
 
 **Pricing at launch**
 
-**Checkout opens soon.** If one of these
-is already calling your name, mention it when you get in line and I'll fold
-it into your build.
+### A lean CMS
+
+For when you want to publish yourself — posts, listings,
+updates — without touching code or waiting on me. Here's exactly
+what the $200/month buys:
+
+- **An editor wired into your live site.** Write, hit
+save, it's live. No code, no deploy step, no plugin sprawl to
+maintain.
+
+- **The layout it feeds, built to match.** The index
+and the entry page, styled like the rest of your site, so what you
+publish looks like it belongs there.
+
+- **A walkthrough, so you actually use it.** I set it
+up and show you how it works, end to end. Forget a step six months
+later? Email me.
+
+- **Watched like the rest of the site.** Everything
+you publish falls under the same weekly check, the same fixes, and
+the same reporting as the page itself.
+
+**Without it, every change goes through me.** A headline or a photo is an
+email and it's handled — that's the base plan. But a run of posts or
+listings isn't email-sized work, so it comes out of an hour block, and it
+goes live when I get to it. The CMS is what lets you skip the ask.
+
+**$200/mo**
+
+**Checkout opens soon.**
+If one of these is already calling your name, mention it when you get
+in line and I'll fold it into your build.
 
 ## Founding cohort — first 10 only
 

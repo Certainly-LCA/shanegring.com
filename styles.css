@@ -3191,6 +3191,42 @@ body.offer-partner { --offer: #ae2c1c; --offer-deep: #8e2417; }
 }
 .om-card .path-item-cta { margin-top: 1rem; }
 
+/* Upgrades: one card carries a "what you get" list rather than a sentence.
+   Four bullets inside a 250px grid column would leave its siblings
+   half-empty, so that card drops out of the grid and runs full width. */
+.om-upgrade-detail {
+  margin-top: 1.1rem;
+}
+.om-upgrade-detail .cs-bullets {
+  margin: 0.9rem 0;
+}
+.om-upgrade-detail .cs-bullets li {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  padding: 0.3rem 0 0.3rem 1.4rem;
+}
+.om-upgrade-detail .cs-bullets li::before {
+  top: 0.3rem;
+}
+/* The "without it" contrast line: the point of the card, so it sits apart
+   from the list above it rather than reading as a fifth bullet. */
+.om-upgrade-detail .om-contrast {
+  margin: 1.1rem 0 0 !important;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.12));
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--dim);
+}
+.om-upgrade-detail .om-contrast strong {
+  color: var(--fg);
+}
+
+/* Matches the breathing room `.om-cards + p` gives the note under a grid. */
+.om-section .om-upgrade-detail + p {
+  margin-top: 1.7rem;
+}
+
 .om-weeks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
