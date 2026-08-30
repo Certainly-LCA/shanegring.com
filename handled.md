@@ -71,21 +71,31 @@ Real sites, built and handled the same way yours will be.
 
 ### [Ted Gonder](https://tedgonder.co)
 
+![Homepage of tedgonder.co](/images/handled/tedgonder.webp)
+
 Private strategic advisory. tedgonder.co
 
 ### [Skyler Gring](https://skylergring.com)
+
+![Homepage of skylergring.com](/images/handled/skylergring.webp)
 
 Travel agent, Dreamers Do Travels. skylergring.com
 
 ### [Earthlight](https://earthlight.app)
 
+![Homepage of earthlight.app](/images/handled/earthlight.webp)
+
 Circadian lighting ROI. earthlight.app
 
 ### Inner Assembly
 
+![Homepage of Inner Assembly](/images/handled/inner-assembly.webp)
+
 In a private preview while the client finishes their launch.
 
 ### [GreenStar Homes](https://greenstarhomes.org)
+
+![Homepage of greenstarhomes.org](/images/handled/greenstar.webp)
 
 Green home certification. greenstarhomes.org
 

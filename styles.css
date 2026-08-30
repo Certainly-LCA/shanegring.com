@@ -3161,6 +3161,17 @@ body.offer-partner { --offer: #ae2c1c; --offer-deep: #8e2417; }
 }
 .om-card p { margin: 0; font-size: 0.95rem; line-height: 1.65; color: var(--mid); }
 .om-card p + p { margin-top: 0.7rem; }
+.om-card .om-shot {
+  display: block;
+  width: calc(100% + 3rem);
+  height: auto;
+  margin: -1.4rem -1.5rem 1.1rem;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 1px solid var(--border);
+  border-radius: 11px 11px 0 0;
+}
 .om-card-featured { border-color: var(--offer, var(--fg)); border-width: 2px; box-shadow: 0 14px 34px -24px rgba(0, 0, 0, 0.35); }
 .ws-price {
   margin: 0 0 0.7rem !important;
