@@ -106,13 +106,42 @@ transaction — and cancel anytime after. When you go, you take your
 site with you: I hand over the repo, no hostage situation.
 
 That's it. No plan tiers to decode, no upsells buried in a dashboard, no
-surprise renewal.
+surprise renewal. Want more than the base? The upgrades below are the
+whole list, priced in the open — none of them required.
 
 Compared to the alternatives you already know:
 
 - **Cheaper than the freelancer** — and unlike the freelancer, I don't disappear the day it launches.
 
 - **A fraction of the time Squarespace costs you** — because the time isn't yours. It's mine.
+
+## Optional upgrades
+
+The base covers most people. When you want more, add it when there's a
+reason. Each one is a one-time price, and whatever we add gets watched
+and handled the same as the rest of your site — the $200/month
+already covers that.
+
+### Another page — $150
+
+A second page, built to the same standard and folded into the same weekly
+watch. An about page, a services page, a page for the thing you launch next.
+
+### A block of hours — $500 for four
+
+For work bigger than an email: a new section, a landing page for a launch,
+a rework of what's there. You buy the block, you say what it goes toward.
+
+### A lean CMS — $250
+
+Want to publish yourself — posts, listings, updates — without touching code?
+I attach a small, simple editor to your site and show you how to use it.
+Write, hit save, it's live.
+
+### A newsletter, wired in — $250
+
+A signup form on your site and a clean place to send from. Your list is
+yours, same as your code.
 
 ## Founding cohort — first 10 only
 
