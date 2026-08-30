@@ -107,7 +107,7 @@ site with you: I hand over the repo, no hostage situation.
 
 That's it. No plan tiers to decode, no upsells buried in a dashboard, no
 surprise renewal. Want more than the base? The upgrades below are the
-whole list, priced in the open — none of them required.
+whole list, out in the open — none of them required.
 
 Compared to the alternatives you already know:
 
@@ -118,30 +118,41 @@ Compared to the alternatives you already know:
 ## Optional upgrades
 
 The base covers most people. When you want more, add it when there's a
-reason. Each one is a one-time price, and whatever we add gets watched
-and handled the same as the rest of your site — the $200/month
-already covers that.
+reason — and whatever we add gets watched and handled the same as the
+rest of your site. The $200/month already covers that.
 
-### Another page — $150
+### Another page
 
 A second page, built to the same standard and folded into the same weekly
 watch. An about page, a services page, a page for the thing you launch next.
 
-### A block of hours — $500 for four
+**Pricing at launch**
+
+### A block of hours
 
 For work bigger than an email: a new section, a landing page for a launch,
 a rework of what's there. You buy the block, you say what it goes toward.
 
-### A lean CMS — $250
+**Pricing at launch**
+
+### A lean CMS
 
 Want to publish yourself — posts, listings, updates — without touching code?
 I attach a small, simple editor to your site and show you how to use it.
 Write, hit save, it's live.
 
-### A newsletter, wired in — $250
+**Pricing at launch**
+
+### A newsletter, wired in
 
 A signup form on your site and a clean place to send from. Your list is
 yours, same as your code.
+
+**Pricing at launch**
+
+**Checkout opens soon, and upgrade pricing lands with it.** If one of these
+is already calling your name, mention it when you get in line and I'll fold
+it into your build.
 
 ## Founding cohort — first 10 only
 
