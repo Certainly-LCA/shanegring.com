@@ -26,7 +26,8 @@ identifiers, and IP addresses. When it finds a match, it is sent to Shane so he 
 already reading about his work. That is the whole use: no ads, no resale, no profile built beyond the
 match itself. It runs only on shanegring.com, never on preview or local versions, and it is switched off
 for browsers that send a Global Privacy Control signal. An ad blocker or privacy extension stops it too,
-and you can opt out with RB2B directly at [app.retention.com/optout](https://app.retention.com/optout).
+and you can opt out with RB2B directly at
+[app.retention.com/optout](https://app.retention.com/optout).
 
 ## The contact form
 

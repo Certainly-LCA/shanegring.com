@@ -2,7 +2,7 @@ Cookies
 
 # The cookies this site sets.
 
-Which cookies shanegring.com sets, why, and how to turn them off. The site uses analytics and visitor-identification cookies, and no advertising cookies.
+Which cookies shanegring.com sets, why, and how to turn them off. The site uses analytics cookies only, and no advertising cookies.
 
 Short version: shanegring.com uses analytics cookies to count visits and identification cookies to
 recognise business visitors, and no advertising cookies at all. Nothing here shows you ads or follows you
@@ -23,11 +23,10 @@ two years unless you clear them.
 
 The live site also runs RB2B, a visitor-identification service, through the same tag manager. RB2B sets
 its own cookies and local storage holding a random identifier, and combines them with your IP address to
-try to match a visit to a public business profile — see the [Privacy](https://shanegring.com/privacy)
-page for how that match is used and how to opt out. These are identification cookies, not advertising
-ones: nothing on this site shows you ads or tracks you across other sites. RB2B does not load for
-browsers that send a Global Privacy Control signal, and preview and local versions of the site set no
-cookies at all.
+try to match a visit to a public business profile — see the [Privacy](https://shanegring.com/privacy) page for how
+that match is used and how to opt out. These are identification cookies, not advertising ones: nothing on
+this site shows you ads or tracks you across other sites. RB2B does not load for browsers that send a
+Global Privacy Control signal, and preview and local versions of the site set no cookies at all.
 
 ## Third parties
 
