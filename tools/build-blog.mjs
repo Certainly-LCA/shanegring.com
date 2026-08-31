@@ -568,6 +568,54 @@ posts.forEach((post, i) => {
 writeFileSync(resolve(OUT, 'index.html'), indexPage(posts));
 console.log(`  /blog/`);
 
+// Refresh the homepage "From the newsletter" strip between its markers, the
+// same way build-notes.mjs refreshes the notes rail. Keeps the three most
+// recent issues on the front door without hand-editing index.html.
+refreshHomeNewsletter(posts);
+
+function postExcerpt(p) {
+  if (p.subtitle && p.subtitle.trim()) return p.subtitle.trim();
+  // Strip beehiiv's inline <style>/<script> blocks before flattening to text,
+  // or the excerpt starts with their table CSS instead of the actual copy.
+  const raw = String(p.content || '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '');
+  const text = plain(raw);
+  if (!text || /[{}]/.test(text.slice(0, 40))) return '';
+  if (text.length <= 140) return text;
+  return text.slice(0, 140).replace(/\s+\S*$/, '') + '…';
+}
+
+function refreshHomeNewsletter(allPosts) {
+  const HOME = resolve(ROOT, 'index.html');
+  const START = '<!-- newsletter:start -->';
+  const END = '<!-- newsletter:end -->';
+  if (!existsSync(HOME)) return;
+  const home = readFileSync(HOME, 'utf8');
+  if (!home.includes(START) || !home.includes(END)) {
+    console.log('  index.html: no newsletter markers found, homepage left alone');
+    return;
+  }
+  const cards = allPosts
+    .slice(0, 3)
+    .map((p) => {
+      const desc = postExcerpt(p);
+      return `      <li>
+        <a class="home-post" href="/blog/${siteSlug(p)}">
+          <span class="home-post-when"><time datetime="${isoDate(p.published_at)}">${longDate(p.published_at)}</time></span>
+          <span class="home-post-title">${esc(plain(p.title))}</span>${
+            desc ? `\n          <span class="home-post-desc">${esc(desc)}</span>` : ''
+          }
+        </a>
+      </li>`;
+    })
+    .join('\n');
+  const block = `${START}\n    <ul class="home-post-grid">\n${cards}\n    </ul>\n    ${END}`;
+  const next = home.replace(new RegExp(`${START}[\\s\\S]*?${END}`), () => block);
+  writeFileSync(HOME, next);
+  console.log('  index.html: newsletter strip refreshed');
+}
+
 // Writing pages does not remove them. A post that gets unpublished, or one
 // that was built before a slug changed -- or a scheduled issue that a
 // previous run should not have written at all -- would otherwise stay on

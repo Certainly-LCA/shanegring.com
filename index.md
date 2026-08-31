@@ -153,6 +153,38 @@ challenge in itself.
 
 [More about Shane Gring →](https://shanegring.com/about)
 
+Read first
+
+## The thinking, written down.
+
+Not ready to talk? Start here. The guides answer the questions expert-led businesses actually ask about their websites and operations. The newsletter is what I'm working through right now.
+
+### Guides
+
+[All guides →](https://shanegring.com/guides/)
+
+- [Can AI read your website? The five signals that decide what AI engines can see about your business, and how to check yours in about ten minutes.](https://shanegring.com/guides/can-ai-read-my-website)
+
+- [Why your website isn't bringing in clients It's rarely the design. Where the leaks actually are, and what to fix first.](https://shanegring.com/guides/why-your-website-isnt-bringing-in-clients)
+
+- [Everything still runs through you How founder-dependence ends: what becomes a system, what becomes someone's job, what becomes automation.](https://shanegring.com/guides/everything-runs-through-you)
+
+- [What is a fractional COO? A plain answer, how the role differs from interim and outsourced COOs, and how to tell if you need one.](https://shanegring.com/guides/what-is-a-fractional-coo)
+
+- [Your site needs a content layer Why more blog posts don't move the needle, and what a machine-readable content layer is instead.](https://shanegring.com/guides/build-a-content-layer)
+
+- [Should you block AI crawlers? What robots.txt and llms.txt actually decide — and the case for letting the machines read.](https://shanegring.com/guides/should-i-block-ai-crawlers)
+
+### From the newsletter
+
+[Read Seeking Certainty →](https://shanegring.com/blog/)
+
+[August 20, 2026 Why does the biz only work when you're in the room? Three years ago, a playground and I had a disagreement. The playground won.We were halfway through an eight-hour drive to the Outer Banks,…](https://shanegring.com/blog/why-does-the-biz-only-work-when-you-re-in-the-room)
+
+[August 12, 2026 Seeking Certainty is changing Quick housekeeping note, then back to your day.](https://shanegring.com/blog/seeking-certainty-is-changing)
+
+[March 27, 2026 Early recognition is often borrowed (and that's okay) Practical ways to borrow trust for your certification early.](https://shanegring.com/blog/early-recognition-is-borrowed)
+
 Lately
 
 ## Notes from the work.
