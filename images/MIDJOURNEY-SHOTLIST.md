@@ -552,3 +552,66 @@ missing, so these can land one at a time without breaking anything.
 Tips: generate in one session so the set holds together; reroll drifters with
 `--seed` from the best job. If a prompt comes back as a wide scene rather than a
 close object, add `macro, tightly cropped, object fills the frame`.
+
+---
+
+## 17. Agent avatars — `~/ClaudeCode/apps/agents/<slug>/avatar.png` ⬜ IN PROGRESS
+
+Slack-bridge agent avatars. Flat pixel-icon register (like §8's offer icons):
+chunky 16x16-style sprite, plain white background, single centered object,
+`--ar 1:1 --stylize 50`, **no `--sref`**. Deliver 1024px. ONE literal object
+that names the agent's job, one color family per agent.
+
+**This hue registry is separate from the offer-icon wheel** — collisions across
+the two sets are fine (Doc's red ≈ Partner 9°, Atlas's lavender ≈ Map 292°);
+collisions *within* the agent set are not.
+
+| Agent | Object | Color | Status |
+|---|---|---|---|
+| Muse | (see avatar.png) | magenta | ✅ delivered |
+| Scribe | quill | pink | ✅ delivered |
+| Doc | first-aid kit | red | ✅ delivered |
+| Atlas | globe | lavender | ✅ delivered |
+| Warden | lantern | indigo | ✅ delivered |
+| Teller | cash register / bill spike / toll gate — winner not stated | warm amber (#d98f1f, #eaa83d, #f5c266) | ✅ confirmed 2026-08-29, PNG not yet filed on disk |
+| Scout | binoculars / spyglass / lure proposed | olive green (reserved) | ⬜ awaiting pick |
+| Postman | — | teal (proposed) | ⬜ prompts issued 2026-08-29 |
+| Copy | (see avatar.png — light blue, #95D8FD/#6AC1F4) | blue | ✅ delivered 2026-08-30 (lighter than the #1f6fd0 spec issued; the file wins) |
+| Design | paint roller / paint-chip fan / spirit level issued | bright orange (#c85a14, #e2761f, #f09c4e) | ⬜ prompts issued 2026-08-30 |
+| Onboard | **life ring** (Shane changed from welcome mat 2026-08-31 — "better than the welcome mat") | fresh green (#2f8f4a, #43a862, #6ac48b) | ⬜ life-ring prompts issued 2026-08-31; supersedes the welcome-mat PNG Shane holds |
+| Sweeper | broom / push broom / dustpan issued | steel gray (#55636e, #74838f, #9aa8b3) | ⬜ prompts issued 2026-08-30 — **not in registry.json**; assumed cleanup/maintenance agent |
+| Ranger, Pollen, Concierge, Alert, Mason, Pitch | — | open: brown (soft-held for Mason's brick/trowel), yellow, warm neutral… | ⬜ queued |
+
+Taken agent hues: red, pink, magenta, lavender, indigo, amber, blue; orange,
+green and steel gray issued 2026-08-30; olive soft-held for Scout, teal proposed
+for Postman, brown soft-held for Mason.
+
+**Slack app icons ship opaque.** Do NOT run the corner-floodfill transparency
+recipe on avatars — a transparent PNG renders on black in some Slack surfaces.
+Downscale 1024 → 512 nearest-neighbour and flatten onto white:
+
+```
+magick SRC -filter point -resize 512x512 -background white -alpha remove -alpha off OUT
+```
+
+Copy is the *writing* agent and Scribe already owns the quill — keep Copy off
+nib/feather objects so the two read apart at 22px.
+
+---
+
+## 18. Style-LoRA training sets ✅ ASSEMBLED (2026-08-30)
+
+Staged at `~/ClaudeCode/flux-training/` (outside the deployable tree on purpose)
+for the Flux-LoRA / Recraft plan discussed in #visuals. Two zips, two registers:
+
+- `scene-training-v1.zip` — 41 images: 14 page heroes, 15 guide heroes, 12 blog
+  cards (`blog--` prefix). Excludes `portrait.png` (off-palette red background),
+  photos, and all flat icons.
+- `icon-style-v1.zip` — 16 images: the 11 site icons (processed 112px
+  transparent versions) + 5 agent avatars (1024px originals).
+
+Sources are the PNG8 web exports — near-lossless for pixel art, and the scene
+originals were never archived, so this is the corpus. Details and exclusion
+rationale in that folder's `README.md`. Bake-off before adoption: regenerate
+`map-hero` + one guide card via the trained LoRA and compare against the MJ
+versions.

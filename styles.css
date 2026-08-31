@@ -6418,3 +6418,105 @@ footer .footer-nav ul,
 @media (max-width: 860px) {
   .home-axes { grid-template-columns: 1fr; gap: 2rem; }
 }
+
+
+/* ══════════════════════════════════════════════════════════════
+   404 — THE CLOUD WHERE THE PAGE SHOULD BE
+   The pixel cloud from the logo stands in for the zero; the bolt
+   strikes on hover, focus, or click (.nf-zap, set by 404.html).
+   ══════════════════════════════════════════════════════════════ */
+.nf-scene {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.25rem, 2vw, 1rem);
+  margin: 1.5rem 0 0.25rem;
+  user-select: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nf-four {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 18vw, 10rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--fg);
+}
+
+.nf-cloud {
+  display: inline-block;
+  position: relative;
+  padding: 0 0 3.25rem; /* room below the cloud for the bolt to land */
+  animation: nf-drift 7s ease-in-out infinite;
+}
+
+.nf-cloud-img {
+  display: block;
+  width: clamp(130px, 30vw, 224px);
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  filter: saturate(1.35) contrast(1.08);
+}
+
+.nf-bolt {
+  position: absolute;
+  left: 50%;
+  bottom: 0.25rem;
+  transform: translateX(-50%);
+  width: clamp(22px, 4.5vw, 32px);
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.nf-scene:hover .nf-bolt,
+.nf-scene:focus-visible .nf-bolt,
+.nf-scene.nf-zap .nf-bolt {
+  animation: bolt-flash 0.55s linear infinite;
+}
+
+.nf-scene.nf-zap .nf-cloud-img {
+  animation: nf-flash 0.55s linear 1;
+}
+
+@keyframes nf-drift {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+@keyframes nf-flash {
+  0%, 25% { filter: saturate(1.35) contrast(1.08) brightness(1.4); }
+  100%    { filter: saturate(1.35) contrast(1.08); }
+}
+
+.nf-zap-msg {
+  min-height: 1.5em;
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  color: var(--dim);
+}
+
+.nf-path {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  word-break: break-all;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nf-cloud { animation: none; }
+  .nf-scene:hover .nf-bolt,
+  .nf-scene:focus-visible .nf-bolt,
+  .nf-scene.nf-zap .nf-bolt { animation: none; opacity: 1; }
+  .nf-scene.nf-zap .nf-cloud-img { animation: none; }
+}

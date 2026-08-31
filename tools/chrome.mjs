@@ -137,6 +137,7 @@ function footerHtml() {
           <li><a href="/blog/">Newsletter</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/sitemap">Sitemap</a></li>
+          <li><a href="https://mcp.shanegring.com/" target="_blank" rel="noopener">MCP server</a></li>
         </ul>
       </div>
     </nav>
@@ -152,7 +153,6 @@ function footerHtml() {
       <span><a href="/privacy" class="footer-link">Privacy</a></span>
       <span><a href="/terms" class="footer-link">Terms</a></span>
       <span><a href="/cookies" class="footer-link">Cookies</a></span>
-      <span><a href="https://certainly.coop" class="footer-link" target="_blank" rel="noopener noreferrer">Part of Certainly</a></span>
     </div>
   </div>
 </footer>

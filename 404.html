@@ -88,11 +88,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="om-hero" id="not-found">
   <div class="container">
     <span class="section-eyebrow">404</span>
-    <h1 class="cs-hook">That page isn't here.</h1>
+
+    <button class="nf-scene" type="button" aria-label="404 — strike the cloud with lightning. It will not bring the page back.">
+      <span class="nf-four" aria-hidden="true">4</span>
+      <span class="nf-cloud" aria-hidden="true">
+        <img class="nf-cloud-img" src="/images/cloud-1.svg" alt="" width="224" height="80">
+        <img class="nf-bolt" src="/images/cloud-bolt.svg" alt="" width="32" height="48">
+      </span>
+      <span class="nf-four" aria-hidden="true">4</span>
+    </button>
+    <p class="nf-zap-msg" role="status" aria-live="polite"></p>
+
+    <h1 class="cs-hook">No page here. Just this cloud.</h1>
 
     <p class="contact-cal-label">
-      The link may be old, or the address has a typo. Nothing was lost — the page you wanted has
-      either moved or never existed. Here are the fastest ways back to something useful.
+      You asked for <code class="nf-path">a page that isn't on this site</code>. The link may be old,
+      or the address has a typo — either way, nothing broke on your end. Zap the cloud if it helps.
+      Then take one of these ways back.
     </p>
 
     <div class="contact-grid">
@@ -194,6 +206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="/blog/">Newsletter</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/sitemap">Sitemap</a></li>
+          <li><a href="https://mcp.shanegring.com/" target="_blank" rel="noopener">MCP server</a></li>
         </ul>
       </div>
     </nav>
@@ -209,7 +222,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span><a href="/privacy" class="footer-link">Privacy</a></span>
       <span><a href="/terms" class="footer-link">Terms</a></span>
       <span><a href="/cookies" class="footer-link">Cookies</a></span>
-      <span><a href="https://certainly.coop" class="footer-link" target="_blank" rel="noopener noreferrer">Part of Certainly</a></span>
     </div>
   </div>
 </footer>
@@ -217,5 +229,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/nav.js?v=1e5b0bad" defer></script>
 <script src="/track.js?v=e6beb16e" defer></script>
 <script src="/subscribe.js?v=4971fc05" defer></script>
+
+<script>
+(function () {
+  // Echo the path the visitor actually asked for. textContent only — never markup.
+  var pathEl = document.querySelector('.nf-path');
+  var p = window.location.pathname;
+  if (pathEl && p && p !== '/404' && p !== '/404.html') pathEl.textContent = p;
+
+  var cloud = document.querySelector('.nf-scene');
+  var msg = document.querySelector('.nf-zap-msg');
+  if (!cloud || !msg) return;
+  var lines = [
+    '⚡ Nope. Still no page.',
+    '⚡ Zapping it twice doesn’t help.',
+    '⚡ It’s a cloud. It’s used to this.',
+    'That’s enough lightning. The links below all work.'
+  ];
+  var zaps = 0;
+  var timer = null;
+  cloud.addEventListener('click', function () {
+    cloud.classList.remove('nf-zap');
+    void cloud.offsetWidth;
+    cloud.classList.add('nf-zap');
+    clearTimeout(timer);
+    timer = setTimeout(function () { cloud.classList.remove('nf-zap'); }, 650);
+    msg.textContent = lines[Math.min(zaps, lines.length - 1)];
+    zaps++;
+  });
+})();
+</script>
 </body>
 </html>

@@ -156,10 +156,11 @@ later? Email me.
 you publish falls under the same weekly check, the same fixes, and
 the same reporting as the page itself.
 
-**Without it, every change goes through me.** A headline or a photo is an
-email and it's handled — that's the base plan. But a run of posts or
-listings isn't email-sized work, so it comes out of an hour block, and it
-goes live when I get to it. The CMS is what lets you skip the ask.
+**Without it, every change goes through
+me.** A headline or a photo is an email and it's handled —
+that's the base plan. But a run of posts or listings isn't email-sized
+work, so it comes out of an hour block, and it goes live when I get to
+it. The CMS is what lets you skip the ask.
 
 **$200/mo**
 
