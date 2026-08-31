@@ -6611,3 +6611,13 @@ footer .footer-nav ul,
   .home-guide-grid,
   .home-post-grid { grid-template-columns: 1fr; }
 }
+
+.home-guide-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1456 / 816;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+  background: var(--bg-soft);
+}
