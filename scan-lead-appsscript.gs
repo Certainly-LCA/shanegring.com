@@ -9,16 +9,19 @@
  *
  * doPost: (1) appends the lead row, (2) emails Shane a compact lead alert,
  * (3) emails the visitor a branded HTML copy of their scan (with a plain-text
- * fallback). The appendRow matches the existing sheet columns exactly
- * (at | email | site | overall | lenses | opportunities) so existing data
- * stays consistent.
+ * fallback). Sheet columns: at | email | site | overall | lenses |
+ * opportunities | stage | stopped. stage/stopped drive the Scan -> Read
+ * nurture sequence (see sendSequence below; spec: SCAN-NURTURE-SEQUENCE.md).
  *
  * DEPLOY: paste over the whole script, Save, then
  *   Deploy -> Manage deployments -> edit the existing deployment ->
  *   Version: New version -> Deploy. Approve the Gmail authorization prompt
- *   (choose the coop account; if you see "unverified app", Advanced -> Allow).
- *   Editing the existing deployment keeps the same /exec URL, so Cloudflare
- *   needs no change.
+ *   (choose the shane@shanegring.com account; if you see "unverified app",
+ *   Advanced -> Allow). Editing the existing deployment keeps the same /exec
+ *   URL, so Cloudflare needs no change.
+ * SEQUENCE: add a daily time-driven trigger on sendSequence
+ *   (Triggers -> Add Trigger -> sendSequence -> time-driven -> day timer).
+ *   Run runSequenceTest() once from the editor first; it emails the result.
  */
 
 var NOTIFY_TO = 'shane@shanegring.com';
@@ -204,7 +207,9 @@ function doPost(e) {
     d.site,
     d.overall,
     (d.lenses || []).map(function (l) { return l.title + ': ' + l.score; }).join(' | '),
-    (d.opportunities || []).map(function (o) { return o.title; }).join(' | ')
+    (d.opportunities || []).map(function (o) { return o.title; }).join(' | '),
+    0,   // stage: no sequence emails sent yet (the scan report is email 0)
+    ''   // stopped: set to 'stop' / 'no more' / 'bought' / 'replied' to exit
   ]);
   var rowUrl = ss.getUrl() + '#gid=' + s.getSheetId() + '&range=A' + s.getLastRow();
 
@@ -231,4 +236,182 @@ function doPost(e) {
   }
 
   return ContentService.createTextOutput('ok');
+}
+
+
+// ---------- Scan -> Read nurture sequence (daily runner) ----------
+// Spec: SCAN-NURTURE-SEQUENCE.md. Sheet columns G/H = stage | stopped.
+// stage = how many sequence emails this lead has already received (the
+// instant scan report is "email 0", so a fresh row starts at stage 0 and
+// gets Email 1 when it is 1 day old). stopped = any non-empty value exits
+// the sequence ("stop", "no more", "bought", "replied" - set by hand for
+// now: reply = human takes over, buys matched from Stripe receipts).
+// Rows carried over from the old sheet: set stage to 'x' so they are
+// skipped; enroll one by hand by resetting its stage to 0.
+
+var SEQ_DUE_DAYS = [1, 3, 6, 9, 13]; // days since scan at which emails 1-5 go out
+var SEQ_COL_AT = 1;
+var SEQ_COL_EMAIL = 2;
+var SEQ_COL_SITE = 3;
+var SEQ_COL_OVERALL = 4;
+var SEQ_COL_STAGE = 7;
+var SEQ_COL_STOPPED = 8;
+var SEQ_WIDTH = 8;
+
+var SEQ_FOOTER = "\n\nIf you'd rather not hear about this, reply 'no more' and that's the end of it.";
+
+function seqLink_(n) {
+  return 'https://shanegring.com/read?utm_source=scan-nurture&utm_campaign=read&utm_content=e' + n;
+}
+
+function seqTemplates_(site, score) {
+  return [
+    {
+      subject: "The one thing your scan couldn't check",
+      body:
+`Yesterday a machine read ${site} and gave it a ${score}.
+
+Here's what that number covers: structure. Whether AI can crawl you, whether your pages carry real markup, whether your content lives where machines can find it.
+
+Here's what it can't cover: whether any of it is still true.
+
+A scan can verify your schema. It can't know that your best offer changed last spring, that your prices moved, that the client you built the homepage around is one you'd never take today.
+
+Try this — it takes two minutes. Open your homepage and read it as a stranger. Not as the person who wrote it. As someone deciding whether to spend money with you this week.
+
+If the words are two years old, the score is the smaller problem.
+
+That deeper check is what the Read is - my eyes on your site, not a machine's. It's here when you want it: ${seqLink_(1)}
+
+Shane
+https://shanegring.com`
+    },
+    {
+      subject: 'Your website describes a company that no longer exists',
+      body:
+`The day your site launched, it was true.
+
+Then you sharpened an offer. Raised a price. Landed a flagship client. Killed a service line that wasn't working. The business moved. The site didn't.
+
+That's not neglect — it's the ordinary motion of a business nobody assigned to keep the surface in sync. Every founder-led company I've been inside has some version of it.
+
+It used to cost you slowly: prospects land, bounce off stale language, move on. Now it costs you twice — because more and more of them never land at all. They ask an AI about you, and the AI answers from whatever your old pages say. Or it guesses.
+
+One fix worth making this week: find the single page on ${site} that's most wrong about who you are now, and rewrite its first paragraph. Just that.
+
+If you'd rather see the whole gap at once — ranked, with the three fixes that matter most — that's the Read: ${seqLink_(2)}
+
+Shane`
+    },
+    {
+      subject: "Ask an AI about your business. I'll wait.",
+      body:
+`Here's an exercise I run for clients. You can run it yourself right now.
+
+Open whichever AI you use and ask it, one at a time:
+
+1. What does ${site} do?
+2. Who are their typical clients?
+3. What do they cost?
+4. How do they compare to [your closest competitor]?
+5. Best [your category] for [your ideal buyer] — and see if you appear at all.
+
+Read the answers slowly. Every wrong answer is a prospect conversation that ends before it starts — or starts with you correcting the record. Every empty answer is a question your competitor may be answering instead.
+
+This is the part of the Read people forward to their partners: I ask the engines the questions your prospects ask, on camera, and you watch what comes back. Then the memo shows why — which pages, which gaps, which fixes.
+
+If the exercise above stung, the full version is here: ${seqLink_(3)}
+
+Shane`
+    },
+    {
+      subject: `What I'd find on ${site} in five days`,
+      body:
+`No exercise today. Just what the Read is, plainly, in case it's useful:
+
+- A 30 to 40 minute video of me going through ${site} page by page. Not a template. Not a score. Me, reading your business the way an operator does and your site the way a machine does, showing you where the two don't match.
+
+- A memo you can act on the same day. Every issue ranked by effort against impact. Three fixes marked that you can ship this week with whoever runs your site — no help from me needed.
+
+- What the AI engines say about you, on screen, with the reasons why.
+
+Five business days. No meetings — you answer five questions, I do the rest. The price is on the page, so you don't need a call to learn it.
+
+Two things I hold myself to. If the Read doesn't show you something material you didn't already know, reply to the delivery email and I refund you in full. And if I look at your situation and conclude it isn't worth the fee, I refund you before I start and tell you why. Findings are only worth something if I'm not paid to manufacture them.
+
+${seqLink_(4)}
+
+Shane`
+    },
+    {
+      subject: 'Last one from me on this',
+      body:
+`This is the last email I'll send you about the Read, so let me be straight about who it's not for.
+
+If you're pre-revenue, mid-rebuild, or you win all your work through relationships and the site genuinely doesn't matter — skip it. Keep the scan, fix what it flagged, and good luck out there. I mean that.
+
+But if the business has outgrown the site - if the real story lives in your head and the pages tell an older one — know that this gap doesn't hold still. The business keeps moving. The site keeps standing still. And the engines keep answering questions about you from whatever they can find.
+
+One more thing worth knowing: the Read's fee applies in full toward the Map for 30 days after delivery. If this goes further, the diagnostic was free. If it doesn't, you own a memo built to work without me.
+
+Either way — run the scan again in six months and see which way ${site} moved.
+
+${seqLink_(5)}
+
+Shane
+https://shanegring.com`
+    }
+  ];
+}
+
+// Daily entry point. Sends at most one email per lead per run, to the leads
+// whose next email came due since the last run. Returns a log string.
+function sendSequence() {
+  var s = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  var lastRow = s.getLastRow();
+  if (lastRow < 2) return 'no rows';
+  var vals = s.getRange(2, 1, lastRow - 1, SEQ_WIDTH).getValues();
+  var now = Date.now();
+  var sent = [];
+  for (var i = 0; i < vals.length; i++) {
+    var row = vals[i];
+    var stage = row[SEQ_COL_STAGE - 1];
+    if (typeof stage !== 'number' || stage < 0 || stage >= SEQ_DUE_DAYS.length) continue; // done or 'x' legacy
+    if (row[SEQ_COL_STOPPED - 1]) continue;
+    var email = String(row[SEQ_COL_EMAIL - 1] || '').trim();
+    if (!email) continue;
+    var at = new Date(row[SEQ_COL_AT - 1]);
+    if (isNaN(at.getTime())) continue;
+    var days = (now - at.getTime()) / 86400000;
+    if (days < SEQ_DUE_DAYS[stage]) continue;
+    var tpl = seqTemplates_(String(row[SEQ_COL_SITE - 1] || ''), row[SEQ_COL_OVERALL - 1])[stage];
+    MailApp.sendEmail({
+      to: email,
+      name: FROM_NAME,
+      replyTo: NOTIFY_TO,
+      subject: tpl.subject,
+      body: tpl.body + SEQ_FOOTER
+    });
+    s.getRange(i + 2, SEQ_COL_STAGE).setValue(stage + 1);
+    sent.push(email + ' e' + (stage + 1));
+  }
+  return sent.length ? sent.join(', ') : 'nothing due';
+}
+
+// One-shot pre-flight test: appends a dummy row dated yesterday, addressed
+// to Shane, runs the daily pass, and emails the result. After it lands,
+// delete the example.com row so it never enters the live sequence.
+function runSequenceTest() {
+  var s = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  var yesterday = new Date(Date.now() - 86400000).toISOString();
+  s.appendRow([yesterday, NOTIFY_TO, 'example.com', 62, 'test', 'test', 0, '']);
+  var result = sendSequence();
+  MailApp.sendEmail({
+    to: NOTIFY_TO,
+    name: FROM_NAME,
+    replyTo: NOTIFY_TO,
+    subject: 'Scan sequence test: ' + result,
+    body: 'sendSequence returned: ' + result + '\n\nIf email 1 ("The one thing your scan couldn\'t check") also arrived, the sequence works. Delete the example.com row in the sheet now.'
+  });
+  return result;
 }
