@@ -6615,9 +6615,9 @@ footer .footer-nav ul,
 .home-guide-thumb {
   display: block;
   width: 100%;
-  aspect-ratio: 1456 / 816;
+  height: 132px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
   background: var(--bg-soft);
 }
