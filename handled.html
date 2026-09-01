@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="/styles.css?v=5e3711e7">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Service","@id":"https://shanegring.com/handled#service","name":"Handled","serviceType":"Website build and ongoing management","provider":{"@id":"https://shanegring.com/#person"},"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"BusinessAudience","name":"Founders and independent professionals"},"description":"A clean, single-page website built to the client's specs, then watched, reported on, and improved every week after. Changes are made by email, with no dashboard, tickets, or portal. Includes Google Analytics and Search Console set up, and the client owns the code. $300 to build and $200 per month to keep it handled, with a six-month minimum.","offers":[{"@type":"Offer","name":"Site build","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Monthly handling","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled","priceSpecification":{"@type":"UnitPriceSpecification","price":"200","priceCurrency":"USD","billingDuration":1,"billingIncrement":1,"unitText":"MONTH"}},{"@type":"Offer","name":"Lean CMS (optional upgrade)","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades","priceSpecification":{"@type":"UnitPriceSpecification","price":"200","priceCurrency":"USD","billingDuration":1,"billingIncrement":1,"unitText":"MONTH"}},{"@type":"Offer","name":"Block of hours \u2014 2 hours (optional upgrade)","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 5 hours (optional upgrade)","price":"500","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"}]},
+{"@type":"Service","@id":"https://shanegring.com/handled#service","name":"Handled","serviceType":"Website build and ongoing management","provider":{"@id":"https://shanegring.com/#person"},"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"BusinessAudience","name":"Founders and independent professionals"},"description":"A clean, single-page website built to the client's specs, then watched, reported on, and improved every week after. Changes are made by email, with no dashboard, tickets, or portal. Includes Google Analytics and Search Console set up, and the client owns the code. $300 to build and $200 per month to keep it handled, with a six-month minimum.","offers":[{"@type":"Offer","name":"Site build","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled"},{"@type":"Offer","name":"Monthly handling","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled","priceSpecification":{"@type":"UnitPriceSpecification","price":"200","priceCurrency":"USD","billingDuration":1,"billingIncrement":1,"unitText":"MONTH"}},{"@type":"Offer","name":"Lean CMS (optional upgrade)","description":"Sanity CMS added to the site and configured, one-time","price":"200","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 2 hours (optional upgrade)","price":"300","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"},{"@type":"Offer","name":"Block of hours \u2014 5 hours (optional upgrade)","price":"500","priceCurrency":"USD","url":"https://shanegring.com/handled#upgrades"}]},
 {"@type":"FAQPage","@id":"https://shanegring.com/handled#faq","mainEntity":[
 {"@type":"Question","name":"Is this really just for a one-page site?","acceptedAnswer":{"@type":"Answer","text":"Yes, and on purpose. Most people don't need more; they need one page that's sharp, credible, and actually maintained. Want more later? We scale the budget and do more. Start simple, grow when there's a reason to."}},
 {"@type":"Question","name":"Who's actually behind this?","acceptedAnswer":{"@type":"Answer","text":"Me. Shane Gring, a fractional operator who's spent 15 years running websites, analytics, and digital operations for founders and companies. This is the same machinery I run for clients, pointed at your personal site. When you email, you're emailing me."}},
@@ -65,7 +65,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        completion, and the monthly link returns to /handled?checkout=success
        (the small script at the bottom of this page turns that param into a
        confirmation line). Upgrade links: 2-hour and 5-hour blocks and the
-       lean CMS ($200/mo). "Another page" and "A newsletter, wired in" stay
+       lean CMS ($200 one-time, Sanity add + configure). "Another page" and "A newsletter, wired in" stay
        unpriced until Shane sets numbers (note 3).
     1b. THE 4TH CARD - the "Keep It Handled" retainer ($750 month 1, $600
        month 2, then $400/mo) is still in Doc's PR and is NOT wired here.
@@ -78,8 +78,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        password-gated, and we don't send visitors into a password wall. Link
        it once the gate comes down.
     3. UPGRADE PRICING IS PARTIAL (2026-08-30). Shane set the numbers for
-       two upgrades: the lean CMS ($200/mo, confirmed recurring) and the hour
-       blocks ($300 for 2h, $500 for 5h). Those are on the cards and in the
+       two upgrades: the lean CMS ($200 one-time -
+       CORRECTED 2026-09-01 per Shane: "onetime cms is 200 to add and
+       configure", Sanity on its free plan; the 8/30 $200/mo recurring
+       wiring was wrong, and its Stripe price and payment link were
+       deactivated, not deleted) and the hour blocks ($300 for 2h, $500
+       for 5h). Those are on the cards and in the
        schema. "Another page" and "A newsletter, wired in" still carry the
        "Pricing at launch" marker — do NOT invent numbers for them; swap in
        Shane's when he supplies them and add the matching schema Offers then.
@@ -338,8 +342,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="om-card om-card-featured om-upgrade-detail">
         <h3>A lean CMS</h3>
         <p>For when you want to publish yourself &mdash; posts, listings,
-        updates &mdash; without touching code or waiting on me. Here's exactly
-        what the $200/month buys:</p>
+        updates &mdash; without touching code or waiting on me. It's Sanity, on its free
+        plan &mdash; I add it to your site and configure it, $200 one-time.
+        Here's exactly what that buys:</p>
         <ul class="cs-bullets">
           <li><strong>An editor wired into your live site.</strong> Write, hit
           save, it's live. No code, no deploy step, no plugin sprawl to
@@ -359,7 +364,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         that's the base plan. But a run of posts or listings isn't email-sized
         work, so it comes out of an hour block, and it goes live when I get to
         it. The CMS is what lets you skip the ask.</p>
-        <p><strong><a href="https://checkout.shanegring.com/b/eVq7sKgy7fIAfM20rVfbq06">Add the lean CMS &mdash; $200/mo</a></strong></p>
+        <p><strong><a href="https://checkout.shanegring.com/b/00w8wO1DddAs7fw5Mffbq07">Add the lean CMS &mdash; $200 one-time</a></strong></p>
       </div>
 
       <p>

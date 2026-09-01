@@ -137,8 +137,9 @@ Your list is yours, same as your code.
 ### A lean CMS
 
 For when you want to publish yourself — posts, listings,
-updates — without touching code or waiting on me. Here's exactly
-what the $200/month buys:
+updates — without touching code or waiting on me. It's Sanity, on its free
+plan — I add it to your site and configure it, $200 one-time.
+Here's exactly what that buys:
 
 - **An editor wired into your live site.** Write, hit
 save, it's live. No code, no deploy step, no plugin sprawl to
@@ -162,7 +163,7 @@ that's the base plan. But a run of posts or listings isn't email-sized
 work, so it comes out of an hour block, and it goes live when I get to
 it. The CMS is what lets you skip the ask.
 
-**[Add the lean CMS — $200/mo](https://checkout.shanegring.com/b/eVq7sKgy7fIAfM20rVfbq06)**
+**[Add the lean CMS — $200 one-time](https://checkout.shanegring.com/b/00w8wO1DddAs7fw5Mffbq07)**
 
 **The hour blocks and the lean CMS are live in checkout**
 — the links are right on the cards. Another page and the
