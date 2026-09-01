@@ -1,4 +1,4 @@
-Notes · 51 of them
+Notes · 52 of them
 
 # What I'm working through, most weekdays.
 
@@ -10,6 +10,26 @@ businesses, what broke, what I'd do differently.
 on the way there.** Also on
 [LinkedIn](https://www.linkedin.com/in/shanegring/),
 which is where they start.
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+September 1, 2026
+
+One of my clients added a COO and a CMO in the same quarter and made zero full-time hires to do it.
+
+Both roles are "acting." I hold one of them. A colleague I've worked with for years holds the other. The company is a lean organization at a stage where the founder had been handling operations, sales, and marketing personally -- and the math for hiring two executives outright wasn't working.
+
+The acting model works like this: senior operators step into the actual seat, with the title and the accountability, for the transition stage. We build the systems, run the functions, and document everything as we go. The goal is to work ourselves toward a decision point, where the company either grows into full-time versions of these roles or keeps the fractional setup because it fits.
+
+What the founder gets back is focus. Relationships, advocacy, funding, the things only a founder can do.
+
+The model has limits. It fits transitions and build phases better than steady-state operations. But if you're a founder carrying three jobs and the hiring math doesn't work yet, there's a middle path between doing it all yourself and a six-figure executive search.
+
+Happy to talk through whether it fits your stage.
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7500561870051897346)
+
+Use Case
 
 Shane Gring
 Fractional COO · operations for expert-led businesses
@@ -53,7 +73,7 @@ That's a good moment, though, because it's cheap to fix.
 
 If your business still fits in your head, this could be your window. Get some of it onto paper while it's still fresh -- the handoffs, the decisions you make on instinct, the stuff you'd have to explain twice to a new hire.
 
-[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7499095961856667649)
+1 reaction · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7499095961856667649)
 
 Tips
 
@@ -75,7 +95,7 @@ Most founders assume everything is pile three but it's really a fraction of it.
 
 Walked through the whole extraction here, including a 90-day version you can run yourself: [shanegring.com/guides/everything-runs-through-you](https://shanegring.com/guides/everything-runs-through-you)
 
-4 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7498761266329579520)
+5 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7498761266329579520)
 
 EducationWebsite Offer
 
@@ -95,7 +115,7 @@ We now have four girls. I'm building them a replica playhouse of our mid-century
 
 So if you're in the patient stretch, the part before the things you're working toward have shown up, just keep going. As it turns out, there aren't many finish lines in life -- just more adventures ahead.
 
-7 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7498392590682075137)
+8 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7498392590682075137)
 
 Personal Story
 
@@ -165,7 +185,7 @@ The irony of this picture is that after months of waiting and preparing for our 
 
 It's a moment I cherish and a nice reminder to take in those moments of calm.
 
-29 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7497679180449472512)
+30 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7497679180449472512)
 
 Personal Story
 
