@@ -12,8 +12,8 @@ web designer, or the appetite to babysit a page for the rest of its life.
 So here's the deal: **I build your site, and I keep it running. You
 never open a dashboard again.**
 
-[Get in line →](https://shanegring.com/contact)
-**Checkout opens soon.** Say hello now and you're first in when it does.
+[Get in line →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
+**Checkout is open.** $300 to build, then $200/month — founding rate locks for the first ten.
 
 ## The two ways this usually goes — and why both leave you stuck
 
@@ -125,7 +125,7 @@ For work bigger than an email: a new section, a landing page
 for a launch, a rework of what's there. You buy the block, you
 say what it goes toward.
 
-**$300 for 2 hours · $500 for 5 hours**
+**[$300 for 2 hours](https://checkout.shanegring.com/b/14AbJ02Hh53WbvM3E7fbq04) · [$500 for 5 hours](https://checkout.shanegring.com/b/dRm3cufu38g82Zg0rVfbq05)**
 
 ### A newsletter, wired in
 
@@ -162,11 +162,12 @@ that's the base plan. But a run of posts or listings isn't email-sized
 work, so it comes out of an hour block, and it goes live when I get to
 it. The CMS is what lets you skip the ask.
 
-**$200/mo**
+**[Add the lean CMS — $200/mo](https://checkout.shanegring.com/b/eVq7sKgy7fIAfM20rVfbq06)**
 
-**Checkout opens soon.**
-If one of these is already calling your name, mention it when you get
-in line and I'll fold it into your build.
+**The hour blocks and the lean CMS are live in checkout**
+— the links are right on the cards. Another page and the
+newsletter still price at launch: mention them when you get in line
+and I'll fold them into your build.
 
 ## Founding cohort — first 10 only
 
@@ -175,8 +176,8 @@ guaranteed even when the price goes up for everyone after.** You get
 in early, I get to build something worth referring, and your rate never
 moves. When these ten are full, this offer's gone.
 
-[Get in line for a founding spot →](https://shanegring.com/contact)
-**Checkout opens soon.** The ten spots go in order of who raised a hand first.
+[Get in line for a founding spot →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
+**Checkout is open.** The ten spots go in order of who's in first.
 
 ## A few honest answers
 
@@ -213,8 +214,8 @@ vanish. Get a site that's built well and stays that way.
 
 **Handled. $300 to build, $200/month** to keep it running.
 
-[Get in line →](https://shanegring.com/contact)
-**Checkout opens soon.** Reach out now and I'll hold your place — founding spots included.
+[Get in line →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
+**Checkout is open.** $300 build today, $200/month after — founding spots included.
 
 ---
 

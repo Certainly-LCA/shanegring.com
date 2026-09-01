@@ -57,12 +57,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!--
   ════════════════════════════════════════════════════════════════════════════
   HANDLED:
-    1. CHECKOUT IS NOT WIRED YET (2026-08-30). The Stripe payment links
-       ($300 one-time build + $200/mo founding subscription) live OUTSIDE this
-       repo and don't exist yet. Every CTA on this page says "checkout opens
-       soon" and points at /contact instead. When Shane drops the two Stripe
-       links, swap them into the CTA rows here (hero, founding cohort, and
-       the closing section) — search for "checkout opens soon".
+    1. CHECKOUT IS WIRED (2026-09-01) with Stripe Payment Links, created
+       2026-09-01 in the SOEN Stripe account and served from the account's
+       custom domain, checkout.shanegring.com. The links live OUTSIDE this
+       repo in Stripe; only their URLs are committed here. The build link
+       ($300 one-time) chains into the founding monthly link ($200/mo) on
+       completion, and the monthly link returns to /handled?checkout=success
+       (the small script at the bottom of this page turns that param into a
+       confirmation line). Upgrade links: 2-hour and 5-hour blocks and the
+       lean CMS ($200/mo). "Another page" and "A newsletter, wired in" stay
+       unpriced until Shane sets numbers (note 3).
+    1b. THE 4TH CARD - the "Keep It Handled" retainer ($750 month 1, $600
+       month 2, then $400/mo) is still in Doc's PR and is NOT wired here.
+       When it lands it needs its own links: Stripe has no declining-price
+       subscription, so one Payment Link or Checkout Session cannot express
+       the step-down. Likely shape: a $750 month-1 one-time link chaining
+       into a $400/mo link, with month 2 handled by coupon or manually -
+       decide with Shane when the card PR gets wired.
     2. Inner Assembly's example card is deliberately NOT linked: the site is
        password-gated, and we don't send visitors into a password wall. Link
        it once the gate comes down.
@@ -153,10 +164,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
 
       <div class="om-cta-row">
-        <a class="btn-primary" href="/contact">
+        <a class="btn-primary" href="https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03">
           Get in line <span class="btn-arrow">&rarr;</span>
         </a>
-        <span class="om-cta-note"><strong>Checkout opens soon.</strong> Say hello now and you're first in when it does.</span>
+        <span class="om-cta-note"><strong>Checkout is open.</strong> $300 to build, then $200/month &mdash; founding rate locks for the first ten.</span>
       </div>
     </div>
   </section>
@@ -314,7 +325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>For work bigger than an email: a new section, a landing page
           for a launch, a rework of what's there. You buy the block, you
           say what it goes toward.</p>
-          <p><strong>$300 for 2 hours &middot; $500 for 5 hours</strong></p>
+          <p><strong><a href="https://checkout.shanegring.com/b/14AbJ02Hh53WbvM3E7fbq04">$300 for 2 hours</a> &middot; <a href="https://checkout.shanegring.com/b/dRm3cufu38g82Zg0rVfbq05">$500 for 5 hours</a></strong></p>
         </div>
         <div class="om-card">
           <h3>A newsletter, wired in</h3>
@@ -348,13 +359,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         that's the base plan. But a run of posts or listings isn't email-sized
         work, so it comes out of an hour block, and it goes live when I get to
         it. The CMS is what lets you skip the ask.</p>
-        <p><strong>$200/mo</strong></p>
+        <p><strong><a href="https://checkout.shanegring.com/b/eVq7sKgy7fIAfM20rVfbq06">Add the lean CMS &mdash; $200/mo</a></strong></p>
       </div>
 
       <p>
-        <strong>Checkout opens soon.</strong>
-        If one of these is already calling your name, mention it when you get
-        in line and I'll fold it into your build.
+        <strong>The hour blocks and the lean CMS are live in checkout</strong>
+        &mdash; the links are right on the cards. Another page and the
+        newsletter still price at launch: mention them when you get in line
+        and I'll fold them into your build.
       </p>
     </div>
   </section>
@@ -371,10 +383,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
 
       <div class="om-cta-row">
-        <a class="btn-primary" href="/contact">
+        <a class="btn-primary" href="https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03">
           Get in line for a founding spot <span class="btn-arrow">&rarr;</span>
         </a>
-        <span class="om-cta-note"><strong>Checkout opens soon.</strong> The ten spots go in order of who raised a hand first.</span>
+        <span class="om-cta-note"><strong>Checkout is open.</strong> The ten spots go in order of who's in first.</span>
       </div>
     </div>
   </section>
@@ -433,10 +445,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
 
       <div class="om-cta-row">
-        <a class="btn-primary" href="/contact">
+        <a class="btn-primary" href="https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03">
           Get in line <span class="btn-arrow">&rarr;</span>
         </a>
-        <span class="om-cta-note"><strong>Checkout opens soon.</strong> Reach out now and I'll hold your place &mdash; founding spots included.</span>
+        <span class="om-cta-note"><strong>Checkout is open.</strong> $300 build today, $200/month after &mdash; founding spots included.</span>
       </div>
     </div>
   </section>
@@ -531,5 +543,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/nav.js?v=1e5b0bad" defer></script>
 <script src="/track.js?v=e6beb16e" defer></script>
 <script src="/subscribe.js?v=4971fc05" defer></script>
+<script>
+// Stripe Payment Links return buyers to /handled?checkout=success. Turn the
+// param into a confirmation line in the first CTA note, then clean the URL.
+(function () {
+  if (new URLSearchParams(location.search).get('checkout') !== 'success') return;
+  var note = document.querySelector('.om-cta-note');
+  if (note) note.innerHTML = "<strong>You're in.</strong> Payment went through &mdash; watch your inbox for the receipt and next steps.";
+  history.replaceState(null, '', location.pathname);
+})();
+</script>
 </body>
 </html>
