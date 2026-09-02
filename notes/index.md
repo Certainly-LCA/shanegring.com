@@ -1,4 +1,4 @@
-Notes · 52 of them
+Notes · 54 of them
 
 # What I'm working through, most weekdays.
 
@@ -10,6 +10,48 @@ businesses, what broke, what I'd do differently.
 on the way there.** Also on
 [LinkedIn](https://www.linkedin.com/in/shanegring/),
 which is where they start.
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+September 2, 2026
+
+Early in my 20s, I spent a month living in a frat house in Boulder with fellow social entrepreneurs from all over the world.
+
+The program was called the Unreasonable Institute.
+
+This was the height of the social entrepreneurship wave, and the premise was simple: use a business to create better outcomes for the world.
+
+Each entrepreneur spent the month working on our pitches, our messaging, and collectively figuring out how we tackled the world's biggest challenges together: climate, poverty, food supplies.
+
+I was one of the few Americans in the cohort, sharing a Phi Kappa bunk room with a founder from Argentina and another from South Africa. It was amazing learning from them. Understanding their perceptions of the challenges at hand, the world, and life in general. Truly transformational.
+
+The Institute has since transitioned. The movement wave crested and fell, the network scattered, and I've lost touch with more of those people than I'd like.
+
+But the premise held up. I still think a business is one of the best tools there is for taking care of people. Most of what I do today runs on some version of that idea.
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:ugcPost:7500968336650866689)
+
+Personal Story
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+September 2, 2026
+
+Most neglected websites got that way slowly.
+
+The person who set it up moved on. The login lives in an old email thread. Updating anything means four messages and a favor, so updates stop happening, and somewhere along the way the site became nobody's job.
+
+You can tell from the outside. The copy describes the business from a few years back. A price is wrong. There's a staff photo of somebody who left. The site still loads fine -- it stopped moving a while ago.
+
+Here's the good news I keep giving people: this is one of the most fixable problems a business has. The site is usually most of the way there. What it needs is an owner. Someone on a rhythm, keeping it true as the business changes, shipping the small stuff before it piles up.
+
+I've started doing exactly that -- taking over sites that have been sitting unattended, whether or not I built them, and running the upkeep so it stays current without anyone chasing logins.
+
+If your site's been drifting, more in the first comment.
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7500967037335126017)
+
+Website OfferTips
 
 Shane Gring
 Fractional COO · operations for expert-led businesses
