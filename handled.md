@@ -85,6 +85,38 @@ Circadian lighting ROI. earthlight.app
 
 In a private preview while the client finishes their launch.
 
+### [Buckhead Restaurant Week](https://buckheadrestaurantweek.com)
+
+Atlanta dining week in Buckhead. buckheadrestaurantweek.com
+
+### [West Midtown Restaurant Week](https://westmidtownrestaurantweek.com)
+
+Atlanta dining week in West Midtown. westmidtownrestaurantweek.com
+
+### [SEAM](https://seamcertification.com)
+
+Social equity certification for the built environment. seamcertification.com
+
+### [FORJ Sports](https://theforjgroup.com)
+
+Building sports companies in North America. theforjgroup.com
+
+### [BFS](https://biggerfasterstronger.com)
+
+Weight rooms, programs, and leadership development. biggerfasterstronger.com
+
+### [Excel Training Designs](https://exceltrainingdesigns.com)
+
+Free Excel templates for strength coaches. exceltrainingdesigns.com
+
+### [DRVN](https://drvngolf.com)
+
+The golf performance system. drvngolf.com
+
+### [Albi Zhubi](https://albizhubi.com)
+
+Brooklyn and NYC real estate. albizhubi.com
+
 ### [GreenStar Homes](https://greenstarhomes.org)
 
 Green home certification. greenstarhomes.org
