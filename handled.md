@@ -12,7 +12,7 @@ web designer, or the appetite to babysit a page for the rest of its life.
 So here's the deal: **I build your site, and I keep it running. You
 never open a dashboard again.**
 
-[Get in line →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
+[Claim a founding spot →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
 **Checkout is open.** $300 to build, then $200/month — founding rate locks for the first ten.
 
 ## The two ways this usually goes — and why both leave you stuck
@@ -177,7 +177,7 @@ guaranteed even when the price goes up for everyone after.** You get
 in early, I get to build something worth referring, and your rate never
 moves. When these ten are full, this offer's gone.
 
-[Get in line for a founding spot →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
+[Claim a founding spot →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
 **Checkout is open.** The ten spots go in order of who's in first.
 
 ## A few honest answers
@@ -215,7 +215,7 @@ vanish. Get a site that's built well and stays that way.
 
 **Handled. $300 to build, $200/month** to keep it running.
 
-[Get in line →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
+[Claim a founding spot →](https://checkout.shanegring.com/b/5kQ6oG0z98g86bsdeHfbq03)
 **Checkout is open.** $300 build today, $200/month after — founding spots included.
 
 ---
