@@ -1,6 +1,8 @@
 {
   "pages": {
     "/": "/index.md",
+    "/2-handled": "/2-handled.md",
+    "/2-handled.html": "/2-handled.md",
     "/404": "/404.md",
     "/404.html": "/404.md",
     "/about": "/about.md",
@@ -125,6 +127,8 @@
   },
   "assets": [
     "/.gitignore",
+    "/2-handled.md",
+    "/3-handled.md",
     "/404.md",
     "/SCAN-EMAIL-SETUP.md",
     "/SCAN-NURTURE-SEQUENCE.md",
@@ -220,6 +224,14 @@
     "/images/guides/what-is-a-fractional-coo.png",
     "/images/guides/why-your-website-isnt-bringing-in-clients.png",
     "/images/guides/your-website-was-true-at-launch.png",
+    "/images/handled/1-albizhubi.png",
+    "/images/handled/1-buckhead-restaurant-week.png",
+    "/images/handled/2-west-midtown-restaurant-week.png",
+    "/images/handled/3-seam.png",
+    "/images/handled/4-forj.png",
+    "/images/handled/5-bfs.png",
+    "/images/handled/6-excel-training-designs.png",
+    "/images/handled/7-drvn.png",
     "/images/handled/earthlight.webp",
     "/images/handled/greenstar.webp",
     "/images/handled/inner-assembly.webp",

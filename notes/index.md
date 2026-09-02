@@ -49,7 +49,7 @@ I've started doing exactly that -- taking over sites that have been sitting unat
 
 If your site's been drifting, more in the first comment.
 
-[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7500967037335126017)
+2 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7500967037335126017)
 
 Website OfferTips
 
