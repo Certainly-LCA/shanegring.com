@@ -1,5 +1,39 @@
 [
   {
+    "id": "7f4d29b0-8c93-4ecf-87ce-2471e1261e05",
+    "title": "Website as afterthought",
+    "date": "2026-09-03",
+    "labels": [],
+    "images": [
+      {
+        "asset": "fac1e1ef-e1ce-4c5c-96a0-10b0b02490af",
+        "w": 1080,
+        "h": 1350
+      },
+      {
+        "asset": "d914c986-3f51-4403-bc6c-4ed4ad3dfa95",
+        "w": 1080,
+        "h": 1350
+      },
+      {
+        "asset": "3f488f37-02c3-4c46-aac0-e99c3b762a18",
+        "w": 1080,
+        "h": 1350
+      },
+      {
+        "asset": "4def5924-b9d0-4cfb-86db-7f2060264fbe",
+        "w": 1080,
+        "h": 1350
+      },
+      {
+        "asset": "c0352bd8-670f-4c16-9fb0-53950bafb0a8",
+        "w": 1080,
+        "h": 1350
+      }
+    ],
+    "copy": "Spent years watching businesses spend real money on a website and get back something that looks great but does little else for them.\n\nThe problem isn't the design or the UI/UX. It's that nothing solid was built underneath, so every time they need a landing page or a campaign or a month of social, they're starting with a blank page.\n\nA new website should be the outcome, not the goal. The goal is to unpack your messaging, brand, offers, etc., and build a foundation your business can run on. \n\nGet that right and the posts, the pages, the ads all pull from one source and sound like you.\n\nSo, before you spend a dollar on a rebuild, here are the questions to ask whoever builds or runs your site. The answers tell you whether you're buying a foundation for your business or just a passing snapshot of how it stands today."
+  },
+  {
     "id": "4cb33411-f52a-4409-9e81-e3153c3f0a62",
     "title": "unreasonable penguin pic",
     "date": "2026-09-02",

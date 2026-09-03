@@ -1,4 +1,4 @@
-Notes · 54 of them
+Notes · 55 of them
 
 # What I'm working through, most weekdays.
 
@@ -10,6 +10,22 @@ businesses, what broke, what I'd do differently.
 on the way there.** Also on
 [LinkedIn](https://www.linkedin.com/in/shanegring/),
 which is where they start.
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+September 3, 2026
+
+Spent years watching businesses spend real money on a website and get back something that looks great but does little else for them.
+
+The problem isn't the design or the UI/UX. It's that nothing solid was built underneath, so every time they need a landing page or a campaign or a month of social, they're starting with a blank page.
+
+A new website should be the outcome, not the goal. The goal is to unpack your messaging, brand, offers, etc., and build a foundation your business can run on.
+
+Get that right and the posts, the pages, the ads all pull from one source and sound like you.
+
+So, before you spend a dollar on a rebuild, here are the questions to ask whoever builds or runs your site. The answers tell you whether you're buying a foundation for your business or just a passing snapshot of how it stands today.
+
+[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:ugcPost:7501298018747465728)
 
 Shane Gring
 Fractional COO · operations for expert-led businesses
@@ -29,7 +45,7 @@ The Institute has since transitioned. The movement wave crested and fell, the ne
 
 But the premise held up. I still think a business is one of the best tools there is for taking care of people. Most of what I do today runs on some version of that idea.
 
-[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:ugcPost:7500968336650866689)
+2 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:ugcPost:7500968336650866689)
 
 Personal Story
 
