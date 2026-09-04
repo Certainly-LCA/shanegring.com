@@ -1,4 +1,4 @@
-Notes · 55 of them
+Notes · 56 of them
 
 # What I'm working through, most weekdays.
 
@@ -10,6 +10,26 @@ businesses, what broke, what I'd do differently.
 on the way there.** Also on
 [LinkedIn](https://www.linkedin.com/in/shanegring/),
 which is where they start.
+
+Shane Gring
+Fractional COO · operations for expert-led businesses
+September 4, 2026
+
+Your website might be describing a company that no longer exists.
+
+Not through neglect. Through growth. The offers sharpened, the process matured, your best clients changed. The site still tells the 2022 version of the story, because keeping it caught up was never anybody's job.
+
+That used to cost slowly. Now it costs twice. Prospects land and bounce off stale language. And when someone asks an AI about you instead, it answers from those same outdated pages -- or it guesses.
+
+The fix starts smaller than a rebuild: find out what the site actually says. Not what you meant it to say. Have someone walk it page by page, reading it the way a buyer does and the way a machine does, and show you where the story drifted from the business.
+
+The gaps usually cluster in a few fixable places. Stale offers on the homepage. A process page from two pivots ago. Answers a machine needs that live nowhere. An afternoon of fixes, once you can see them.
+
+I do these walkthroughs for founder-led businesses. Details in the comments.
+
+2 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7501670416164433920)
+
+Website OfferTips
 
 Shane Gring
 Fractional COO · operations for expert-led businesses
@@ -173,7 +193,7 @@ We now have four girls. I'm building them a replica playhouse of our mid-century
 
 So if you're in the patient stretch, the part before the things you're working toward have shown up, just keep going. As it turns out, there aren't many finish lines in life -- just more adventures ahead.
 
-8 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7498392590682075137)
+9 reactions[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7498392590682075137)
 
 Personal Story
 
@@ -323,7 +343,7 @@ It isn't always tidy. Sometimes calls run late or clients reach out with an urge
 
 Moving outside of the standard corporate setting was a trade I made, and it was a good one. I still get to do the work I love, and enough room around it to be there for the people who matter most.
 
-64 reactions · 4 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7495506105066774528)
+65 reactions · 4 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7495506105066774528)
 
 Personal Story
 
@@ -493,7 +513,7 @@ I'll say what the resume can't: Jennifer is generous, sharp, and genuinely fun t
 
 If your brand's doing something good in the world, she's someone worth knowing.
 
-66 reactions · 4 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7492975668541108226)
+67 reactions · 4 comments[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7492975668541108226)
 
 Personal StoryShoutout
 
