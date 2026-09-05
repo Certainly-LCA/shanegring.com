@@ -4,7 +4,7 @@
     "post analytics endpoint, which carries the real LinkedIn permalink and",
     "the real engagement counts.",
     "",
-    "Counts are a point-in-time reading captured on 2026-09-04 and only move",
+    "Counts are a point-in-time reading captured on 2026-09-05 and only move",
     "when this file is refreshed, so treat them as 'at least this many'.",
     "Posts with no entry render without a link or counts.",
     "",
@@ -68,7 +68,7 @@
   },
   "5fe5ac89-84b4-4ca4-9a8f-d7d2a0c815d5": {
     "urn": "share:7497679180449472512",
-    "likes": 30,
+    "likes": 31,
     "comments": 1
   },
   "1e0c24ff-bbf9-4d87-a3d6-0badb02768f3": {

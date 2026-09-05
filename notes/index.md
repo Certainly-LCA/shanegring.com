@@ -263,7 +263,7 @@ The irony of this picture is that after months of waiting and preparing for our 
 
 It's a moment I cherish and a nice reminder to take in those moments of calm.
 
-30 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7497679180449472512)
+31 reactions · 1 comment[View on LinkedIn](https://www.linkedin.com/feed/update/urn:li:share:7497679180449472512)
 
 Personal Story
 
